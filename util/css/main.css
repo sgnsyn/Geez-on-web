@@ -1,0 +1,156 @@
+@font-face {
+  font-family: "Inter";
+  src: url("../../assets/fonts/Inter.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "ethiopic";
+  src: url("../../assets/fonts/Noto\ Sans\ Ethiopic.ttf") format("truetype");
+}
+:root {
+  /* colors */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --off-color: #cecece;
+  --color-light-gray: #f4f4f5;
+  --color-dark-gray: #191919;
+
+  /* dark icons */
+
+  /* light icons */
+
+  /* setting theme to light mode*/
+  --primary-color: var(--color-white);
+  --secondary-color: var(--color-black);
+  --off-gray: var(--off-color);
+  --accent-gray: var(--color-light-gray);
+
+  /* setting theme to light mode*/
+  --primary-color: var(--color-black);
+  --secondary-color: var(--color-white);
+  --off-gray: var(--off-color);
+  --accent-gray: var(--color-dark-gray);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#icon-close path {
+  stroke: var(--secondary-color);
+}
+
+#icon-menu path {
+  fill: var(--secondary-color);
+}
+
+#icon-theme path {
+  fill: var(--secondary-color);
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.deactive {
+  display: none !important;
+}
+
+.nav-link {
+  color: var(--secondary-color);
+  padding-inline: 16px;
+  padding-block: 8px;
+  text-decoration: none;
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 16px;
+  width: fit-content;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.icon-btn {
+  border: none;
+  background: transparent;
+}
+
+/*Toggle BTN Begin*/
+.toggle-btn {
+  width: 45px;
+  height: 24px;
+  position: relative;
+  border-radius: 100vw;
+  border: none;
+  background-color: var(--off-gray);
+  transition: background-color 0.2s ease-in-out;
+}
+
+.toggle-btn::before {
+  content: "";
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+
+  position: absolute;
+  top: 50%;
+  left: 2px;
+
+  transform: translateY(-50%);
+  transition: left 0.2s ease-in-out;
+}
+
+.toggle-btn.on {
+  background-color: var(--secondary-color);
+}
+
+.toggle-btn.on::before {
+  left: calc(100% - 22px);
+}
+/*Toggle BTN End*/
+
+/*Proper BTN Begin*/
+.proper-btn {
+  font-weight: 500;
+  font-family: Inter;
+  padding-inline: 19px;
+  padding-block: 13px;
+  line-height: 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+/*Proper BTN End*/
+
+/*Radio Input Begin*/
+input[type="radio"] {
+  --wh: 18px;
+  border: 1px solid var(--secondary-color);
+  height: var(--wh);
+  width: var(--wh);
+  appearance: none; /* Removes default styling */
+  border-radius: 50%; /* Makes it circular */
+  background-color: transparent;
+}
+
+input[type="radio"]:checked {
+  background-color: var(--secondary-color);
+  outline: 1.5px solid var(--primary-color);
+  outline-offset: -3px;
+}
+/*Radio Input End*/
+
+/*Label Input Begin*/
+label,
+.label {
+  font-family: Inter;
+  color: var(--secondary-color);
+}
+/*Label Input End*/

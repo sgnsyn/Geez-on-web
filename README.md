@@ -1,2 +1,1 @@
-# Ge'ez-on-web
-
+# Ge'ez on Web
