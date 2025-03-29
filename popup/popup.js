@@ -1,5 +1,9 @@
 /***********************IMPORTS****************************/
-import { setConfig, getConfigs } from "../util/js/message-handler.js";
+import {
+  setConfig,
+  getConfigs,
+  sendMessage,
+} from "../util/js/message-handler.js";
 import { getSystemTheme, applyTheme } from "../util/js/theme.js";
 /***********************GLOBAL VARIABLES****************************/
 let THEME_MODE = "system";
@@ -28,6 +32,8 @@ async function activationHandler() {
     state = true;
   }
   setConfig({ state });
+  sendMessage({ for: "content_script", data: state });
+  console.log("message sent");
 }
 
 function themeRadioHandler(event) {
@@ -42,6 +48,7 @@ function keyModeRadioHandler(event) {
   const radio = event.target;
   const keyboard = radio.dataset.value;
   setConfig({ keyboard });
+  sendMessage({ for: "ch", value: keyboard });
 }
 
 async function initialization() {

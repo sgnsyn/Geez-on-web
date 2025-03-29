@@ -15,21 +15,11 @@
   --color-light-gray: #f4f4f5;
   --color-dark-gray: #191919;
 
-  /* dark icons */
-
-  /* light icons */
-
   /* setting theme to light mode*/
   --primary-color: var(--color-white);
   --secondary-color: var(--color-black);
   --off-gray: var(--off-color);
   --accent-gray: var(--color-light-gray);
-
-  /* setting theme to light mode*/
-  --primary-color: var(--color-black);
-  --secondary-color: var(--color-white);
-  --off-gray: var(--off-color);
-  --accent-gray: var(--color-dark-gray);
 }
 
 *,
@@ -59,7 +49,16 @@ button:hover {
 .deactive {
   display: none !important;
 }
-
+.page-nav {
+  width: fit-content;
+  margin-inline: auto;
+  padding-block: 30px;
+  display: flex;
+  gap: 36px;
+}
+html {
+  background-color: var(--primary-color);
+}
 .nav-link {
   color: var(--secondary-color);
   padding-inline: 16px;
@@ -69,6 +68,14 @@ button:hover {
   font-weight: 500;
   font-size: 16px;
   width: fit-content;
+}
+
+.nav-link.selected {
+  display: inline-block;
+  text-decoration: none !important;
+  border-radius: 6px;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 .nav-link:hover {
@@ -126,6 +133,10 @@ button:hover {
   border-radius: 6px;
   background-color: var(--secondary-color);
   color: var(--primary-color);
+  transition: outline 0.2s ease-in-out;
+}
+.proper-btn:hover {
+  outline: 1px solid var(--secondary-color);
 }
 /*Proper BTN End*/
 
@@ -154,3 +165,13 @@ label,
   color: var(--secondary-color);
 }
 /*Label Input End*/
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: var(--color-black);
+    --secondary-color: var(--color-white);
+    --off-gray: var(--off-color);
+    --accent-gray: var(--color-dark-gray);
+  }
+}

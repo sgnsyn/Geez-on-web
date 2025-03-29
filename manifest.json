@@ -4,8 +4,6 @@
   "description": "Ge'ez on Web lets you type Ge'ez characters on any webpage and practice typing Ge'ez completely offline.",
   "manifest_version": 3,
 
-  "permissions": ["storage"],
-
   "action": {
     "default_popup": "./popup/popup.html"
   },
@@ -16,6 +14,14 @@
     {
       "matches": ["<all_urls>"],
       "js": ["content.js"]
+    }
+  ],
+
+  "permissions": ["storage", "tabs"],
+  "web_accessible_resources": [
+    {
+      "resources": ["/keyman/*"],
+      "matches": ["<all_urls>", "file:///*"]
     }
   ]
 }
