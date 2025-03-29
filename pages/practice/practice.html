@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=k, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
-    <title>Practice</title>
+    <title>Typing Practice</title>
   </head>
   <body>
     <nav class="page-nav">
@@ -14,6 +14,34 @@
       <a class="nav-link" href="../about/about.html">About</a>
       <a class="nav-link" href="../terms/terms.html">Terms and Conditions</a>
     </nav>
-    <textarea id="" name="" cols="30" rows="10"></textarea>
+
+    <div class="typing-container">
+      <div class="stats">
+        <div class="stat-item">
+          <span>Time</span>
+          <span id="timer">0s</span>
+        </div>
+        <div class="stat-item">
+          <span>WPM</span>
+          <span id="wpm">0</span>
+        </div>
+        <div class="stat-item">
+          <span>Accuracy</span>
+          <span id="accuracy">100%</span>
+        </div>
+      </div>
+
+      <div class="text-display" id="text-display"></div>
+
+      <textarea
+        id="typing-input"
+        placeholder="Start typing here..."
+        rows="3"
+      ></textarea>
+
+      <button class="proper-btn" id="reset-btn">Reset</button>
+    </div>
+
+    <script src="./script.js"></script>
   </body>
 </html>
