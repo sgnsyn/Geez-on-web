@@ -4,7 +4,7 @@ const texts = [
   "እንኳን ወደ ቻናላችን በሰላም መጡ",
   "ይህ ቻናል ፕሮፋይል የሚሆኑ",
   "ሰው ሲጠላህ ብቻ ሳይሆን ሲወድህም ለምን በል",
-  "በህይወት ውስጥ ትልቁ ስህተት ለሁሉም ሰው ትክክለኛ ሆኖ ለመታየት መሞከር ነው ",
+  "በህይወት ውስጥ ትልቁ ስህተት ለሁሉም ሰው ትክክለኛ ሆኖ ለመታየት መሞከር ነው",
 ];
 
 // DOM elements
@@ -111,7 +111,11 @@ typingInput.addEventListener("input", () => {
 
   // Check if typing is complete
   if (typingInput.value.length === currentText.length) {
-    typingInput.disabled = true;
+    if (
+      typingInput.value[typingInput.value.length - 1] ===
+      currentText[typingInput.value.length - 1]
+    )
+      typingInput.disabled = true;
     clearInterval(timerInterval);
   }
 });
@@ -120,4 +124,3 @@ resetBtn.addEventListener("click", init);
 
 // Initialize the practice when the page loads
 init();
-

@@ -1,1 +1,33 @@
 @import url("../../util/css/main.css");
+
+.main-content {
+  padding-inline: 5vw;
+  margin-inline: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding-top: 10vh;
+}
+
+.pdf-container {
+  border-radius: 10px;
+  width: 20ch;
+  height: 200px;
+  background-color: var(--accent-gray);
+  color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-family: inter;
+  position: relative;
+}
+
+svg {
+  position: absolute;
+  top: 7%;
+  right: 7%;
+  scale: 0.8;
+}
