@@ -9,32 +9,114 @@
   <body>
     <nav class="page-nav">
       <a class="nav-link" href="../guide/guide.html">Guide</a>
-      <p class="nav-link selected">Practice</p>
-      <a class="nav-link" href="../credits/credits.html">Credits</a>
+      <span class="nav-link selected">Practice</span>
       <a class="nav-link" href="../about/about.html">About</a>
-      <a class="nav-link" href="../terms/terms.html">Terms</a>
     </nav>
+    <section>
+      <!-- >>> Keyboard and Score <<< -->
+      <div class="key-score-wrapper">
+        <!-- >>> Change Keyboard <<< -->
+        <div class="key-wrapper item-wrapper">
+          <button
+            id="btn-toggel-key-popup"
+            class="key-btn-wrapper key top-item"
+          >
+            <p class="key-name" data-value="SEP">SIL Ethiopic Power-g</p>
+            <span class="key-change-btn"></span>
+          </button>
+          <!-- >>> keyboard toggle popup -->
+          <div class="key-popup-wrapper disabled">
+            <div class="key-opt-btn">
+              <input
+                id="keyboard-opt-1"
+                type="radio"
+                name="keyboard-mode"
+                data-value="GA"
+                data-name="GFF Amharic"
+              />
+              <label for="keyboard-opt-1">GFF Amharic</label>
+            </div>
+            <div class="key-opt-btn">
+              <input
+                id="keyboard-opt-2"
+                type="radio"
+                name="keyboard-mode"
+                data-value="GE"
+                data-name="GFF Ethiopic"
+                checked
+              />
+              <label for="keyboard-opt-2">GFF Ethiopic</label>
+            </div>
+            <div class="key-opt-btn">
+              <input
+                id="keyboard-opt-3"
+                type="radio"
+                name="keyboard-mode"
+                data-value="SE"
+                data-name="SIL Ethiopic"
+              />
+              <label for="keyboard-opt-3">SIL Ethiopic</label>
+            </div>
+            <div class="key-opt-btn">
+              <input
+                id="keyboard-opt-4"
+                type="radio"
+                name="keyboard-mode"
+                data-value="SEP"
+                data-name="SIL Ethiopic Power-G"
+              />
+              <label for="keyboard-opt-4">SIL Ethiopic Power-G</label>
+            </div>
+          </div>
+          <!-- >>> keyboard toggle popup -->
 
-    <div class="typing-container">
-      <div class="stats">
-        <div class="stat-item">
-          <span>Time</span>
-          <span id="timer">0s</span>
+          <p class="key bottom-item">keyboard</p>
         </div>
-        <div class="stat-item">
-          <span>WPM</span>
-          <span id="wpm">0</span>
+        <!-- <<< Change Keyboard <<< -->
+
+        <!-- >>> Display Global Result <<< -->
+        <div class="gscore-wrapper">
+          <div class="races-wrapper item-wrapper">
+            <p class="race top-item">21</p>
+            <p class="race bottom-item">RACES</p>
+          </div>
+          <div class="awpm-wrapper item-wrapper">
+            <p class="awpm top-item">37</p>
+            <p class="awpm bottom-item">AVG WPM</p>
+          </div>
         </div>
-        <div class="stat-item">
-          <span>Accuracy</span>
-          <span id="accuracy">100%</span>
+        <!-- <<< Display Global Result <<< -->
+      </div>
+      <!-- <<< Keyboard and Score <<< -->
+
+      <div class="text-display" id="text-display"></div>
+
+      <div class="input-time-btn-wrapper">
+        <input id="typing-input" placeholder="Start typing here..." />
+        <div class="timer-rest-wrapper">
+          <p id="timer" class="timer">2 : 00</p>
+          <button class="proper-btn" id="reset-btn">Reset</button>
         </div>
       </div>
-      <input id="typing-input" placeholder="Start typing here..." />
-      <div class="text-display" id="text-display"></div>
-      <button class="proper-btn" id="reset-btn">Reset</button>
-    </div>
 
-    <script src="./script.js"></script>
+      <!-- >>> Display Current Result <<< -->
+      <div class="cscore-wrapper">
+        <div class="cwpm-wrapper item-wrapper">
+          <p id="wpm" class="cwpm top-item">82</p>
+          <p class="cwpm bottom-item">WPM</p>
+        </div>
+        <div class="accuracy-wrapper item-wrapper">
+          <p id="accuracy" class="accuracy top-item">96<sup>%</sup></p>
+          <p class="accuracy bottom-item">Accuracy</p>
+        </div>
+      </div>
+      <!-- <<< Display Current Result <<< -->
+    </section>
+    <nav class="nav-bottom">
+      <a class="nav-link" href="../credits/credits.html">Credits</a>
+      <a class="nav-link" href="../terms/terms.html">Terms</a>
+    </nav>
+    <script src="../../keyman/keymanweb.js"></script>
+    <script src="./script.js" type="module"></script>
   </body>
 </html>

@@ -1,69 +1,146 @@
 @import url("../../util/css/main.css");
+@import url("../utils/nav.css");
 
-.typing-container {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 2rem;
-  position: relative;
+section {
+  width: 80%;
+  padding-inline: 7%;
+  margin-inline: auto;
+  box-sizing: content-box;
+  max-width: 750px;
 }
-
-.stats {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 2rem;
-  padding: 1rem;
-  border-radius: 4px;
-}
-
-.stat-item {
+.item-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
+  gap: 11px;
 }
-
-.stat-item span {
-  font-family: inter;
+.top-item {
+  font-size: 32px;
+  font-weight: bold;
+}
+.top-item .key-name {
+  font-size: 20px;
+  width: 8ch;
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: width 0.2s ease-in-out;
+}
+.accuracy.top-item {
+  position: relative;
+}
+.accuracy.top-item sup {
+  position: absolute;
+  font-size: 16px;
+}
+.bottom-item {
+  font-size: 16px;
+  font-weight: bold;
+}
+.key-score-wrapper p,
+.timer,
+.cscore-wrapper p,
+.accuracy p {
   color: var(--secondary-color);
-}
-
-.stat-item span:first-child {
   font-family: inter;
   text-transform: uppercase;
 }
 
-.stat-item span:last-child {
-  font-size: 1.2rem;
-  font-weight: bold;
+.key-score-wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  color: var(--secondary-color);
+  margin-bottom: 56px;
+  position: relative;
+}
+
+.key-btn-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  background-color: transparent;
+  border: none;
+}
+
+.key-change-btn {
+  background-image: url("../../assets/icons/key.svg");
+  width: 16px;
+  height: 9px;
+  transition: rotate 0.2s ease-in-out;
+}
+.key-change-btn.rotate {
+  rotate: 180deg;
+}
+
+.key-popup-wrapper {
+  position: absolute;
+  top: 46px;
+  border: 1px solid #aaaaaa99;
+  border-radius: 8px;
+  background-color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem;
+  animation: appear 0.2s ease-in-out;
+}
+.key-popup-wrapper.disabled {
+  display: none;
+  animation: vanish 0.2s ease-in-out;
+}
+.key-opt-btn {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.key-opt-btn:last-child {
+  margin-bottom: 0;
+}
+
+.gscore-wrapper {
+  display: flex;
+  gap: 50px;
 }
 
 .text-display {
-  margin-bottom: 1rem;
-  padding: 1rem;
-  border: none;
-  min-height: 100px;
-  font-size: 1.1rem;
+  font-size: 32px;
+  font-family: inter;
+  text-align: justify;
   line-height: 1.8;
   white-space: pre-wrap;
   color: var(--secondary-color);
+  margin-bottom: 48px;
 }
 
-.text-display .correct {
-  color: #28a745;
+.input-time-btn-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 48px;
+}
+.timer-rest-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.timer {
+  width: 5ch;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
-.text-display .incorrect {
-  color: #dc3545;
-  text-decoration: underline;
+#reset-btn {
+  display: block;
+  font-size: 1rem;
 }
 
 #typing-input {
-  width: 100%;
+  flex-grow: 1;
   padding: 1rem;
   font-size: 1.1rem;
   border: 1px solid white;
   border-radius: 8px;
-  margin-bottom: 1rem;
   background-color: var(--primary-color);
   color: var(--secondary-color);
 }
@@ -75,10 +152,50 @@
 #typing-input:focus {
   outline: none;
 }
+.result-container {
+  color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-#reset-btn {
-  display: block;
-  width: 60%;
-  font-size: 1rem;
-  margin-inline: auto;
+.cscore-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 65px;
+}
+.text-display .correct {
+  color: #28a745;
+}
+
+.text-display .incorrect {
+  color: #dc3545;
+  text-decoration: underline;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    scale: 0.7;
+    top: 40px;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+    top: 46px;
+  }
+}
+@keyframes vanish {
+  from {
+    opacity: 1;
+    scale: 1;
+    top: 46px;
+    display: block;
+  }
+  to {
+    opacity: 0;
+    scale: 0.7;
+    top: 40px;
+    display: none;
+  }
 }

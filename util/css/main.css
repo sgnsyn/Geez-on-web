@@ -11,7 +11,7 @@
   /* colors */
   --color-white: #ffffff;
   --color-black: #000000;
-  --off-color: #cecece;
+  --off-color: #ffffffaa;
   --color-light-gray: #f4f4f5;
   --color-dark-gray: #191919;
 
@@ -49,42 +49,13 @@ button:hover {
 .deactive {
   display: none !important;
 }
-.page-nav {
-  margin-inline: 10%;
-  padding-block: 40px 30px;
-  display: flex;
-  gap: 36px;
-}
 html {
   background-color: var(--primary-color);
 }
-.nav-link {
-  color: var(--secondary-color);
-  padding-inline: 16px;
-  padding-block: 8px;
-  text-decoration: none;
-  font-family: Inter;
-  font-weight: 500;
-  font-size: 16px;
-  width: fit-content;
-  font-size: 0.8rem;
-  display: grid;
-  text-transform: uppercase;
-  font-weight: bold;
-}
 
-.nav-link.selected {
-  display: inline-block;
-  text-decoration: none !important;
-  border-radius: 100vw;
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
+body {
+  position: relative;
 }
-
-.nav-link:hover {
-  text-decoration: underline;
-}
-
 .icon-btn {
   border: none;
   background: transparent;

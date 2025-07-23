@@ -1,10 +1,15 @@
 const initPath = "/keyman/init.js";
 const keymanPath = "/keyman/keymanweb.js";
 
+// Create a Trusted Types policy
+const trustedPolicy = trustedTypes.createPolicy("keyman-extension-policy", {
+  createScriptURL: (url) => url,
+});
+
 function getElt(path) {
   const url = chrome.runtime.getURL(path);
   const script = document.createElement("script");
-  script.src = url;
+  script.src = trustedPolicy.createScriptURL(url);
   return script;
 }
 

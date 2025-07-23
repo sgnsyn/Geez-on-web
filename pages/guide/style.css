@@ -1,4 +1,5 @@
 @import url("../../util/css/main.css");
+@import url("../utils/nav.css");
 
 .main-content {
   padding-inline: 5vw;

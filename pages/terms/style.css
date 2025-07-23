@@ -1,4 +1,6 @@
 @import url("../../util/css/main.css");
+@import url("../utils/nav.css");
+
 .content {
   max-width: 95ch;
   margin-inline: auto;
