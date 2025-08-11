@@ -8,15 +8,18 @@ section {
   box-sizing: content-box;
   max-width: 750px;
 }
+
 .item-wrapper {
   display: flex;
   flex-direction: column;
   gap: 11px;
 }
+
 .top-item {
   font-size: 32px;
   font-weight: bold;
 }
+
 .top-item .key-name {
   font-size: 20px;
   width: 8ch;
@@ -25,17 +28,21 @@ section {
   white-space: nowrap;
   transition: width 0.2s ease-in-out;
 }
+
 .accuracy.top-item {
   position: relative;
 }
+
 .accuracy.top-item sup {
   position: absolute;
   font-size: 16px;
 }
+
 .bottom-item {
   font-size: 16px;
   font-weight: bold;
 }
+
 .key-score-wrapper p,
 .timer,
 .cscore-wrapper p,
@@ -68,6 +75,7 @@ section {
   height: 9px;
   transition: rotate 0.2s ease-in-out;
 }
+
 .key-change-btn.rotate {
   rotate: 180deg;
 }
@@ -83,16 +91,19 @@ section {
   padding: 2rem 1rem;
   animation: appear 0.2s ease-in-out;
 }
+
 .key-popup-wrapper.disabled {
   display: none;
   animation: vanish 0.2s ease-in-out;
 }
+
 .key-opt-btn {
   margin-bottom: 20px;
   display: flex;
   align-items: center;
   gap: 10px;
 }
+
 .key-opt-btn:last-child {
   margin-bottom: 0;
 }
@@ -119,11 +130,13 @@ section {
   gap: 22px;
   margin-bottom: 48px;
 }
+
 .timer-rest-wrapper {
   display: flex;
   align-items: center;
   gap: 22px;
 }
+
 .timer {
   width: 5ch;
   font-size: 1.5rem;
@@ -144,6 +157,7 @@ section {
   background-color: var(--primary-color);
   color: var(--secondary-color);
 }
+
 #typing-input::placeholder {
   font-family: inter;
   font-style: italic;
@@ -152,6 +166,7 @@ section {
 #typing-input:focus {
   outline: none;
 }
+
 .result-container {
   color: var(--secondary-color);
   display: flex;
@@ -164,6 +179,7 @@ section {
   align-items: center;
   gap: 65px;
 }
+
 .text-display .correct {
   color: #28a745;
 }
@@ -173,18 +189,24 @@ section {
   text-decoration: underline;
 }
 
+.text-display .pending {
+  color: #f0ad4e;
+}
+
 @keyframes appear {
   from {
     opacity: 0;
     scale: 0.7;
     top: 40px;
   }
+
   to {
     opacity: 1;
     scale: 1;
     top: 46px;
   }
 }
+
 @keyframes vanish {
   from {
     opacity: 1;
@@ -192,6 +214,7 @@ section {
     top: 46px;
     display: block;
   }
+
   to {
     opacity: 0;
     scale: 0.7;

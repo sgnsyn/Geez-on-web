@@ -35,3 +35,7 @@ export function timeStrToSecond(str) {
   const sec = parseInt(secStr.trim()) || 0;
   return min * 60 + sec;
 }
+
+export function calculateAccuracy(correctChars, length) {
+  return Math.floor(Math.random() * 100);
+}

@@ -14,14 +14,14 @@ try {
       Pl = Object.prototype.propertyIsEnumerable,
       jl = Reflect.get;
     var mc = (o, t, e) =>
-        t in o
-          ? Qn(o, t, {
-              enumerable: !0,
-              configurable: !0,
-              writable: !0,
-              value: e,
-            })
-          : (o[t] = e),
+      t in o
+        ? Qn(o, t, {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: e,
+        })
+        : (o[t] = e),
       C = (o, t) => {
         for (var e in t || (t = {})) pc.call(t, e) && mc(o, e, t[e]);
         if (Cc) for (var e of Cc(t)) Pl.call(t, e) && mc(o, e, t[e]);
@@ -30,8 +30,8 @@ try {
       V = (o, t) => zl(o, Kl(t)),
       a = (o, t) => Qn(o, "name", { value: t, configurable: !0 });
     var _l = (o, t) => () => (
-        t || o((t = { exports: {} }).exports, t), t.exports
-      ),
+      t || o((t = { exports: {} }).exports, t), t.exports
+    ),
       Xc = (o, t) => {
         for (var e in t) Qn(o, e, { get: t[e], enumerable: !0 });
       },
@@ -68,12 +68,12 @@ try {
     var Z = (o, t, e) =>
       new Promise((n, i) => {
         var s = (r) => {
-            try {
-              l(e.next(r));
-            } catch (B) {
-              i(B);
-            }
-          },
+          try {
+            l(e.next(r));
+          } catch (B) {
+            i(B);
+          }
+        },
           c = (r) => {
             try {
               l(e.throw(r));
@@ -89,7 +89,7 @@ try {
       "use strict";
       var $l = Object.prototype.hasOwnProperty,
         ne = "~";
-      function ei() {}
+      function ei() { }
       a(ei, "Events");
       Object.create &&
         ((ei.prototype = Object.create(null)), new ei().__proto__ || (ne = !1));
@@ -120,7 +120,7 @@ try {
         (this._events = new ei()), (this._eventsCount = 0);
       }
       a(_, "EventEmitter");
-      _.prototype.eventNames = a(function () {
+      _.prototype.eventNames = a(function() {
         var t = [],
           e,
           n;
@@ -131,7 +131,7 @@ try {
           ? t.concat(Object.getOwnPropertySymbols(e))
           : t;
       }, "eventNames");
-      _.prototype.listeners = a(function (t) {
+      _.prototype.listeners = a(function(t) {
         var e = ne ? ne + t : t,
           n = this._events[e];
         if (!n) return [];
@@ -140,12 +140,12 @@ try {
           c[i] = n[i].fn;
         return c;
       }, "listeners");
-      _.prototype.listenerCount = a(function (t) {
+      _.prototype.listenerCount = a(function(t) {
         var e = ne ? ne + t : t,
           n = this._events[e];
         return n ? (n.fn ? 1 : n.length) : 0;
       }, "listenerCount");
-      _.prototype.emit = a(function (t, e, n, i, s, c) {
+      _.prototype.emit = a(function(t, e, n, i, s, c) {
         var l = ne ? ne + t : t;
         if (!this._events[l]) return !1;
         var r = this._events[l],
@@ -174,7 +174,7 @@ try {
             F;
           for (g = 0; g < Q; g++)
             switch (
-              (r[g].once && this.removeListener(t, r[g].fn, void 0, !0), B)
+            (r[g].once && this.removeListener(t, r[g].fn, void 0, !0), B)
             ) {
               case 1:
                 r[g].fn.call(r[g].context);
@@ -197,13 +197,13 @@ try {
         }
         return !0;
       }, "emit");
-      _.prototype.on = a(function (t, e, n) {
+      _.prototype.on = a(function(t, e, n) {
         return Vc(this, t, e, n, !1);
       }, "on");
-      _.prototype.once = a(function (t, e, n) {
+      _.prototype.once = a(function(t, e, n) {
         return Vc(this, t, e, n, !0);
       }, "once");
-      _.prototype.removeListener = a(function (t, e, n, i) {
+      _.prototype.removeListener = a(function(t, e, n, i) {
         var s = ne ? ne + t : t;
         if (!this._events[s]) return this;
         if (!e) return zi(this, s), this;
@@ -223,7 +223,7 @@ try {
         }
         return this;
       }, "removeListener");
-      _.prototype.removeAllListeners = a(function (t) {
+      _.prototype.removeAllListeners = a(function(t) {
         var e;
         return (
           t
@@ -240,212 +240,212 @@ try {
     });
     var Ec = v(A(), 1);
     var me = {
-        modifierCodes: {
-          LCTRL: 1,
-          RCTRL: 2,
-          LALT: 4,
-          RALT: 8,
-          SHIFT: 16,
-          CTRL: 32,
-          ALT: 64,
-          META: 128,
-          CAPS: 256,
-          NO_CAPS: 512,
-          NUM_LOCK: 1024,
-          NO_NUM_LOCK: 2048,
-          SCROLL_LOCK: 4096,
-          NO_SCROLL_LOCK: 8192,
-          VIRTUAL_KEY: 16384,
-          VIRTUAL_CHAR_KEY: 32768,
-        },
-        modifierBitmasks: {
-          ALL: 127,
-          ALT_GR_SIM: 5,
-          CHIRAL: 31,
-          IS_CHIRAL: 15,
-          NON_CHIRAL: 112,
-          NON_LEGACY: 111,
-        },
-        stateBitmasks: {
-          ALL: 16128,
-          CAPS: 768,
-          NUM_LOCK: 3072,
-          SCROLL_LOCK: 12288,
-        },
-        keyCodes: {
-          K_BKSP: 8,
-          K_TAB: 9,
-          K_ENTER: 13,
-          K_SHIFT: 16,
-          K_CONTROL: 17,
-          K_ALT: 18,
-          K_PAUSE: 19,
-          K_CAPS: 20,
-          K_ESC: 27,
-          K_SPACE: 32,
-          K_PGUP: 33,
-          K_PGDN: 34,
-          K_END: 35,
-          K_HOME: 36,
-          K_LEFT: 37,
-          K_UP: 38,
-          K_RIGHT: 39,
-          K_DOWN: 40,
-          K_SEL: 41,
-          K_PRINT: 42,
-          K_EXEC: 43,
-          K_INS: 45,
-          K_DEL: 46,
-          K_HELP: 47,
-          K_0: 48,
-          K_1: 49,
-          K_2: 50,
-          K_3: 51,
-          K_4: 52,
-          K_5: 53,
-          K_6: 54,
-          K_7: 55,
-          K_8: 56,
-          K_9: 57,
-          K_A: 65,
-          K_B: 66,
-          K_C: 67,
-          K_D: 68,
-          K_E: 69,
-          K_F: 70,
-          K_G: 71,
-          K_H: 72,
-          K_I: 73,
-          K_J: 74,
-          K_K: 75,
-          K_L: 76,
-          K_M: 77,
-          K_N: 78,
-          K_O: 79,
-          K_P: 80,
-          K_Q: 81,
-          K_R: 82,
-          K_S: 83,
-          K_T: 84,
-          K_U: 85,
-          K_V: 86,
-          K_W: 87,
-          K_X: 88,
-          K_Y: 89,
-          K_Z: 90,
-          K_NP0: 96,
-          K_NP1: 97,
-          K_NP2: 98,
-          K_NP3: 99,
-          K_NP4: 100,
-          K_NP5: 101,
-          K_NP6: 102,
-          K_NP7: 103,
-          K_NP8: 104,
-          K_NP9: 105,
-          K_NPSTAR: 106,
-          K_NPPLUS: 107,
-          K_SEPARATOR: 108,
-          K_NPMINUS: 109,
-          K_NPDOT: 110,
-          K_NPSLASH: 111,
-          K_F1: 112,
-          K_F2: 113,
-          K_F3: 114,
-          K_F4: 115,
-          K_F5: 116,
-          K_F6: 117,
-          K_F7: 118,
-          K_F8: 119,
-          K_F9: 120,
-          K_F10: 121,
-          K_F11: 122,
-          K_F12: 123,
-          K_NUMLOCK: 144,
-          K_SCROLL: 145,
-          K_LSHIFT: 160,
-          K_RSHIFT: 161,
-          K_LCONTROL: 162,
-          K_RCONTROL: 163,
-          K_LALT: 164,
-          K_RALT: 165,
-          K_COLON: 186,
-          K_EQUAL: 187,
-          K_COMMA: 188,
-          K_HYPHEN: 189,
-          K_PERIOD: 190,
-          K_SLASH: 191,
-          K_BKQUOTE: 192,
-          K_LBRKT: 219,
-          K_BKSLASH: 220,
-          K_RBRKT: 221,
-          K_QUOTE: 222,
-          K_oE2: 226,
-          K_OE2: 226,
-          K_LOPT: 50001,
-          K_ROPT: 50002,
-          K_NUMERALS: 50003,
-          K_SYMBOLS: 50004,
-          K_CURRENCIES: 50005,
-          K_UPPER: 50006,
-          K_LOWER: 50007,
-          K_ALPHA: 50008,
-          K_SHIFTED: 50009,
-          K_ALTGR: 50010,
-          K_TABBACK: 50011,
-          K_TABFWD: 50012,
-        },
-        codesUS: [
-          ["0123456789", ";=,-./`", "[\\]'"],
-          [")!@#$%^&*(", ":+<_>?~", '{|}"'],
-        ],
-        isKnownOSKModifierKey(o) {
-          switch (o) {
-            case "K_SHIFT":
-            case "K_LOPT":
-            case "K_ROPT":
-            case "K_NUMLOCK":
-            case "K_CAPS":
-              return !0;
-            default:
-              if (me.keyCodes[o] >= 5e4) return !0;
-              let t = me[o];
-              if (t > 5e4 && t < 50011) return !0;
-          }
-          return !1;
-        },
-        getModifierState(o) {
-          var t = 0;
-          o.indexOf("shift") >= 0 && (t |= me.modifierCodes.SHIFT);
-          var e = !1;
-          o.indexOf("leftctrl") >= 0 &&
-            ((t |= me.modifierCodes.LCTRL), (e = !0)),
-            o.indexOf("rightctrl") >= 0 &&
-              ((t |= me.modifierCodes.RCTRL), (e = !0)),
-            o.indexOf("ctrl") >= 0 && !e && (t |= me.modifierCodes.CTRL);
-          var n = !1;
-          return (
-            o.indexOf("leftalt") >= 0 &&
-              ((t |= me.modifierCodes.LALT), (n = !0)),
-            o.indexOf("rightalt") >= 0 &&
-              ((t |= me.modifierCodes.RALT), (n = !0)),
-            o.indexOf("alt") >= 0 && !n && (t |= me.modifierCodes.ALT),
-            t
-          );
-        },
-        getStateFromLayer(o) {
-          var t = 0;
-          return (
-            o.indexOf("caps") >= 0
-              ? (t |= me.modifierCodes.CAPS)
-              : (t |= me.modifierCodes.NO_CAPS),
-            t
-          );
-        },
+      modifierCodes: {
+        LCTRL: 1,
+        RCTRL: 2,
+        LALT: 4,
+        RALT: 8,
+        SHIFT: 16,
+        CTRL: 32,
+        ALT: 64,
+        META: 128,
+        CAPS: 256,
+        NO_CAPS: 512,
+        NUM_LOCK: 1024,
+        NO_NUM_LOCK: 2048,
+        SCROLL_LOCK: 4096,
+        NO_SCROLL_LOCK: 8192,
+        VIRTUAL_KEY: 16384,
+        VIRTUAL_CHAR_KEY: 32768,
       },
+      modifierBitmasks: {
+        ALL: 127,
+        ALT_GR_SIM: 5,
+        CHIRAL: 31,
+        IS_CHIRAL: 15,
+        NON_CHIRAL: 112,
+        NON_LEGACY: 111,
+      },
+      stateBitmasks: {
+        ALL: 16128,
+        CAPS: 768,
+        NUM_LOCK: 3072,
+        SCROLL_LOCK: 12288,
+      },
+      keyCodes: {
+        K_BKSP: 8,
+        K_TAB: 9,
+        K_ENTER: 13,
+        K_SHIFT: 16,
+        K_CONTROL: 17,
+        K_ALT: 18,
+        K_PAUSE: 19,
+        K_CAPS: 20,
+        K_ESC: 27,
+        K_SPACE: 32,
+        K_PGUP: 33,
+        K_PGDN: 34,
+        K_END: 35,
+        K_HOME: 36,
+        K_LEFT: 37,
+        K_UP: 38,
+        K_RIGHT: 39,
+        K_DOWN: 40,
+        K_SEL: 41,
+        K_PRINT: 42,
+        K_EXEC: 43,
+        K_INS: 45,
+        K_DEL: 46,
+        K_HELP: 47,
+        K_0: 48,
+        K_1: 49,
+        K_2: 50,
+        K_3: 51,
+        K_4: 52,
+        K_5: 53,
+        K_6: 54,
+        K_7: 55,
+        K_8: 56,
+        K_9: 57,
+        K_A: 65,
+        K_B: 66,
+        K_C: 67,
+        K_D: 68,
+        K_E: 69,
+        K_F: 70,
+        K_G: 71,
+        K_H: 72,
+        K_I: 73,
+        K_J: 74,
+        K_K: 75,
+        K_L: 76,
+        K_M: 77,
+        K_N: 78,
+        K_O: 79,
+        K_P: 80,
+        K_Q: 81,
+        K_R: 82,
+        K_S: 83,
+        K_T: 84,
+        K_U: 85,
+        K_V: 86,
+        K_W: 87,
+        K_X: 88,
+        K_Y: 89,
+        K_Z: 90,
+        K_NP0: 96,
+        K_NP1: 97,
+        K_NP2: 98,
+        K_NP3: 99,
+        K_NP4: 100,
+        K_NP5: 101,
+        K_NP6: 102,
+        K_NP7: 103,
+        K_NP8: 104,
+        K_NP9: 105,
+        K_NPSTAR: 106,
+        K_NPPLUS: 107,
+        K_SEPARATOR: 108,
+        K_NPMINUS: 109,
+        K_NPDOT: 110,
+        K_NPSLASH: 111,
+        K_F1: 112,
+        K_F2: 113,
+        K_F3: 114,
+        K_F4: 115,
+        K_F5: 116,
+        K_F6: 117,
+        K_F7: 118,
+        K_F8: 119,
+        K_F9: 120,
+        K_F10: 121,
+        K_F11: 122,
+        K_F12: 123,
+        K_NUMLOCK: 144,
+        K_SCROLL: 145,
+        K_LSHIFT: 160,
+        K_RSHIFT: 161,
+        K_LCONTROL: 162,
+        K_RCONTROL: 163,
+        K_LALT: 164,
+        K_RALT: 165,
+        K_COLON: 186,
+        K_EQUAL: 187,
+        K_COMMA: 188,
+        K_HYPHEN: 189,
+        K_PERIOD: 190,
+        K_SLASH: 191,
+        K_BKQUOTE: 192,
+        K_LBRKT: 219,
+        K_BKSLASH: 220,
+        K_RBRKT: 221,
+        K_QUOTE: 222,
+        K_oE2: 226,
+        K_OE2: 226,
+        K_LOPT: 50001,
+        K_ROPT: 50002,
+        K_NUMERALS: 50003,
+        K_SYMBOLS: 50004,
+        K_CURRENCIES: 50005,
+        K_UPPER: 50006,
+        K_LOWER: 50007,
+        K_ALPHA: 50008,
+        K_SHIFTED: 50009,
+        K_ALTGR: 50010,
+        K_TABBACK: 50011,
+        K_TABFWD: 50012,
+      },
+      codesUS: [
+        ["0123456789", ";=,-./`", "[\\]'"],
+        [")!@#$%^&*(", ":+<_>?~", '{|}"'],
+      ],
+      isKnownOSKModifierKey(o) {
+        switch (o) {
+          case "K_SHIFT":
+          case "K_LOPT":
+          case "K_ROPT":
+          case "K_NUMLOCK":
+          case "K_CAPS":
+            return !0;
+          default:
+            if (me.keyCodes[o] >= 5e4) return !0;
+            let t = me[o];
+            if (t > 5e4 && t < 50011) return !0;
+        }
+        return !1;
+      },
+      getModifierState(o) {
+        var t = 0;
+        o.indexOf("shift") >= 0 && (t |= me.modifierCodes.SHIFT);
+        var e = !1;
+        o.indexOf("leftctrl") >= 0 &&
+          ((t |= me.modifierCodes.LCTRL), (e = !0)),
+          o.indexOf("rightctrl") >= 0 &&
+          ((t |= me.modifierCodes.RCTRL), (e = !0)),
+          o.indexOf("ctrl") >= 0 && !e && (t |= me.modifierCodes.CTRL);
+        var n = !1;
+        return (
+          o.indexOf("leftalt") >= 0 &&
+          ((t |= me.modifierCodes.LALT), (n = !0)),
+          o.indexOf("rightalt") >= 0 &&
+          ((t |= me.modifierCodes.RALT), (n = !0)),
+          o.indexOf("alt") >= 0 && !n && (t |= me.modifierCodes.ALT),
+          t
+        );
+      },
+      getStateFromLayer(o) {
+        var t = 0;
+        return (
+          o.indexOf("caps") >= 0
+            ? (t |= me.modifierCodes.CAPS)
+            : (t |= me.modifierCodes.NO_CAPS),
+          t
+        );
+      },
+    },
       U = me;
     var Ze = class {
-      constructor() {}
+      constructor() { }
       codeForEvent(t) {
         return U.keyCodes[t.kName] || t.Lcode;
       }
@@ -466,7 +466,7 @@ try {
             return !1;
         }
       }
-      applyCommand(t, e) {}
+      applyCommand(t, e) { }
       forSpecialEmulation(t) {
         switch (this.codeForEvent(t)) {
           case U.keyCodes.K_BKSP:
@@ -506,8 +506,8 @@ try {
         else if (i != 0)
           return (
             e &&
-              (e.warningLog =
-                "KMW only defines default key output for the 'default' and 'shift' layers!"),
+            (e.warningLog =
+              "KMW only defines default key output for the 'default' and 'shift' layers!"),
             null
           );
         try {
@@ -581,7 +581,7 @@ try {
         }
       };
     a(M, "KeyEvent");
-    var ve = class {};
+    var ve = class { };
     a(ve, "KeyMap");
     var Ki = class {
       constructor() {
@@ -612,113 +612,113 @@ try {
     };
     a(Oi, "LanguageKeyMaps");
     var pt = class {
-        constructor() {}
-        static _usCodeInit() {
-          var t = new ve(),
-            e = new ve();
-          (t.k192 = 96),
-            (t.k49 = 49),
-            (t.k50 = 50),
-            (t.k51 = 51),
-            (t.k52 = 52),
-            (t.k53 = 53),
-            (t.k54 = 54),
-            (t.k55 = 55),
-            (t.k56 = 56),
-            (t.k57 = 57),
-            (t.k48 = 48),
-            (t.k189 = 45),
-            (t.k187 = 61),
-            (t.k81 = 113),
-            (t.k87 = 119),
-            (t.k69 = 101),
-            (t.k82 = 114),
-            (t.k84 = 116),
-            (t.k89 = 121),
-            (t.k85 = 117),
-            (t.k73 = 105),
-            (t.k79 = 111),
-            (t.k80 = 112),
-            (t.k219 = 91),
-            (t.k221 = 93),
-            (t.k220 = 92),
-            (t.k65 = 97),
-            (t.k83 = 115),
-            (t.k68 = 100),
-            (t.k70 = 102),
-            (t.k71 = 103),
-            (t.k72 = 104),
-            (t.k74 = 106),
-            (t.k75 = 107),
-            (t.k76 = 108),
-            (t.k186 = 59),
-            (t.k222 = 39),
-            (t.k90 = 122),
-            (t.k88 = 120),
-            (t.k67 = 99),
-            (t.k86 = 118),
-            (t.k66 = 98),
-            (t.k78 = 110),
-            (t.k77 = 109),
-            (t.k188 = 44),
-            (t.k190 = 46),
-            (t.k191 = 47),
-            (e.k192 = 126),
-            (e.k49 = 33),
-            (e.k50 = 64),
-            (e.k51 = 35),
-            (e.k52 = 36),
-            (e.k53 = 37),
-            (e.k54 = 94),
-            (e.k55 = 38),
-            (e.k56 = 42),
-            (e.k57 = 40),
-            (e.k48 = 41),
-            (e.k189 = 95),
-            (e.k187 = 43),
-            (e.k81 = 81),
-            (e.k87 = 87),
-            (e.k69 = 69),
-            (e.k82 = 82),
-            (e.k84 = 84),
-            (e.k89 = 89),
-            (e.k85 = 85),
-            (e.k73 = 73),
-            (e.k79 = 79),
-            (e.k80 = 80),
-            (e.k219 = 123),
-            (e.k221 = 125),
-            (e.k220 = 124),
-            (e.k65 = 65),
-            (e.k83 = 83),
-            (e.k68 = 68),
-            (e.k70 = 70),
-            (e.k71 = 71),
-            (e.k72 = 72),
-            (e.k74 = 74),
-            (e.k75 = 75),
-            (e.k76 = 76),
-            (e.k186 = 58),
-            (e.k222 = 34),
-            (e.k90 = 90),
-            (e.k88 = 88),
-            (e.k67 = 67),
-            (e.k86 = 86),
-            (e.k66 = 66),
-            (e.k78 = 78),
-            (e.k77 = 77),
-            (e.k188 = 60),
-            (e.k190 = 62),
-            (e.k191 = 63),
-            (pt._usCharCodes = [t, e]);
-        }
-        static _USKeyCodeToCharCode(t) {
-          return pt.usCharCodes[t.Lmodifiers & 16 ? 1 : 0]["k" + t.Lcode];
-        }
-        static get usCharCodes() {
-          return pt._usCharCodes || pt._usCodeInit(), pt._usCharCodes;
-        }
-      },
+      constructor() { }
+      static _usCodeInit() {
+        var t = new ve(),
+          e = new ve();
+        (t.k192 = 96),
+          (t.k49 = 49),
+          (t.k50 = 50),
+          (t.k51 = 51),
+          (t.k52 = 52),
+          (t.k53 = 53),
+          (t.k54 = 54),
+          (t.k55 = 55),
+          (t.k56 = 56),
+          (t.k57 = 57),
+          (t.k48 = 48),
+          (t.k189 = 45),
+          (t.k187 = 61),
+          (t.k81 = 113),
+          (t.k87 = 119),
+          (t.k69 = 101),
+          (t.k82 = 114),
+          (t.k84 = 116),
+          (t.k89 = 121),
+          (t.k85 = 117),
+          (t.k73 = 105),
+          (t.k79 = 111),
+          (t.k80 = 112),
+          (t.k219 = 91),
+          (t.k221 = 93),
+          (t.k220 = 92),
+          (t.k65 = 97),
+          (t.k83 = 115),
+          (t.k68 = 100),
+          (t.k70 = 102),
+          (t.k71 = 103),
+          (t.k72 = 104),
+          (t.k74 = 106),
+          (t.k75 = 107),
+          (t.k76 = 108),
+          (t.k186 = 59),
+          (t.k222 = 39),
+          (t.k90 = 122),
+          (t.k88 = 120),
+          (t.k67 = 99),
+          (t.k86 = 118),
+          (t.k66 = 98),
+          (t.k78 = 110),
+          (t.k77 = 109),
+          (t.k188 = 44),
+          (t.k190 = 46),
+          (t.k191 = 47),
+          (e.k192 = 126),
+          (e.k49 = 33),
+          (e.k50 = 64),
+          (e.k51 = 35),
+          (e.k52 = 36),
+          (e.k53 = 37),
+          (e.k54 = 94),
+          (e.k55 = 38),
+          (e.k56 = 42),
+          (e.k57 = 40),
+          (e.k48 = 41),
+          (e.k189 = 95),
+          (e.k187 = 43),
+          (e.k81 = 81),
+          (e.k87 = 87),
+          (e.k69 = 69),
+          (e.k82 = 82),
+          (e.k84 = 84),
+          (e.k89 = 89),
+          (e.k85 = 85),
+          (e.k73 = 73),
+          (e.k79 = 79),
+          (e.k80 = 80),
+          (e.k219 = 123),
+          (e.k221 = 125),
+          (e.k220 = 124),
+          (e.k65 = 65),
+          (e.k83 = 83),
+          (e.k68 = 68),
+          (e.k70 = 70),
+          (e.k71 = 71),
+          (e.k72 = 72),
+          (e.k74 = 74),
+          (e.k75 = 75),
+          (e.k76 = 76),
+          (e.k186 = 58),
+          (e.k222 = 34),
+          (e.k90 = 90),
+          (e.k88 = 88),
+          (e.k67 = 67),
+          (e.k86 = 86),
+          (e.k66 = 66),
+          (e.k78 = 78),
+          (e.k77 = 77),
+          (e.k188 = 60),
+          (e.k190 = 62),
+          (e.k191 = 63),
+          (pt._usCharCodes = [t, e]);
+      }
+      static _USKeyCodeToCharCode(t) {
+        return pt.usCharCodes[t.Lmodifiers & 16 ? 1 : 0]["k" + t.Lcode];
+      }
+      static get usCharCodes() {
+        return pt._usCharCodes || pt._usCodeInit(), pt._usCharCodes;
+      }
+    },
       w = pt;
     a(w, "KeyMapping"), (w.browserMap = new Ki()), (w.languageMap = new Oi());
     function be(o, t) {
@@ -798,7 +798,7 @@ try {
     }
     a(ks, "physicalKeyDeviceAlias");
     var p = H;
-    var q = class {};
+    var q = class { };
     a(q, "KEYMAN_VERSION"),
       (q.VERSION = "17.0.335"),
       (q.VERSION_RELEASE = "17.0"),
@@ -812,73 +812,73 @@ try {
       (q.VERSION_GIT_TAG = "release@17.0.335");
     var it = q;
     var Xt = class {
-        constructor(t) {
-          if (t == null) {
-            this.components = [].concat(
-              Xt.DEVELOPER_VERSION_FALLBACK.components
-            );
-            return;
-          }
-          if (Array.isArray(t)) {
-            let i = t;
-            if (i.length < 2)
-              throw new Error(
-                "Version string must have at least a major and minor component!"
-              );
-            this.components = [].concat(i);
-            return;
-          }
-          let e = t.split("."),
-            n = [];
-          if (e.length < 2)
+      constructor(t) {
+        if (t == null) {
+          this.components = [].concat(
+            Xt.DEVELOPER_VERSION_FALLBACK.components
+          );
+          return;
+        }
+        if (Array.isArray(t)) {
+          let i = t;
+          if (i.length < 2)
             throw new Error(
               "Version string must have at least a major and minor component!"
             );
-          for (let i = 0; i < e.length; i++) {
-            let s = parseInt(e[i], 10);
-            if (isNaN(s))
-              throw new Error("Version string components must be numerical!");
-            n.push(s);
-          }
-          this.components = n;
+          this.components = [].concat(i);
+          return;
         }
-        get major() {
-          return this.components[0];
+        let e = t.split("."),
+          n = [];
+        if (e.length < 2)
+          throw new Error(
+            "Version string must have at least a major and minor component!"
+          );
+        for (let i = 0; i < e.length; i++) {
+          let s = parseInt(e[i], 10);
+          if (isNaN(s))
+            throw new Error("Version string components must be numerical!");
+          n.push(s);
         }
-        get minor() {
-          return this.components[1];
+        this.components = n;
+      }
+      get major() {
+        return this.components[0];
+      }
+      get minor() {
+        return this.components[1];
+      }
+      toString() {
+        return this.components.join(".");
+      }
+      toJSON() {
+        return this.toString();
+      }
+      equals(t) {
+        return this.compareTo(t) == 0;
+      }
+      precedes(t) {
+        return this.compareTo(t) < 0;
+      }
+      compareTo(t) {
+        var e = this.components.length < t.components.length,
+          n =
+            this.components.length < t.components.length
+              ? this.components.length
+              : t.components.length,
+          i;
+        for (i = 0; i < n; i++) {
+          let c = this.components[i] - t.components[i];
+          if (c != 0) return c;
         }
-        toString() {
-          return this.components.join(".");
-        }
-        toJSON() {
-          return this.toString();
-        }
-        equals(t) {
-          return this.compareTo(t) == 0;
-        }
-        precedes(t) {
-          return this.compareTo(t) < 0;
-        }
-        compareTo(t) {
-          var e = this.components.length < t.components.length,
-            n =
-              this.components.length < t.components.length
-                ? this.components.length
-                : t.components.length,
-            i;
-          for (i = 0; i < n; i++) {
-            let c = this.components[i] - t.components[i];
-            if (c != 0) return c;
-          }
-          var s = e ? t.components : this.components;
-          do {
-            if (s[i] > 0) return e ? -1 : 1;
-            i++;
-          } while (i < s.length);
-          return 0;
-        }
-      },
+        var s = e ? t.components : this.components;
+        do {
+          if (s[i] > 0) return e ? -1 : 1;
+          i++;
+        } while (i < s.length);
+        return 0;
+      }
+    },
       k = Xt;
     a(k, "Version"),
       (k.CURRENT = new Xt(it.VERSION_RELEASE)),
@@ -889,14 +889,14 @@ try {
       return typeof globalThis != "undefined"
         ? globalThis
         : typeof window != "undefined"
-        ? window
-        : typeof self != "undefined"
-        ? self
-        : global;
+          ? window
+          : typeof self != "undefined"
+            ? self
+            : global;
     }
     a(yn, "getGlobalObject");
     function ti() {
-      (String.kmwFromCharCode = function (o) {
+      (String.kmwFromCharCode = function(o) {
         var t = [],
           e;
         for (e = 0; e < arguments.length; e++) {
@@ -911,7 +911,7 @@ try {
         }
         return String.fromCharCode.apply(void 0, t);
       }),
-        (String.prototype.kmwCharCodeAt = function (o) {
+        (String.prototype.kmwCharCodeAt = function(o) {
           var t = String(this),
             e = 0;
           if (o < 0 || o >= t.length) return NaN;
@@ -925,33 +925,33 @@ try {
           }
           return i;
         }),
-        (String.prototype.kmwIndexOf = function (o, t) {
+        (String.prototype.kmwIndexOf = function(o, t) {
           var e = String(this),
             n = e.indexOf(o, t);
           if (n < 0) return n;
           for (var i = 0, s = 0; s !== null && s < n; s = e.kmwNextChar(s)) i++;
           return i;
         }),
-        (String.prototype.kmwLastIndexOf = function (o, t) {
+        (String.prototype.kmwLastIndexOf = function(o, t) {
           var e = String(this),
             n = e.lastIndexOf(o, t);
           if (n < 0) return n;
           for (var i = 0, s = 0; s !== null && s < n; s = e.kmwNextChar(s)) i++;
           return i;
         }),
-        (String.prototype.kmwLength = function () {
+        (String.prototype.kmwLength = function() {
           var o = String(this);
           if (o.length == 0) return 0;
           for (var t = 0, e = 0; e !== null; t++) e = o.kmwNextChar(e);
           return t;
         }),
-        (String.prototype.kmwSlice = function (o, t) {
+        (String.prototype.kmwSlice = function(o, t) {
           var e = String(this),
             n = e.kmwCodePointToCodeUnit(o),
             i = e.kmwCodePointToCodeUnit(t);
           return n === null || i === null ? "" : e.slice(n, i);
         }),
-        (String.prototype.kmwSubstr = function (o, t) {
+        (String.prototype.kmwSubstr = function(o, t) {
           var e = String(this);
           o < 0 && (o = e.kmwLength() + o), o < 0 && (o = 0);
           var n = e.kmwCodePointToCodeUnit(o),
@@ -961,7 +961,7 @@ try {
           else for (var s = 0; s < t; s++) i = e.kmwNextChar(i);
           return i === null ? e.substring(n) : e.substring(n, i);
         }),
-        (String.prototype.kmwSubstring = function (o, t) {
+        (String.prototype.kmwSubstring = function(o, t) {
           var e = String(this),
             n,
             i;
@@ -981,7 +981,7 @@ try {
             e.substring(n, i)
           );
         }),
-        (String.prototype.kmwNextChar = function (o) {
+        (String.prototype.kmwNextChar = function(o) {
           var t = String(this);
           if (o === null || o < 0 || o >= t.length - 1) return null;
           var e = t.charCodeAt(o);
@@ -992,7 +992,7 @@ try {
           }
           return o + 1;
         }),
-        (String.prototype.kmwPrevChar = function (o) {
+        (String.prototype.kmwPrevChar = function(o) {
           var t = String(this);
           if (o == null || o <= 0 || o > t.length) return null;
           var e = t.charCodeAt(o - 1);
@@ -1002,7 +1002,7 @@ try {
           }
           return o - 1;
         }),
-        (String.prototype.kmwCodePointToCodeUnit = function (o) {
+        (String.prototype.kmwCodePointToCodeUnit = function(o) {
           if (o === null) return null;
           var t = String(this),
             e = 0;
@@ -1015,43 +1015,43 @@ try {
           for (var n = 0; n < o; n++) e = t.kmwNextChar(e);
           return e;
         }),
-        (String.prototype.kmwCodeUnitToCodePoint = function (o) {
+        (String.prototype.kmwCodeUnitToCodePoint = function(o) {
           var t = String(this);
           return o === null
             ? null
             : o == 0
-            ? 0
-            : o < 0
-            ? t.substr(o).kmwLength()
-            : t.substr(0, o).kmwLength();
+              ? 0
+              : o < 0
+                ? t.substr(o).kmwLength()
+                : t.substr(0, o).kmwLength();
         }),
-        (String.prototype.kmwCharAt = function (o) {
+        (String.prototype.kmwCharAt = function(o) {
           var t = String(this);
           return o >= 0 ? t.kmwSubstr(o, 1) : "";
         }),
-        (String.prototype.kmwBMPNextChar = function (o) {
+        (String.prototype.kmwBMPNextChar = function(o) {
           var t = String(this);
           return o < 0 || o >= t.length - 1 ? null : o + 1;
         }),
-        (String.prototype.kmwBMPPrevChar = function (o) {
+        (String.prototype.kmwBMPPrevChar = function(o) {
           var t = String(this);
           return o <= 0 || o > t.length ? null : o - 1;
         }),
-        (String.prototype.kmwBMPCodePointToCodeUnit = function (o) {
+        (String.prototype.kmwBMPCodePointToCodeUnit = function(o) {
           return o;
         }),
-        (String.prototype.kmwBMPCodeUnitToCodePoint = function (o) {
+        (String.prototype.kmwBMPCodeUnitToCodePoint = function(o) {
           return o;
         }),
-        (String.prototype.kmwBMPLength = function () {
+        (String.prototype.kmwBMPLength = function() {
           var o = String(this);
           return o.length;
         }),
-        (String.prototype.kmwBMPSubstr = function (o, t) {
+        (String.prototype.kmwBMPSubstr = function(o, t) {
           var e = String(this);
           return o > -1 ? e.substr(o, t) : e.substr(e.length + o, -o);
         }),
-        (String.kmwEnableSupplementaryPlane = function (o) {
+        (String.kmwEnableSupplementaryPlane = function(o) {
           var t = String.prototype;
           (String._kmwFromCharCode = o
             ? String.kmwFromCharCode
@@ -1152,10 +1152,10 @@ try {
     var Vt = {};
     Xc(Vt, { PRIVATE_USE_IDS: () => nr, TouchLayoutKeySp: () => Lc });
     var nr = [
-        "T_*_MT_SHIFT_TO_SHIFT",
-        "T_*_MT_SHIFT_TO_CAPS",
-        "T_*_MT_SHIFT_TO_DEFAULT",
-      ],
+      "T_*_MT_SHIFT_TO_SHIFT",
+      "T_*_MT_SHIFT_TO_CAPS",
+      "T_*_MT_SHIFT_TO_DEFAULT",
+    ],
       Lc = ((r) => (
         (r[(r.normal = 0)] = "normal"),
         (r[(r.special = 1)] = "special"),
@@ -1203,19 +1203,19 @@ try {
             oe = [];
           if (
             (J.splice(J.indexOf("default"), 1),
-            (J = ["default"].concat(J)),
-            e &&
+              (J = ["default"].concat(J)),
+              e &&
               e.emulatesAltGr &&
               (J.indexOf("leftctrl-leftalt") == -1 &&
                 J.indexOf("rightalt") != -1 &&
                 (J.push("leftctrl-leftalt"),
-                (d["leftctrl-leftalt"] = d.rightalt)),
-              J.indexOf("leftctrl-leftalt-shift") == -1 &&
+                  (d["leftctrl-leftalt"] = d.rightalt)),
+                J.indexOf("leftctrl-leftalt-shift") == -1 &&
                 J.indexOf("rightalt-shift") != -1 &&
                 (J.push("leftctrl-leftalt-shift"),
-                (d["leftctrl-leftalt-shift"] = d["rightalt-shift"]))),
-            (l.displayUnderlying = e ? !!e.scriptObject.KDU : !1),
-            n == "desktop")
+                  (d["leftctrl-leftalt-shift"] = d["rightalt-shift"]))),
+              (l.displayUnderlying = e ? !!e.scriptObject.KDU : !1),
+              n == "desktop")
           )
             for (oe = D.generateLayerIds(G), r = 0; r < oe.length; r++)
               J.indexOf(oe[r]) != -1 && oe.splice(r--, 1);
@@ -1261,16 +1261,16 @@ try {
             for (b = he.row, Q = 0; Q < b.length; Q++)
               for (x = b[Q].key, F = 0; F < x.length; F++) {
                 switch (
-                  ((h = x[F]),
+                ((h = x[F]),
                   (De = D.dfltCodes.indexOf(h.id)),
                   (ze || bc) &&
-                    (ze && De >= 0 && De < ze.length && (h.text = ze[De]),
+                  (ze && De >= 0 && De < ze.length && (h.text = ze[De]),
                     bc &&
-                      c.precedes(k.NO_DEFAULT_KEYCAPS) &&
-                      h.id != "K_SPACE" &&
-                      De + 65 * $n < D.dfltText.length &&
-                      h.text !== null &&
-                      (h.text = h.text || D.dfltText[De + 65 * $n])),
+                    c.precedes(k.NO_DEFAULT_KEYCAPS) &&
+                    h.id != "K_SPACE" &&
+                    De + 65 * $n < D.dfltText.length &&
+                    h.text !== null &&
+                    (h.text = h.text || D.dfltText[De + 65 * $n])),
                   h.text !== null && (h.text = h.text || ""),
                   h.id)
                 ) {
@@ -1301,9 +1301,9 @@ try {
               (he.numKey = qn),
               (he.scrollKey = Yi),
               n != "desktop" &&
-                r > 0 &&
-                Ue != null &&
-                ((Ue.sp = f.specialActive),
+              r > 0 &&
+              Ue != null &&
+              ((Ue.sp = f.specialActive),
                 (Ue.sk = null),
                 (Ue.text = D.modifierSpecials[B[r].id]
                   ? D.modifierSpecials[B[r].id]
@@ -1341,9 +1341,9 @@ try {
                 case "K_RSHIFT":
                   s.indexOf("shift") != -1 && (d.sp = f.specialActive),
                     n != "desktop" &&
-                      (s != "default"
-                        ? (d.nextlayer = "default")
-                        : (d.nextlayer = "shift"));
+                    (s != "default"
+                      ? (d.nextlayer = "default")
+                      : (d.nextlayer = "shift"));
                   break;
                 case "K_LCTRL":
                 case "K_LCONTROL":
@@ -1400,15 +1400,15 @@ try {
               var B = r + 65 * i;
               c.push(t[B]),
                 B < t.length &&
-                  t[B] != "" &&
-                  r != D.dfltCodes.indexOf("K_SPACE") &&
-                  (l = !0);
+                t[B] != "" &&
+                r != D.dfltCodes.indexOf("K_SPACE") &&
+                (l = !0);
             }
             l && (n[s] = c);
           }
           return (
             (typeof n.default == "undefined" || !n.default) &&
-              (n.default = [""]),
+            (n.default = [""]),
             (typeof n.shift == "undefined" || !n.shift) && (n.shift = [""]),
             n
           );
@@ -1923,21 +1923,21 @@ try {
     }
     a(fe, "Enumerable");
     var Zc = {
-        id: "string",
-        text: "string",
-        layer: "string",
-        nextlayer: "string",
-        font: "string",
-        fontsize: "string",
-        sp: "number",
-        pad: "number",
-        width: "number",
-        sk: "subkeys",
-        flick: "flicks",
-        multitap: "subkeys",
-        hint: "string",
-        default: "boolean",
-      },
+      id: "string",
+      text: "string",
+      layer: "string",
+      nextlayer: "string",
+      font: "string",
+      fontsize: "string",
+      sp: "number",
+      pad: "number",
+      width: "number",
+      sk: "subkeys",
+      flick: "flicks",
+      multitap: "subkeys",
+      hint: "string",
+      default: "boolean",
+    },
       Sc = ["n", "ne", "e", "se", "s", "sw", "w", "nw"],
       un = class {
         constructor() {
@@ -2023,7 +2023,7 @@ try {
             (!t.text &&
               typeof t.id == "string" &&
               (t.text = N.unicodeIDToText(t.id)),
-            t.sk)
+              t.sk)
           ) {
             s.hasLongpresses = !0;
             for (let B of t.sk) ct.polyfill(B, e, n, i, s);
@@ -2100,10 +2100,10 @@ try {
             let r = e.keyboard;
             r.isMnemonic && !(e.isDefault && e.formFactor != "desktop")
               ? l.Lcode != U.keyCodes.K_SPACE &&
-                ((l.vkCode = l.Lcode), (this.isMnemonic = !0))
+              ((l.vkCode = l.Lcode), (this.isMnemonic = !0))
               : (l.vkCode = l.Lcode),
               r.definesPositionalOrMnemonic ||
-                ((l.Lcode = w._USKeyCodeToCharCode(l)), (l.LisVirtualKey = !1));
+              ((l.Lcode = w._USKeyCodeToCharCode(l)), (l.LisVirtualKey = !1));
           }
           this._baseKeyEvent = l;
         }
@@ -2134,176 +2134,176 @@ try {
       }
     };
     a(N, "ActiveKey");
-    var ct = class extends ie {};
+    var ct = class extends ie { };
     a(ct, "ActiveSubKey");
     var ni = class {
-        constructor() {}
-        static sanitize(t) {
-          for (let e of t.key)
-            e == null ? (t.key.length = t.key.length - 1) : N.sanitize(e);
-          typeof t.id == "string" && (t.id = Number.parseInt(t.id, 10));
-        }
-        static polyfill(t, e, n, i, s, c, l) {
-          let r = t.key;
-          for (let u = 0; u < r.length; u++) {
-            let I = r[u];
-            for (var B in N.DEFAULT_KEY)
-              typeof I[B] != "string" &&
-                typeof I[B] != "number" &&
-                (I[B] = N.DEFAULT_KEY[B]);
-            switch (I.sp) {
-              case f.special:
-                !ni.SPECIAL_LABEL.test(I.text) &&
-                  I.text != "" &&
-                  (I.sp = f.customSpecial);
-                break;
-              case f.specialActive:
-                !ni.SPECIAL_LABEL.test(I.text) &&
-                  I.text != "" &&
-                  (I.sp = f.customSpecialActive);
-                break;
-            }
-            N.polyfill(I, e, n, i, l);
+      constructor() { }
+      static sanitize(t) {
+        for (let e of t.key)
+          e == null ? (t.key.length = t.key.length - 1) : N.sanitize(e);
+        typeof t.id == "string" && (t.id = Number.parseInt(t.id, 10));
+      }
+      static polyfill(t, e, n, i, s, c, l) {
+        let r = t.key;
+        for (let u = 0; u < r.length; u++) {
+          let I = r[u];
+          for (var B in N.DEFAULT_KEY)
+            typeof I[B] != "string" &&
+              typeof I[B] != "number" &&
+              (I[B] = N.DEFAULT_KEY[B]);
+          switch (I.sp) {
+            case f.special:
+              !ni.SPECIAL_LABEL.test(I.text) &&
+                I.text != "" &&
+                (I.sp = f.customSpecial);
+              break;
+            case f.specialActive:
+              !ni.SPECIAL_LABEL.test(I.text) &&
+                I.text != "" &&
+                (I.sp = f.customSpecialActive);
+              break;
           }
-          let d = a(function (u, I, b, h) {
-              (u.proportionalPad = I),
-                (u.proportionalWidth = b),
-                (u.proportionalX = h + I + b / 2);
-            }, "setProportions"),
-            g = 0;
-          for (let u = 0; u < r.length - 1; u++) {
-            let I = r[u];
-            d(I, I.pad / s, I.width / s, g),
-              (g += I.proportionalPad),
-              (g += I.proportionalWidth);
-          }
-          let Q = N.DEFAULT_RIGHT_MARGIN / s;
-          if (r.length > 0) {
-            let u = r[r.length - 1];
-            if (r.length == 1 && u.pad < 0) {
-              let I = u.width / s,
-                b = 1 - (g + I + Q);
-              d(u, b, I, g);
-            } else {
-              let I = u.pad / s,
-                b = 1 - (g + I + Q);
-              d(u, I, b, g);
-            }
-          }
-          let F = new ni();
-          for (let u in F) t.hasOwnProperty(u) || (t[u] = F[u]);
-          let y = t;
-          y.proportionalY = c;
+          N.polyfill(I, e, n, i, l);
         }
-        populateKeyMap(t) {
-          this.key.forEach(function (e) {
-            e.coreID && (t[e.coreID] = e);
-          });
+        let d = a(function(u, I, b, h) {
+          (u.proportionalPad = I),
+            (u.proportionalWidth = b),
+            (u.proportionalX = h + I + b / 2);
+        }, "setProportions"),
+          g = 0;
+        for (let u = 0; u < r.length - 1; u++) {
+          let I = r[u];
+          d(I, I.pad / s, I.width / s, g),
+            (g += I.proportionalPad),
+            (g += I.proportionalWidth);
         }
-      },
+        let Q = N.DEFAULT_RIGHT_MARGIN / s;
+        if (r.length > 0) {
+          let u = r[r.length - 1];
+          if (r.length == 1 && u.pad < 0) {
+            let I = u.width / s,
+              b = 1 - (g + I + Q);
+            d(u, b, I, g);
+          } else {
+            let I = u.pad / s,
+              b = 1 - (g + I + Q);
+            d(u, I, b, g);
+          }
+        }
+        let F = new ni();
+        for (let u in F) t.hasOwnProperty(u) || (t[u] = F[u]);
+        let y = t;
+        y.proportionalY = c;
+      }
+      populateKeyMap(t) {
+        this.key.forEach(function(e) {
+          e.coreID && (t[e.coreID] = e);
+        });
+      }
+    },
       Lt = ni;
     a(Lt, "ActiveRow"),
       (Lt.SPECIAL_LABEL = /\*\w+\*/),
       Le([fe], Lt.prototype, "populateKeyMap", 1);
     var Ns = class {
-        constructor() {}
-        static sanitize(t) {
-          for (let e of t.row) Lt.sanitize(e);
+      constructor() { }
+      static sanitize(t) {
+        for (let e of t.row) Lt.sanitize(e);
+      }
+      static polyfill(t, e, n, i) {
+        t.aligned = !1;
+        let s = t.row,
+          c = 0;
+        for (let d of s) {
+          let g = 0,
+            Q = d.key;
+          for (let F of Q) g += F.width + F.pad;
+          g > c && (c = g);
         }
-        static polyfill(t, e, n, i) {
-          t.aligned = !1;
-          let s = t.row,
-            c = 0;
-          for (let d of s) {
-            let g = 0,
-              Q = d.key;
-            for (let F of Q) g += F.width + F.pad;
-            g > c && (c = g);
-          }
-          n.formFactor == "desktop" ? (c += 5) : (c += N.DEFAULT_RIGHT_MARGIN);
-          let l = t.row.length;
-          for (let d = 0; d < l; d++) {
-            let g = (d + 0.5) / l;
-            Lt.polyfill(t.row[d], e, n, t.id, c, g, i);
-          }
-          let r = new Ns();
-          for (let d in r) t.hasOwnProperty(d) || (t[d] = r[d]);
-          let B = t;
-          (B.totalWidth = c),
-            (B.defaultKeyProportionalWidth = N.DEFAULT_KEY.width / c),
-            (B.rowProportionalHeight = 1 / l),
-            (B.keyMap = B.constructKeyMap());
+        n.formFactor == "desktop" ? (c += 5) : (c += N.DEFAULT_RIGHT_MARGIN);
+        let l = t.row.length;
+        for (let d = 0; d < l; d++) {
+          let g = (d + 0.5) / l;
+          Lt.polyfill(t.row[d], e, n, t.id, c, g, i);
         }
-        constructKeyMap() {
-          let t = {};
-          return (
-            this.row.forEach(function (e) {
-              e.populateKeyMap(t);
-            }),
-            t
-          );
-        }
-        getKey(t) {
-          t.indexOf(this.id + "-") == 0 && (t = t.replace(this.id + "-", ""));
-          let e = t.split("::");
-          return e.length > 1
-            ? this.keyMap[e[0]].getSubkey(e[1])
-            : this.keyMap[t];
-        }
-      },
+        let r = new Ns();
+        for (let d in r) t.hasOwnProperty(d) || (t[d] = r[d]);
+        let B = t;
+        (B.totalWidth = c),
+          (B.defaultKeyProportionalWidth = N.DEFAULT_KEY.width / c),
+          (B.rowProportionalHeight = 1 / l),
+          (B.keyMap = B.constructKeyMap());
+      }
+      constructKeyMap() {
+        let t = {};
+        return (
+          this.row.forEach(function(e) {
+            e.populateKeyMap(t);
+          }),
+          t
+        );
+      }
+      getKey(t) {
+        t.indexOf(this.id + "-") == 0 && (t = t.replace(this.id + "-", ""));
+        let e = t.split("::");
+        return e.length > 1
+          ? this.keyMap[e[0]].getSubkey(e[1])
+          : this.keyMap[t];
+      }
+    },
       Zt = Ns;
     a(Zt, "ActiveLayer"),
       Le([fe], Zt.prototype, "constructKeyMap", 1),
       Le([fe], Zt.prototype, "getKey", 1);
     var _i = class {
-        constructor() {
-          this.hasFlicks = !1;
-          this.hasLongpresses = !1;
-          this.hasMultitaps = !1;
+      constructor() {
+        this.hasFlicks = !1;
+        this.hasLongpresses = !1;
+        this.hasMultitaps = !1;
+      }
+      getLayer(t) {
+        return this.layerMap[t];
+      }
+      static correctLayerEmptyRowBug(t) {
+        for (let e = 0; e < t.length; e++) {
+          let i = t[e].row,
+            s;
+          for (s = i.length - 1; s >= 0; s--)
+            (!Array.isArray(i[s].key) || i[s].key.length == 0) &&
+              i.splice(s, 1);
         }
-        getLayer(t) {
-          return this.layerMap[t];
-        }
-        static correctLayerEmptyRowBug(t) {
-          for (let e = 0; e < t.length; e++) {
-            let i = t[e].row,
-              s;
-            for (s = i.length - 1; s >= 0; s--)
-              (!Array.isArray(i[s].key) || i[s].key.length == 0) &&
-                i.splice(s, 1);
-          }
-        }
-        static sanitize(t) {
-          _i.correctLayerEmptyRowBug(t.layer);
-          for (let e of t.layer) Zt.sanitize(e);
-        }
-        static polyfill(t, e, n) {
-          if (t == null)
-            throw new Error(
-              "Cannot build an ActiveLayout for a null specification."
-            );
-          let i = { hasFlicks: !1, hasLongpresses: !1, hasMultitaps: !1 };
-          this.sanitize(t);
-          var s;
-          let c = {},
-            l = t.layer,
-            r = new _i();
-          for (let d in r) t.hasOwnProperty(d) || (t[d] = r[d]);
-          let B = t;
-          for (B.keyboard = e, B.formFactor = n, s = 0; s < l.length; s++)
-            Zt.polyfill(l[s], e, B, i), (c[l[s].id] = l[s]);
-          if (n != "desktop" && !!t.layer.find((d) => d.id == "caps")) {
-            let d = t.layer.find((y) => y.id == "default"),
-              g = t.layer.find((y) => y.id == "shift"),
-              Q = d.getKey("K_SHIFT"),
-              F = g == null ? void 0 : g.getKey("K_SHIFT");
-            Q &&
-              F &&
-              !Q.multitap &&
-              !F.multitap &&
-              !Q.sk &&
-              !F.sk &&
-              ((i.hasMultitaps = !0),
+      }
+      static sanitize(t) {
+        _i.correctLayerEmptyRowBug(t.layer);
+        for (let e of t.layer) Zt.sanitize(e);
+      }
+      static polyfill(t, e, n) {
+        if (t == null)
+          throw new Error(
+            "Cannot build an ActiveLayout for a null specification."
+          );
+        let i = { hasFlicks: !1, hasLongpresses: !1, hasMultitaps: !1 };
+        this.sanitize(t);
+        var s;
+        let c = {},
+          l = t.layer,
+          r = new _i();
+        for (let d in r) t.hasOwnProperty(d) || (t[d] = r[d]);
+        let B = t;
+        for (B.keyboard = e, B.formFactor = n, s = 0; s < l.length; s++)
+          Zt.polyfill(l[s], e, B, i), (c[l[s].id] = l[s]);
+        if (n != "desktop" && !!t.layer.find((d) => d.id == "caps")) {
+          let d = t.layer.find((y) => y.id == "default"),
+            g = t.layer.find((y) => y.id == "shift"),
+            Q = d.getKey("K_SHIFT"),
+            F = g == null ? void 0 : g.getKey("K_SHIFT");
+          Q &&
+            F &&
+            !Q.multitap &&
+            !F.multitap &&
+            !Q.sk &&
+            !F.sk &&
+            ((i.hasMultitaps = !0),
               (Q.multitap = [
                 C({}, R.dfltShiftToCaps),
                 C({}, R.dfltShiftToDefault),
@@ -2314,16 +2314,16 @@ try {
               ]),
               Q.multitap.forEach((y) => ct.polyfill(y, e, B, "default")),
               F.multitap.forEach((y) => ct.polyfill(y, e, B, "shift")));
-          }
-          return (
-            (B.hasFlicks = i.hasFlicks),
-            (B.hasLongpresses = i.hasLongpresses),
-            (B.hasMultitaps = i.hasMultitaps),
-            (B.layerMap = c),
-            B
-          );
         }
-      },
+        return (
+          (B.hasFlicks = i.hasFlicks),
+          (B.hasLongpresses = i.hasLongpresses),
+          (B.hasMultitaps = i.hasMultitaps),
+          (B.layerMap = c),
+          B
+        );
+      }
+    },
       st = _i;
     a(st, "ActiveLayout"), Le([fe], st.prototype, "getLayer", 1);
     var qi = class {
@@ -2333,11 +2333,11 @@ try {
     };
     a(qi, "CacheTag");
     var $i = ((n) => (
-        (n[(n.NOT_LOADED = void 0)] = "NOT_LOADED"),
-        (n[(n.POLYFILLED = 1)] = "POLYFILLED"),
-        (n[(n.CALIBRATED = 2)] = "CALIBRATED"),
-        n
-      ))($i || {}),
+      (n[(n.NOT_LOADED = void 0)] = "NOT_LOADED"),
+      (n[(n.POLYFILLED = 1)] = "POLYFILLED"),
+      (n[(n.CALIBRATED = 2)] = "CALIBRATED"),
+      n
+    ))($i || {}),
       es = class {
         constructor(t) {
           t
@@ -2411,7 +2411,7 @@ try {
             typeof this.scriptObject.KLC != "undefined"
               ? (t = this.scriptObject.KLC)
               : typeof this.scriptObject.LanguageCode != "undefined" &&
-                (t = this.scriptObject.LanguageCode),
+              (t = this.scriptObject.LanguageCode),
             t == "cmn" || t == "jpn" || t == "kor"
           );
         }
@@ -2493,8 +2493,8 @@ try {
             (!e &&
               (this.helpText == "" || t != p.FormFactor.Desktop) &&
               (e = { F: "Tahoma", BK: R.dfltText }),
-            this._layouts || (this._layouts = {}),
-            e)
+              this._layouts || (this._layouts = {}),
+              e)
           ) {
             let s = (this._layouts[t] = R.buildDefaultLayout(e, this, t));
             return (s.isDefault = !0), s;
@@ -2504,18 +2504,18 @@ try {
           let e = this.findOrConstructLayout(t);
           return e
             ? (this.layoutStates[t] == $i.NOT_LOADED &&
-                ((e = st.polyfill(e, this, t)), (this.layoutStates[t] = 1)),
+              ((e = st.polyfill(e, this, t)), (this.layoutStates[t] = 1)),
               e)
             : null;
         }
         refreshLayouts() {
           let t = [
-              p.FormFactor.Desktop,
-              p.FormFactor.Phone,
-              p.FormFactor.Tablet,
-            ],
+            p.FormFactor.Desktop,
+            p.FormFactor.Phone,
+            p.FormFactor.Tablet,
+          ],
             e = this;
-          t.forEach(function (n) {
+          t.forEach(function(n) {
             e.layoutStates[n] = $i.NOT_LOADED;
           });
         }
@@ -2534,7 +2534,7 @@ try {
           let i = t.baseKeyEvent;
           (i.device = e),
             this.isMnemonic &&
-              i.setMnemonicCode(t.layer.indexOf("shift") != -1, n.K_CAPS),
+            i.setMnemonicCode(t.layer.indexOf("shift") != -1, n.K_CAPS),
             this.setSyntheticEventDefaults(i, n);
           let c = {
             K_CAPS: U.stateBitmasks.CAPS,
@@ -2546,23 +2546,23 @@ try {
         setSyntheticEventDefaults(t, e) {
           t.device.touchable ||
             ((t.Lstates = 0),
-            (t.Lstates |= e.K_CAPS
-              ? U.modifierCodes.CAPS
-              : U.modifierCodes.NO_CAPS),
-            (t.Lstates |= e.K_NUMLOCK
-              ? U.modifierCodes.NUM_LOCK
-              : U.modifierCodes.NO_NUM_LOCK),
-            (t.Lstates |= e.K_SCROLL
-              ? U.modifierCodes.SCROLL_LOCK
-              : U.modifierCodes.NO_SCROLL_LOCK)),
+              (t.Lstates |= e.K_CAPS
+                ? U.modifierCodes.CAPS
+                : U.modifierCodes.NO_CAPS),
+              (t.Lstates |= e.K_NUMLOCK
+                ? U.modifierCodes.NUM_LOCK
+                : U.modifierCodes.NO_NUM_LOCK),
+              (t.Lstates |= e.K_SCROLL
+                ? U.modifierCodes.SCROLL_LOCK
+                : U.modifierCodes.NO_SCROLL_LOCK)),
             t.kName && t.kName.substr(0, 2) == "U_" && (t.LisVirtualKey = !1),
             typeof t.Lcode == "undefined" &&
-              ((t.Lcode = this.getVKDictionaryCode(t.kName)),
+            ((t.Lcode = this.getVKDictionaryCode(t.kName)),
               t.Lcode || (t.Lcode = 1)),
             (t.Lmodifiers & U.modifierBitmasks.ALT_GR_SIM) ==
-              U.modifierBitmasks.ALT_GR_SIM &&
-              this.emulatesAltGr &&
-              ((t.Lmodifiers &= ~U.modifierBitmasks.ALT_GR_SIM),
+            U.modifierBitmasks.ALT_GR_SIM &&
+            this.emulatesAltGr &&
+            ((t.Lmodifiers &= ~U.modifierBitmasks.ALT_GR_SIM),
               (t.Lmodifiers |= U.modifierCodes.RALT));
         }
         getVKDictionaryCode(t) {
@@ -2582,7 +2582,7 @@ try {
       T = es;
     a(T, "Keyboard"),
       (T.DEFAULT_SCRIPT_OBJECT = {
-        gs: function (t, e) {
+        gs: function(t, e) {
           return !1;
         },
         KI: "",
@@ -2613,7 +2613,7 @@ try {
         uninstall() {
           this._jsGlobal.KeymanWeb == this && delete this._jsGlobal.KeymanWeb,
             this._jsGlobal.keyman == this.keymanGlobal &&
-              delete this._jsGlobal.keyman;
+            delete this._jsGlobal.keyman;
         }
       };
     a(lt, "KeyboardHarness");
@@ -2680,12 +2680,12 @@ try {
     };
     a(St, "KeyboardLoaderBase");
     var Jc = ((i) => (
-        (i.KEYBOARD = "keyboard"),
-        (i.LANGUAGE = "language"),
-        (i.LANGUAGE_KEYBOARD = "languageKeyboard"),
-        (i.BLANK = "blank"),
-        i
-      ))(Jc || {}),
+      (i.KEYBOARD = "keyboard"),
+      (i.LANGUAGE = "language"),
+      (i.LANGUAGE_KEYBOARD = "languageKeyboard"),
+      (i.BLANK = "blank"),
+      i
+    ))(Jc || {}),
       Je = Jc;
     function Ts(o, t) {
       if (o)
@@ -2693,142 +2693,141 @@ try {
     }
     a(Ts, "internalizeFont");
     var Un = class {
-        static get spacebarTextMode() {
-          return typeof this.spacebarTextModeSrc == "string"
-            ? this.spacebarTextModeSrc
-            : this.spacebarTextModeSrc();
-        }
-        static set spacebarTextMode(t) {
-          this.spacebarTextModeSrc = t;
-        }
-        constructor(t, e) {
-          if (typeof t != "string")
-            if (t.KI || t.KL || t.KLC || t.KFont || t.KOskFont) {
-              let n = t;
-              (this.KI = n.KI),
-                (this.KN = n.KN),
-                (this.KL = n.KL),
-                (this.KLC = n.KLC),
-                (this.KFont = n.KFont),
-                (this.KOskFont = n.KOskFont),
-                (this._displayName =
-                  n instanceof Un ? n._displayName : n.displayName);
-            } else {
-              let n = t;
-              n.languages || (n.languages = n.language),
-                (this.KI = n.id),
-                (this.KN = n.name),
-                (this.KL = n.languages.name),
-                (this.KLC = n.languages.id),
-                (this.KFont = Ts(n.languages.font, e)),
-                (this.KOskFont = Ts(n.languages.oskFont, e));
-            }
-          else (this.KI = t), (this.KLC = e);
-        }
-        static fromMultilanguageAPIStub(t) {
-          let e = [];
-          t.languages || (t.languages = t.language);
-          for (let n of t.languages) {
-            let i = { id: t.id, name: t.name, languages: n };
-            e.push(new Un(i));
+      static get spacebarTextMode() {
+        return typeof this.spacebarTextModeSrc == "string"
+          ? this.spacebarTextModeSrc
+          : this.spacebarTextModeSrc();
+      }
+      static set spacebarTextMode(t) {
+        this.spacebarTextModeSrc = t;
+      }
+      constructor(t, e) {
+        if (typeof t != "string")
+          if (t.KI || t.KL || t.KLC || t.KFont || t.KOskFont) {
+            let n = t;
+            (this.KI = n.KI),
+              (this.KN = n.KN),
+              (this.KL = n.KL),
+              (this.KLC = n.KLC),
+              (this.KFont = n.KFont),
+              (this.KOskFont = n.KOskFont),
+              (this._displayName =
+                n instanceof Un ? n._displayName : n.displayName);
+          } else {
+            let n = t;
+            n.languages || (n.languages = n.language),
+              (this.KI = n.id),
+              (this.KN = n.name),
+              (this.KL = n.languages.name),
+              (this.KLC = n.languages.id),
+              (this.KFont = Ts(n.languages.font, e)),
+              (this.KOskFont = Ts(n.languages.oskFont, e));
           }
-          return e;
+        else (this.KI = t), (this.KLC = e);
+      }
+      static fromMultilanguageAPIStub(t) {
+        let e = [];
+        t.languages || (t.languages = t.language);
+        for (let n of t.languages) {
+          let i = { id: t.id, name: t.name, languages: n };
+          e.push(new Un(i));
         }
-        get id() {
-          return this.KI;
+        return e;
+      }
+      get id() {
+        return this.KI;
+      }
+      get name() {
+        return this.KN;
+      }
+      get langId() {
+        return this.KLC;
+      }
+      get langName() {
+        return this.KL;
+      }
+      get displayName() {
+        if (this._displayName) return this._displayName;
+        let t = this.KN,
+          e = this.KL;
+        switch (Un.spacebarTextMode) {
+          case Je.KEYBOARD:
+            return t;
+          case Je.LANGUAGE:
+            return e;
+          case Je.LANGUAGE_KEYBOARD:
+            return t == e ? e : e + " - " + t;
+          case Je.BLANK:
+            return "";
+          default:
+            return t;
         }
-        get name() {
-          return this.KN;
-        }
-        get langId() {
-          return this.KLC;
-        }
-        get langName() {
-          return this.KL;
-        }
-        get displayName() {
-          if (this._displayName) return this._displayName;
-          let t = this.KN,
-            e = this.KL;
-          switch (Un.spacebarTextMode) {
-            case Je.KEYBOARD:
-              return t;
-            case Je.LANGUAGE:
-              return e;
-            case Je.LANGUAGE_KEYBOARD:
-              return t == e ? e : e + " - " + t;
-            case Je.BLANK:
-              return "";
-            default:
-              return t;
-          }
-        }
-        set displayName(t) {
-          this._displayName = t;
-        }
-        get textFont() {
-          return this.KFont;
-        }
-        get oskFont() {
-          return this.KOskFont;
-        }
-        validateForOSK() {
-          return this.KLC
-            ? this.displayName === void 0 ||
-              (Un.spacebarTextMode != Je.BLANK && !this.displayName)
-              ? new Error(
-                  "A display name is missing for this keyboard and cannot be generated under current settings."
-                )
-              : null
-            : this.KI || this.KN
+      }
+      set displayName(t) {
+        this._displayName = t;
+      }
+      get textFont() {
+        return this.KFont;
+      }
+      get oskFont() {
+        return this.KOskFont;
+      }
+      validateForOSK() {
+        return this.KLC
+          ? this.displayName === void 0 ||
+            (Un.spacebarTextMode != Je.BLANK && !this.displayName)
             ? new Error(
-                `No language code was specified for use with the ${
-                  this.KI || this.KN
-                } keyboard`
-              )
+              "A display name is missing for this keyboard and cannot be generated under current settings."
+            )
+            : null
+          : this.KI || this.KN
+            ? new Error(
+              `No language code was specified for use with the ${this.KI || this.KN
+              } keyboard`
+            )
             : new Error(
-                "No language code was specified for use with the corresponding keyboard"
-              );
-        }
-        validateForCustomKeyboard() {
-          return !this.KI || !this.KN || !this.KL || !this.KLC
-            ? new Error(
-                "To use a custom keyboard, you must specify keyboard id, keyboard name, language and language code."
-              )
-            : null;
-        }
-      },
+              "No language code was specified for use with the corresponding keyboard"
+            );
+      }
+      validateForCustomKeyboard() {
+        return !this.KI || !this.KN || !this.KL || !this.KLC
+          ? new Error(
+            "To use a custom keyboard, you must specify keyboard id, keyboard name, language and language code."
+          )
+          : null;
+      }
+    },
       Re = Un;
     a(Re, "KeyboardProperties"), (Re.spacebarTextModeSrc = Je.KEYBOARD);
     var is = class {
-        constructor(t, e) {
-          (this.p = t), (this.d = e), (this.o = is.ordinalSeed++);
-        }
-        match(t, e) {
-          var n = this.p == t && this.d == e;
-          return n;
-        }
-        set() {
-          this.matched = 1;
-        }
-        reset() {
-          this.matched = 0;
-        }
-        before(t) {
-          return this.o < t.o;
-        }
-        clone() {
-          let t = new is(this.p, this.d);
-          return (t.o = this.o), t;
-        }
-        equal(t) {
-          return this.d == t.d && this.p == t.d && this.o == t.o;
-        }
-      },
+      constructor(t, e) {
+        (this.p = t), (this.d = e), (this.o = is.ordinalSeed++);
+      }
+      match(t, e) {
+        var n = this.p == t && this.d == e;
+        return n;
+      }
+      set() {
+        this.matched = 1;
+      }
+      reset() {
+        this.matched = 0;
+      }
+      before(t) {
+        return this.o < t.o;
+      }
+      clone() {
+        let t = new is(this.p, this.d);
+        return (t.o = this.o), t;
+      }
+      equal(t) {
+        return this.d == t.d && this.p == t.d && this.o == t.o;
+      }
+    },
       ot = is;
     a(ot, "Deadkey"),
       (ot.ordinalSeed = 0),
-      (ot.sortFunc = a(function (t, e) {
+      (ot.sortFunc = a(function(t, e) {
         return t.p != e.p ? e.p - t.p : e.o - t.o;
       }, "sortFunc"));
     var Jt = class {
@@ -2843,7 +2842,7 @@ try {
           e = this.toSortedArray();
         return (
           (t.dks = []),
-          e.forEach(function (n) {
+          e.forEach(function(n) {
             t.dks.push(n.clone());
           }),
           t
@@ -3000,35 +2999,35 @@ try {
       var t;
       return o
         ? o.insert === "" &&
-            o.deleteLeft === 0 &&
-            ((t = o.deleteRight) != null ? t : 0) === 0
+        o.deleteLeft === 0 &&
+        ((t = o.deleteRight) != null ? t : 0) === 0
         : !0;
     }
     a(At, "isEmptyTransform");
     var Ys = class {
-        constructor(t, e, n, i) {
-          (this.insert = t),
-            (this.deleteLeft = e),
-            (this.deleteRight = n),
-            (this.erasedSelection = i);
-        }
-      },
+      constructor(t, e, n, i) {
+        (this.insert = t),
+          (this.deleteLeft = e),
+          (this.deleteRight = n),
+          (this.erasedSelection = i);
+      }
+    },
       li = Ys;
     a(li, "TextTransform"), (li.nil = new Ys("", 0, 0, !1));
     var ws = class {
-        constructor(t, e, n, i) {
-          let s = (this.token = ws.tokenSeed++);
-          (this.keystroke = t),
-            (this.transform = e),
-            (this.alternates = i),
-            (this.preInput = n),
-            (this.transform.id = this.token),
-            i &&
-              i.forEach(function (c) {
-                c.sample.id = s;
-              });
-        }
-      },
+      constructor(t, e, n, i) {
+        let s = (this.token = ws.tokenSeed++);
+        (this.keystroke = t),
+          (this.transform = e),
+          (this.alternates = i),
+          (this.preInput = n),
+          (this.transform.id = this.token),
+          i &&
+          i.forEach(function(c) {
+            c.sample.id = s;
+          });
+      }
+    },
       ri = ws;
     a(ri, "Transcription"), (ri.tokenSeed = 0);
     var at = class {
@@ -3082,9 +3081,9 @@ try {
       apply(t) {
         this.clearSelection(),
           t.deleteRight &&
-            this.setTextAfterCaret(
-              this.getTextAfterCaret()._kmwSubstr(t.deleteRight)
-            ),
+          this.setTextAfterCaret(
+            this.getTextAfterCaret()._kmwSubstr(t.deleteRight)
+          ),
           t.deleteLeft && this.deleteCharsBeforeCaret(t.deleteLeft),
           t.insert && this.insertTextBeforeCaret(t.insert),
           this._dks.clear();
@@ -3093,8 +3092,8 @@ try {
         this.deleteCharsBeforeCaret(this.getTextBeforeCaret()._kmwLength()),
           this.insertTextBeforeCaret(t);
       }
-      saveProperties() {}
-      restoreProperties() {}
+      saveProperties() { }
+      restoreProperties() { }
     };
     a(at, "OutputTarget");
     var E = class extends at {
@@ -3131,7 +3130,7 @@ try {
           (this.selEnd = this.selStart),
           (this.selForward = !0);
       }
-      invalidateSelection() {}
+      invalidateSelection() { }
       isSelectionEmpty() {
         return this.selStart == this.selEnd;
       }
@@ -3144,9 +3143,9 @@ try {
       setSelection(e, n) {
         if (
           ((this.selStart = e),
-          (this.selEnd = typeof n == "number" ? n : e),
-          (this.selForward = n >= e),
-          !this.selForward)
+            (this.selEnd = typeof n == "number" ? n : e),
+            (this.selForward = n >= e),
+            !this.selForward)
         ) {
           let i = this.selStart;
           (this.selStart = this.selEnd), (this.selEnd = i);
@@ -3167,12 +3166,12 @@ try {
       deleteCharsBeforeCaret(e) {
         e >= 0 &&
           (e > this.selStart && (e = this.selStart),
-          this.adjustDeadkeys(-e),
-          (this.text =
-            this.text.kmwSubstr(0, this.selStart - e) +
-            this.text.kmwSubstr(this.selStart)),
-          (this.selStart -= e),
-          (this.selEnd -= e));
+            this.adjustDeadkeys(-e),
+            (this.text =
+              this.text.kmwSubstr(0, this.selStart - e) +
+              this.text.kmwSubstr(this.selStart)),
+            (this.selStart -= e),
+            (this.selEnd -= e));
       }
       insertTextBeforeCaret(e) {
         this.adjustDeadkeys(e._kmwLength()),
@@ -3196,7 +3195,7 @@ try {
           this.deadkeys().equal(e.deadkeys())
         );
       }
-      doInputEvent() {}
+      doInputEvent() { }
     };
     a(E, "Mock");
     var se = class {
@@ -3228,7 +3227,7 @@ try {
         }
         if (
           (t.keyboardInterface.applyVariableStores(this.variableStores),
-          t.keyboardInterface.variableStoreSerializer)
+            t.keyboardInterface.variableStoreSerializer)
         )
           for (let i in this.saveStore)
             t.keyboardInterface.variableStoreSerializer.saveStore(
@@ -3263,7 +3262,7 @@ try {
       }
     };
     a(se, "RuleBehavior");
-    var ss = class {};
+    var ss = class { };
     a(ss, "KeyInformation");
     var cs = class {
       reset() {
@@ -3302,765 +3301,765 @@ try {
     };
     a(hn, "CachedContextEx");
     var Ds = class extends lt {
-        constructor(e, n, i = null) {
-          super(e, n);
-          this.cachedContext = new cs();
-          this.cachedContextEx = new hn();
-          this._AnyIndices = [];
-          (this.systemStores = {}),
-            (this.systemStores[31] = new ci(this)),
-            (this.systemStores[33] = new Rt(33, "default")),
-            (this.systemStores[42] = new Rt(42, "")),
-            (this.systemStores[43] = new Rt(43, "")),
-            (this.variableStoreSerializer = i);
-        }
-        get Codes() {
-          return U;
-        }
-        saveFocus() {}
-        registerKeyboard(e) {
-          let n = new T(e);
-          this.loadedKeyboard = n;
-        }
-        context(e, n, i) {
-          var s = this.cachedContext.get(e, n);
-          if (s !== null) return s;
-          var c = this.KC_(e, n, i);
-          return this.cachedContext.set(e, n, c), c;
-        }
-        KC_(e, n, i) {
-          var s = "";
-          return (
-            (s = i.isSelectionEmpty() ? i.getTextBeforeCaret() : ""),
-            s._kmwLength() < e &&
-              (s = Array(e - s._kmwLength() + 1).join("\uFFFE") + s),
-            s._kmwSubstr(-e)._kmwSubstr(0, n)
-          );
-        }
-        nul(e, n) {
-          var i = this.context(e + 1, 1, n);
-          return i === "\uFFFE";
-        }
-        contextMatch(e, n, i, s) {
-          var c = this.context(e, s, n);
-          return c === i ? !0 : (n.deadkeys().resetMatched(), !1);
-        }
-        _BuildExtendedContext(e, n, i) {
-          var s = this.cachedContextEx.get(e, n);
-          if (s !== null) return s;
-          if (((s = this.cachedContextEx.get(e, e)), s === null)) {
-            let g = i.deadkeys().toSortedArray();
-            var c = 0;
-            for (
-              s = { valContext: [], deadContext: [] };
-              s.valContext.length < e;
-
-            ) {
-              var l = i.getDeadkeyCaret(),
-                r = l - c;
-              if (g.length > 0 && g[0].p > r) {
-                g.splice(0, 1);
-                continue;
-              } else if (g.length > 0 && g[0].p == r)
-                (s.deadContext[e - s.valContext.length - 1] = g[0]),
-                  (s.valContext = [g[0].d].concat(s.valContext)),
-                  g.splice(0, 1);
-              else {
-                var B = this.context(++c, 1, i);
-                s.valContext = [B].concat(s.valContext);
-              }
-            }
-            this.cachedContextEx.set(e, e, s);
-          }
-          var d = s;
-          return (
-            (d.valContext = d.valContext.slice(0, n)),
-            this.cachedContextEx.set(e, n, d),
-            d
-          );
-        }
-        fullContextMatch(e, n, i) {
-          var s = this._BuildExtendedContext(e, i.length, n);
-          this.ruleContextEx = this.cachedContextEx.clone();
-          var c = s.valContext,
-            l = s.deadContext,
-            r = !1;
-          let B = "\uFFFE";
+      constructor(e, n, i = null) {
+        super(e, n);
+        this.cachedContext = new cs();
+        this.cachedContextEx = new hn();
+        this._AnyIndices = [];
+        (this.systemStores = {}),
+          (this.systemStores[31] = new ci(this)),
+          (this.systemStores[33] = new Rt(33, "default")),
+          (this.systemStores[42] = new Rt(42, "")),
+          (this.systemStores[43] = new Rt(43, "")),
+          (this.variableStoreSerializer = i);
+      }
+      get Codes() {
+        return U;
+      }
+      saveFocus() { }
+      registerKeyboard(e) {
+        let n = new T(e);
+        this.loadedKeyboard = n;
+      }
+      context(e, n, i) {
+        var s = this.cachedContext.get(e, n);
+        if (s !== null) return s;
+        var c = this.KC_(e, n, i);
+        return this.cachedContext.set(e, n, c), c;
+      }
+      KC_(e, n, i) {
+        var s = "";
+        return (
+          (s = i.isSelectionEmpty() ? i.getTextBeforeCaret() : ""),
+          s._kmwLength() < e &&
+          (s = Array(e - s._kmwLength() + 1).join("\uFFFE") + s),
+          s._kmwSubstr(-e)._kmwSubstr(0, n)
+        );
+      }
+      nul(e, n) {
+        var i = this.context(e + 1, 1, n);
+        return i === "\uFFFE";
+      }
+      contextMatch(e, n, i, s) {
+        var c = this.context(e, s, n);
+        return c === i ? !0 : (n.deadkeys().resetMatched(), !1);
+      }
+      _BuildExtendedContext(e, n, i) {
+        var s = this.cachedContextEx.get(e, n);
+        if (s !== null) return s;
+        if (((s = this.cachedContextEx.get(e, e)), s === null)) {
+          let g = i.deadkeys().toSortedArray();
+          var c = 0;
           for (
-            var d = a(function (b) {
-                throw new Error(
-                  "Unexpected object in fullContextMatch specification: " + b
-                );
-              }, "assertNever"),
-              g = 0;
-            g < i.length;
-            g++
-          )
-            if (typeof i[g] == "string") {
-              var Q = i[g];
-              if (Q !== c[g]) {
-                r = !0;
+            s = { valContext: [], deadContext: [] };
+            s.valContext.length < e;
+
+          ) {
+            var l = i.getDeadkeyCaret(),
+              r = l - c;
+            if (g.length > 0 && g[0].p > r) {
+              g.splice(0, 1);
+              continue;
+            } else if (g.length > 0 && g[0].p == r)
+              (s.deadContext[e - s.valContext.length - 1] = g[0]),
+                (s.valContext = [g[0].d].concat(s.valContext)),
+                g.splice(0, 1);
+            else {
+              var B = this.context(++c, 1, i);
+              s.valContext = [B].concat(s.valContext);
+            }
+          }
+          this.cachedContextEx.set(e, e, s);
+        }
+        var d = s;
+        return (
+          (d.valContext = d.valContext.slice(0, n)),
+          this.cachedContextEx.set(e, n, d),
+          d
+        );
+      }
+      fullContextMatch(e, n, i) {
+        var s = this._BuildExtendedContext(e, i.length, n);
+        this.ruleContextEx = this.cachedContextEx.clone();
+        var c = s.valContext,
+          l = s.deadContext,
+          r = !1;
+        let B = "\uFFFE";
+        for (
+          var d = a(function(b) {
+            throw new Error(
+              "Unexpected object in fullContextMatch specification: " + b
+            );
+          }, "assertNever"),
+          g = 0;
+          g < i.length;
+          g++
+        )
+          if (typeof i[g] == "string") {
+            var Q = i[g];
+            if (Q !== c[g]) {
+              r = !0;
+              break;
+            }
+          } else {
+            var F = i[g];
+            switch (F.t) {
+              case "d":
+                F.d !== c[g] ? (r = !0) : l[g].set();
                 break;
-              }
-            } else {
-              var F = i[g];
-              switch (F.t) {
-                case "d":
-                  F.d !== c[g] ? (r = !0) : l[g].set();
-                  break;
-                case "a":
-                  var y;
-                  typeof c[g] == "string"
-                    ? (y = c[g])
-                    : (y = { t: "d", d: c[g] });
-                  var u = this.any(g, y, F.a);
-                  F.n
-                    ? F.n && (u || c[g] === B) && (r = !0)
-                    : u
+              case "a":
+                var y;
+                typeof c[g] == "string"
+                  ? (y = c[g])
+                  : (y = { t: "d", d: c[g] });
+                var u = this.any(g, y, F.a);
+                F.n
+                  ? F.n && (u || c[g] === B) && (r = !0)
+                  : u
                     ? l[g] !== void 0 && l[g].set()
                     : (r = !0);
-                  break;
-                case "i":
-                  var I = this._Index(F.i, F.o);
-                  I !== void 0 && (typeof I == "string" ? I : I.d) !== c[g]
-                    ? (r = !0)
-                    : l[g] !== void 0 && l[g].set();
-                  break;
-                case "c":
-                  c[F.c - 1] !== c[g]
-                    ? (r = !0)
-                    : l[g] !== void 0 && l[g].set();
-                  break;
-                case "n":
-                  c[g] != B && (r = !0);
-                  break;
-                default:
-                  d(F);
-              }
-            }
-          return (
-            r && (n.deadkeys().resetMatched(), (this._AnyIndices = [])), !r
-          );
-        }
-        isKeypress(e) {
-          return this.activeKeyboard.isMnemonic
-            ? !e.LisVirtualKey
-            : !!w._USKeyCodeToCharCode(e);
-        }
-        static matchModifiersToRuleChirality(e, n) {
-          let i = U.modifierCodes.LALT | U.modifierCodes.RALT,
-            s = U.modifierCodes.LCTRL | U.modifierCodes.RCTRL,
-            c = e;
-          if (!(n & i)) {
-            let l = c & i;
-            l && (c ^= l | U.modifierCodes.ALT);
-          }
-          if (!(n & s)) {
-            let l = c & s;
-            l && (c ^= l | U.modifierCodes.CTRL);
-          }
-          return c;
-        }
-        keyMatch(e, n, i) {
-          var s = !1,
-            c = e.Lcode == 173 ? 189 : e.Lcode;
-          let l = this.activeKeyboard.modifierBitmask;
-          var r = l & U.modifierBitmasks.ALL,
-            B = l & U.stateBitmasks.ALL;
-          let d = Ds.matchModifiersToRuleChirality(e.Lmodifiers, n);
-          return (
-            e.vkCode > 255 && (c = e.vkCode),
-            e.LisVirtualKey || c > 255
-              ? ((n & 16384) == 16384 || c > 255) &&
-                ((s = i == c && (n & r) == d),
-                (s = s && this.stateMatch(e, n & B)))
-              : (n & 16384) == 0 && (s = c == i),
-            s || this.activeTargetOutput.deadkeys().resetMatched(),
-            s
-          );
-        }
-        stateMatch(e, n) {
-          return (n & e.Lstates) == n;
-        }
-        keyInformation(e) {
-          var n = new ss();
-          return (
-            (n.vk = e.LisVirtualKey),
-            (n.code = e.Lcode),
-            (n.modifiers = e.Lmodifiers),
-            n
-          );
-        }
-        deadkeyMatch(e, n, i) {
-          return n.hasDeadkeyMatch(e, i);
-        }
-        beep(e) {
-          this.resetContextCache(), (this.ruleBehavior.beep = !0);
-        }
-        _ExplodeStore(e) {
-          if (typeof e == "string") {
-            let s = this.activeKeyboard.explodedStores;
-            if (s[e]) return s[e];
-            for (var n = [], i = 0; i < e._kmwLength(); i++)
-              n.push(e._kmwCharAt(i));
-            return (s[e] = n), n;
-          } else return e;
-        }
-        any(e, n, i) {
-          if (n == "") return !1;
-          i = this._ExplodeStore(i);
-          for (var s = -1, c = 0; c < i.length; c++)
-            if (typeof i[c] == "string") {
-              if (i[c] == n) {
-                s = c;
                 break;
-              }
-            } else if (i[c].d === n.d) {
+              case "i":
+                var I = this._Index(F.i, F.o);
+                I !== void 0 && (typeof I == "string" ? I : I.d) !== c[g]
+                  ? (r = !0)
+                  : l[g] !== void 0 && l[g].set();
+                break;
+              case "c":
+                c[F.c - 1] !== c[g]
+                  ? (r = !0)
+                  : l[g] !== void 0 && l[g].set();
+                break;
+              case "n":
+                c[g] != B && (r = !0);
+                break;
+              default:
+                d(F);
+            }
+          }
+        return (
+          r && (n.deadkeys().resetMatched(), (this._AnyIndices = [])), !r
+        );
+      }
+      isKeypress(e) {
+        return this.activeKeyboard.isMnemonic
+          ? !e.LisVirtualKey
+          : !!w._USKeyCodeToCharCode(e);
+      }
+      static matchModifiersToRuleChirality(e, n) {
+        let i = U.modifierCodes.LALT | U.modifierCodes.RALT,
+          s = U.modifierCodes.LCTRL | U.modifierCodes.RCTRL,
+          c = e;
+        if (!(n & i)) {
+          let l = c & i;
+          l && (c ^= l | U.modifierCodes.ALT);
+        }
+        if (!(n & s)) {
+          let l = c & s;
+          l && (c ^= l | U.modifierCodes.CTRL);
+        }
+        return c;
+      }
+      keyMatch(e, n, i) {
+        var s = !1,
+          c = e.Lcode == 173 ? 189 : e.Lcode;
+        let l = this.activeKeyboard.modifierBitmask;
+        var r = l & U.modifierBitmasks.ALL,
+          B = l & U.stateBitmasks.ALL;
+        let d = Ds.matchModifiersToRuleChirality(e.Lmodifiers, n);
+        return (
+          e.vkCode > 255 && (c = e.vkCode),
+          e.LisVirtualKey || c > 255
+            ? ((n & 16384) == 16384 || c > 255) &&
+            ((s = i == c && (n & r) == d),
+              (s = s && this.stateMatch(e, n & B)))
+            : (n & 16384) == 0 && (s = c == i),
+          s || this.activeTargetOutput.deadkeys().resetMatched(),
+          s
+        );
+      }
+      stateMatch(e, n) {
+        return (n & e.Lstates) == n;
+      }
+      keyInformation(e) {
+        var n = new ss();
+        return (
+          (n.vk = e.LisVirtualKey),
+          (n.code = e.Lcode),
+          (n.modifiers = e.Lmodifiers),
+          n
+        );
+      }
+      deadkeyMatch(e, n, i) {
+        return n.hasDeadkeyMatch(e, i);
+      }
+      beep(e) {
+        this.resetContextCache(), (this.ruleBehavior.beep = !0);
+      }
+      _ExplodeStore(e) {
+        if (typeof e == "string") {
+          let s = this.activeKeyboard.explodedStores;
+          if (s[e]) return s[e];
+          for (var n = [], i = 0; i < e._kmwLength(); i++)
+            n.push(e._kmwCharAt(i));
+          return (s[e] = n), n;
+        } else return e;
+      }
+      any(e, n, i) {
+        if (n == "") return !1;
+        i = this._ExplodeStore(i);
+        for (var s = -1, c = 0; c < i.length; c++)
+          if (typeof i[c] == "string") {
+            if (i[c] == n) {
               s = c;
               break;
             }
-          return (this._AnyIndices[e] = s), s >= 0;
-        }
-        _Index(e, n) {
-          return (
-            (e = this._ExplodeStore(e)),
-            this._AnyIndices[n - 1] < e.length
-              ? e[this._AnyIndices[n - 1]]
-              : (console.warn(
-                  "Unmatched contextual index() statement detected in rule with index " +
-                    n +
-                    "!"
-                ),
-                "")
-          );
-        }
-        indexOutput(e, n, i, s) {
-          this.resetContextCache();
-          var c = a(function (B) {
-              throw new Error(
-                "Unexpected object in fullContextMatch specification: " + B
-              );
-            }, "assertNever"),
-            l = this._Index(n, i);
-          if (l !== "")
-            if (typeof l == "string") this.output(e, s, l);
-            else if (l.t) {
-              var r = l;
-              switch (r.t) {
-                case "b":
-                  this.beep(s);
-                  break;
-                case "d":
-                  this.deadkeyOutput(e, s, l.d);
-                  break;
-                default:
-                  c(r);
-              }
-            } else this.deadkeyOutput(e, s, l.d);
-        }
-        deleteContext(e, n) {
-          var i;
-          if (e > 0) {
-            i = this._BuildExtendedContext(e, e, n);
-            let l = 0;
-            for (var s = 0; s < i.valContext.length; s++) {
-              var c = i.deadContext[s];
-              c
-                ? (n.deadkeys().remove(c), e--)
-                : i.valContext[s] == "\uFFFE" && l++;
-            }
-            let r = i.valContext.length - l;
-            e > r && (e = r);
+          } else if (i[c].d === n.d) {
+            s = c;
+            break;
           }
-          n.deadkeys().resetMatched(), this.output(e, n, "");
-        }
-        output(e, n, i) {
-          this.resetContextCache(),
-            n.saveProperties(),
-            n.clearSelection(),
-            n.deadkeys().deleteMatched(),
-            e >= 0 && n.deleteCharsBeforeCaret(e),
-            n.insertTextBeforeCaret(i),
-            n.restoreProperties();
-        }
-        contextExOutput(e, n, i, s) {
-          this.resetContextCache(), e >= 0 && this.output(e, n, "");
-          let c = this.ruleContextEx.get(i, i),
-            l = c.deadContext[s - 1],
-            r = c.valContext[s - 1];
-          if (l) n.insertDeadkeyBeforeCaret(l.d);
-          else if (typeof r == "string") this.output(-1, n, r);
-          else
-            throw new Error(
-              "contextExOutput: should never be a numeric valContext with no corresponding deadContext"
-            );
-        }
-        deadkeyOutput(e, n, i) {
-          this.resetContextCache(),
-            e >= 0 && this.output(e, n, ""),
-            n.insertDeadkeyBeforeCaret(i);
-        }
-        ifStore(e, n, i) {
-          var s = !0;
-          let c = this.systemStores[e];
-          return c && (s = c.matches(n)), s;
-        }
-        setStore(e, n, i) {
-          if (
-            (this.resetContextCache(), e == 33 && this.activeDevice.touchable)
-          )
-            this.ruleBehavior.setStore[e] = n;
-          else return !1;
-        }
-        loadStore(e, n, i) {
-          return (
-            this.resetContextCache(),
-            (this.variableStoreSerializer &&
-              this.variableStoreSerializer.loadStore(e, n)[n]) ||
-              i
-          );
-        }
-        saveStore(e, n) {
-          this.resetContextCache();
-          var i = this.activeKeyboard;
-          if (!i || typeof i.id == "undefined" || i.id == "") return !1;
-          let s = {};
-          return (
-            (s[e] = n),
-            this.ruleBehavior
-              ? (this.ruleBehavior.saveStore[e] = s)
-              : this.variableStoreSerializer.saveStore(
-                  this.activeKeyboard.id,
-                  e,
-                  s
-                ),
-            !0
-          );
-        }
-        resetContextCache() {
-          this.cachedContext.reset(), this.cachedContextEx.reset();
-        }
-        defaultBackspace(e) {
-          e.isSelectionEmpty() ? this.output(1, e, "") : this.output(0, e, "");
-        }
-        processNewContextEvent(e, n) {
-          if (!this.activeKeyboard)
-            throw "No active keyboard for keystroke processing!";
-          return this.process(
-            this.activeKeyboard.processNewContextEvent.bind(
-              this.activeKeyboard
+        return (this._AnyIndices[e] = s), s >= 0;
+      }
+      _Index(e, n) {
+        return (
+          (e = this._ExplodeStore(e)),
+          this._AnyIndices[n - 1] < e.length
+            ? e[this._AnyIndices[n - 1]]
+            : (console.warn(
+              "Unmatched contextual index() statement detected in rule with index " +
+              n +
+              "!"
             ),
-            e,
-            n,
-            !0
+              "")
+        );
+      }
+      indexOutput(e, n, i, s) {
+        this.resetContextCache();
+        var c = a(function(B) {
+          throw new Error(
+            "Unexpected object in fullContextMatch specification: " + B
           );
+        }, "assertNever"),
+          l = this._Index(n, i);
+        if (l !== "")
+          if (typeof l == "string") this.output(e, s, l);
+          else if (l.t) {
+            var r = l;
+            switch (r.t) {
+              case "b":
+                this.beep(s);
+                break;
+              case "d":
+                this.deadkeyOutput(e, s, l.d);
+                break;
+              default:
+                c(r);
+            }
+          } else this.deadkeyOutput(e, s, l.d);
+      }
+      deleteContext(e, n) {
+        var i;
+        if (e > 0) {
+          i = this._BuildExtendedContext(e, e, n);
+          let l = 0;
+          for (var s = 0; s < i.valContext.length; s++) {
+            var c = i.deadContext[s];
+            c
+              ? (n.deadkeys().remove(c), e--)
+              : i.valContext[s] == "\uFFFE" && l++;
+          }
+          let r = i.valContext.length - l;
+          e > r && (e = r);
         }
-        processPostKeystroke(e, n) {
-          if (!this.activeKeyboard)
-            throw "No active keyboard for keystroke processing!";
-          return this.process(
-            this.activeKeyboard.processPostKeystroke.bind(this.activeKeyboard),
-            e,
-            n,
-            !0
+        n.deadkeys().resetMatched(), this.output(e, n, "");
+      }
+      output(e, n, i) {
+        this.resetContextCache(),
+          n.saveProperties(),
+          n.clearSelection(),
+          n.deadkeys().deleteMatched(),
+          e >= 0 && n.deleteCharsBeforeCaret(e),
+          n.insertTextBeforeCaret(i),
+          n.restoreProperties();
+      }
+      contextExOutput(e, n, i, s) {
+        this.resetContextCache(), e >= 0 && this.output(e, n, "");
+        let c = this.ruleContextEx.get(i, i),
+          l = c.deadContext[s - 1],
+          r = c.valContext[s - 1];
+        if (l) n.insertDeadkeyBeforeCaret(l.d);
+        else if (typeof r == "string") this.output(-1, n, r);
+        else
+          throw new Error(
+            "contextExOutput: should never be a numeric valContext with no corresponding deadContext"
           );
-        }
-        processKeystroke(e, n) {
-          if (!this.activeKeyboard)
-            throw "No active keyboard for keystroke processing!";
-          return this.process(
-            this.activeKeyboard.process.bind(this.activeKeyboard),
-            e,
-            n,
-            !1
-          );
-        }
-        process(e, n, i, s) {
-          if (n)
-            if (this.activeKeyboard) {
-              if (!e) throw "No callee for keystroke processing!";
-            } else throw "No active keyboard for keystroke processing!";
-          else throw "No target specified for keyboard output!";
-          n.invalidateSelection(),
-            n.deadkeys().resetMatched(),
-            this.resetContextCache();
-          let c = E.from(n, !0),
-            l = this.activeKeyboard.variableStores;
-          (this.ruleBehavior = new se()),
-            (this.activeDevice = i.device),
-            (this.activeTargetOutput = n);
-          var r = e(n, i);
-          (this.activeTargetOutput = null),
-            (this.ruleBehavior.transcription = n.buildTranscriptionFrom(
-              c,
-              i,
+      }
+      deadkeyOutput(e, n, i) {
+        this.resetContextCache(),
+          e >= 0 && this.output(e, n, ""),
+          n.insertDeadkeyBeforeCaret(i);
+      }
+      ifStore(e, n, i) {
+        var s = !0;
+        let c = this.systemStores[e];
+        return c && (s = c.matches(n)), s;
+      }
+      setStore(e, n, i) {
+        if (
+          (this.resetContextCache(), e == 33 && this.activeDevice.touchable)
+        )
+          this.ruleBehavior.setStore[e] = n;
+        else return !1;
+      }
+      loadStore(e, n, i) {
+        return (
+          this.resetContextCache(),
+          (this.variableStoreSerializer &&
+            this.variableStoreSerializer.loadStore(e, n)[n]) ||
+          i
+        );
+      }
+      saveStore(e, n) {
+        this.resetContextCache();
+        var i = this.activeKeyboard;
+        if (!i || typeof i.id == "undefined" || i.id == "") return !1;
+        let s = {};
+        return (
+          (s[e] = n),
+          this.ruleBehavior
+            ? (this.ruleBehavior.saveStore[e] = s)
+            : this.variableStoreSerializer.saveStore(
+              this.activeKeyboard.id,
+              e,
               s
-            )),
-            (this.ruleBehavior.variableStores =
-              this.activeKeyboard.variableStores),
-            (this.activeKeyboard.variableStores = l),
-            (this.ruleBehavior.triggerKeyDefault = !r);
-          let B = this.ruleBehavior;
-          return (this.ruleBehavior = null), B;
-        }
-        applyVariableStores(e) {
-          this.activeKeyboard.variableStores = e;
-        }
-        static __publishShorthandAPI() {
-          let e = this.prototype;
-          var n = a(function (i, s) {
-            e[s] && (e[i] = e[s]);
-          }, "exportKBCallback");
-          n("KSF", "saveFocus"),
-            n("KBR", "beepReset"),
-            n("KT", "insertText"),
-            n("KR", "registerKeyboard"),
-            n("KRS", "registerStub"),
-            n("KC", "context"),
-            n("KN", "nul"),
-            n("KCM", "contextMatch"),
-            n("KFCM", "fullContextMatch"),
-            n("KIK", "isKeypress"),
-            n("KKM", "keyMatch"),
-            n("KSM", "stateMatch"),
-            n("KKI", "keyInformation"),
-            n("KDM", "deadkeyMatch"),
-            n("KB", "beep"),
-            n("KA", "any"),
-            n("KDC", "deleteContext"),
-            n("KO", "output"),
-            n("KDO", "deadkeyOutput"),
-            n("KCXO", "contextExOutput"),
-            n("KIO", "indexOutput"),
-            n("KIFS", "ifStore"),
-            n("KSETS", "setStore"),
-            n("KLOAD", "loadStore"),
-            n("KSAVE", "saveStore");
-        }
-      },
+            ),
+          !0
+        );
+      }
+      resetContextCache() {
+        this.cachedContext.reset(), this.cachedContextEx.reset();
+      }
+      defaultBackspace(e) {
+        e.isSelectionEmpty() ? this.output(1, e, "") : this.output(0, e, "");
+      }
+      processNewContextEvent(e, n) {
+        if (!this.activeKeyboard)
+          throw "No active keyboard for keystroke processing!";
+        return this.process(
+          this.activeKeyboard.processNewContextEvent.bind(
+            this.activeKeyboard
+          ),
+          e,
+          n,
+          !0
+        );
+      }
+      processPostKeystroke(e, n) {
+        if (!this.activeKeyboard)
+          throw "No active keyboard for keystroke processing!";
+        return this.process(
+          this.activeKeyboard.processPostKeystroke.bind(this.activeKeyboard),
+          e,
+          n,
+          !0
+        );
+      }
+      processKeystroke(e, n) {
+        if (!this.activeKeyboard)
+          throw "No active keyboard for keystroke processing!";
+        return this.process(
+          this.activeKeyboard.process.bind(this.activeKeyboard),
+          e,
+          n,
+          !1
+        );
+      }
+      process(e, n, i, s) {
+        if (n)
+          if (this.activeKeyboard) {
+            if (!e) throw "No callee for keystroke processing!";
+          } else throw "No active keyboard for keystroke processing!";
+        else throw "No target specified for keyboard output!";
+        n.invalidateSelection(),
+          n.deadkeys().resetMatched(),
+          this.resetContextCache();
+        let c = E.from(n, !0),
+          l = this.activeKeyboard.variableStores;
+        (this.ruleBehavior = new se()),
+          (this.activeDevice = i.device),
+          (this.activeTargetOutput = n);
+        var r = e(n, i);
+        (this.activeTargetOutput = null),
+          (this.ruleBehavior.transcription = n.buildTranscriptionFrom(
+            c,
+            i,
+            s
+          )),
+          (this.ruleBehavior.variableStores =
+            this.activeKeyboard.variableStores),
+          (this.activeKeyboard.variableStores = l),
+          (this.ruleBehavior.triggerKeyDefault = !r);
+        let B = this.ruleBehavior;
+        return (this.ruleBehavior = null), B;
+      }
+      applyVariableStores(e) {
+        this.activeKeyboard.variableStores = e;
+      }
+      static __publishShorthandAPI() {
+        let e = this.prototype;
+        var n = a(function(i, s) {
+          e[s] && (e[i] = e[s]);
+        }, "exportKBCallback");
+        n("KSF", "saveFocus"),
+          n("KBR", "beepReset"),
+          n("KT", "insertText"),
+          n("KR", "registerKeyboard"),
+          n("KRS", "registerStub"),
+          n("KC", "context"),
+          n("KN", "nul"),
+          n("KCM", "contextMatch"),
+          n("KFCM", "fullContextMatch"),
+          n("KIK", "isKeypress"),
+          n("KKM", "keyMatch"),
+          n("KSM", "stateMatch"),
+          n("KKI", "keyInformation"),
+          n("KDM", "deadkeyMatch"),
+          n("KB", "beep"),
+          n("KA", "any"),
+          n("KDC", "deleteContext"),
+          n("KO", "output"),
+          n("KDO", "deadkeyOutput"),
+          n("KCXO", "contextExOutput"),
+          n("KIO", "indexOutput"),
+          n("KIFS", "ifStore"),
+          n("KSETS", "setStore"),
+          n("KLOAD", "loadStore"),
+          n("KSAVE", "saveStore");
+      }
+    },
       Ae = Ds;
     a(Ae, "KeyboardInterface"), (Ae.GLOBAL_NAME = "KeymanWeb");
-    (function () {
+    (function() {
       Ae.__publishShorthandAPI();
     })();
     var Ac = v(A(), 1);
     var oi = class extends Ac.default {
-        constructor(e, n) {
-          super();
-          this.stateKeys = { K_CAPS: !1, K_NUMLOCK: !1, K_SCROLL: !1 };
-          this.modStateFlags = 0;
-          n || (n = oi.DEFAULT_OPTIONS),
-            (this.contextDevice = e),
-            (this.baseLayout = n.baseLayout || oi.DEFAULT_OPTIONS.baseLayout),
-            (this.keyboardInterface = n.keyboardInterface || new Ae(yn(), ii)),
-            (this.defaultRules =
-              n.defaultOutputRules || oi.DEFAULT_OPTIONS.defaultOutputRules);
-        }
-        get activeKeyboard() {
-          return this.keyboardInterface.activeKeyboard;
-        }
-        set activeKeyboard(e) {
-          (this.keyboardInterface.activeKeyboard = e), this.resetContext();
-        }
-        get layerStore() {
-          return this.keyboardInterface.systemStores[33];
-        }
-        get newLayerStore() {
-          return this.keyboardInterface.systemStores[42];
-        }
-        get oldLayerStore() {
-          return this.keyboardInterface.systemStores[43];
-        }
-        get layerId() {
-          return this.layerStore.value;
-        }
-        set layerId(e) {
-          this.layerStore.set(e);
-        }
-        defaultRuleBehavior(e, n, i) {
-          let s = E.from(n, i),
-            c = new se(),
-            l = !1;
-          var r = "",
-            B;
-          if (e.isSynthetic || n.isSynthetic)
-            if (((l = !0), this.defaultRules.isCommand(e)))
-              c.triggersDefaultCommand = !0;
-            else if ((B = this.defaultRules.forSpecialEmulation(e)) != null)
-              switch (B) {
-                case "\b":
-                  this.keyboardInterface.defaultBackspace(n);
-                  break;
-                case `
-`:
-                  n.handleNewlineAtCaret();
-                  break;
-                default:
-                  c.errorLog =
-                    "Unexpected 'special emulation' character (\\u" +
-                    B.kmwCharCodeAt(0).toString(16) +
-                    ") went unhandled!";
-              }
-            else l = !1;
-          let d = this.activeKeyboard && this.activeKeyboard.isMnemonic;
-          if (!l)
-            if ((r = this.defaultRules.forAny(e, d)) != null)
-              if (((B = this.defaultRules.forSpecialEmulation(e)), B == "\b"))
+      constructor(e, n) {
+        super();
+        this.stateKeys = { K_CAPS: !1, K_NUMLOCK: !1, K_SCROLL: !1 };
+        this.modStateFlags = 0;
+        n || (n = oi.DEFAULT_OPTIONS),
+          (this.contextDevice = e),
+          (this.baseLayout = n.baseLayout || oi.DEFAULT_OPTIONS.baseLayout),
+          (this.keyboardInterface = n.keyboardInterface || new Ae(yn(), ii)),
+          (this.defaultRules =
+            n.defaultOutputRules || oi.DEFAULT_OPTIONS.defaultOutputRules);
+      }
+      get activeKeyboard() {
+        return this.keyboardInterface.activeKeyboard;
+      }
+      set activeKeyboard(e) {
+        (this.keyboardInterface.activeKeyboard = e), this.resetContext();
+      }
+      get layerStore() {
+        return this.keyboardInterface.systemStores[33];
+      }
+      get newLayerStore() {
+        return this.keyboardInterface.systemStores[42];
+      }
+      get oldLayerStore() {
+        return this.keyboardInterface.systemStores[43];
+      }
+      get layerId() {
+        return this.layerStore.value;
+      }
+      set layerId(e) {
+        this.layerStore.set(e);
+      }
+      defaultRuleBehavior(e, n, i) {
+        let s = E.from(n, i),
+          c = new se(),
+          l = !1;
+        var r = "",
+          B;
+        if (e.isSynthetic || n.isSynthetic)
+          if (((l = !0), this.defaultRules.isCommand(e)))
+            c.triggersDefaultCommand = !0;
+          else if ((B = this.defaultRules.forSpecialEmulation(e)) != null)
+            switch (B) {
+              case "\b":
                 this.keyboardInterface.defaultBackspace(n);
-              else {
-                if (B || this.defaultRules.isCommand(e)) return null;
-                this.keyboardInterface.output(0, n, r);
-              }
-            else return null;
-          if (c.errorLog) return c;
-          let g = n.buildTranscriptionFrom(s, e, i);
-          return (c.transcription = g), c;
-        }
-        processNewContextEvent(e, n) {
-          return this.activeKeyboard
-            ? this.keyboardInterface.processNewContextEvent(
-                n,
-                this.activeKeyboard.constructNullKeyEvent(e, this.stateKeys)
-              )
-            : null;
-        }
-        processPostKeystroke(e, n) {
-          return this.activeKeyboard
-            ? this.keyboardInterface.processPostKeystroke(
-                n,
-                this.activeKeyboard.constructNullKeyEvent(e, this.stateKeys)
-              )
-            : null;
-        }
-        processKeystroke(e, n) {
-          var i;
-          let s =
-            n.getTextBeforeCaret().kmwLength() == 0 && n.isSelectionEmpty();
-          if (
-            (this.activeKeyboard &&
-              e.Lcode != 0 &&
-              (i = this.keyboardInterface.processKeystroke(n, e)),
-            s && e.Lcode == U.keyCodes.K_BKSP && i.triggerKeyDefault)
-          )
-            (i = this.defaultRuleBehavior(e, n, !1)),
-              (i.triggerKeyDefault = !0),
-              (i.transcription.transform.deleteLeft = 1);
-          else if (!i || i.triggerKeyDefault) {
-            (e.Lcode = e.vkCode || e.Lcode),
-              (this.keyboardInterface.activeTargetOutput = n);
-            let c = this.defaultRuleBehavior(e, n, !1);
-            c &&
-              (i ? i.mergeInDefaults(c) : (i = c), (i.triggerKeyDefault = !1)),
-              (this.keyboardInterface.activeTargetOutput = null);
-          }
-          return i;
-        }
-        _UpdateVKShift(e) {
-          let n = 0,
-            i = ["CAPS", "NUM_LOCK", "SCROLL_LOCK"],
-            s = ["K_CAPS", "K_NUMLOCK", "K_SCROLL"];
-          if (!this.activeKeyboard) return !0;
-          if (e) {
-            (n = e.Lmodifiers),
-              this.activeKeyboard.isChiral &&
-                this.activeKeyboard.emulatesAltGr &&
-                (this.modStateFlags & U.modifierBitmasks.ALT_GR_SIM) ==
-                  U.modifierBitmasks.ALT_GR_SIM &&
-                ((n |= U.modifierBitmasks.ALT_GR_SIM),
-                (n &= ~U.modifierCodes.RALT));
-            let c = !1;
-            for (let l = 0; l < i.length; l++)
-              e.Lstates & U.stateBitmasks[i[l]] &&
-                ((this.stateKeys[s[l]] = !!(e.Lstates & U.modifierCodes[i[l]])),
-                (c = !0));
-            c && this.emit("statekeychange", this.stateKeys);
-          }
-          return (
-            this.updateStates(),
-            this.activeKeyboard.isMnemonic &&
-              this.stateKeys.K_CAPS &&
-              (!e || !e.isModifier) &&
-              (n ^= U.modifierCodes.SHIFT),
-            (this.layerId = this.getLayerId(n)),
-            !0
-          );
-        }
-        updateStates() {
-          var e = ["CAPS", "NUM_LOCK", "SCROLL_LOCK"],
-            n = ["K_CAPS", "K_NUMLOCK", "K_SCROLL"];
-          for (let i = 0; i < n.length; i++) {
-            let s = n[i],
-              c = this.stateKeys[s],
-              l = e[i],
-              r = "NO_" + e[i];
-            c
-              ? ((this.modStateFlags |= U.modifierCodes[l]),
-                (this.modStateFlags &= ~U.modifierCodes[r]))
-              : ((this.modStateFlags &= ~U.modifierCodes[l]),
-                (this.modStateFlags |= U.modifierCodes[r]));
-          }
-        }
-        getLayerId(e) {
-          return R.getLayerId(e);
-        }
-        selectLayer(e) {
-          let n = e.kName;
-          var i = e.kNextLayer,
-            s = this.activeKeyboard && this.activeKeyboard.isChiral;
-          if ((typeof i == "number" && (i = this.getLayerId(i * 16)), !i))
-            switch (n) {
-              case "K_LSHIFT":
-              case "K_RSHIFT":
-              case "K_SHIFT":
-                i = "shift";
                 break;
-              case "K_LCONTROL":
-              case "K_LCTRL":
-                if (s) {
-                  i = "leftctrl";
-                  break;
-                }
-              case "K_RCONTROL":
-              case "K_RCTRL":
-                if (s) {
-                  i = "rightctrl";
-                  break;
-                }
-              case "K_CTRL":
-                i = "ctrl";
+              case `
+`:
+                n.handleNewlineAtCaret();
                 break;
-              case "K_LMENU":
-              case "K_LALT":
-                if (s) {
-                  i = "leftalt";
-                  break;
-                }
-              case "K_RMENU":
-              case "K_RALT":
-                if (s) {
-                  i = "rightalt";
-                  break;
-                }
-              case "K_ALT":
-                i = "alt";
-                break;
-              case "K_ALTGR":
-                s ? (i = "leftctrl-rightalt") : (i = "ctrl-alt");
-                break;
-              case "K_CURRENCIES":
-              case "K_NUMERALS":
-              case "K_SHIFTED":
-              case "K_UPPER":
-              case "K_LOWER":
-              case "K_SYMBOLS":
-                i = "default";
-                break;
+              default:
+                c.errorLog =
+                  "Unexpected 'special emulation' character (\\u" +
+                  B.kmwCharCodeAt(0).toString(16) +
+                  ") went unhandled!";
             }
-          return i ? (this.updateLayer(e, i), !0) : !1;
-        }
-        updateLayer(e, n) {
-          let i = this.layerId;
-          var s = i;
-          if (n == i && e.device.formFactor != p.FormFactor.Desktop) return !1;
-          var c = n,
-            l;
-          if (e.device.formFactor == p.FormFactor.Desktop) {
-            var r = [
-              "leftctrl",
-              "rightctrl",
-              "ctrl",
-              "leftalt",
-              "rightalt",
-              "alt",
-              "shift",
-            ];
-            for (l = 0; l < r.length; l++)
-              (c = c.replace(r[l] + "-", "")), (c = c.replace(r[l], ""));
-            if (
-              i == "default" ||
-              i == "numeric" ||
-              i == "symbol" ||
-              i == "currency" ||
-              c != ""
-            )
-              s = n;
+          else l = !1;
+        let d = this.activeKeyboard && this.activeKeyboard.isMnemonic;
+        if (!l)
+          if ((r = this.defaultRules.forAny(e, d)) != null)
+            if (((B = this.defaultRules.forSpecialEmulation(e)), B == "\b"))
+              this.keyboardInterface.defaultBackspace(n);
             else {
-              var B = U.getModifierState(s);
-              for (l = 0; l < r.length; l++)
-                (s = s.replace(r[l] + "-", "")), (s = s.replace(r[l], ""));
-              switch (n) {
-                case "shift":
-                  B ^= U.modifierCodes.SHIFT;
-                  break;
-                case "leftctrl":
-                  B ^= U.modifierCodes.LCTRL;
-                  break;
-                case "rightctrl":
-                  B ^= U.modifierCodes.RCTRL;
-                  break;
-                case "ctrl":
-                  B ^= U.modifierCodes.CTRL;
-                  break;
-                case "leftalt":
-                  B ^= U.modifierCodes.LALT;
-                  break;
-                case "rightalt":
-                  B ^= U.modifierCodes.RALT;
-                  break;
-                case "alt":
-                  B ^= U.modifierCodes.ALT;
-                  break;
-                default:
-                  s = n;
-              }
-              s != "default" &&
-                (s == ""
-                  ? (s = this.getLayerId(B))
-                  : (s = this.getLayerId(B) + "-" + s));
+              if (B || this.defaultRules.isCommand(e)) return null;
+              this.keyboardInterface.output(0, n, r);
             }
-            s == "" && (s = "default");
-          } else s = n;
-          this.activeKeyboard.layout(e.device.formFactor).getLayer(s)
-            ? (this.layerId = s)
-            : (this.layerId = "default");
-          let g = U.getModifierState(this.layerId);
-          this.modStateFlags = g | e.Lstates;
+          else return null;
+        if (c.errorLog) return c;
+        let g = n.buildTranscriptionFrom(s, e, i);
+        return (c.transcription = g), c;
+      }
+      processNewContextEvent(e, n) {
+        return this.activeKeyboard
+          ? this.keyboardInterface.processNewContextEvent(
+            n,
+            this.activeKeyboard.constructNullKeyEvent(e, this.stateKeys)
+          )
+          : null;
+      }
+      processPostKeystroke(e, n) {
+        return this.activeKeyboard
+          ? this.keyboardInterface.processPostKeystroke(
+            n,
+            this.activeKeyboard.constructNullKeyEvent(e, this.stateKeys)
+          )
+          : null;
+      }
+      processKeystroke(e, n) {
+        var i;
+        let s =
+          n.getTextBeforeCaret().kmwLength() == 0 && n.isSelectionEmpty();
+        if (
+          (this.activeKeyboard &&
+            e.Lcode != 0 &&
+            (i = this.keyboardInterface.processKeystroke(n, e)),
+            s && e.Lcode == U.keyCodes.K_BKSP && i.triggerKeyDefault)
+        )
+          (i = this.defaultRuleBehavior(e, n, !1)),
+            (i.triggerKeyDefault = !0),
+            (i.transcription.transform.deleteLeft = 1);
+        else if (!i || i.triggerKeyDefault) {
+          (e.Lcode = e.vkCode || e.Lcode),
+            (this.keyboardInterface.activeTargetOutput = n);
+          let c = this.defaultRuleBehavior(e, n, !1);
+          c &&
+            (i ? i.mergeInDefaults(c) : (i = c), (i.triggerKeyDefault = !1)),
+            (this.keyboardInterface.activeTargetOutput = null);
         }
-        doModifierPress(e, n, i) {
-          return this.activeKeyboard
-            ? e.isModifier
-              ? (this.activeKeyboard.notify(e.Lcode, n, i ? 1 : 0),
-                e.device.touchable ? !0 : this._UpdateVKShift(e))
-              : (e.LmodifierChange &&
-                  (this.activeKeyboard.notify(0, n, 1),
-                  e.device.touchable || this._UpdateVKShift(e)),
-                !1)
-            : !1;
+        return i;
+      }
+      _UpdateVKShift(e) {
+        let n = 0,
+          i = ["CAPS", "NUM_LOCK", "SCROLL_LOCK"],
+          s = ["K_CAPS", "K_NUMLOCK", "K_SCROLL"];
+        if (!this.activeKeyboard) return !0;
+        if (e) {
+          (n = e.Lmodifiers),
+            this.activeKeyboard.isChiral &&
+            this.activeKeyboard.emulatesAltGr &&
+            (this.modStateFlags & U.modifierBitmasks.ALT_GR_SIM) ==
+            U.modifierBitmasks.ALT_GR_SIM &&
+            ((n |= U.modifierBitmasks.ALT_GR_SIM),
+              (n &= ~U.modifierCodes.RALT));
+          let c = !1;
+          for (let l = 0; l < i.length; l++)
+            e.Lstates & U.stateBitmasks[i[l]] &&
+              ((this.stateKeys[s[l]] = !!(e.Lstates & U.modifierCodes[i[l]])),
+                (c = !0));
+          c && this.emit("statekeychange", this.stateKeys);
         }
-        performNewContextEvent(e) {
-          let n = this.processNewContextEvent(this.contextDevice, e);
-          return n && n.finalize(this, e, !0), n;
+        return (
+          this.updateStates(),
+          this.activeKeyboard.isMnemonic &&
+          this.stateKeys.K_CAPS &&
+          (!e || !e.isModifier) &&
+          (n ^= U.modifierCodes.SHIFT),
+          (this.layerId = this.getLayerId(n)),
+          !0
+        );
+      }
+      updateStates() {
+        var e = ["CAPS", "NUM_LOCK", "SCROLL_LOCK"],
+          n = ["K_CAPS", "K_NUMLOCK", "K_SCROLL"];
+        for (let i = 0; i < n.length; i++) {
+          let s = n[i],
+            c = this.stateKeys[s],
+            l = e[i],
+            r = "NO_" + e[i];
+          c
+            ? ((this.modStateFlags |= U.modifierCodes[l]),
+              (this.modStateFlags &= ~U.modifierCodes[r]))
+            : ((this.modStateFlags &= ~U.modifierCodes[l]),
+              (this.modStateFlags |= U.modifierCodes[r]));
         }
-        resetContext(e) {
-          (this.layerId = "default"),
-            e == null || e.resetContext(),
-            this.keyboardInterface.resetContextCache(),
-            e && this.performNewContextEvent(e),
-            this.contextDevice.touchable || this._UpdateVKShift(null);
-        }
-        setNumericLayer(e) {
-          this.activeKeyboard &&
-            this.activeKeyboard.layout(e.formFactor).getLayer("numeric") &&
-            (this.layerId = "numeric");
-        }
-      },
+      }
+      getLayerId(e) {
+        return R.getLayerId(e);
+      }
+      selectLayer(e) {
+        let n = e.kName;
+        var i = e.kNextLayer,
+          s = this.activeKeyboard && this.activeKeyboard.isChiral;
+        if ((typeof i == "number" && (i = this.getLayerId(i * 16)), !i))
+          switch (n) {
+            case "K_LSHIFT":
+            case "K_RSHIFT":
+            case "K_SHIFT":
+              i = "shift";
+              break;
+            case "K_LCONTROL":
+            case "K_LCTRL":
+              if (s) {
+                i = "leftctrl";
+                break;
+              }
+            case "K_RCONTROL":
+            case "K_RCTRL":
+              if (s) {
+                i = "rightctrl";
+                break;
+              }
+            case "K_CTRL":
+              i = "ctrl";
+              break;
+            case "K_LMENU":
+            case "K_LALT":
+              if (s) {
+                i = "leftalt";
+                break;
+              }
+            case "K_RMENU":
+            case "K_RALT":
+              if (s) {
+                i = "rightalt";
+                break;
+              }
+            case "K_ALT":
+              i = "alt";
+              break;
+            case "K_ALTGR":
+              s ? (i = "leftctrl-rightalt") : (i = "ctrl-alt");
+              break;
+            case "K_CURRENCIES":
+            case "K_NUMERALS":
+            case "K_SHIFTED":
+            case "K_UPPER":
+            case "K_LOWER":
+            case "K_SYMBOLS":
+              i = "default";
+              break;
+          }
+        return i ? (this.updateLayer(e, i), !0) : !1;
+      }
+      updateLayer(e, n) {
+        let i = this.layerId;
+        var s = i;
+        if (n == i && e.device.formFactor != p.FormFactor.Desktop) return !1;
+        var c = n,
+          l;
+        if (e.device.formFactor == p.FormFactor.Desktop) {
+          var r = [
+            "leftctrl",
+            "rightctrl",
+            "ctrl",
+            "leftalt",
+            "rightalt",
+            "alt",
+            "shift",
+          ];
+          for (l = 0; l < r.length; l++)
+            (c = c.replace(r[l] + "-", "")), (c = c.replace(r[l], ""));
+          if (
+            i == "default" ||
+            i == "numeric" ||
+            i == "symbol" ||
+            i == "currency" ||
+            c != ""
+          )
+            s = n;
+          else {
+            var B = U.getModifierState(s);
+            for (l = 0; l < r.length; l++)
+              (s = s.replace(r[l] + "-", "")), (s = s.replace(r[l], ""));
+            switch (n) {
+              case "shift":
+                B ^= U.modifierCodes.SHIFT;
+                break;
+              case "leftctrl":
+                B ^= U.modifierCodes.LCTRL;
+                break;
+              case "rightctrl":
+                B ^= U.modifierCodes.RCTRL;
+                break;
+              case "ctrl":
+                B ^= U.modifierCodes.CTRL;
+                break;
+              case "leftalt":
+                B ^= U.modifierCodes.LALT;
+                break;
+              case "rightalt":
+                B ^= U.modifierCodes.RALT;
+                break;
+              case "alt":
+                B ^= U.modifierCodes.ALT;
+                break;
+              default:
+                s = n;
+            }
+            s != "default" &&
+              (s == ""
+                ? (s = this.getLayerId(B))
+                : (s = this.getLayerId(B) + "-" + s));
+          }
+          s == "" && (s = "default");
+        } else s = n;
+        this.activeKeyboard.layout(e.device.formFactor).getLayer(s)
+          ? (this.layerId = s)
+          : (this.layerId = "default");
+        let g = U.getModifierState(this.layerId);
+        this.modStateFlags = g | e.Lstates;
+      }
+      doModifierPress(e, n, i) {
+        return this.activeKeyboard
+          ? e.isModifier
+            ? (this.activeKeyboard.notify(e.Lcode, n, i ? 1 : 0),
+              e.device.touchable ? !0 : this._UpdateVKShift(e))
+            : (e.LmodifierChange &&
+              (this.activeKeyboard.notify(0, n, 1),
+                e.device.touchable || this._UpdateVKShift(e)),
+              !1)
+          : !1;
+      }
+      performNewContextEvent(e) {
+        let n = this.processNewContextEvent(this.contextDevice, e);
+        return n && n.finalize(this, e, !0), n;
+      }
+      resetContext(e) {
+        (this.layerId = "default"),
+          e == null || e.resetContext(),
+          this.keyboardInterface.resetContextCache(),
+          e && this.performNewContextEvent(e),
+          this.contextDevice.touchable || this._UpdateVKShift(null);
+      }
+      setNumericLayer(e) {
+        this.activeKeyboard &&
+          this.activeKeyboard.layout(e.formFactor).getLayer("numeric") &&
+          (this.layerId = "numeric");
+      }
+    },
       Bt = oi;
     a(Bt, "KeyboardProcessor"),
       (Bt.DEFAULT_OPTIONS = { baseLayout: "us", defaultOutputRules: new Ze() });
     var Hc = a(
-        (o) => (o.substring(o.length - 1) != "/" ? o + "/" : o),
-        "addDelimiter"
-      ),
+      (o) => (o.substring(o.length - 1) != "/" ? o + "/" : o),
+      "addDelimiter"
+    ),
       Ht = class {
         constructor(t, e) {
           (e = Hc(e)),
@@ -4083,14 +4082,14 @@ try {
         fixPath(t) {
           return t.length == 0 ||
             ((t = Hc(t)),
-            t.replace(/^(http)s?:.*/, "$1") == "http" ||
+              t.replace(/^(http)s?:.*/, "$1") == "http" ||
               t.replace(/^(file):.*/, "$1") == "file")
             ? t
             : t.substring(0, 2) == "//"
-            ? this.protocol + t
-            : t.substring(0, 1) == "/"
-            ? this.root + t.substring(1)
-            : this.sourcePath + t;
+              ? this.protocol + t
+              : t.substring(0, 1) == "/"
+                ? this.root + t.substring(1)
+                : this.sourcePath + t;
         }
         get fonts() {
           return this._fonts;
@@ -4115,8 +4114,8 @@ try {
         t.OS == p.OperatingSystem.Android
           ? (this.popupCanvasBackgroundColor = "#999")
           : (this.popupCanvasBackgroundColor = dt.prefersDarkMode()
-              ? "#0f1319"
-              : "#ffffff");
+            ? "#0f1319"
+            : "#ffffff");
       }
       static prefersDarkMode() {
         return (
@@ -4159,7 +4158,7 @@ try {
             try {
               var n = new RegExp("(?:Android\\s+)(\\d+\\.\\d+\\.\\d+)");
               this.version = e.match(n)[1];
-            } catch (B) {}
+            } catch (B) { }
           } else if (e.indexOf("Linux") >= 0) this.OS = "Linux";
           else if (e.indexOf("Macintosh") >= 0) {
             let d = /Intel Mac OS X (\d+(?:[_\.]\d+)+)/i.exec(e);
@@ -4177,8 +4176,8 @@ try {
           } else
             e.indexOf("Windows NT") >= 0 &&
               ((this.OS = "Windows"),
-              e.indexOf("Touch") >= 0 && (this.formFactor = "phone"),
-              typeof navigator.msMaxTouchPoints == "number" &&
+                e.indexOf("Touch") >= 0 && (this.formFactor = "phone"),
+                typeof navigator.msMaxTouchPoints == "number" &&
                 navigator.msMaxTouchPoints > 0 &&
                 (this.touchable = !0));
         }
@@ -4197,22 +4196,22 @@ try {
           (this.OS = "Android"),
           (this.browser = "web"),
           (this.OS == "iOS" || this.OS.toLowerCase() == "macosx") &&
-            (this.browser = "safari");
+          (this.browser = "safari");
         var r = /Firefox|Chrome|OPR|Safari|Edge/;
         if (
           (r.test(navigator.userAgent) &&
             (navigator.userAgent.indexOf("Firefox") >= 0 &&
-            "onmozorientationchange" in screen
+              "onmozorientationchange" in screen
               ? (this.browser = "firefox")
               : navigator.userAgent.indexOf("OPR") >= 0
-              ? (this.browser = "opera")
-              : navigator.userAgent.indexOf(" Edge/") >= 0
-              ? (this.browser = "edge")
-              : navigator.userAgent.indexOf("Chrome") >= 0
-              ? (this.browser = "chrome")
-              : navigator.userAgent.indexOf("Safari") >= 0 &&
-                (this.browser = "safari")),
-          t && this.browser == "safari" && window.TouchEvent)
+                ? (this.browser = "opera")
+                : navigator.userAgent.indexOf(" Edge/") >= 0
+                  ? (this.browser = "edge")
+                  : navigator.userAgent.indexOf("Chrome") >= 0
+                    ? (this.browser = "chrome")
+                    : navigator.userAgent.indexOf("Safari") >= 0 &&
+                    (this.browser = "safari")),
+            t && this.browser == "safari" && window.TouchEvent)
         ) {
           (this.OS = "iOS"),
             (this.formFactor = "tablet"),
@@ -4220,7 +4219,7 @@ try {
           let B = screen.height / screen.width;
           B < 1 && (B = 1 / B),
             B > 1.6 &&
-              ((this.formFactor = "phone"),
+            ((this.formFactor = "phone"),
               (this.dyPortrait = this.dyLandscape = 25));
         }
         return (
@@ -4287,7 +4286,7 @@ try {
           initialized: this.deferForInitialization.isResolved,
         };
       }
-      onRuleFinalization(e, n) {}
+      onRuleFinalization(e, n) { }
     };
     a(bn, "EngineConfiguration");
     var Ks = C(
@@ -4296,137 +4295,137 @@ try {
     );
     var vc = v(A(), 1);
     var Os = class extends vc.default {
-        constructor(e) {
-          super();
-          this.pendingActivations = [];
-          this.engineConfig = e;
-        }
-        get predictionContext() {
-          return this._predictionContext;
-        }
-        configure(e) {
-          (this._resetContext = e.resetContext),
-            (this._predictionContext = e.predictionContext),
-            (this.keyboardCache = e.keyboardCache);
-        }
-        insertText(e, n, i) {
-          let s = this.activeTarget;
-          return s != null
-            ? (n != null && e.output(0, s, n),
-              typeof i != "undefined" && i !== null && e.deadkeyOutput(0, s, i),
-              s.invalidateSelection(),
-              !0)
-            : !1;
-        }
-        resetContext() {
-          this._resetContext(this.activeTarget),
-            this.predictionContext.resetContext();
-        }
-        findAndPopActivation(e) {
-          let n;
-          for (
-            n = 0;
-            n < this.pendingActivations.length &&
-            this.pendingActivations[n].target != e;
-            n++
-          );
-          return n == this.pendingActivations.length
-            ? null
-            : this.pendingActivations.splice(n, 1)[0];
-        }
-        deferredKeyboardActivation(e, n, i) {
-          return Z(this, null, function* () {
-            let s = { target: i, keyboard: e, stub: n };
-            this.findAndPopActivation(i),
-              this.pendingActivations.push(s),
-              yield e;
-            let c = this.findAndPopActivation(i);
-            if (c == s) return s;
-            if (c) return this.pendingActivations.push(c), null;
-          });
-        }
-        activateKeyboard(e, n, i) {
-          return Z(this, null, function* () {
-            let s = !this.activeKeyboard;
-            this.findAndPopActivation(this.currentKeyboardSrcTarget());
-            let c = this.prepareKeyboardForActivation(e, n),
-              l = this.currentKeyboardSrcTarget(),
-              r = yield c.keyboard;
-            if (r == null && c.metadata) return !1;
+      constructor(e) {
+        super();
+        this.pendingActivations = [];
+        this.engineConfig = e;
+      }
+      get predictionContext() {
+        return this._predictionContext;
+      }
+      configure(e) {
+        (this._resetContext = e.resetContext),
+          (this._predictionContext = e.predictionContext),
+          (this.keyboardCache = e.keyboardCache);
+      }
+      insertText(e, n, i) {
+        let s = this.activeTarget;
+        return s != null
+          ? (n != null && e.output(0, s, n),
+            typeof i != "undefined" && i !== null && e.deadkeyOutput(0, s, i),
+            s.invalidateSelection(),
+            !0)
+          : !1;
+      }
+      resetContext() {
+        this._resetContext(this.activeTarget),
+          this.predictionContext.resetContext();
+      }
+      findAndPopActivation(e) {
+        let n;
+        for (
+          n = 0;
+          n < this.pendingActivations.length &&
+          this.pendingActivations[n].target != e;
+          n++
+        );
+        return n == this.pendingActivations.length
+          ? null
+          : this.pendingActivations.splice(n, 1)[0];
+      }
+      deferredKeyboardActivation(e, n, i) {
+        return Z(this, null, function*() {
+          let s = { target: i, keyboard: e, stub: n };
+          this.findAndPopActivation(i),
+            this.pendingActivations.push(s),
+            yield e;
+          let c = this.findAndPopActivation(i);
+          if (c == s) return s;
+          if (c) return this.pendingActivations.push(c), null;
+        });
+      }
+      activateKeyboard(e, n, i) {
+        return Z(this, null, function*() {
+          let s = !this.activeKeyboard;
+          this.findAndPopActivation(this.currentKeyboardSrcTarget());
+          let c = this.prepareKeyboardForActivation(e, n),
+            l = this.currentKeyboardSrcTarget(),
+            r = yield c.keyboard;
+          if (r == null && c.metadata) return !1;
+          this.currentKeyboardSrcTarget() == l &&
+            this.emit("beforekeyboardchange", c.metadata);
+          let B = null;
+          return (
+            r && (B = { keyboard: r, metadata: c.metadata }),
+            this.activateKeyboardForTarget(B, l),
             this.currentKeyboardSrcTarget() == l &&
-              this.emit("beforekeyboardchange", c.metadata);
-            let B = null;
+            (!s || !!r) &&
+            this.emit("keyboardchange", this.activeKeyboard),
+            !0
+          );
+        });
+      }
+      prepareKeyboardForActivation(e, n) {
+        var c;
+        n || (n = "");
+        let i = null;
+        if ((e ? (i = this.keyboardCache.getStub(e, n)) : n == "", !i)) {
+          if (e) throw new Error("No matching stub has been registered.");
+          return { keyboard: Promise.resolve(null), metadata: null };
+        }
+        if (
+          ((c = this.activeKeyboard) == null ? void 0 : c.metadata) &&
+          e == this.activeKeyboard.metadata.id
+        ) {
+          let l = this.activeKeyboard.keyboard;
+          return { keyboard: Promise.resolve(l), metadata: i };
+        }
+        let s;
+        if ((s = this.keyboardCache.getKeyboardForStub(i)))
+          return { keyboard: Promise.resolve(s), metadata: i };
+        {
+          this.emit("beforekeyboardchange", i);
+          let l = this.engineConfig.deferForInitialization.then(() => {
+            let B = new S();
+            this.emit("keyboardasyncload", i, B.corePromise);
+            let d = this.keyboardCache.fetchKeyboardForStub(i),
+              g = new Promise((F, y) => {
+                let u = `Sorry, the ${i.name} keyboard for ${i.langName} is not currently available.`;
+                window.setTimeout(
+                  () => y(new Error(u)),
+                  Os.TIMEOUT_THRESHOLD
+                );
+              }),
+              Q = Promise.race([d, g]);
             return (
-              r && (B = { keyboard: r, metadata: c.metadata }),
-              this.activateKeyboardForTarget(B, l),
-              this.currentKeyboardSrcTarget() == l &&
-                (!s || !!r) &&
-                this.emit("keyboardchange", this.activeKeyboard),
-              !0
+              Q.then(() => {
+                B.resolve(null), g.catch(() => { });
+              }),
+              Q.catch((F) => {
+                throw (B.resolve(F), F);
+              }),
+              Q
             );
           });
+          return {
+            keyboard: this.deferredKeyboardActivation(
+              l,
+              i,
+              this.currentKeyboardSrcTarget()
+            ).then((B) =>
+              Z(this, null, function*() {
+                return B ? l : Promise.resolve(null);
+              })
+            ),
+            metadata: i,
+          };
         }
-        prepareKeyboardForActivation(e, n) {
-          var c;
-          n || (n = "");
-          let i = null;
-          if ((e ? (i = this.keyboardCache.getStub(e, n)) : n == "", !i)) {
-            if (e) throw new Error("No matching stub has been registered.");
-            return { keyboard: Promise.resolve(null), metadata: null };
-          }
-          if (
-            ((c = this.activeKeyboard) == null ? void 0 : c.metadata) &&
-            e == this.activeKeyboard.metadata.id
-          ) {
-            let l = this.activeKeyboard.keyboard;
-            return { keyboard: Promise.resolve(l), metadata: i };
-          }
-          let s;
-          if ((s = this.keyboardCache.getKeyboardForStub(i)))
-            return { keyboard: Promise.resolve(s), metadata: i };
-          {
-            this.emit("beforekeyboardchange", i);
-            let l = this.engineConfig.deferForInitialization.then(() => {
-              let B = new S();
-              this.emit("keyboardasyncload", i, B.corePromise);
-              let d = this.keyboardCache.fetchKeyboardForStub(i),
-                g = new Promise((F, y) => {
-                  let u = `Sorry, the ${i.name} keyboard for ${i.langName} is not currently available.`;
-                  window.setTimeout(
-                    () => y(new Error(u)),
-                    Os.TIMEOUT_THRESHOLD
-                  );
-                }),
-                Q = Promise.race([d, g]);
-              return (
-                Q.then(() => {
-                  B.resolve(null), g.catch(() => {});
-                }),
-                Q.catch((F) => {
-                  throw (B.resolve(F), F);
-                }),
-                Q
-              );
-            });
-            return {
-              keyboard: this.deferredKeyboardActivation(
-                l,
-                i,
-                this.currentKeyboardSrcTarget()
-              ).then((B) =>
-                Z(this, null, function* () {
-                  return B ? l : Promise.resolve(null);
-                })
-              ),
-              metadata: i,
-            };
-          }
-        }
-      },
+      }
+    },
       vt = Os;
     a(vt, "ContextManagerBase"), (vt.TIMEOUT_THRESHOLD = 1e4);
     var Wc = v(A(), 1);
-    var Wt = class extends Wc.default {};
+    var Wt = class extends Wc.default { };
     a(Wt, "HardKeyboard");
     function Ps(o, t, e) {
       let n = U.modifierCodes;
@@ -4437,23 +4436,23 @@ try {
             !!(o.Lmodifiers & n.SHIFT),
             !!(o.Lmodifiers & n.CAPS)
           ),
-        t && !t.isMnemonic)
+          t && !t.isMnemonic)
       ) {
         var i = w.languageMap[e];
         i && i["k" + o.Lcode] && (o.Lcode = i["k" + o.Lcode]),
           !t.definesPositionalOrMnemonic &&
-            !(o.Lmodifiers & U.modifierBitmasks.NON_LEGACY) &&
-            !o.isModifier &&
-            (o = new M({
-              Lcode: w._USKeyCodeToCharCode(o),
-              Lmodifiers: 0,
-              LisVirtualKey: !1,
-              vkCode: o.Lcode,
-              Lstates: o.Lstates,
-              kName: "",
-              device: o.device,
-              isSynthetic: !1,
-            }));
+          !(o.Lmodifiers & U.modifierBitmasks.NON_LEGACY) &&
+          !o.isModifier &&
+          (o = new M({
+            Lcode: w._USKeyCodeToCharCode(o),
+            Lmodifiers: 0,
+            LisVirtualKey: !1,
+            vkCode: o.Lcode,
+            Lstates: o.Lstates,
+            kName: "",
+            device: o.device,
+            isSynthetic: !1,
+          }));
       }
       return o;
     }
@@ -4494,7 +4493,7 @@ try {
         }
       let n = [];
       for (let s of t.keys()) n.push({ keySpec: s, p: t.get(s) / e });
-      return n.sort(function (s, c) {
+      return n.sort(function(s, c) {
         return c.p - s.p;
       });
     }
@@ -4533,12 +4532,12 @@ try {
           (this.startOfBuffer =
             this.left._kmwLength() <= e.leftContextCodePoints),
           this.startOfBuffer ||
-            (this.left = this.left._kmwSubstr(-e.leftContextCodePoints)),
+          (this.left = this.left._kmwSubstr(-e.leftContextCodePoints)),
           (this.right = t.getTextAfterCaret()),
           (this.endOfBuffer =
             this.right._kmwLength() <= e.rightContextCodePoints),
           this.endOfBuffer ||
-            (this.right = this.right._kmwSubstr(0, e.rightContextCodePoints)),
+          (this.right = this.right._kmwSubstr(0, e.rightContextCodePoints)),
           (this.casingForm =
             n == "shift" ? "initial" : n == "caps" ? "upper" : null);
       }
@@ -4743,13 +4742,13 @@ try {
         return (
           (this.currentModel = e),
           this.mayPredict &&
-            ((this._state = "active"), this.emit("statechange", "active")),
+          ((this._state = "active"), this.emit("statechange", "active")),
           this.lmEngine
             .loadModel(i, n)
             .then((s) => {
               (this.configuration = s),
                 this.mayPredict &&
-                  ((this._state = "configured"),
+                ((this._state = "configured"),
                   this.emit("statechange", "configured"));
             })
             .catch((s) => {
@@ -4765,7 +4764,7 @@ try {
       invalidateContext(e, n) {
         if (
           (this.emit("invalidatesuggestions", "context"),
-          !this.currentModel || !this.configuration)
+            !this.currentModel || !this.configuration)
         )
           return Promise.resolve([]);
         if (this.isActive) {
@@ -4896,8 +4895,8 @@ try {
           (this._state = i),
             this.emit("statechange", i),
             e &&
-              this.isConfigured &&
-              ((this._state = "configured"),
+            this.isConfigured &&
+            ((this._state = "configured"),
               this.emit("statechange", "configured"));
         }
       }
@@ -4936,183 +4935,183 @@ try {
       };
     a(Cn, "TranscriptionCache");
     var js = class {
-        constructor(t, e, n) {
-          this.contextCache = new Cn();
-          if (!t) throw new Error("device must be defined");
-          n || (n = js.DEFAULT_OPTIONS),
-            (this.contextDevice = t),
-            (this.kbdProcessor = new Bt(t, n)),
-            (this.lngProcessor = new Nt(e, this.contextCache));
-        }
-        get languageProcessor() {
-          return this.lngProcessor;
-        }
-        get keyboardProcessor() {
-          return this.kbdProcessor;
-        }
-        get keyboardInterface() {
-          return this.keyboardProcessor.keyboardInterface;
-        }
-        get activeKeyboard() {
-          return this.keyboardInterface.activeKeyboard;
-        }
-        set activeKeyboard(t) {
-          (this.keyboardInterface.activeKeyboard = t), this.resetContext();
-        }
-        get activeModel() {
-          return this.languageProcessor.activeModel;
-        }
-        processKeyEvent(t, e) {
-          let n = t.srcKeyboard && this.activeKeyboard != t.srcKeyboard,
-            i = this.activeKeyboard;
-          try {
-            if (
-              (n && (this.keyboardInterface.activeKeyboard = t.srcKeyboard),
-              t.baseTranscriptionToken)
-            ) {
-              let s = this.contextCache.get(t.baseTranscriptionToken);
-              s
-                ? (!At(s.transform) || !s.preInput.isEqual(E.from(e))) &&
-                  e.restoreTo(s.preInput)
-                : console.warn(
-                    "The base context for the multitap could not be found"
-                  );
-            }
-            return this._processKeyEvent(t, e);
-          } finally {
-            n && (this.keyboardInterface.activeKeyboard = i);
-          }
-        }
-        _processKeyEvent(t, e) {
-          var Q;
-          let n = t.device.formFactor,
-            i = t.isSynthetic;
+      constructor(t, e, n) {
+        this.contextCache = new Cn();
+        if (!t) throw new Error("device must be defined");
+        n || (n = js.DEFAULT_OPTIONS),
+          (this.contextDevice = t),
+          (this.kbdProcessor = new Bt(t, n)),
+          (this.lngProcessor = new Nt(e, this.contextCache));
+      }
+      get languageProcessor() {
+        return this.lngProcessor;
+      }
+      get keyboardProcessor() {
+        return this.kbdProcessor;
+      }
+      get keyboardInterface() {
+        return this.keyboardProcessor.keyboardInterface;
+      }
+      get activeKeyboard() {
+        return this.keyboardInterface.activeKeyboard;
+      }
+      set activeKeyboard(t) {
+        (this.keyboardInterface.activeKeyboard = t), this.resetContext();
+      }
+      get activeModel() {
+        return this.languageProcessor.activeModel;
+      }
+      processKeyEvent(t, e) {
+        let n = t.srcKeyboard && this.activeKeyboard != t.srcKeyboard,
+          i = this.activeKeyboard;
+        try {
           if (
-            (n == p.FormFactor.Desktop ||
-              !this.activeKeyboard ||
-              this.activeKeyboard.usesDesktopLayoutOnDevice(t.device)) &&
-            i &&
-            this.keyboardProcessor.selectLayer(t)
+            (n && (this.keyboardInterface.activeKeyboard = t.srcKeyboard),
+              t.baseTranscriptionToken)
+          ) {
+            let s = this.contextCache.get(t.baseTranscriptionToken);
+            s
+              ? (!At(s.transform) || !s.preInput.isEqual(E.from(e))) &&
+              e.restoreTo(s.preInput)
+              : console.warn(
+                "The base context for the multitap could not be found"
+              );
+          }
+          return this._processKeyEvent(t, e);
+        } finally {
+          n && (this.keyboardInterface.activeKeyboard = i);
+        }
+      }
+      _processKeyEvent(t, e) {
+        var Q;
+        let n = t.device.formFactor,
+          i = t.isSynthetic;
+        if (
+          (n == p.FormFactor.Desktop ||
+            !this.activeKeyboard ||
+            this.activeKeyboard.usesDesktopLayoutOnDevice(t.device)) &&
+          i &&
+          this.keyboardProcessor.selectLayer(t)
+        )
+          return new se();
+        if (this.keyboardProcessor.doModifierPress(t, e, !i) && !i)
+          return new se();
+        if (this.languageProcessor.isActive) {
+          if (
+            (t.kName == "K_BKSP" || t.Lcode == U.keyCodes.K_BKSP) &&
+            this.languageProcessor.tryRevertSuggestion()
           )
             return new se();
-          if (this.keyboardProcessor.doModifierPress(t, e, !i) && !i)
+          if (
+            (t.kName == "K_SPACE" || t.Lcode == U.keyCodes.K_SPACE) &&
+            this.languageProcessor.tryAcceptSuggestion("space")
+          )
             return new se();
-          if (this.languageProcessor.isActive) {
-            if (
-              (t.kName == "K_BKSP" || t.Lcode == U.keyCodes.K_BKSP) &&
-              this.languageProcessor.tryRevertSuggestion()
-            )
-              return new se();
-            if (
-              (t.kName == "K_SPACE" || t.Lcode == U.keyCodes.K_SPACE) &&
-              this.languageProcessor.tryAcceptSuggestion("space")
-            )
-              return new se();
-          }
-          let s = E.from(e, !0),
-            c = this.keyboardProcessor.layerId,
-            l = this.keyboardProcessor.processKeystroke(t, e);
-          t.kNextLayer && this.keyboardProcessor.selectLayer(t);
-          let r = U.isKnownOSKModifierKey(t.kName);
-          At(
-            (Q = l == null ? void 0 : l.transcription) == null
-              ? void 0
-              : Q.transform
-          ) &&
-            t.kNextLayer &&
-            (r = !0);
-          let B = l != null;
-          if (B) {
-            let F = r ? null : this.buildAlternates(l, t, s);
-            l.finalize(this.keyboardProcessor, e, !1),
-              F && F.length > 0 && (l.transcription.alternates = F);
-          } else
-            (l = new se()),
-              (l.transcription = e.buildTranscriptionFrom(e, null, !1)),
-              (l.triggersDefaultCommand = !0);
-          this.contextCache.save(l.transcription);
-          let d = l.setStore[33] || t.kNextLayer;
-          this.keyboardProcessor.newLayerStore.set(
-            d ? this.keyboardProcessor.layerId : ""
-          ),
-            this.keyboardProcessor.oldLayerStore.set(d ? c : "");
-          let g = this.keyboardProcessor.processPostKeystroke(
-            this.contextDevice,
-            e
-          );
-          return (
-            g && g.finalize(this.keyboardProcessor, e, !0),
-            (l.predictionPromise = this.languageProcessor.predict(
-              l.transcription,
-              this.keyboardProcessor.layerId
-            )),
-            l.triggersDefaultCommand || e.doInputEvent(),
-            B ? l : null
-          );
         }
-        buildAlternates(t, e, n) {
-          let i;
-          if (this.languageProcessor.isActive && !t.triggersDefaultCommand) {
-            let s = e.keyDistribution,
-              l = new Be(
-                n,
-                Be.ENGINE_RULE_WINDOW,
-                this.keyboardProcessor.layerId
-              ).toMock();
-            if (this.languageProcessor.isActive && s && e.kbdLayer) {
-              let r = Number.MAX_VALUE,
-                B = yn(),
-                d;
-              B.performance &&
-                B.performance.now &&
-                ((d = a(function () {
-                  return B.performance.now();
-                }, "timer")),
+        let s = E.from(e, !0),
+          c = this.keyboardProcessor.layerId,
+          l = this.keyboardProcessor.processKeystroke(t, e);
+        t.kNextLayer && this.keyboardProcessor.selectLayer(t);
+        let r = U.isKnownOSKModifierKey(t.kName);
+        At(
+          (Q = l == null ? void 0 : l.transcription) == null
+            ? void 0
+            : Q.transform
+        ) &&
+          t.kNextLayer &&
+          (r = !0);
+        let B = l != null;
+        if (B) {
+          let F = r ? null : this.buildAlternates(l, t, s);
+          l.finalize(this.keyboardProcessor, e, !1),
+            F && F.length > 0 && (l.transcription.alternates = F);
+        } else
+          (l = new se()),
+            (l.transcription = e.buildTranscriptionFrom(e, null, !1)),
+            (l.triggersDefaultCommand = !0);
+        this.contextCache.save(l.transcription);
+        let d = l.setStore[33] || t.kNextLayer;
+        this.keyboardProcessor.newLayerStore.set(
+          d ? this.keyboardProcessor.layerId : ""
+        ),
+          this.keyboardProcessor.oldLayerStore.set(d ? c : "");
+        let g = this.keyboardProcessor.processPostKeystroke(
+          this.contextDevice,
+          e
+        );
+        return (
+          g && g.finalize(this.keyboardProcessor, e, !0),
+          (l.predictionPromise = this.languageProcessor.predict(
+            l.transcription,
+            this.keyboardProcessor.layerId
+          )),
+          l.triggersDefaultCommand || e.doInputEvent(),
+          B ? l : null
+        );
+      }
+      buildAlternates(t, e, n) {
+        let i;
+        if (this.languageProcessor.isActive && !t.triggersDefaultCommand) {
+          let s = e.keyDistribution,
+            l = new Be(
+              n,
+              Be.ENGINE_RULE_WINDOW,
+              this.keyboardProcessor.layerId
+            ).toMock();
+          if (this.languageProcessor.isActive && s && e.kbdLayer) {
+            let r = Number.MAX_VALUE,
+              B = yn(),
+              d;
+            B.performance &&
+              B.performance.now &&
+              ((d = a(function() {
+                return B.performance.now();
+              }, "timer")),
                 (r = d() + 16));
-              let g = Math.exp(-5);
-              s.sort((F, y) => y.p - F.p), (i = []);
-              let Q = 0;
-              for (let F of s) {
-                if (F.p < g) {
-                  Q += F.p;
-                  break;
-                } else if (d && d() >= r) break;
-                let y = E.from(l, !1),
-                  u = F.keySpec;
-                if (!u) {
-                  console.warn(
-                    "Internal error:  failed to properly filter set of keys for corrections"
-                  );
-                  continue;
-                }
-                let I = this.keyboardProcessor.activeKeyboard.constructKeyEvent(
-                    u,
-                    e.device,
-                    this.keyboardProcessor.stateKeys
-                  ),
-                  b = this.keyboardProcessor.processKeystroke(I, y);
-                if (b && !b.beep && F.p > 0) {
-                  let h = b.transcription.transform;
-                  (h.id = t.transcription.token),
-                    i.push({ sample: h, p: F.p }),
-                    (Q += F.p);
-                }
+            let g = Math.exp(-5);
+            s.sort((F, y) => y.p - F.p), (i = []);
+            let Q = 0;
+            for (let F of s) {
+              if (F.p < g) {
+                Q += F.p;
+                break;
+              } else if (d && d() >= r) break;
+              let y = E.from(l, !1),
+                u = F.keySpec;
+              if (!u) {
+                console.warn(
+                  "Internal error:  failed to properly filter set of keys for corrections"
+                );
+                continue;
               }
-              i.forEach(function (F) {
-                F.p /= Q;
-              });
+              let I = this.keyboardProcessor.activeKeyboard.constructKeyEvent(
+                u,
+                e.device,
+                this.keyboardProcessor.stateKeys
+              ),
+                b = this.keyboardProcessor.processKeystroke(I, y);
+              if (b && !b.beep && F.p > 0) {
+                let h = b.transcription.transform;
+                (h.id = t.transcription.token),
+                  i.push({ sample: h, p: F.p }),
+                  (Q += F.p);
+              }
             }
+            i.forEach(function(F) {
+              F.p /= Q;
+            });
           }
-          return i;
         }
-        resetContext(t) {
-          this.keyboardProcessor.resetContext(t),
-            this.languageProcessor.invalidateContext(
-              t,
-              this.keyboardProcessor.layerId
-            );
-        }
-      },
+        return i;
+      }
+      resetContext(t) {
+        this.keyboardProcessor.resetContext(t),
+          this.languageProcessor.invalidateContext(
+            t,
+            this.keyboardProcessor.layerId
+          );
+      }
+    },
       Ft = js;
     a(Ft, "InputProcessor"), (Ft.DEFAULT_OPTIONS = { baseLayout: "us" });
     var Mc = v(A(), 1);
@@ -5134,16 +5133,16 @@ try {
           this.doRevert
             ? ((this.doRevert = !1), (this.recentAccept = !1))
             : this.recentAccept &&
-              (this.showRevert(), (this.swallowPrediction = !0));
+            (this.showRevert(), (this.swallowPrediction = !0));
         }, "doTryRevert");
         this.invalidateSuggestions = a((e) => {
           (this.initNewContext = !1),
             (!this.swallowPrediction || e == "context") &&
-              ((this.recentAccept = !1),
+            ((this.recentAccept = !1),
               (this.doRevert = !1),
               (this.recentRevert = !1),
               e == "context" &&
-                ((this.swallowPrediction = !1), (this.initNewContext = !0))),
+              ((this.swallowPrediction = !1), (this.initNewContext = !0))),
             e != "new" && this.clearSuggestions();
         }, "invalidateSuggestions");
         this.updateSuggestions = a((e) => {
@@ -5243,8 +5242,8 @@ try {
         let e = [];
         return (
           this.activateKeep() &&
-          this.keepSuggestion &&
-          this.keepSuggestion.matchesModel
+            this.keepSuggestion &&
+            this.keepSuggestion.matchesModel
             ? e.push(this.keepSuggestion)
             : this.doRevert && e.push(this.revertSuggestion),
           e.concat(this._currentSuggestions)
@@ -5264,16 +5263,16 @@ try {
           (this.doRevert = !1),
           (this.revertAcceptancePromise = this.acceptInternal(e)),
           this.revertAcceptancePromise
-            ? (this.revertAcceptancePromise.then(function (i) {
-                i && (n.revertSuggestion = i);
-              }),
+            ? (this.revertAcceptancePromise.then(function(i) {
+              i && (n.revertSuggestion = i);
+            }),
               (this.recentAccept = !0),
               (this.recentRevert = !1),
               (this.swallowPrediction = !0),
               this.revertAcceptancePromise)
             : (e &&
-                e.tag == "revert" &&
-                ((this.recentAccept = !1), (this.recentRevert = !0)),
+              e.tag == "revert" &&
+              ((this.recentAccept = !1), (this.recentRevert = !0)),
               Promise.resolve(null))
         );
       }
@@ -5413,16 +5412,16 @@ try {
     };
     a(Mt, "StubAndKeyboardCache");
     var _s = [
-        "World",
-        "Africa",
-        "Asia",
-        "Europe",
-        "South America",
-        "North America",
-        "Oceania",
-        "Central America",
-        "Middle East",
-      ],
+      "World",
+      "Africa",
+      "Asia",
+      "Europe",
+      "South America",
+      "North America",
+      "Oceania",
+      "Central America",
+      "Middle East",
+    ],
       qs = ["un", "af", "as", "eu", "sa", "na", "oc", "ca", "me"],
       cr = RegExp("^(([\\.]/)|([\\.][\\.]/)|(/))|(:)");
     function wc(o, t) {
@@ -5483,13 +5482,13 @@ try {
             console.warn(
               "The 'language' property for keyboard stubs has been deprecated.  Please use the 'languages' property instead."
             ),
-          e.languages || (e.languages = e.language),
-          e
-            ? e.id
-              ? e.languages || (s = "KeyboardStub has undefined languages")
-              : (s = "KeyboardStub has undefined id")
-            : (s = "Stub undefined"),
-          s != "")
+            e.languages || (e.languages = e.language),
+            e
+              ? e.id
+                ? e.languages || (s = "KeyboardStub has undefined languages")
+                : (s = "KeyboardStub has undefined id")
+              : (s = "Stub undefined"),
+            s != "")
         )
           return [{ error: new Error(s) }];
         let c = [];
@@ -5515,13 +5514,13 @@ try {
           this.KFont || (this.KFont = e.KFont),
           this.KOskFont || (this.KOskFont = e.KOskFont),
           e._displayName &&
-            (this._displayName || (this._displayName = e._displayName));
+          (this._displayName || (this._displayName = e._displayName));
       }
       validateForCustomKeyboard() {
         return super.validateForCustomKeyboard() || !this.KF || !this.KR
           ? new Error(
-              "To use a custom keyboard, you must specify file name, keyboard id, keyboard name, language, language code, and region."
-            )
+            "To use a custom keyboard, you must specify file name, keyboard id, keyboard name, language, language code, and region."
+          )
           : null;
       }
     };
@@ -5557,7 +5556,7 @@ try {
       ec = "Could not find a keyboard with that ID.",
       Kc = "The Cloud API failed to find an appropriate keyboard.",
       lr = "Error occurred while registering keyboards: ",
-      rr = a(function (o) {
+      rr = a(function(o) {
         return o + " keyboard not found.";
       }, "MISSING_KEYBOARD"),
       ke = class extends Dc.default {
@@ -5597,7 +5596,7 @@ try {
         get languageListPromise() {
           return (
             this.languageFetchStarted ||
-              ((this.languageFetchStarted = !0),
+            ((this.languageFetchStarted = !0),
               this.keymanCloudRequest("", !0).catch((e) => {
                 (this.languageFetchStarted = !1),
                   this._languageListPromise.reject(e),
@@ -5608,8 +5607,8 @@ try {
         }
         keymanCloudRequest(e, n) {
           let i =
-              "https://api.keyman.com/cloud/4.0/" +
-              (arguments.length > 1 && n ? "languages" : "keyboards"),
+            "https://api.keyman.com/cloud/4.0/" +
+            (arguments.length > 1 && n ? "languages" : "keyboards"),
             s =
               "?jsonp=keyman.register&languageidtype=bcp47&version=" +
               k.CURRENT.toString(),
@@ -5630,7 +5629,7 @@ try {
             (this.pathConfig.fonts != ""
               ? (i = this.pathConfig.fonts)
               : this.pathConfig.updateFontPath(i),
-            typeof e.error == "string")
+              typeof e.error == "string")
           ) {
             var s = "";
             if (typeof e.options.keyboardid == "string") {
@@ -5661,7 +5660,7 @@ try {
           if (
             (typeof n.keyboardid == "string" &&
               (s = n.keyboardid.split(",")[i]),
-            Array.isArray(e))
+              Array.isArray(e))
           )
             if (e.length == 1 || s.substr(-1, 1) == "$" || s == "") {
               let c = [];
@@ -5697,7 +5696,7 @@ try {
           }
         }
         fetchCloudStubs(e) {
-          return Z(this, null, function* () {
+          return Z(this, null, function*() {
             if (e.length == 0) return Promise.resolve([]);
             let n = "&keyboardid=",
               i = "";
@@ -5777,8 +5776,8 @@ try {
                 console.warn(
                   "The 'language' property for keyboard stubs has been deprecated.  Please use the 'languages' property instead."
                 ),
-              d.languages || (d.languages = d.language),
-              typeof d.languages == "undefined")
+                d.languages || (d.languages = d.language),
+                typeof d.languages == "undefined")
             ) {
               let g =
                 "To use keyboard '" + d.id + "', you must specify languages.";
@@ -5839,7 +5838,7 @@ try {
         );
       }
       addLanguageKeyboards(t) {
-        return Z(this, null, function* () {
+        return Z(this, null, function*() {
           let e = [],
             n = [];
           try {
@@ -5873,25 +5872,25 @@ try {
           return s == ""
             ? ds(e)
             : this.cloudQueryEngine
-                .keymanCloudRequest("&keyboardid=" + s, !1)
-                .then(
-                  (c) =>
-                    Z(this, null, function* () {
-                      let l = yield $s(c, e);
-                      for (let r of l)
-                        typeof r.error == "undefined" && this.cache.addStub(r);
-                      return l;
-                    }),
-                  (c) => {
-                    console.error(c);
-                    let l = { error: c };
-                    return e.push(l), ds(e);
-                  }
-                );
+              .keymanCloudRequest("&keyboardid=" + s, !1)
+              .then(
+                (c) =>
+                  Z(this, null, function*() {
+                    let l = yield $s(c, e);
+                    for (let r of l)
+                      typeof r.error == "undefined" && this.cache.addStub(r);
+                    return l;
+                  }),
+                (c) => {
+                  console.error(c);
+                  let l = { error: c };
+                  return e.push(l), ds(e);
+                }
+              );
         });
       }
       fetchCloudCatalog() {
-        return Z(this, null, function* () {
+        return Z(this, null, function*() {
           try {
             let t = yield this.cloudQueryEngine.keymanCloudRequest("", !1);
             return t.forEach((e) => this.cache.addStub(e)), t;
@@ -5920,12 +5919,12 @@ try {
       register(t) {
         if (
           ((t.id = t.id.toLowerCase()),
-          JSON.stringify(t) == JSON.stringify(this.registeredModels[t.id]))
+            JSON.stringify(t) == JSON.stringify(this.registeredModels[t.id]))
         )
           return;
         this.registeredModels[t.id] = t;
         let e = this;
-        t.languages.forEach(function (n) {
+        t.languages.forEach(function(n) {
           if (!n) {
             console.warn(
               "Null / undefined language codes are not permitted for registration."
@@ -5942,7 +5941,7 @@ try {
         else return;
         let n = this;
         return (
-          e.languages.forEach(function (i) {
+          e.languages.forEach(function(i) {
             n.languageModelMap[i].id == t && delete n.languageModelMap[i];
           }),
           e
@@ -5993,7 +5992,7 @@ try {
           this.linkNode.appendChild(t);
       }
       allLoadedPromise() {
-        return Z(this, null, function* () {
+        return Z(this, null, function*() {
           let t = this.linkedSheets.map((e) => e.load.corePromise);
           Promise.allSettled
             ? yield Promise.allSettled(t)
@@ -6037,12 +6036,12 @@ font-weight:normal;
         if (
           (n == p.OperatingSystem.iOS
             ? l != "" &&
-              (this.doCacheBusting && (l = this.cacheBust(l)),
+            (this.doCacheBusting && (l = this.cacheBust(l)),
               (s = 'url("' + encodeURI(l) + `") format('truetype')`))
             : (r != "" && (s = 'url("' + encodeURI(r) + `"') format('woff')`),
               l != "" &&
-                (s = 'url("' + encodeURI(l) + `") format('truetype')`)),
-          !s)
+              (s = 'url("' + encodeURI(l) + `") format('truetype')`)),
+            !s)
         )
           return null;
         (g += "src:" + s + ";"),
@@ -6069,7 +6068,7 @@ font-weight:normal;
           if (
             !e &&
             document.querySelector("link[href=" + JSON.stringify(t) + "]") !=
-              null
+            null
           )
             return null;
         } catch (i) {
@@ -6114,7 +6113,7 @@ font-weight:normal;
         typeof window.orientation != "undefined"
           ? (o = window.orientation)
           : typeof window.screen.orientation != "undefined" &&
-            (o = window.screen.orientation.angle),
+          (o = window.screen.orientation.angle),
         o !== void 0 ? Math.abs(o / 90) == 1 : !1
       );
     }
@@ -6177,7 +6176,7 @@ font-weight:normal;
       if (!o) return 0;
       var e = o.offsetLeft ? o.offsetLeft : 0;
       if (((t = o), t.offsetParent)) {
-        for (; t.offsetParent; ) (t = t.offsetParent), (e += t.offsetLeft);
+        for (; t.offsetParent;) (t = t.offsetParent), (e += t.offsetLeft);
         let i = t.ownerDocument;
         t.style.position == "fixed" &&
           i &&
@@ -6200,9 +6199,9 @@ font-weight:normal;
       var e = o.offsetTop ? o.offsetTop : 0;
       if (
         ((t = o),
-        t.ownerDocument && t instanceof t.ownerDocument.defaultView.HTMLElement)
+          t.ownerDocument && t instanceof t.ownerDocument.defaultView.HTMLElement)
       ) {
-        for (; t.offsetParent; ) (t = t.offsetParent), (e += t.offsetTop);
+        for (; t.offsetParent;) (t = t.offsetParent), (e += t.offsetTop);
         let i = t.ownerDocument;
         t.style.position == "fixed" &&
           i &&
@@ -6260,8 +6259,8 @@ font-weight:normal;
           n.indexOf(Oe(e.KI)) != -1
             ? (e.KI = n)
             : console.error(
-                "Error when registering keyboard:  current SCRIPT tag's ID does not match!"
-              );
+              "Error when registering keyboard:  current SCRIPT tag's ID does not match!"
+            );
         else return;
       }
       registerKeyboard(e) {
@@ -6271,7 +6270,7 @@ font-weight:normal;
           this.engine.config.deferForInitialization.then(() => {
             this.engine.keyboardRequisitioner.cache.isFetchingKeyboard(n.id) ||
               (this.engine.keyboardRequisitioner.cache.addKeyboard(n),
-              (this.loadedKeyboard = null));
+                (this.loadedKeyboard = null));
           });
       }
       registerStub(e) {
@@ -6298,7 +6297,7 @@ font-weight:normal;
       }
     };
     a(yt, "KeyboardInterface");
-    (function () {
+    (function() {
       yt.__publishShorthandAPI();
     })();
     var di = class extends St {
@@ -6407,10 +6406,10 @@ font-weight:normal;
                 t.off
               )))
             : ((t.addEventListener = this.listenerRegistrationSpy(
-                "listeneradded",
-                t,
-                t.addEventListener
-              )),
+              "listeneradded",
+              t,
+              t.addEventListener
+            )),
               (t.removeEventListener = this.listenerRegistrationSpy(
                 "listenerremoved",
                 t,
@@ -6520,10 +6519,10 @@ font-weight:normal;
           }
           if (
             (this.core.languageProcessor.mayCorrect || (t.keyDistribution = []),
-            this.keyEventRefocus && this.keyEventRefocus(),
-            n.invalidateSelection(),
-            n.deadkeys().deleteMatched(),
-            t.isSynthetic)
+              this.keyEventRefocus && this.keyEventRefocus(),
+              n.invalidateSelection(),
+              n.deadkeys().deleteMatched(),
+              t.isSynthetic)
           ) {
             let c = this.osk.vkbd.layerId;
             c &&
@@ -6574,11 +6573,11 @@ font-weight:normal;
             }, "prepareKeyboardSwap");
             this.osk
               ? this.osk.batchLayoutAfter(() => {
-                  l(),
-                    (this.osk.activeKeyboard = c),
-                    this.contextManager.resetContext(),
-                    this.osk.present();
-                })
+                l(),
+                  (this.osk.activeKeyboard = c),
+                  this.contextManager.resetContext(),
+                  this.osk.present();
+              })
               : (l(), this.contextManager.resetContext());
           }),
           this.contextManager.on("keyboardasyncload", (c) => {
@@ -6590,7 +6589,7 @@ font-weight:normal;
           });
       }
       init(t) {
-        return Z(this, null, function* () {
+        return Z(this, null, function*() {
           let e = this.config;
           if (e.deferForInitialization.isResolved) return Promise.resolve();
           e.initialize(t), String.kmwEnableSupplementaryPlane(!0);
@@ -6602,8 +6601,8 @@ font-weight:normal;
             resetContext: (s) => {
               this.osk
                 ? this.osk.batchLayoutAfter(() => {
-                    this.core.resetContext(s);
-                  })
+                  this.core.resetContext(s);
+                })
                 : this.core.resetContext(s);
             },
             predictionContext: new Tt(
@@ -6626,8 +6625,8 @@ font-weight:normal;
                   package: s.KP,
                 }),
                   this.config.activateFirstKeyboard &&
-                    this.keyboardRequisitioner.cache.defaultStub == s &&
-                    this.contextManager.activateKeyboard(s.id, s.langId, !0);
+                  this.keyboardRequisitioner.cache.defaultStub == s &&
+                  this.contextManager.activateKeyboard(s.id, s.langId, !0);
               }, "eventRaiser");
               this.config.deferForInitialization.isResolved
                 ? c()
@@ -6672,16 +6671,16 @@ font-weight:normal;
         var e;
         this._osk &&
           (this._osk.off("keyevent", this.keyEventListener),
-          (this.core.keyboardProcessor.layerStore.handler =
-            this.osk.layerChangeHandler)),
+            (this.core.keyboardProcessor.layerStore.handler =
+              this.osk.layerChangeHandler)),
           (this._osk = t),
           (this.core.keyboardProcessor.contextDevice =
             (e = t == null ? void 0 : t.targetDevice) != null
               ? e
               : this.config.softDevice),
           t &&
-            (this.contextManager.activeKeyboard &&
-              (t.activeKeyboard = this.contextManager.activeKeyboard),
+          (this.contextManager.activeKeyboard &&
+            (t.activeKeyboard = this.contextManager.activeKeyboard),
             t.on("keyevent", this.keyEventListener),
             (this.core.keyboardProcessor.layerStore.handler =
               t.layerChangeHandler));
@@ -6740,7 +6739,7 @@ font-weight:normal;
           );
         return this.core.activeModel != e &&
           (this.core.activeModel && this.core.languageProcessor.unloadModel(),
-          e)
+            e)
           ? this.core.languageProcessor.loadModel(e).then(() => e)
           : Promise.resolve(e);
       }
@@ -6762,17 +6761,17 @@ font-weight:normal;
             ? void 0
             : n.metadata;
         return e && t.languages.indexOf(e.langId) != -1
-          ? this.refreshModel().then(() => {})
+          ? this.refreshModel().then(() => { })
           : Promise.resolve();
       }
       removeModel(t) {
         this.modelCache.unregister(t),
           this.core.activeModel &&
-            this.core.activeModel.id == t &&
-            this.core.languageProcessor.unloadModel();
+          this.core.activeModel.id == t &&
+          this.core.languageProcessor.unloadModel();
       }
       setActiveKeyboard(t, e) {
-        return Z(this, null, function* () {
+        return Z(this, null, function*() {
           return this.contextManager.activateKeyboard(t, e, !0);
         });
       }
@@ -6796,8 +6795,8 @@ font-weight:normal;
             ? s
             : ""
           : (i = e == null ? void 0 : e.langId) != null
-          ? i
-          : "";
+            ? i
+            : "";
       }
       isChiral(t) {
         let e;
@@ -6822,43 +6821,43 @@ font-weight:normal;
     var Hl = v(A(), 1);
     var qc = v(A(), 1);
     var Qs = class {
-        get height() {
-          return this._height;
-        }
-        set height(t) {
-          (this._height = t > 0 ? t : 0), this.update();
-        }
-        get width() {
-          return this._width;
-        }
-        set width(t) {
-          (this._width = t), this.update();
-        }
-        update() {
-          let t = this.div.style,
-            e = t.height,
-            n = t.display;
-          return (
-            this._height > 0
-              ? ((t.height = this._height + "px"), (t.display = "block"))
-              : ((t.height = "0px"), (t.display = "none")),
-            e !== t.height || n !== t.display
-          );
-        }
-        constructor(t) {
-          let e = W("div");
-          (e.id = Qs.BANNER_ID),
-            (e.className = Qs.BANNER_CLASS),
-            (this.div = e),
-            (this.height = t),
-            this.update();
-        }
-        appendStyleSheet() {}
-        getDiv() {
-          return this.div;
-        }
-        configureForKeyboard(t, e) {}
-      },
+      get height() {
+        return this._height;
+      }
+      set height(t) {
+        (this._height = t > 0 ? t : 0), this.update();
+      }
+      get width() {
+        return this._width;
+      }
+      set width(t) {
+        (this._width = t), this.update();
+      }
+      update() {
+        let t = this.div.style,
+          e = t.height,
+          n = t.display;
+        return (
+          this._height > 0
+            ? ((t.height = this._height + "px"), (t.display = "block"))
+            : ((t.height = "0px"), (t.display = "none")),
+          e !== t.height || n !== t.display
+        );
+      }
+      constructor(t) {
+        let e = W("div");
+        (e.id = Qs.BANNER_ID),
+          (e.className = Qs.BANNER_CLASS),
+          (this.div = e),
+          (this.height = t),
+          this.update();
+      }
+      appendStyleSheet() { }
+      getDiv() {
+        return this.div;
+      }
+      configureForKeyboard(t, e) { }
+    },
       K = Qs;
     a(K, "Banner"),
       (K.DEFAULT_HEIGHT = 37),
@@ -6875,8 +6874,8 @@ font-weight:normal;
         return this.absolute
           ? this.val + "px"
           : this.special
-          ? this.val + this.special
-          : this.val * 100 + "%";
+            ? this.val + this.special
+            : this.val * 100 + "%";
       }
       scaledBy(t) {
         return new m({ val: t * this.val, absolute: this.absolute });
@@ -6898,22 +6897,22 @@ font-weight:normal;
         let e = parseFloat(t);
         return isNaN(e)
           ? (console.error(
-              "Could not properly parse specified length style info: '" +
-                t +
-                "'."
-            ),
+            "Could not properly parse specified length style info: '" +
+            t +
+            "'."
+          ),
             _c)
           : t.indexOf("px") != -1
-          ? { val: e, absolute: !0 }
-          : t.indexOf("pt") != -1
-          ? { val: (4 * e) / 3, absolute: !0 }
-          : t.indexOf("%") != -1
-          ? { val: e / 100, absolute: !1 }
-          : t.indexOf("rem") != -1
-          ? { val: e, absolute: !1, special: "rem" }
-          : t.indexOf("em") != -1
-          ? { val: e, absolute: !1, special: "em" }
-          : { val: (4 * e) / 3, absolute: !0 };
+            ? { val: e, absolute: !0 }
+            : t.indexOf("pt") != -1
+              ? { val: (4 * e) / 3, absolute: !0 }
+              : t.indexOf("%") != -1
+                ? { val: e / 100, absolute: !1 }
+                : t.indexOf("rem") != -1
+                  ? { val: e, absolute: !1, special: "rem" }
+                  : t.indexOf("em") != -1
+                    ? { val: e, absolute: !1, special: "em" }
+                    : { val: (4 * e) / 3, absolute: !0 };
       }
     };
     a(m, "ParsedLengthStyle");
@@ -6971,8 +6970,8 @@ font-weight:normal;
       set activeBannerHeight(t) {
         (this._activeBannerHeight = t),
           this.currentBanner &&
-            !(this.currentBanner instanceof Pe) &&
-            (this.currentBanner.height = t);
+          !(this.currentBanner instanceof Pe) &&
+          (this.currentBanner.height = t);
       }
       get layoutHeight() {
         return m.inPixels(this.height);
@@ -7032,7 +7031,7 @@ ${t.stack}`)
         return this.queue.length == 0 && !this.waitLock;
       }
       triggerNextClosure() {
-        return Z(this, null, function* () {
+        return Z(this, null, function*() {
           if (this.queue.length == 0) return;
           let t = this.queue.shift();
           this.waitLock = Promise.resolve();
@@ -7088,9 +7087,9 @@ ${t.stack}`)
           c = e.t - n.t;
         if (
           ((t.rawLinearSums.x += i),
-          (t.rawLinearSums.y += s),
-          (t.rawLinearSums.t += c),
-          this.lastSample)
+            (t.rawLinearSums.y += s),
+            (t.rawLinearSums.t += c),
+            this.lastSample)
         ) {
           let l = e.targetX - this.lastSample.targetX,
             r = e.targetY - this.lastSample.targetY,
@@ -7183,10 +7182,10 @@ ${t.stack}`)
           return t == "t"
             ? this.baseSample.t
             : t == "x"
-            ? this.baseSample.targetX
-            : t == "y"
-            ? this.baseSample.targetY
-            : 0;
+              ? this.baseSample.targetX
+              : t == "y"
+                ? this.baseSample.targetY
+                : 0;
       }
       mean(t) {
         return (
@@ -7269,7 +7268,7 @@ ${t.stack}`)
     a(el, "getGestureModelSet");
     var tl = { gestures: [], sets: { default: [] } };
     var ui = class {
-      constructor() {}
+      constructor() { }
       getBoundingClientRect() {
         return new DOMRect(
           0,
@@ -7343,17 +7342,17 @@ ${t.stack}`)
       let t = C({}, o);
       if (
         ((t.mouseEventRoot = (e = t.mouseEventRoot) != null ? e : t.targetRoot),
-        (t.touchEventRoot = (n = t.touchEventRoot) != null ? n : t.targetRoot),
-        (t.inputStartBounds =
-          (i = t.inputStartBounds) != null ? i : t.targetRoot),
-        (t.maxRoamingBounds =
-          (s = t.maxRoamingBounds) != null ? s : t.targetRoot),
-        (t.safeBounds = (c = t.safeBounds) != null ? c : new Fe([2])),
-        (t.itemIdentifier = (l = t.itemIdentifier) != null ? l : () => null),
-        (t.recordingMode = !!t.recordingMode),
-        (t.historyLength =
-          ((r = t.historyLength) != null ? r : 0) > 0 ? t.historyLength : 0),
-        o.paddedSafeBounds)
+          (t.touchEventRoot = (n = t.touchEventRoot) != null ? n : t.targetRoot),
+          (t.inputStartBounds =
+            (i = t.inputStartBounds) != null ? i : t.targetRoot),
+          (t.maxRoamingBounds =
+            (s = t.maxRoamingBounds) != null ? s : t.targetRoot),
+          (t.safeBounds = (c = t.safeBounds) != null ? c : new Fe([2])),
+          (t.itemIdentifier = (l = t.itemIdentifier) != null ? l : () => null),
+          (t.recordingMode = !!t.recordingMode),
+          (t.historyLength =
+            ((r = t.historyLength) != null ? r : 0) > 0 ? t.historyLength : 0),
+          o.paddedSafeBounds)
       )
         delete t.safeBoundPadding;
       else {
@@ -7407,9 +7406,9 @@ ${t.stack}`)
       terminate(e = !1) {
         this._isComplete ||
           ((this._wasCancelled = e),
-          (this._isComplete = !0),
-          e ? this.emit("invalidated") : this.emit("complete"),
-          this.removeAllListeners());
+            (this._isComplete = !0),
+            e ? this.emit("invalidated") : this.emit("complete"),
+            this.removeAllListeners());
       }
       toJSON() {
         return { stats: this.stats, wasCancelled: this.wasCancelled };
@@ -7563,19 +7562,19 @@ ${t.stack}`)
         let B = (this._baseSource = e instanceof Y ? e._baseSource : e);
         this.stateToken = c != null ? c : e.stateToken;
         let d = a((u) => {
-            let I = this.recognizerTranslation,
-              b = V(C({}, u), {
-                targetX: u.targetX - I.x,
-                targetY: u.targetY - I.y,
-              });
-            return (
-              this.stateToken && (b.stateToken = this.stateToken),
-              (this.stateToken != B.stateToken ||
-                this.stateToken != e.stateToken) &&
-                (b.item = this.currentRecognizerConfig.itemIdentifier(b, null)),
-              b
-            );
-          }, "translateSample"),
+          let I = this.recognizerTranslation,
+            b = V(C({}, u), {
+              targetX: u.targetX - I.x,
+              targetY: u.targetY - I.y,
+            });
+          return (
+            this.stateToken && (b.stateToken = this.stateToken),
+            (this.stateToken != B.stateToken ||
+              this.stateToken != e.stateToken) &&
+            (b.item = this.currentRecognizerConfig.itemIdentifier(b, null)),
+            b
+          );
+        }, "translateSample"),
           g = e.path.stats.lastSample;
         i
           ? ((this._baseStartIndex = l = Math.max(l + r - 1, 0)),
@@ -7583,7 +7582,7 @@ ${t.stack}`)
           : (this._baseStartIndex = l),
           i
             ? e.path.stats.sampleCount &&
-              this._path.extend(e.path.stats.lastSample)
+            this._path.extend(e.path.stats.lastSample)
             : (this._path = e.path.clone()),
           this._path.translateCoordSystem(d),
           s
@@ -7603,7 +7602,7 @@ ${t.stack}`)
               B.path.off("step", y);
           }),
           B.isPathComplete &&
-            (this.path.terminate(B.path.wasCancelled), this.disconnect());
+          (this.path.terminate(B.path.wasCancelled), this.disconnect());
       }
       get recognizerTranslation() {
         if (
@@ -7660,61 +7659,61 @@ ${t.stack}`)
     };
     a(Ot, "GestureDebugSource");
     var ic = class extends il.default {
-        constructor(e) {
-          var n;
-          super();
-          this._activeTouchpoints = [];
-          this.identifierMap = {};
-          (this.config = e),
-            (this.sourceConstructor =
-              (n = e == null ? void 0 : e.recordingMode) == null || n
-                ? Ot
-                : Ce);
-        }
-        createTouchpoint(e, n) {
-          let i = ic.IDENTIFIER_SEED++;
-          this.identifierMap[e] = i;
-          let s = new this.sourceConstructor(i, this.config, n);
-          return (s.stateToken = this.stateToken), s;
-        }
-        fulfillInputStart(e) {}
-        maintainTouchpoints(e) {
-          e || (e = []),
-            this._activeTouchpoints
-              .filter((n) => !e.includes(n))
-              .forEach((n) => n.terminate(!0));
-        }
-        hasActiveTouchpoint(e) {
-          return this.identifierMap[e] !== void 0;
-        }
-        getTouchpointWithId(e) {
-          let n = this.identifierMap[e];
-          return this._activeTouchpoints.find((i) => i.rawIdentifier == n);
-        }
-        getConfigForId(e) {
-          return this.getTouchpointWithId(e).currentRecognizerConfig;
-        }
-        getStateTokenForId(e) {
-          var n;
-          return (n = this.getTouchpointWithId(e).stateToken) != null
-            ? n
-            : null;
-        }
-        dropTouchpoint(e) {
-          let n = e.rawIdentifier;
-          this._activeTouchpoints = this._activeTouchpoints.filter(
-            (i) => e != i
-          );
-          for (let i of Object.keys(this.identifierMap))
-            this.identifierMap[i] == n && delete this.identifierMap[i];
-        }
-        addTouchpoint(e) {
-          this._activeTouchpoints.push(e);
-        }
-        get activeSources() {
-          return [].concat(this._activeTouchpoints);
-        }
-      },
+      constructor(e) {
+        var n;
+        super();
+        this._activeTouchpoints = [];
+        this.identifierMap = {};
+        (this.config = e),
+          (this.sourceConstructor =
+            (n = e == null ? void 0 : e.recordingMode) == null || n
+              ? Ot
+              : Ce);
+      }
+      createTouchpoint(e, n) {
+        let i = ic.IDENTIFIER_SEED++;
+        this.identifierMap[e] = i;
+        let s = new this.sourceConstructor(i, this.config, n);
+        return (s.stateToken = this.stateToken), s;
+      }
+      fulfillInputStart(e) { }
+      maintainTouchpoints(e) {
+        e || (e = []),
+          this._activeTouchpoints
+            .filter((n) => !e.includes(n))
+            .forEach((n) => n.terminate(!0));
+      }
+      hasActiveTouchpoint(e) {
+        return this.identifierMap[e] !== void 0;
+      }
+      getTouchpointWithId(e) {
+        let n = this.identifierMap[e];
+        return this._activeTouchpoints.find((i) => i.rawIdentifier == n);
+      }
+      getConfigForId(e) {
+        return this.getTouchpointWithId(e).currentRecognizerConfig;
+      }
+      getStateTokenForId(e) {
+        var n;
+        return (n = this.getTouchpointWithId(e).stateToken) != null
+          ? n
+          : null;
+      }
+      dropTouchpoint(e) {
+        let n = e.rawIdentifier;
+        this._activeTouchpoints = this._activeTouchpoints.filter(
+          (i) => e != i
+        );
+        for (let i of Object.keys(this.identifierMap))
+          this.identifierMap[i] == n && delete this.identifierMap[i];
+      }
+      addTouchpoint(e) {
+        this._activeTouchpoints.push(e);
+      }
+      get activeSources() {
+        return [].concat(this._activeTouchpoints);
+      }
+    },
       pn = ic;
     a(pn, "InputEngineBase"), (pn.IDENTIFIER_SEED = 0);
     function sc(o, t, e) {
@@ -7731,12 +7730,12 @@ ${t.stack}`)
       buildSampleFor(t, e, n, i, s) {
         var B, d;
         let c = V(C({}, sc(this.config, t, e)), {
-            t: i,
-            stateToken:
-              (B = s == null ? void 0 : s.stateToken) != null
-                ? B
-                : this.stateToken,
-          }),
+          t: i,
+          stateToken:
+            (B = s == null ? void 0 : s.stateToken) != null
+              ? B
+              : this.stateToken,
+        }),
           r = (
             (d =
               s == null ? void 0 : s.currentRecognizerConfig.itemIdentifier) !=
@@ -7793,33 +7792,33 @@ ${t.stack}`)
     };
     a(Pt, "InputEventEngine");
     var Xn = class {
-        constructor() {}
-        static getCoordZoneBitmask(t, e) {
-          let n = e.getBoundingClientRect(),
-            i = 0;
-          return (
-            (i |= t.clientX < n.left ? Xn.FAR_LEFT : 0),
-            (i |= t.clientX > n.right ? Xn.FAR_RIGHT : 0),
-            (i |= t.clientY < n.top ? Xn.FAR_TOP : 0),
-            (i |= t.clientY > n.bottom ? Xn.FAR_BOTTOM : 0),
-            i
-          );
-        }
-        static inputStartOutOfBoundsCheck(t, e) {
-          return !!this.getCoordZoneBitmask(t, e.inputStartBounds);
-        }
-        static inputStartSafeBoundProximityCheck(t, e) {
-          return this.getCoordZoneBitmask(t, e.paddedSafeBounds);
-        }
-        static inputMoveCancellationCheck(t, e, n) {
-          return (
-            (n = n || 0),
-            this.getCoordZoneBitmask(t, e.maxRoamingBounds)
-              ? !0
-              : !!(this.getCoordZoneBitmask(t, e.safeBounds) & ~n)
-          );
-        }
-      },
+      constructor() { }
+      static getCoordZoneBitmask(t, e) {
+        let n = e.getBoundingClientRect(),
+          i = 0;
+        return (
+          (i |= t.clientX < n.left ? Xn.FAR_LEFT : 0),
+          (i |= t.clientX > n.right ? Xn.FAR_RIGHT : 0),
+          (i |= t.clientY < n.top ? Xn.FAR_TOP : 0),
+          (i |= t.clientY > n.bottom ? Xn.FAR_BOTTOM : 0),
+          i
+        );
+      }
+      static inputStartOutOfBoundsCheck(t, e) {
+        return !!this.getCoordZoneBitmask(t, e.inputStartBounds);
+      }
+      static inputStartSafeBoundProximityCheck(t, e) {
+        return this.getCoordZoneBitmask(t, e.paddedSafeBounds);
+      }
+      static inputMoveCancellationCheck(t, e, n) {
+        return (
+          (n = n || 0),
+          this.getCoordZoneBitmask(t, e.maxRoamingBounds)
+            ? !0
+            : !!(this.getCoordZoneBitmask(t, e.safeBounds) & ~n)
+        );
+      }
+    },
       le = Xn;
     a(le, "ZoneBoundaryChecker"),
       (le.FAR_TOP = 8),
@@ -7890,7 +7889,7 @@ ${t.stack}`)
         if (!e.buttons) {
           this.hasActiveClick &&
             ((this.hasActiveClick = !1),
-            this.onInputMoveCancel(n, i, e.target));
+              this.onInputMoveCancel(n, i, e.target));
           return;
         }
         this.preventPropagation(e);
@@ -7903,7 +7902,7 @@ ${t.stack}`)
         let n = this.currentSource;
         !n ||
           (e.buttons || (this.hasActiveClick = !1),
-          this.onInputEnd(n, e.target));
+            this.onInputEnd(n, e.target));
       }
     };
     a(Ii, "MouseEventEngine");
@@ -7981,7 +7980,7 @@ ${t.stack}`)
             )
             .map((r) => this.pendingSourcePromises.get(r.identifier));
         this.eventDispatcher.runAsync(() =>
-          Z(this, null, function* () {
+          Z(this, null, function*() {
             let r = yield Promise.all(c);
             return (
               this.maintainTouchpoints(r), this.eventDispatcher.defaultWait
@@ -8046,7 +8045,7 @@ ${t.stack}`)
           );
         }
         this.eventDispatcher.runAsync(() =>
-          Z(this, null, function* () {
+          Z(this, null, function*() {
             let s = yield Promise.all(n.values());
             return (
               this.maintainTouchpoints(s), this.eventDispatcher.defaultWait
@@ -8054,7 +8053,7 @@ ${t.stack}`)
           })
         ),
           this.eventDispatcher.runAsync(() =>
-            Z(this, null, function* () {
+            Z(this, null, function*() {
               let s = performance.now();
               for (let c = 0; c < e.touches.length; c++) {
                 let l = e.touches.item(c),
@@ -8090,7 +8089,7 @@ ${t.stack}`)
           n.set(c, l);
         }
         this.eventDispatcher.runAsync(() =>
-          Z(this, null, function* () {
+          Z(this, null, function*() {
             for (let s = 0; s < e.changedTouches.length; s++) {
               let c = e.changedTouches.item(s),
                 l = yield n.get(c.identifier);
@@ -8115,11 +8114,11 @@ ${t.stack}`)
           );
         if (
           ((this.model = t),
-          (this.publishedPromise = new S()),
-          (this.source = e),
-          (this.inheritedStats = n),
-          (this.lastStats = null),
-          t.timer)
+            (this.publishedPromise = new S()),
+            (this.source = e),
+            (this.inheritedStats = n),
+            (this.lastStats = null),
+            t.timer)
         ) {
           let i = t.timer.inheritElapsed
             ? Math.min(e.path.stats.duration, t.timer.duration)
@@ -8191,8 +8190,8 @@ ${t.stack}`)
             n != "continue"
               ? this.finalize(n == "resolve", "path")
               : e.path.isComplete
-              ? this.finalize(!1, "path")
-              : { type: "continue" }
+                ? this.finalize(!1, "path")
+                : { type: "continue" }
           );
         }
       }
@@ -8216,7 +8215,7 @@ ${t.stack}`)
           (this.publishedPromise = new S()),
           (this.model = t),
           t.sustainTimer &&
-            ((this.sustainTimerPromise = new We(t.sustainTimer.duration)),
+          ((this.sustainTimerPromise = new We(t.sustainTimer.duration)),
             this.sustainTimerPromise.then((r) => {
               let B = t.sustainTimer.expectedResult == r;
               this.finalize(B, "timer");
@@ -8239,9 +8238,9 @@ ${t.stack}`)
               `No contact model for inherited path: gesture "${t.id}', entry ${r}`
             );
           let Q =
-              (l = g == null ? void 0 : g.model.pathInheritance) != null
-                ? l
-                : "chop",
+            (l = g == null ? void 0 : g.model.pathInheritance) != null
+              ? l
+              : "chop",
             F = !1,
             y;
           switch (Q) {
@@ -8286,8 +8285,8 @@ ${t.stack}`)
           t
             ? (s = this.model.resolutionAction)
             : (e != "cancelled" &&
-                ((n = this.model.rejectionActions) == null ? void 0 : n[e]) &&
-                ((s = this.model.rejectionActions[e]), (s.item = "none")),
+              ((n = this.model.rejectionActions) == null ? void 0 : n[e]) &&
+              ((s = this.model.rejectionActions[e]), (s.item = "none")),
               (s = s || { type: "none", item: "none" }));
           let c;
           switch ((i = s.item) != null ? i : "current") {
@@ -8329,8 +8328,8 @@ ${t.stack}`)
         return !t && this.predecessor
           ? this.predecessor.primaryPath
           : t == null
-          ? void 0
-          : t.source;
+            ? void 0
+            : t.source;
       }
       get baseItem() {
         return this.primaryPath.baseItem;
@@ -8386,10 +8385,10 @@ ${t.stack}`)
             (t.stateToken = Q),
             (t.currentSample.stateToken = Q),
             t.currentRecognizerConfig &&
-              (t.currentSample.item = t.currentRecognizerConfig.itemIdentifier(
-                t.currentSample,
-                null
-              ));
+            (t.currentSample.item = t.currentRecognizerConfig.itemIdentifier(
+              t.currentSample,
+              null
+            ));
         } else (r = this.primaryPath.baseItem), (l = this.primaryPath);
         if (s.model.baseCoordReplacer) {
           let g = t.path.stats,
@@ -8446,8 +8445,8 @@ ${t.stack}`)
         this.sustainMode = !1;
         this.attemptSynchronousUpdate = a(() => {
           let n = this._sourceSelector
-              .filter((s) => !s.source.isPathComplete)
-              .map((s) => s.source.currentSample.t),
+            .filter((s) => !s.source.isPathComplete)
+            .map((s) => s.source.currentSample.t),
             i = n[0];
           n.find((s) => i != s) ||
             this.potentialMatchers.forEach((s) => s.update());
@@ -8490,15 +8489,15 @@ ${t.stack}`)
         );
       }
       matchGesture(e, n) {
-        return Z(this, null, function* () {
+        return Z(this, null, function*() {
           let i = e instanceof Ce,
             s = a((F) => {
               let y = F.sources.map((u) => u.baseSource);
               return y && y.length > 0
                 ? y
                 : F.predecessor
-                ? s(F.predecessor)
-                : [];
+                  ? s(F.predecessor)
+                  : [];
             }, "determinePredecessorSources"),
             c = i ? [e instanceof Y ? e.baseSource : e] : s(e),
             l = i ? e : null,
@@ -8509,7 +8508,7 @@ ${t.stack}`)
             (this.pendingMatchSetup = y.corePromise),
               yield F,
               this.pendingMatchSetup == y.corePromise &&
-                (this.pendingMatchSetup = null),
+              (this.pendingMatchSetup = null),
               y.resolve();
           }
           i &&
@@ -8529,7 +8528,7 @@ ${t.stack}`)
                 y.addContact(l),
                   y.promise.then(this.matcherSelectionFilter(y, g));
               }),
-              F.length > 0)
+                F.length > 0)
             ) {
               let y = this.stateToken,
                 u = new S();
@@ -8537,7 +8536,7 @@ ${t.stack}`)
                 yield Se(0),
                 yield Se(0),
                 this.pendingMatchSetup == u.corePromise &&
-                  (this.pendingMatchSetup = null),
+                (this.pendingMatchSetup = null),
                 u.resolve();
               let I = this.stateToken;
               if (y != I) {
@@ -8565,7 +8564,7 @@ ${t.stack}`)
             (d.forEach((F) => {
               F.preserve = !1;
             }),
-            this.sustainMode && l)
+              this.sustainMode && l)
           )
             return (
               B.resolve({
@@ -8592,12 +8591,12 @@ ${t.stack}`)
             Q.length > 0
               ? (this.potentialMatchers = this.potentialMatchers.concat(Q))
               : B.resolve({
-                  matcher: null,
-                  result: {
-                    matched: !1,
-                    action: { type: "complete", item: null },
-                  },
-                }),
+                matcher: null,
+                result: {
+                  matched: !1,
+                  action: { type: "complete", item: null },
+                },
+              }),
             this.potentialMatchers.sort(
               (F, y) => y.model.resolutionPriority - F.model.resolutionPriority
             ),
@@ -8637,15 +8636,15 @@ ${t.stack}`)
       }
       matcherSelectionFilter(e, n) {
         return (i) =>
-          Z(this, null, function* () {
+          Z(this, null, function*() {
             e.isCancelled
               ? (i = { matched: !1, action: { type: "none", item: null } })
               : e.finalizeSources();
             let c = e.allSourceIds
-                .map((r) =>
-                  this._sourceSelector.find((B) => B.source.identifier == r)
-                )
-                .filter((r) => !!r),
+              .map((r) =>
+                this._sourceSelector.find((B) => B.source.identifier == r)
+              )
+              .filter((r) => !!r),
               l = this.potentialMatchers.indexOf(e);
             if (l != -1) {
               if (
@@ -8723,13 +8722,13 @@ ${t.stack}`)
           (this.sources = n == null ? void 0 : n.sources),
           (s = this.sources) == null || s.forEach((l) => l.disconnect()),
           (c = this.sources) == null ||
-            c.sort((l, r) =>
-              (n == null ? void 0 : n.primaryPath) == l
-                ? -1
-                : (n == null ? void 0 : n.primaryPath) == r
+          c.sort((l, r) =>
+            (n == null ? void 0 : n.primaryPath) == l
+              ? -1
+              : (n == null ? void 0 : n.primaryPath) == r
                 ? 1
                 : 0
-            ),
+          ),
           (this.allSourceIds = (n == null ? void 0 : n.allSourceIds) || []);
       }
     };
@@ -8740,26 +8739,26 @@ ${t.stack}`)
         this.markedComplete = !1;
         this.selectionHandler = a(
           (e) =>
-            Z(this, null, function* () {
+            Z(this, null, function*() {
               var d, g, Q, F, y, u, I, b, h, x;
               let n =
-                  ((d = this.pushedSelector) == null
-                    ? void 0
-                    : d.baseGestureSetId) ||
-                  ((g = this.selector) == null ? void 0 : g.baseGestureSetId),
+                ((d = this.pushedSelector) == null
+                  ? void 0
+                  : d.baseGestureSetId) ||
+                ((g = this.selector) == null ? void 0 : g.baseGestureSetId),
                 i = new us(e, n);
               e.matcher && this.stageReports.push(i);
               let s =
-                  (Q = e.matcher) != null
-                    ? Q
-                    : this.stageReports[this.stageReports.length - 1],
+                (Q = e.matcher) != null
+                  ? Q
+                  : this.stageReports[this.stageReports.length - 1],
                 c =
                   (F =
                     s == null
                       ? void 0
                       : s.sources.map((G) =>
-                          G instanceof Y ? G.baseSource : G
-                        )) != null
+                        G instanceof Y ? G.baseSource : G
+                      )) != null
                     ? F
                     : [],
                 l = e.result.action.type;
@@ -8768,7 +8767,7 @@ ${t.stack}`)
                 (c.forEach((G) => {
                   G.isPathComplete || G.terminate(l == "none");
                 }),
-                !e.result.matched)
+                  !e.result.matched)
               ) {
                 this.markedComplete ||
                   ((this.markedComplete = !0), this.emit("complete"));
@@ -8795,7 +8794,7 @@ ${t.stack}`)
                   e.result.action.awaitNested &&
                   (yield Promise.all(X), yield Se(0)),
                   (u = this.touchpointCoordinator) == null ||
-                    u.popSelector(this.pushedSelector),
+                  u.popSelector(this.pushedSelector),
                   (this.pushedSelector = null);
               }
               this.emit("stage", i, (G) => {
@@ -8820,9 +8819,9 @@ ${t.stack}`)
                   !(
                     l == "chain" &&
                     e.result.action.selectionMode ==
-                      ((I = this.pushedSelector) == null
-                        ? void 0
-                        : I.baseGestureSetId)
+                    ((I = this.pushedSelector) == null
+                      ? void 0
+                      : I.baseGestureSetId)
                   )
                 ) {
                   if (
@@ -8831,10 +8830,10 @@ ${t.stack}`)
                         "rejectionwithaction",
                         this.modelResetHandler
                       ),
-                      (b = this.touchpointCoordinator) == null ||
+                        (b = this.touchpointCoordinator) == null ||
                         b.popSelector(this.pushedSelector),
-                      (this.pushedSelector = null)),
-                    l == "chain")
+                        (this.pushedSelector = null)),
+                      l == "chain")
                   ) {
                     let L = e.result.action.selectionMode;
                     if (L) {
@@ -8842,14 +8841,14 @@ ${t.stack}`)
                       J.on("rejectionwithaction", this.modelResetHandler),
                         (this.pushedSelector = J),
                         (h = this.touchpointCoordinator) == null ||
-                          h.pushSelector(J);
+                        h.pushSelector(J);
                     }
                   }
                 }
                 ((x = this.pushedSelector) != null ? x : this.selector)
                   .matchGesture(e.matcher, B)
                   .then((L) =>
-                    Z(this, null, function* () {
+                    Z(this, null, function*() {
                       return this.selectionHandler(yield L.selectionPromise);
                     })
                   );
@@ -8874,7 +8873,7 @@ ${t.stack}`)
             this.pushedSelector &&
               ((c = this.touchpointCoordinator) == null ||
                 c.popSelector(this.pushedSelector),
-              (this.pushedSelector = null)),
+                (this.pushedSelector = null)),
               this.selector.off("rejectionwithaction", this.modelResetHandler),
               this.selector.dropSourcesWithIds(this.allSourceIds),
               (this.selector = null);
@@ -8922,7 +8921,7 @@ ${t.stack}`)
           (n) => n.baseSource.isPathComplete || n.baseSource.terminate(!0)
         ),
           this.markedComplete ||
-            ((this.markedComplete = !0), this.emit("complete"));
+          ((this.markedComplete = !0), this.emit("complete"));
       }
       toJSON() {
         return this.stageReports;
@@ -8965,7 +8964,7 @@ ${t.stack}`)
         }, "modelResetHandler");
         this.onNewTrackedPath = a(
           (e) =>
-            Z(this, null, function* () {
+            Z(this, null, function*() {
               this.addSimpleSourceHooks(e);
               let n = this.gestureModelDefinitions,
                 i,
@@ -9017,7 +9016,7 @@ ${t.stack}`)
                   g != -1 && this._activeGestures.splice(g, 1);
                 }),
                 e.path.wasCancelled ||
-                  (e.path.off("invalidated", l),
+                (e.path.off("invalidated", l),
                   d.on("complete", () => this.recordHistory(d))),
                 this.emit("recognizedgesture", d);
             }),
@@ -9025,9 +9024,9 @@ ${t.stack}`)
         );
         if (
           ((this.historyMax = i > 0 ? i : 0),
-          (this.gestureModelDefinitions = e),
-          (this.inputEngines = []),
-          n)
+            (this.gestureModelDefinitions = e),
+            (this.inputEngines = []),
+            n)
         )
           for (let s of n) this.addEngine(s);
         this.selectorStack[0].on("rejectionwithaction", this.modelResetHandler);
@@ -9055,7 +9054,7 @@ ${t.stack}`)
         if (n != -1) {
           if (this.selectorStack.length <= 1)
             throw new Error("May not pop the original, base gesture selector.");
-          for (; n < this.selectorStack.length; )
+          for (; n < this.selectorStack.length;)
             (e = this.selectorStack[n]),
               e.off("rejectionwithaction", this.modelResetHandler),
               this.selectorStack.splice(n, 1);
@@ -9084,7 +9083,7 @@ ${t.stack}`)
         let n = this.historyMax;
         n > 0 &&
           (this._history.length == n && this._history.shift(),
-          this._history.push(e));
+            this._history.push(e));
       }
       get activeGestures() {
         return [].concat(this._activeGestures);
@@ -9100,7 +9099,7 @@ ${t.stack}`)
         return this._history;
       }
       get historyJSON() {
-        let e = a(function (n, i) {
+        let e = a(function(n, i) {
           return n == "item" ? (i == null ? void 0 : i.id) : i;
         }, "sanitizingReplacer");
         return JSON.stringify(this.history, e, 2);
@@ -9221,7 +9220,7 @@ ${t.stack}`)
               } else if (d.matchedId == "flick-reset") {
                 this.flickScroller &&
                   (this.flickScroller(r.currentSample),
-                  r.path.off("step", this.flickScroller)),
+                    r.path.off("step", this.flickScroller)),
                   (this.lockedDir = null),
                   (this.lockedSelectable = null),
                   r instanceof Y && r.disconnect();
@@ -9267,7 +9266,7 @@ ${t.stack}`)
             safeBounds: e,
           });
         }
-        cancel() {}
+        cancel() { }
         flickDistribution(t, e) {
           let n = this.baseSpec.flick,
             i = [{ spec: this.baseSpec, coord: [NaN, 0] }];
@@ -9359,24 +9358,24 @@ ${t.stack}`)
     a(xi, "keySupportsModipress");
     function oc(o, t) {
       let e = a((Q, F) => {
-          if (!Q) return !1;
-          let y = Q.key.spec;
-          switch (F) {
-            case "modipress-start":
-              return xi(Q);
-            case "special-key-start":
-              return ["K_LOPT", "K_ROPT", "K_BKSP"].indexOf(y.baseKeyID) != -1;
-            case "longpress":
-              return !0;
-            case "multitap-start":
-            case "modipress-multitap-start":
-              return o.hasMultitaps ? !!y.multitap : !1;
-            case "flick-start":
-              return !!y.flick;
-            default:
-              return !0;
-          }
-        }, "gestureKeyFilter"),
+        if (!Q) return !1;
+        let y = Q.key.spec;
+        switch (F) {
+          case "modipress-start":
+            return xi(Q);
+          case "special-key-start":
+            return ["K_LOPT", "K_ROPT", "K_BKSP"].indexOf(y.baseKeyID) != -1;
+          case "longpress":
+            return !0;
+          case "multitap-start":
+          case "modipress-multitap-start":
+            return o.hasMultitaps ? !!y.multitap : !1;
+          case "flick-start":
+            return !!y.flick;
+          default:
+            return !0;
+        }
+      }, "gestureKeyFilter"),
         n = t.roamingEnabled || (t.roamingEnabled = !o.hasFlicks),
         i = be(n ? Zr(t) : ul(t)),
         s = be(n ? Bc(t) : Il(t)),
@@ -9542,7 +9541,7 @@ ${t.stack}`)
               t &&
               n.permitsFlick(s.lastSample.item) &&
               ((c = s.cardinalDirection) == null ? void 0 : c.indexOf("n")) !=
-                -1
+              -1
             ) {
               let l = s.netDistance,
                 r = s.angle;
@@ -9673,11 +9672,11 @@ ${t.stack}`)
       };
       return e
         ? V(C({}, n), {
-            rejectionActions: {
-              path: { type: "replace", replace: "longpress-roam" },
-              timer: { type: "replace", replace: "longpress-roam-restore" },
-            },
-          })
+          rejectionActions: {
+            path: { type: "replace", replace: "longpress-roam" },
+            timer: { type: "replace", replace: "longpress-roam-restore" },
+          },
+        })
         : n;
     }
     a(Ql, "longpressModel");
@@ -10116,8 +10115,8 @@ ${t.stack}`)
     }
     a(Wr, "modipressMultitapLockModel");
     var Ul = V(C({}, be(Bc(null))), {
-        resolutionAction: { type: "complete", item: "current" },
-      }),
+      resolutionAction: { type: "complete", item: "current" },
+    }),
       hl = { gestures: [Ul], sets: { default: [Ul.id] } };
     function Cs(o) {
       var t;
@@ -10140,7 +10139,7 @@ ${t.stack}`)
     function ms(o, t, e) {
       (e = { fontFamily: e.fontFamily, fontSize: e.fontSize }),
         e.fontFamily ||
-          (e.fontFamily = getComputedStyle(document.body).fontFamily),
+        (e.fontFamily = getComputedStyle(document.body).fontFamily),
         (!e.fontSize || e.fontSize == "") && (e.fontSize = "1em");
       let n = e.fontFamily,
         i = Cs(e.fontSize);
@@ -10225,11 +10224,11 @@ ${t.stack}`)
           let n = this.generateSuggestionText(this.rtl);
           if (
             (this.container.replaceChild(n, this.display),
-            (this.display = n),
-            e.minWidth !== void 0 && (this._minWidth = e.minWidth),
-            (this._paddingWidth = e.paddingWidth),
-            (this._collapsedWidth = e.collapsedWidth),
-            t && t.displayAs)
+              (this.display = n),
+              e.minWidth !== void 0 && (this._minWidth = e.minWidth),
+              (this._paddingWidth = e.paddingWidth),
+              (this._collapsedWidth = e.collapsedWidth),
+              t && t.displayAs)
           ) {
             let i = ms(t.displayAs, e.emSize, e.styleForFont);
             this._textWidth = i.width;
@@ -10245,9 +10244,9 @@ ${t.stack}`)
           (t.minWidth = this.collapsedWidth + "px"),
             this.rtl
               ? (t.marginRight =
-                  this.collapsedWidth - this.expandedWidth + "px")
+                this.collapsedWidth - this.expandedWidth + "px")
               : (t.marginLeft =
-                  this.collapsedWidth - this.expandedWidth + "px"),
+                this.collapsedWidth - this.expandedWidth + "px"),
             this.updateFade();
         }
         updateFade() {
@@ -10290,9 +10289,9 @@ ${t.stack}`)
         }
         get collapsedWidth() {
           let t =
-              this.spanWidth < this.targetCollapsedWidth
-                ? this.spanWidth
-                : this.targetCollapsedWidth,
+            this.spanWidth < this.targetCollapsedWidth
+              ? this.spanWidth
+              : this.targetCollapsedWidth,
             e = t < this.expandedWidth ? t : this.expandedWidth;
           return this.minWidth > e ? this.minWidth : e;
         }
@@ -10304,11 +10303,9 @@ ${t.stack}`)
             ? (t = this.collapsedWidth)
             : t > this.expandedWidth && (t = this.expandedWidth),
             this.rtl
-              ? (this.container.style.marginRight = `${
-                  t - this.expandedWidth
+              ? (this.container.style.marginRight = `${t - this.expandedWidth
                 }px`)
-              : (this.container.style.marginLeft = `${
-                  t - this.expandedWidth
+              : (this.container.style.marginLeft = `${t - this.expandedWidth
                 }px`);
         }
         highlight(t) {
@@ -10334,353 +10331,353 @@ ${t.stack}`)
       Xi = dc;
     a(Xi, "BannerSuggestion"), (Xi.BASE_ID = "kmw-suggestion-");
     var Xe = class extends K {
-        constructor(e, n) {
-          super(n || K.DEFAULT_HEIGHT);
-          this.type = "suggestion";
-          this.currentSuggestions = [];
-          this.options = [];
-          this.separators = [];
-          this.isRTL = !1;
-          this.onSuggestionUpdate = a((e) => {
-            var Q;
-            (this.currentSuggestions = e),
-              (Q = this.highlightAnimation) == null || Q.cancel();
-            let n = this.options[0].computedStyle,
-              i = { fontSize: n.fontSize, fontFamily: n.fontFamily },
-              s = getComputedStyle(document.body).fontSize,
-              c = Cs(s).val,
-              l = getComputedStyle(this.options[0].container.firstChild),
-              r = this.width / Xe.LONG_SUGGESTION_DISPLAY_LIMIT,
-              B = new m(l.paddingLeft || "4px"),
-              d = new m(l.paddingRight || "4px"),
-              g = {
-                paddingWidth: B.val + d.val,
-                emSize: c,
-                styleForFont: i,
-                collapsedWidth: r,
-                minWidth: 0,
-              };
-            for (let F = 0; F < Xe.SUGGESTION_LIMIT; F++) {
-              let y = this.options[F];
-              if (e.length > F) {
-                let u = e[F];
-                y.update(u, g);
-              } else y.update(null, g);
-            }
-            this.refreshLayout();
-          }, "onSuggestionUpdate");
-          this.refreshLayout = a(() => {
-            let e = [],
-              n = 0,
-              i = Math.min(this.currentSuggestions.length, 8);
-            for (let s = 0; s < i; s++) {
-              let c = this.options[s];
-              (c.minWidth = 0),
-                (n += c.collapsedWidth),
-                c.collapsedWidth < c.expandedWidth && e.push(c);
-            }
-            if (((i = i || 1), n < this.width)) {
-              let s = this.width * 0.01 * (i - 1);
-              for (; n < this.width && e.length > 0; ) {
-                let l = (this.width - n - s) / e.length;
-                e.sort((g, Q) => g.expandedWidth - Q.expandedWidth);
-                let r = e[0],
-                  B = r.expandedWidth - r.collapsedWidth,
-                  d = Math.min(B, l);
-                d > 0 &&
-                  (e.forEach((g) => (g.minWidth = g.collapsedWidth + d)),
-                  (n += d * e.length)),
-                  e.splice(0, 1);
-              }
-              let c = (this.width - n - s) / i;
-              for (let l = 0; l < i; l++) {
-                let r = this.options[l];
-                (r.minWidth = r.collapsedWidth + c), r.updateLayout();
-              }
-            }
-            for (let s = 0; s < Xe.SUGGESTION_LIMIT - 1; s++)
-              this.separators[s].style.display = s < i - 1 ? "" : "none";
-          }, "refreshLayout");
-          (this.hostDevice = e),
-            (this.getDiv().className =
-              this.getDiv().className + " " + Xe.BANNER_CLASS),
-            (this.container = document.createElement("div")),
-            (this.container.className = kr),
-            this.getDiv().appendChild(this.container),
-            this.buildInternals(!1),
-            (this.gestureEngine = this.setupInputHandling());
-        }
-        buildInternals(e) {
-          (this.isRTL = e),
-            this.options.length > 0 &&
-              ((this.options = []), (this.separators = []));
-          for (var n = 0; n < Xe.SUGGESTION_LIMIT; n++) {
-            let i = new Xi(n, e);
-            this.options[n] = i;
+      constructor(e, n) {
+        super(n || K.DEFAULT_HEIGHT);
+        this.type = "suggestion";
+        this.currentSuggestions = [];
+        this.options = [];
+        this.separators = [];
+        this.isRTL = !1;
+        this.onSuggestionUpdate = a((e) => {
+          var Q;
+          (this.currentSuggestions = e),
+            (Q = this.highlightAnimation) == null || Q.cancel();
+          let n = this.options[0].computedStyle,
+            i = { fontSize: n.fontSize, fontFamily: n.fontFamily },
+            s = getComputedStyle(document.body).fontSize,
+            c = Cs(s).val,
+            l = getComputedStyle(this.options[0].container.firstChild),
+            r = this.width / Xe.LONG_SUGGESTION_DISPLAY_LIMIT,
+            B = new m(l.paddingLeft || "4px"),
+            d = new m(l.paddingRight || "4px"),
+            g = {
+              paddingWidth: B.val + d.val,
+              emSize: c,
+              styleForFont: i,
+              collapsedWidth: r,
+              minWidth: 0,
+            };
+          for (let F = 0; F < Xe.SUGGESTION_LIMIT; F++) {
+            let y = this.options[F];
+            if (e.length > F) {
+              let u = e[F];
+              y.update(u, g);
+            } else y.update(null, g);
           }
-          for (var n = 0; n < Xe.SUGGESTION_LIMIT; n++) {
-            let s = e ? Xe.SUGGESTION_LIMIT - n - 1 : n;
-            if (
-              (this.container.appendChild(this.options[s].div),
+          this.refreshLayout();
+        }, "onSuggestionUpdate");
+        this.refreshLayout = a(() => {
+          let e = [],
+            n = 0,
+            i = Math.min(this.currentSuggestions.length, 8);
+          for (let s = 0; s < i; s++) {
+            let c = this.options[s];
+            (c.minWidth = 0),
+              (n += c.collapsedWidth),
+              c.collapsedWidth < c.expandedWidth && e.push(c);
+          }
+          if (((i = i || 1), n < this.width)) {
+            let s = this.width * 0.01 * (i - 1);
+            for (; n < this.width && e.length > 0;) {
+              let l = (this.width - n - s) / e.length;
+              e.sort((g, Q) => g.expandedWidth - Q.expandedWidth);
+              let r = e[0],
+                B = r.expandedWidth - r.collapsedWidth,
+                d = Math.min(B, l);
+              d > 0 &&
+                (e.forEach((g) => (g.minWidth = g.collapsedWidth + d)),
+                  (n += d * e.length)),
+                e.splice(0, 1);
+            }
+            let c = (this.width - n - s) / i;
+            for (let l = 0; l < i; l++) {
+              let r = this.options[l];
+              (r.minWidth = r.collapsedWidth + c), r.updateLayout();
+            }
+          }
+          for (let s = 0; s < Xe.SUGGESTION_LIMIT - 1; s++)
+            this.separators[s].style.display = s < i - 1 ? "" : "none";
+        }, "refreshLayout");
+        (this.hostDevice = e),
+          (this.getDiv().className =
+            this.getDiv().className + " " + Xe.BANNER_CLASS),
+          (this.container = document.createElement("div")),
+          (this.container.className = kr),
+          this.getDiv().appendChild(this.container),
+          this.buildInternals(!1),
+          (this.gestureEngine = this.setupInputHandling());
+      }
+      buildInternals(e) {
+        (this.isRTL = e),
+          this.options.length > 0 &&
+          ((this.options = []), (this.separators = []));
+        for (var n = 0; n < Xe.SUGGESTION_LIMIT; n++) {
+          let i = new Xi(n, e);
+          this.options[n] = i;
+        }
+        for (var n = 0; n < Xe.SUGGESTION_LIMIT; n++) {
+          let s = e ? Xe.SUGGESTION_LIMIT - n - 1 : n;
+          if (
+            (this.container.appendChild(this.options[s].div),
               e && (this.container.scrollLeft = this.container.scrollWidth),
               n != Xe.SUGGESTION_LIMIT - 1)
-            ) {
-              let c = W("div");
-              c.className = "kmw-banner-separator";
-              let l = c.style;
-              (l.marginLeft = `calc(${Xe.MARGIN / 2}% - 0.5px)`),
-                (l.marginRight = `calc(${Xe.MARGIN / 2}% - 0.5px)`),
-                this.container.appendChild(c),
-                (this.separators[s - (e ? 1 : 0)] = c);
-            }
+          ) {
+            let c = W("div");
+            c.className = "kmw-banner-separator";
+            let l = c.style;
+            (l.marginLeft = `calc(${Xe.MARGIN / 2}% - 0.5px)`),
+              (l.marginRight = `calc(${Xe.MARGIN / 2}% - 0.5px)`),
+              this.container.appendChild(c),
+              (this.separators[s - (e ? 1 : 0)] = c);
           }
         }
-        setupInputHandling() {
-          let e = new Fe(this.getDiv(), [-Number.MAX_SAFE_INTEGER]);
-          this.selectionBounds = new Fe(this.getDiv(), [
-            -ml * this.height,
-            -Number.MAX_SAFE_INTEGER,
-          ]);
-          let n = {
-              targetRoot: this.getDiv(),
-              maxRoamingBounds: e,
-              safeBounds: e,
-              itemIdentifier: (r, B) => {
-                let d = this.selectionBounds.getBoundingClientRect();
-                if (
-                  r.clientX < d.left ||
-                  r.clientX > d.right ||
-                  r.clientY < d.top ||
-                  r.clientY > d.bottom
-                )
-                  return null;
-                let g = null,
-                  Q = Number.MAX_VALUE;
-                for (let F of this.options) {
-                  let y = F.div.getBoundingClientRect();
-                  if (y.left <= r.clientX && r.clientX < y.right)
-                    return F.suggestion ? F : null;
-                  {
-                    let u =
-                      (r.clientX < y.left ? -1 : 1) * (r.clientX - y.left);
-                    u < Q && ((Q = u), (g = F));
-                  }
-                }
-                return g.suggestion ? g : null;
-              },
-            },
-            i = new ut(hl, n),
-            s = { source: null, scrollingHandler: null, suggestion: null },
-            c = a((r) => {
-              r.highlight(!0),
-                this.highlightAnimation &&
-                  (this.highlightAnimation.cancel(),
-                  this.highlightAnimation.decouple()),
-                (this.highlightAnimation = new Zn(this.container, r, !1)),
-                this.highlightAnimation.expand();
-            }, "markSelection"),
-            l = a((r) => {
-              r.highlight(!1),
-                this.highlightAnimation ||
-                  (this.highlightAnimation = new Zn(this.container, r, !1)),
-                this.highlightAnimation.collapse();
-            }, "clearSelection");
-          return (
-            i.on("inputstart", (r) => {
-              if (s.source) {
-                r.terminate(!0);
-                return;
+      }
+      setupInputHandling() {
+        let e = new Fe(this.getDiv(), [-Number.MAX_SAFE_INTEGER]);
+        this.selectionBounds = new Fe(this.getDiv(), [
+          -ml * this.height,
+          -Number.MAX_SAFE_INTEGER,
+        ]);
+        let n = {
+          targetRoot: this.getDiv(),
+          maxRoamingBounds: e,
+          safeBounds: e,
+          itemIdentifier: (r, B) => {
+            let d = this.selectionBounds.getBoundingClientRect();
+            if (
+              r.clientX < d.left ||
+              r.clientX > d.right ||
+              r.clientY < d.top ||
+              r.clientY > d.bottom
+            )
+              return null;
+            let g = null,
+              Q = Number.MAX_VALUE;
+            for (let F of this.options) {
+              let y = F.div.getBoundingClientRect();
+              if (y.left <= r.clientX && r.clientX < y.right)
+                return F.suggestion ? F : null;
+              {
+                let u =
+                  (r.clientX < y.left ? -1 : 1) * (r.clientX - y.left);
+                u < Q && ((Q = u), (g = F));
               }
-              this.scrollState = new pi(
-                r.currentSample,
-                this.container.scrollLeft
-              );
-              let B = r.baseItem;
-              (s.source = r),
-                (s.scrollingHandler = (g) => {
-                  var y;
-                  let Q = this.scrollState.updateTo(g);
-                  (y = this.highlightAnimation) == null || y.setBaseScroll(Q);
-                  let F = g.item ? B : null;
-                  F != s.suggestion &&
-                    (s.suggestion && l(s.suggestion),
+            }
+            return g.suggestion ? g : null;
+          },
+        },
+          i = new ut(hl, n),
+          s = { source: null, scrollingHandler: null, suggestion: null },
+          c = a((r) => {
+            r.highlight(!0),
+              this.highlightAnimation &&
+              (this.highlightAnimation.cancel(),
+                this.highlightAnimation.decouple()),
+              (this.highlightAnimation = new Zn(this.container, r, !1)),
+              this.highlightAnimation.expand();
+          }, "markSelection"),
+          l = a((r) => {
+            r.highlight(!1),
+              this.highlightAnimation ||
+              (this.highlightAnimation = new Zn(this.container, r, !1)),
+              this.highlightAnimation.collapse();
+          }, "clearSelection");
+        return (
+          i.on("inputstart", (r) => {
+            if (s.source) {
+              r.terminate(!0);
+              return;
+            }
+            this.scrollState = new pi(
+              r.currentSample,
+              this.container.scrollLeft
+            );
+            let B = r.baseItem;
+            (s.source = r),
+              (s.scrollingHandler = (g) => {
+                var y;
+                let Q = this.scrollState.updateTo(g);
+                (y = this.highlightAnimation) == null || y.setBaseScroll(Q);
+                let F = g.item ? B : null;
+                F != s.suggestion &&
+                  (s.suggestion && l(s.suggestion),
                     (s.suggestion = F),
                     F && c(F));
+              }),
+              (s.suggestion = r.currentSample.item),
+              s.suggestion && c(s.suggestion);
+            let d = a(() => {
+              s.suggestion && (l(s.suggestion), (s.suggestion = null)),
+                (s.source = null),
+                (s.scrollingHandler = null);
+            }, "terminationHandler");
+            r.path.on("complete", d),
+              r.path.on("invalidated", d),
+              r.path.on("step", s.scrollingHandler);
+          }),
+          i.on("recognizedgesture", (r) => {
+            r.once("stage", (B) => {
+              let d = B.item;
+              d &&
+                !this.scrollState.hasScrolled &&
+                this.predictionContext.accept(d.suggestion).then(() => {
+                  this.container.scrollLeft = this.isRTL
+                    ? this.container.scrollWidth
+                    : 0;
                 }),
-                (s.suggestion = r.currentSample.item),
-                s.suggestion && c(s.suggestion);
-              let d = a(() => {
-                s.suggestion && (l(s.suggestion), (s.suggestion = null)),
-                  (s.source = null),
-                  (s.scrollingHandler = null);
-              }, "terminationHandler");
-              r.path.on("complete", d),
-                r.path.on("invalidated", d),
-                r.path.on("step", s.scrollingHandler);
-            }),
-            i.on("recognizedgesture", (r) => {
-              r.once("stage", (B) => {
-                let d = B.item;
-                d &&
-                  !this.scrollState.hasScrolled &&
-                  this.predictionContext.accept(d.suggestion).then(() => {
-                    this.container.scrollLeft = this.isRTL
-                      ? this.container.scrollWidth
-                      : 0;
-                  }),
-                  (this.scrollState = null);
-              });
-            }),
-            i
-          );
-        }
-        update() {
-          var n;
-          let e = super.update();
-          return (
-            (n = this.selectionBounds) == null ||
-              n.updatePadding([-ml * this.height, -Number.MAX_SAFE_INTEGER]),
-            e
-          );
-        }
-        configureForKeyboard(e, n) {
-          let i = e.isRTL;
-          (this.container.textContent = ""),
-            this.buildInternals(i),
-            this.options.forEach((s) => s.matchKeyboardProperties(n)),
-            this.onSuggestionUpdate(this.currentSuggestions);
-        }
-        get predictionContext() {
-          return this._predictionContext;
-        }
-        set predictionContext(e) {
-          this._predictionContext &&
-            this._predictionContext.off("update", this.onSuggestionUpdate),
-            (this._predictionContext = e),
-            e &&
-              (e.on("update", this.onSuggestionUpdate),
-              this.onSuggestionUpdate(e.currentSuggestions));
-        }
-      },
+                (this.scrollState = null);
+            });
+          }),
+          i
+        );
+      }
+      update() {
+        var n;
+        let e = super.update();
+        return (
+          (n = this.selectionBounds) == null ||
+          n.updatePadding([-ml * this.height, -Number.MAX_SAFE_INTEGER]),
+          e
+        );
+      }
+      configureForKeyboard(e, n) {
+        let i = e.isRTL;
+        (this.container.textContent = ""),
+          this.buildInternals(i),
+          this.options.forEach((s) => s.matchKeyboardProperties(n)),
+          this.onSuggestionUpdate(this.currentSuggestions);
+      }
+      get predictionContext() {
+        return this._predictionContext;
+      }
+      set predictionContext(e) {
+        this._predictionContext &&
+          this._predictionContext.off("update", this.onSuggestionUpdate),
+          (this._predictionContext = e),
+          e &&
+          (e.on("update", this.onSuggestionUpdate),
+            this.onSuggestionUpdate(e.currentSuggestions));
+      }
+    },
       Qe = Xe;
     a(Qe, "SuggestionBanner"),
       (Qe.SUGGESTION_LIMIT = 8),
       (Qe.LONG_SUGGESTION_DISPLAY_LIMIT = 3),
       (Qe.MARGIN = 1);
     var Te = class {
-        constructor(t, e, n) {
-          this.setScrollOffset = a(() => {
-            if (!this.scrollContainer) return;
-            let t = this.option.currentWidth - this.option.collapsedWidth,
-              e = this.option.rtl,
-              n = Math.max(
-                this.rootScrollOffset - this.option.div.offsetLeft,
-                0
-              ),
-              i = Math.max(
-                this.option.div.offsetLeft +
-                  this.option.collapsedWidth -
-                  (this.rootScrollOffset + this.scrollContainer.offsetWidth)
-              ),
-              s = Math.max(e ? i : n, 0),
-              c =
-                Math.max(this.collapsedScrollOffset + (e ? 0 : 1) * t, 0) +
-                (e ? 0 : -1) * s,
-              l =
-                Math.max(this.rootScrollOffset + (e ? 0 : 1) * t, 0) +
-                (e ? 0 : -1) * s,
-              r = e ? Math.max(c, l) : Math.min(c, l),
-              B = Math.max(
-                e
-                  ? this.option.div.offsetLeft +
-                      this.option.currentWidth -
-                      (r + this.scrollContainer.offsetWidth)
-                  : r - this.option.div.offsetLeft,
-                0
-              ),
-              d = Math.min(t, B),
-              g = c + (e ? 1 : -1) * d + (e ? 0 : 1) * s;
-            if (
-              ((this.scrollContainer.scrollLeft = g), this.pendingAnimation)
-            ) {
-              let Q = this.scrollContainer.scrollLeft - g;
-              this.option.currentWidth += Q;
-            }
-          }, "setScrollOffset");
-          this._expand = a((t) => {
-            if (this.startTimestamp === void 0) return;
-            let e = t - this.startTimestamp,
-              n = e > Te.TRANSITION_TIME;
-            n && (e = Te.TRANSITION_TIME);
-            let i = this.option.expandedWidth - this.option.collapsedWidth,
-              s = e / Te.TRANSITION_TIME,
-              c = i * s;
-            (this.option.currentWidth = c + this.option.collapsedWidth),
-              n
-                ? this.clear()
-                : (this.pendingAnimation = window.requestAnimationFrame(
-                    this._expand
-                  )),
-              this.setScrollOffset();
-          }, "_expand");
-          this._collapse = a((t) => {
-            if (this.startTimestamp === void 0) return;
-            let e = t - this.startTimestamp,
-              n = e > Te.TRANSITION_TIME;
-            n && (e = Te.TRANSITION_TIME);
-            let i = this.option.expandedWidth - this.option.collapsedWidth,
-              s = 1 - e / Te.TRANSITION_TIME,
-              c = i * s;
-            (this.option.currentWidth = c + this.option.collapsedWidth),
-              n
-                ? this.clear()
-                : (this.pendingAnimation = window.requestAnimationFrame(
-                    this._collapse
-                  )),
-              this.setScrollOffset();
-          }, "_collapse");
-          (this.scrollContainer = t),
-            (this.option = e),
-            (this.collapsedScrollOffset = t.scrollLeft),
-            (this.rootScrollOffset = t.scrollLeft);
-        }
-        setBaseScroll(t) {
-          (this.collapsedScrollOffset = t),
-            this.option.rtl
-              ? t > this.rootScrollOffset && (this.rootScrollOffset = t)
-              : t < this.rootScrollOffset && (this.rootScrollOffset = t),
-            window.requestAnimationFrame(this.setScrollOffset);
-        }
-        decouple() {
-          this.cancel(), (this.scrollContainer = null);
-        }
-        clear() {
-          (this.startTimestamp = null),
-            window.cancelAnimationFrame(this.pendingAnimation),
-            (this.pendingAnimation = null);
-        }
-        cancel() {
-          this.clear(), (this.option.currentWidth = this.option.collapsedWidth);
-        }
-        expand() {
-          this.clear(), (this.startTimestamp = performance.now());
+      constructor(t, e, n) {
+        this.setScrollOffset = a(() => {
+          if (!this.scrollContainer) return;
           let t = this.option.currentWidth - this.option.collapsedWidth,
-            e = this.option.expandedWidth - this.option.collapsedWidth;
-          t != 0 && (this.startTimestamp -= (t / e) * Te.TRANSITION_TIME),
-            (this.pendingAnimation = window.requestAnimationFrame(
-              this._expand
-            ));
-        }
-        collapse() {
-          this.clear(), (this.startTimestamp = performance.now());
-          let t = this.option.expandedWidth - this.option.currentWidth,
-            e = this.option.expandedWidth - this.option.collapsedWidth;
-          t != 0 && (this.startTimestamp -= (t / e) * Te.TRANSITION_TIME),
-            (this.pendingAnimation = window.requestAnimationFrame(
-              this._collapse
-            ));
-        }
-      },
+            e = this.option.rtl,
+            n = Math.max(
+              this.rootScrollOffset - this.option.div.offsetLeft,
+              0
+            ),
+            i = Math.max(
+              this.option.div.offsetLeft +
+              this.option.collapsedWidth -
+              (this.rootScrollOffset + this.scrollContainer.offsetWidth)
+            ),
+            s = Math.max(e ? i : n, 0),
+            c =
+              Math.max(this.collapsedScrollOffset + (e ? 0 : 1) * t, 0) +
+              (e ? 0 : -1) * s,
+            l =
+              Math.max(this.rootScrollOffset + (e ? 0 : 1) * t, 0) +
+              (e ? 0 : -1) * s,
+            r = e ? Math.max(c, l) : Math.min(c, l),
+            B = Math.max(
+              e
+                ? this.option.div.offsetLeft +
+                this.option.currentWidth -
+                (r + this.scrollContainer.offsetWidth)
+                : r - this.option.div.offsetLeft,
+              0
+            ),
+            d = Math.min(t, B),
+            g = c + (e ? 1 : -1) * d + (e ? 0 : 1) * s;
+          if (
+            ((this.scrollContainer.scrollLeft = g), this.pendingAnimation)
+          ) {
+            let Q = this.scrollContainer.scrollLeft - g;
+            this.option.currentWidth += Q;
+          }
+        }, "setScrollOffset");
+        this._expand = a((t) => {
+          if (this.startTimestamp === void 0) return;
+          let e = t - this.startTimestamp,
+            n = e > Te.TRANSITION_TIME;
+          n && (e = Te.TRANSITION_TIME);
+          let i = this.option.expandedWidth - this.option.collapsedWidth,
+            s = e / Te.TRANSITION_TIME,
+            c = i * s;
+          (this.option.currentWidth = c + this.option.collapsedWidth),
+            n
+              ? this.clear()
+              : (this.pendingAnimation = window.requestAnimationFrame(
+                this._expand
+              )),
+            this.setScrollOffset();
+        }, "_expand");
+        this._collapse = a((t) => {
+          if (this.startTimestamp === void 0) return;
+          let e = t - this.startTimestamp,
+            n = e > Te.TRANSITION_TIME;
+          n && (e = Te.TRANSITION_TIME);
+          let i = this.option.expandedWidth - this.option.collapsedWidth,
+            s = 1 - e / Te.TRANSITION_TIME,
+            c = i * s;
+          (this.option.currentWidth = c + this.option.collapsedWidth),
+            n
+              ? this.clear()
+              : (this.pendingAnimation = window.requestAnimationFrame(
+                this._collapse
+              )),
+            this.setScrollOffset();
+        }, "_collapse");
+        (this.scrollContainer = t),
+          (this.option = e),
+          (this.collapsedScrollOffset = t.scrollLeft),
+          (this.rootScrollOffset = t.scrollLeft);
+      }
+      setBaseScroll(t) {
+        (this.collapsedScrollOffset = t),
+          this.option.rtl
+            ? t > this.rootScrollOffset && (this.rootScrollOffset = t)
+            : t < this.rootScrollOffset && (this.rootScrollOffset = t),
+          window.requestAnimationFrame(this.setScrollOffset);
+      }
+      decouple() {
+        this.cancel(), (this.scrollContainer = null);
+      }
+      clear() {
+        (this.startTimestamp = null),
+          window.cancelAnimationFrame(this.pendingAnimation),
+          (this.pendingAnimation = null);
+      }
+      cancel() {
+        this.clear(), (this.option.currentWidth = this.option.collapsedWidth);
+      }
+      expand() {
+        this.clear(), (this.startTimestamp = performance.now());
+        let t = this.option.currentWidth - this.option.collapsedWidth,
+          e = this.option.expandedWidth - this.option.collapsedWidth;
+        t != 0 && (this.startTimestamp -= (t / e) * Te.TRANSITION_TIME),
+          (this.pendingAnimation = window.requestAnimationFrame(
+            this._expand
+          ));
+      }
+      collapse() {
+        this.clear(), (this.startTimestamp = performance.now());
+        let t = this.option.expandedWidth - this.option.currentWidth,
+          e = this.option.expandedWidth - this.option.collapsedWidth;
+        t != 0 && (this.startTimestamp -= (t / e) * Te.TRANSITION_TIME),
+          (this.pendingAnimation = window.requestAnimationFrame(
+            this._collapse
+          ));
+      }
+    },
       Zn = Te;
     a(Zn, "SuggestionExpandContractAnimation"), (Zn.TRANSITION_TIME = 250);
     var Vi = class extends K {
@@ -10721,7 +10718,7 @@ ${t.stack}`)
       set inactiveBanner(t) {
         (this._inactiveBanner = t != null ? t : new Pe()),
           this.container.banner instanceof Qe ||
-            (this.container.banner = this._inactiveBanner);
+          (this.container.banner = this._inactiveBanner);
       }
       activateBanner(t) {
         let e,
@@ -10740,10 +10737,10 @@ ${t.stack}`)
       selectBanner(t) {
         this.activateBanner(t == "active" || t == "configured"),
           this.keyboard &&
-            this.container.banner.configureForKeyboard(
-              this.keyboard,
-              this.keyboardStub
-            );
+          this.container.banner.configureForKeyboard(
+            this.keyboard,
+            this.keyboardStub
+          );
       }
       configureForKeyboard(t, e) {
         (this.keyboard = t),
@@ -10761,116 +10758,116 @@ ${t.stack}`)
         let t = (this.element = document.createElement("div"));
         (t.style.userSelect = "none"), (t.className = "kmw-osk-none");
       }
-      postInsert() {}
-      updateState() {}
-      refreshLayout() {}
+      postInsert() { }
+      updateState() { }
+      refreshLayout() { }
       get layoutHeight() {
         return m.inPixels(0);
       }
     };
     a(It, "EmptyView");
     var xs = class {
-        constructor(t) {
-          this.kbd = t;
-          var e = (this.element = document.createElement("div"));
-          (e.style.userSelect = "none"),
-            (e.className = "kmw-osk-static"),
-            (e.id = xs.ID),
-            (e.innerHTML = t.helpText);
-        }
-        postInsert() {
-          if (!this.element.parentElement || !document.getElementById(xs.ID))
-            throw new Error(
-              "The HelpPage root element has not yet been inserted into the DOM."
-            );
-          this.kbd.hasScript &&
-            this.kbd.embedScript(this.element.parentElement);
-        }
-        updateState() {}
-        refreshLayout() {}
-        get layoutHeight() {
-          return m.inPercent(100);
-        }
-      },
+      constructor(t) {
+        this.kbd = t;
+        var e = (this.element = document.createElement("div"));
+        (e.style.userSelect = "none"),
+          (e.className = "kmw-osk-static"),
+          (e.id = xs.ID),
+          (e.innerHTML = t.helpText);
+      }
+      postInsert() {
+        if (!this.element.parentElement || !document.getElementById(xs.ID))
+          throw new Error(
+            "The HelpPage root element has not yet been inserted into the DOM."
+          );
+        this.kbd.hasScript &&
+          this.kbd.embedScript(this.element.parentElement);
+      }
+      updateState() { }
+      refreshLayout() { }
+      get layoutHeight() {
+        return m.inPercent(100);
+      }
+    },
       _t = xs;
     a(_t, "HelpPageView"), (_t.ID = "kmw-osk-help-page");
     var Sl = v(A(), 1);
     var Nr = {
-        "*Shift*": 8,
-        "*Enter*": 5,
-        "*Tab*": 6,
-        "*BkSp*": 4,
-        "*Menu*": 11,
-        "*Hide*": 10,
-        "*Alt*": 25,
-        "*Ctrl*": 1,
-        "*Caps*": 3,
-        "*ABC*": 16,
-        "*abc*": 17,
-        "*123*": 19,
-        "*Symbol*": 21,
-        "*Currency*": 20,
-        "*Shifted*": 9,
-        "*AltGr*": 2,
-        "*TabLeft*": 7,
-        "*LAlt*": 86,
-        "*RAlt*": 87,
-        "*LCtrl*": 88,
-        "*RCtrl*": 89,
-        "*LAltCtrl*": 96,
-        "*RAltCtrl*": 97,
-        "*LAltCtrlShift*": 98,
-        "*RAltCtrlShift*": 99,
-        "*AltShift*": 100,
-        "*CtrlShift*": 101,
-        "*AltCtrlShift*": 102,
-        "*LAltShift*": 103,
-        "*RAltShift*": 104,
-        "*LCtrlShift*": 105,
-        "*RCtrlShift*": 112,
-        "*LTREnter*": 5,
-        "*LTRBkSp*": 4,
-        "*RTLEnter*": 113,
-        "*RTLBkSp*": 114,
-        "*ShiftLock*": 115,
-        "*ShiftedLock*": 116,
-        "*ZWNJ*": 117,
-        "*ZWNJiOS*": 117,
-        "*ZWNJAndroid*": 118,
-        "*ZWNJGeneric*": 121,
-        "*Sp*": 128,
-        "*NBSp*": 130,
-        "*NarNBSp*": 131,
-        "*EnQ*": 132,
-        "*EmQ*": 133,
-        "*EnSp*": 134,
-        "*EmSp*": 135,
-        "*PunctSp*": 140,
-        "*ThSp*": 141,
-        "*HSp*": 142,
-        "*ZWSp*": 129,
-        "*ZWJ*": 119,
-        "*WJ*": 120,
-        "*CGJ*": 122,
-        "*LTRM*": 144,
-        "*RTLM*": 145,
-        "*SH*": 161,
-        "*HTab*": 162,
-      },
+      "*Shift*": 8,
+      "*Enter*": 5,
+      "*Tab*": 6,
+      "*BkSp*": 4,
+      "*Menu*": 11,
+      "*Hide*": 10,
+      "*Alt*": 25,
+      "*Ctrl*": 1,
+      "*Caps*": 3,
+      "*ABC*": 16,
+      "*abc*": 17,
+      "*123*": 19,
+      "*Symbol*": 21,
+      "*Currency*": 20,
+      "*Shifted*": 9,
+      "*AltGr*": 2,
+      "*TabLeft*": 7,
+      "*LAlt*": 86,
+      "*RAlt*": 87,
+      "*LCtrl*": 88,
+      "*RCtrl*": 89,
+      "*LAltCtrl*": 96,
+      "*RAltCtrl*": 97,
+      "*LAltCtrlShift*": 98,
+      "*RAltCtrlShift*": 99,
+      "*AltShift*": 100,
+      "*CtrlShift*": 101,
+      "*AltCtrlShift*": 102,
+      "*LAltShift*": 103,
+      "*RAltShift*": 104,
+      "*LCtrlShift*": 105,
+      "*RCtrlShift*": 112,
+      "*LTREnter*": 5,
+      "*LTRBkSp*": 4,
+      "*RTLEnter*": 113,
+      "*RTLBkSp*": 114,
+      "*ShiftLock*": 115,
+      "*ShiftedLock*": 116,
+      "*ZWNJ*": 117,
+      "*ZWNJiOS*": 117,
+      "*ZWNJAndroid*": 118,
+      "*ZWNJGeneric*": 121,
+      "*Sp*": 128,
+      "*NBSp*": 130,
+      "*NarNBSp*": 131,
+      "*EnQ*": 132,
+      "*EmQ*": 133,
+      "*EnSp*": 134,
+      "*EmSp*": 135,
+      "*PunctSp*": 140,
+      "*ThSp*": 141,
+      "*HSp*": 142,
+      "*ZWSp*": 129,
+      "*ZWJ*": 119,
+      "*WJ*": 120,
+      "*CGJ*": 122,
+      "*LTRM*": 144,
+      "*RTLM*": 145,
+      "*SH*": 161,
+      "*HTab*": 162,
+    },
       Gs = Nr;
     var Tr = [
-        "default",
-        "shift",
-        "shift-on",
-        "special",
-        "special-on",
-        "",
-        "",
-        "",
-        "deadkey",
-        "blank",
-        "hidden",
-      ],
+      "default",
+      "shift",
+      "shift-on",
+      "special",
+      "special-on",
+      "",
+      "",
+      "",
+      "deadkey",
+      "blank",
+      "hidden",
+    ],
       qt = Tr;
     function $t(o, t) {
       switch (o) {
@@ -10893,160 +10890,160 @@ ${t.stack}`)
     }
     a($t, "renameSpecialKey");
     var Li = class {
-        constructor(t, e) {
-          (this.spec = t), (this.layer = e);
+      constructor(t, e) {
+        (this.spec = t), (this.layer = e);
+      }
+      setButtonClass() {
+        var i;
+        let t = this.spec,
+          e = this.btn;
+        var n = 0;
+        typeof t.dk == "string" && t.dk == "1" && (n = 8),
+          (n = (i = t.sp) != null ? i : n),
+          (n < 0 || n > 10) && (n = 0),
+          (e.className = "kmw-key kmw-key-" + qt[n]);
+      }
+      setToggleState(t) {
+        let e;
+        switch (((e = this.spec.sp), qt[e])) {
+          case "shift":
+          case "shift-on":
+            t === void 0 && (t = qt[e] == "shift"),
+              (this.spec.sp = 1 + (t ? 1 : 0));
+            break;
+          case "special":
+          case "special-on":
+            t === void 0 && (t = qt[e] == "special"),
+              (this.spec.sp = 3 + (t ? 1 : 0));
+            break;
+          default:
+            return;
         }
-        setButtonClass() {
-          var i;
-          let t = this.spec,
-            e = this.btn;
-          var n = 0;
-          typeof t.dk == "string" && t.dk == "1" && (n = 8),
-            (n = (i = t.sp) != null ? i : n),
-            (n < 0 || n > 10) && (n = 0),
-            (e.className = "kmw-key kmw-key-" + qt[n]);
+        this.setButtonClass();
+      }
+      isFrameKey() {
+        let t = this.spec.sp || 0;
+        switch (qt[t]) {
+          case "default":
+          case "deadkey":
+            return !1;
+          default:
+            return !0;
         }
-        setToggleState(t) {
-          let e;
-          switch (((e = this.spec.sp), qt[e])) {
-            case "shift":
-            case "shift-on":
-              t === void 0 && (t = qt[e] == "shift"),
-                (this.spec.sp = 1 + (t ? 1 : 0));
-              break;
-            case "special":
-            case "special-on":
-              t === void 0 && (t = qt[e] == "special"),
-                (this.spec.sp = 3 + (t ? 1 : 0));
-              break;
-            default:
-              return;
+      }
+      allowsKeyTip() {
+        return this.isFrameKey()
+          ? !1
+          : !this.btn.classList.contains("kmw-spacebar");
+      }
+      highlight(t) {
+        var e = this.btn.classList;
+        t
+          ? e.contains(Li.HIGHLIGHT_CLASS) || e.add(Li.HIGHLIGHT_CLASS)
+          : e.remove(Li.HIGHLIGHT_CLASS);
+      }
+      getIdealFontSize(t, e, n) {
+        if (!this._fontFamily) return new m("1em");
+        n != null || (n = 1);
+        let i = e.keyWidth,
+          s = e.keyHeight,
+          c = e.baseEmFontSize.scaledBy(e.layoutFontSize.val),
+          l = this._fontSize;
+        l.absolute || (l = c.scaledBy(l.val));
+        let r = {
+          fontFamily: this._fontFamily,
+          fontSize: l.styleString,
+          height: e.keyHeight,
+        },
+          B = ms(t, c.scaledBy(n).val, r),
+          d = 0.9,
+          g = 0.9,
+          Q = 2;
+        var F;
+        B.fontBoundingBoxAscent &&
+          (F = B.fontBoundingBoxAscent + B.fontBoundingBoxDescent);
+        let y = F != null ? F : 0,
+          u = (i * d) / (B.width + Q),
+          I = y && s ? (s * g) / y : void 0;
+        var b = u;
+        return I && I < u && (b = I), m.forScalar(n * Math.min(b, 1));
+      }
+      get keyText() {
+        let t = this.spec,
+          e = "\xA0",
+          n = null;
+        return (
+          t.text == null || t.text == ""
+            ? (n = e)
+            : ((n = t.text),
+              n == "*Tab*" && this.layer == "shift" && (n = "*TabLeft*")),
+          n
+        );
+      }
+      generateKeyText(t) {
+        let e = this.spec,
+          n = document.createElement("span"),
+          i = n.style;
+        n.className = "kmw-key-text";
+        let s = this.keyText,
+          c = $t(s, t);
+        c != s && ((s = c), (e.font = "SpecialOSK")),
+          typeof e.font == "string" &&
+          e.font != "" &&
+          (i.fontFamily = e.font),
+          typeof e.fontsize == "string" &&
+          e.fontsize != "" &&
+          (i.fontSize = e.fontsize);
+        let l = { fontSize: i.fontSize };
+        return (
+          i.fontFamily
+            ? (l.fontFamily = i.fontFamily)
+            : (l.fontFamily = t.fontFamily),
+          t.isRTL && (s = "\u200F" + s),
+          (n.innerText = s),
+          n
+        );
+      }
+      resetFontPrecalc() {
+        (this._fontFamily = void 0),
+          (this._fontSize = void 0),
+          (this.label.style.fontSize = "");
+      }
+      detectStyles(t) {
+        if (
+          !(this.spec.sp == f.spacer || this.spec.sp == f.blank) &&
+          this._fontFamily === void 0
+        ) {
+          let e = getComputedStyle(this.label);
+          if (!e.fontFamily) return;
+          this._fontFamily = e.fontFamily;
+          let n = new m(e.fontSize),
+            i = t.layoutFontSize;
+          if (i.absolute) this._fontSize = n;
+          else {
+            let s = t.baseEmFontSize,
+              c = i.scaledBy(s.val),
+              l = n.val / c.val;
+            this._fontSize = m.forScalar(l);
           }
-          this.setButtonClass();
         }
-        isFrameKey() {
-          let t = this.spec.sp || 0;
-          switch (qt[t]) {
-            case "default":
-            case "deadkey":
-              return !1;
-            default:
-              return !0;
+      }
+      refreshLayout(t) {
+        if (this.label)
+          if (this.label.classList.contains("kmw-spacebar-caption")) {
+            let e = this.getIdealFontSize(this.keyText, t);
+            this.label.style.setProperty(
+              "font-size",
+              e.styleString,
+              "important"
+            );
+          } else {
+            let e = this.label.textContent,
+              n = this.getIdealFontSize(e, t);
+            this.label.style.fontSize = n.styleString;
           }
-        }
-        allowsKeyTip() {
-          return this.isFrameKey()
-            ? !1
-            : !this.btn.classList.contains("kmw-spacebar");
-        }
-        highlight(t) {
-          var e = this.btn.classList;
-          t
-            ? e.contains(Li.HIGHLIGHT_CLASS) || e.add(Li.HIGHLIGHT_CLASS)
-            : e.remove(Li.HIGHLIGHT_CLASS);
-        }
-        getIdealFontSize(t, e, n) {
-          if (!this._fontFamily) return new m("1em");
-          n != null || (n = 1);
-          let i = e.keyWidth,
-            s = e.keyHeight,
-            c = e.baseEmFontSize.scaledBy(e.layoutFontSize.val),
-            l = this._fontSize;
-          l.absolute || (l = c.scaledBy(l.val));
-          let r = {
-              fontFamily: this._fontFamily,
-              fontSize: l.styleString,
-              height: e.keyHeight,
-            },
-            B = ms(t, c.scaledBy(n).val, r),
-            d = 0.9,
-            g = 0.9,
-            Q = 2;
-          var F;
-          B.fontBoundingBoxAscent &&
-            (F = B.fontBoundingBoxAscent + B.fontBoundingBoxDescent);
-          let y = F != null ? F : 0,
-            u = (i * d) / (B.width + Q),
-            I = y && s ? (s * g) / y : void 0;
-          var b = u;
-          return I && I < u && (b = I), m.forScalar(n * Math.min(b, 1));
-        }
-        get keyText() {
-          let t = this.spec,
-            e = "\xA0",
-            n = null;
-          return (
-            t.text == null || t.text == ""
-              ? (n = e)
-              : ((n = t.text),
-                n == "*Tab*" && this.layer == "shift" && (n = "*TabLeft*")),
-            n
-          );
-        }
-        generateKeyText(t) {
-          let e = this.spec,
-            n = document.createElement("span"),
-            i = n.style;
-          n.className = "kmw-key-text";
-          let s = this.keyText,
-            c = $t(s, t);
-          c != s && ((s = c), (e.font = "SpecialOSK")),
-            typeof e.font == "string" &&
-              e.font != "" &&
-              (i.fontFamily = e.font),
-            typeof e.fontsize == "string" &&
-              e.fontsize != "" &&
-              (i.fontSize = e.fontsize);
-          let l = { fontSize: i.fontSize };
-          return (
-            i.fontFamily
-              ? (l.fontFamily = i.fontFamily)
-              : (l.fontFamily = t.fontFamily),
-            t.isRTL && (s = "\u200F" + s),
-            (n.innerText = s),
-            n
-          );
-        }
-        resetFontPrecalc() {
-          (this._fontFamily = void 0),
-            (this._fontSize = void 0),
-            (this.label.style.fontSize = "");
-        }
-        detectStyles(t) {
-          if (
-            !(this.spec.sp == f.spacer || this.spec.sp == f.blank) &&
-            this._fontFamily === void 0
-          ) {
-            let e = getComputedStyle(this.label);
-            if (!e.fontFamily) return;
-            this._fontFamily = e.fontFamily;
-            let n = new m(e.fontSize),
-              i = t.layoutFontSize;
-            if (i.absolute) this._fontSize = n;
-            else {
-              let s = t.baseEmFontSize,
-                c = i.scaledBy(s.val),
-                l = n.val / c.val;
-              this._fontSize = m.forScalar(l);
-            }
-          }
-        }
-        refreshLayout(t) {
-          if (this.label)
-            if (this.label.classList.contains("kmw-spacebar-caption")) {
-              let e = this.getIdealFontSize(this.keyText, t);
-              this.label.style.setProperty(
-                "font-size",
-                e.styleString,
-                "important"
-              );
-            } else {
-              let e = this.label.textContent,
-                n = this.getIdealFontSize(e, t);
-              this.label.style.fontSize = n.styleString;
-            }
-        }
-      },
+      }
+    },
       re = Li;
     a(re, "OSKKey"),
       (re.specialCharacters = Gs),
@@ -11176,7 +11173,7 @@ ${t.stack}`)
           (i.font && i.font != "SpecialOSK"
             ? (n.style.fontFamily = i.font)
             : n.classList.add("kmw-key-text"),
-          i.fontsize)
+            i.fontsize)
         ) {
           let l = new m(i.fontsize);
           n.style.fontSize = l.scaledBy(0.5).styleString;
@@ -11198,9 +11195,9 @@ ${t.stack}`)
             (this.preview = document.createElement("div")),
             (this.preview.style.display = "none")),
           e == null ||
-            e.setCancellationHandler(() => {
-              this.setPreview(null);
-            }),
+          e.setCancellationHandler(() => {
+            this.setPreview(null);
+          }),
           this.btn.replaceChild(this.preview, n);
       }
       refreshLayout(e) {
@@ -11313,7 +11310,7 @@ ${t.stack}`)
           (s.fontFamily = "font" in e ? e.font : ""),
           (this.nextlayer = i.layer = n.id),
           typeof n.nextlayer == "string" &&
-            (i.nextLayer = this.nextlayer = n.nextlayer);
+          (i.nextLayer = this.nextlayer = n.nextlayer);
         let l = n.row;
         this.rows = [];
         for (let r = 0; r < l.length; r++) {
@@ -11325,21 +11322,21 @@ ${t.stack}`)
         if (
           (t.device.touchable &&
             ((this.globeKey = this.findKey("K_LOPT")),
-            (this.hideKey = this.findKey("K_ROPT"))),
-          (this.spaceBarKey = this.findKey("K_SPACE")),
-          (this.capsKey = this.findKey("K_CAPS")),
-          (this.numKey = this.findKey("K_NUMLOCK")),
-          (this.scrollKey = this.findKey("K_SCROLL")),
-          this.spaceBarKey)
+              (this.hideKey = this.findKey("K_ROPT"))),
+            (this.spaceBarKey = this.findKey("K_SPACE")),
+            (this.capsKey = this.findKey("K_CAPS")),
+            (this.numKey = this.findKey("K_NUMLOCK")),
+            (this.scrollKey = this.findKey("K_SCROLL")),
+            this.spaceBarKey)
         ) {
           let r = this.spaceBarKey.label,
             B = this.spaceBarKey.btn;
           typeof B.className == "undefined" || B.className == ""
             ? (B.className = "kmw-spacebar")
             : B.className.indexOf("kmw-spacebar") == -1 &&
-              (B.className += " kmw-spacebar"),
+            (B.className += " kmw-spacebar"),
             r.className != "kmw-spacebar-caption" &&
-              (r.className = "kmw-spacebar-caption");
+            (r.className = "kmw-spacebar-caption");
         }
       }
       findKey(t) {
@@ -11353,7 +11350,7 @@ ${t.stack}`)
             let e = this.spaceBarKey.label;
             (this.spaceBarKey.spec.text = t),
               (e.innerText != t || t == "") && (e.innerText = t);
-          } catch (e) {}
+          } catch (e) { }
       }
       refreshLayout(t) {
         this.rows.forEach((c) => c.detectStyles(t));
@@ -11446,7 +11443,7 @@ ${t.stack}`)
               (e.element.style.display == "block" ||
                 n.element.style.display != "block") &&
                 ((e.element.style.display = "none"),
-                (n.element.style.display = "block"));
+                  (n.element.style.display = "block"));
             });
         }
         nearestKey(t, e) {
@@ -11457,9 +11454,9 @@ ${t.stack}`)
           };
           if (!isFinite(n.x) || !isFinite(n.y)) return null;
           let i = Math.max(
-              0,
-              Math.min(e.rows.length - 1, Math.floor(n.y * e.rows.length))
-            ),
+            0,
+            Math.min(e.rows.length - 1, Math.floor(n.y * e.rows.length))
+          ),
             s = e.rows[i],
             c = null,
             l = Number.MAX_VALUE;
@@ -11485,8 +11482,8 @@ ${t.stack}`)
           if (!(isNaN(t.keyboardWidth) || isNaN(t.keyboardHeight))) {
             if (
               ((this.computedWidth = t.keyboardWidth),
-              (this.computedHeight = t.keyboardHeight),
-              this._heightPadding === void 0)
+                (this.computedHeight = t.keyboardHeight),
+                this._heightPadding === void 0)
             ) {
               let e = getComputedStyle(this.element),
                 n = parseInt(e.paddingTop, 10) || 0,
@@ -11532,7 +11529,7 @@ ${t.stack}`)
           let i = this.vkbd;
           if (
             (e && i.layerGroup.blinkLayer(t.key.spec.displayLayer),
-            e && t.offsetParent)
+              e && t.offsetParent)
           ) {
             let r = t.key.row.element,
               B = t.getClientRects()[0],
@@ -11582,8 +11579,8 @@ ${t.stack}`)
             g < c
               ? ((this.cap.style.left = "1px"), (g += c - 1))
               : g > window.innerWidth - Q - c
-              ? ((this.cap.style.left = oe - Q - 1 + "px"), (g -= c - 1))
-              : (this.cap.style.left = c + "px"),
+                ? ((this.cap.style.left = oe - Q - 1 + "px"), (g -= c - 1))
+                : (this.cap.style.left = c + "px"),
               (I.left = g - c + "px");
             let Gt = getComputedStyle(this.element),
               Pn = h.height,
@@ -11600,7 +11597,7 @@ ${t.stack}`)
             let qn = L - Math.floor(G) + ae - (X == "top" ? jn : -Ws * 2);
             if (
               ((this.cap.style.height = qn + "px"),
-              this.constrain && De + he > Pn)
+                this.constrain && De + he > Pn)
             ) {
               let ze = De + he - Pn;
               I.height = ae - ze + "px";
@@ -11609,14 +11606,14 @@ ${t.stack}`)
             } else
               he < 0 &&
                 ((I.bottom = "0px"),
-                (this.cap.style.height = Math.max(0, qn + he) + "px"));
+                  (this.cap.style.height = Math.max(0, qn + he) + "px"));
             if (((I.display = "block"), this.previewHost == n)) return;
             let Yi = this.preview;
             this.previewHost &&
               this.previewHost.off("preferredOrientation", this.reorient),
               (this.previewHost = n),
               n &&
-                (this.previewHost.on("preferredOrientation", this.reorient),
+              (this.previewHost.on("preferredOrientation", this.reorient),
                 (this.preview = this.previewHost.element),
                 this.tip.replaceChild(this.preview, Yi),
                 n.setCancellationHandler(() => this.show(null, !1, null)),
@@ -11628,7 +11625,7 @@ ${t.stack}`)
           } else {
             (this.element.style.display = "none"),
               (l = this.previewHost) == null ||
-                l.off("preferredOrientation", this.reorient),
+              l.off("preferredOrientation", this.reorient),
               (this.previewHost = null);
             let r = this.preview;
             (this.preview = document.createElement("div")),
@@ -11660,7 +11657,7 @@ ${t.stack}`)
             s = t == null ? void 0 : t.key.spec.displayLayer;
           if (
             (e && i.layerGroup.blinkLayer(s),
-            e && (t == null ? void 0 : t.offsetParent))
+              e && (t == null ? void 0 : t.offsetParent))
           ) {
             let c = this.vkbd.topContainer.getBoundingClientRect(),
               l = t.getBoundingClientRect(),
@@ -11671,18 +11668,18 @@ ${t.stack}`)
               d = this.vkbd.currentLayer.element.style.fontFamily;
             if (
               ((B.fontFamily = t.key.spec.font || d),
-              (B.left = l.left - c.left + "px"),
-              (B.top = l.top - c.top + "px"),
-              (B.width = l.width + "px"),
-              (B.height = l.height + "px"),
-              (this.element.style.display = "block"),
-              this.previewHost == n)
+                (B.left = l.left - c.left + "px"),
+                (B.top = l.top - c.top + "px"),
+                (B.width = l.width + "px"),
+                (B.height = l.height + "px"),
+                (this.element.style.display = "block"),
+                this.previewHost == n)
             )
               return;
             let g = this.preview;
             (this.previewHost = n),
               n &&
-                ((this.preview = this.previewHost.element),
+              ((this.preview = this.previewHost.element),
                 this.element.replaceChild(this.preview, g),
                 n.setCancellationHandler(() => this.show(null, !1, null)),
                 n.on("startFade", () => {
@@ -11721,39 +11718,39 @@ ${t.stack}`)
     }
     a(He, "getViewportScale");
     var Ls = class {
-        constructor(t, e) {
-          this.directlyEmitsKeys = !0;
-          this.hasModalVisualization = !1;
-          this.deleteRepeater = a(() => {
-            this.repeatClosure(),
-              (this.timerHandle = window.setTimeout(
-                this.deleteRepeater,
-                Ls.REPEAT_DELAY
-              ));
-          }, "deleteRepeater");
-          this.source = t;
-          let n = t.stageReports[0].item;
-          n.key.highlight(!0),
-            (this.repeatClosure = () => {
-              e(), n.key.highlight(!0);
-            }),
+      constructor(t, e) {
+        this.directlyEmitsKeys = !0;
+        this.hasModalVisualization = !1;
+        this.deleteRepeater = a(() => {
+          this.repeatClosure(),
             (this.timerHandle = window.setTimeout(
               this.deleteRepeater,
-              Ls.INITIAL_DELAY
-            )),
-            this.source.on("complete", () => {
-              window.clearTimeout(this.timerHandle),
-                (this.timerHandle = void 0),
-                n.key.highlight(!1);
-            });
-        }
-        cancel() {
-          this.deleteRepeater(), this.source.cancel();
-        }
-        currentStageKeyDistribution() {
-          return null;
-        }
-      },
+              Ls.REPEAT_DELAY
+            ));
+        }, "deleteRepeater");
+        this.source = t;
+        let n = t.stageReports[0].item;
+        n.key.highlight(!0),
+          (this.repeatClosure = () => {
+            e(), n.key.highlight(!0);
+          }),
+          (this.timerHandle = window.setTimeout(
+            this.deleteRepeater,
+            Ls.INITIAL_DELAY
+          )),
+          this.source.on("complete", () => {
+            window.clearTimeout(this.timerHandle),
+              (this.timerHandle = void 0),
+              n.key.highlight(!1);
+          });
+      }
+      cancel() {
+        this.deleteRepeater(), this.source.cancel();
+      }
+      currentStageKeyDistribution() {
+        return null;
+      }
+    },
       tn = Ls;
     a(tn, "HeldRepeater"), (tn.INITIAL_DELAY = 500), (tn.REPEAT_DELAY = 100);
     var vn = class extends re {
@@ -11826,8 +11823,8 @@ ${t.stack}`)
             var h, x;
             c.path.stats.netDistance >= 4 &&
               ((h = this.currentSelection) == null || h.key.highlight(!1),
-              (x = b.item) == null || x.key.highlight(!0),
-              (this.currentSelection = b.item));
+                (x = b.item) == null || x.key.highlight(!0),
+                (this.currentSelection = b.item));
           }),
             (this.currentSelection = i),
             i.key.highlight(!0);
@@ -11844,11 +11841,11 @@ ${t.stack}`)
             y;
           for (
             F = Math.min(Math.ceil(Q / 9), 2),
-              y = Math.ceil(Q / F),
-              this.menuWidth = y * i.offsetWidth + y * Kr,
-              d.width = this.menuWidth + "px",
-              this.subkeys = [],
-              B = 0;
+            y = Math.ceil(Q / F),
+            this.menuWidth = y * i.offsetWidth + y * Kr,
+            d.width = this.menuWidth + "px",
+            this.subkeys = [],
+            B = 0;
             B < Q;
             B++
           ) {
@@ -11863,7 +11860,7 @@ ${t.stack}`)
           (this.shim = document.createElement("div")),
             (this.shim.id = "kmw-popup-shim"),
             n.device.formFactor == p.FormFactor.Phone &&
-              this.selectDefaultSubkey(i, r),
+            this.selectDefaultSubkey(i, r),
             n.element.appendChild(this.element),
             n.topContainer.appendChild(this.shim),
             this.reposition(n);
@@ -11909,16 +11906,16 @@ ${t.stack}`)
                   (h.left <= g.clientX && g.clientX < h.right
                     ? (x = 0)
                     : (x =
-                        h.left >= g.clientX
-                          ? h.left - g.clientX
-                          : g.clientX - h.right),
-                  h.top <= g.clientY && g.clientY < h.bottom
-                    ? (G = 0)
-                    : (G =
+                      h.left >= g.clientX
+                        ? h.left - g.clientX
+                        : g.clientX - h.right),
+                    h.top <= g.clientY && g.clientY < h.bottom
+                      ? (G = 0)
+                      : (G =
                         h.top >= g.clientY
                           ? h.top - g.clientY
                           : g.clientY - h.bottom),
-                  x == 0 && G == 0)
+                    x == 0 && G == 0)
                 )
                   return b;
                 (x < I || (x == I && G < u)) && ((I = x), (y = b), (u = G));
@@ -11963,9 +11960,9 @@ ${t.stack}`)
             B = i.getBoundingClientRect(),
             d = Math.floor(
               Number.parseInt(c.top, 10) +
-                Number.parseInt(c.height, 10) +
-                Number.parseInt(c.paddingTop, 10) / 2 +
-                Number.parseInt(c.paddingBottom, 10)
+              Number.parseInt(c.height, 10) +
+              Number.parseInt(c.paddingTop, 10) / 2 +
+              Number.parseInt(c.paddingBottom, 10)
             ),
             g = Xl * (r.height - e),
             Q = Xl * r.height,
@@ -12010,8 +12007,8 @@ ${t.stack}`)
           }
           n &&
             ((s = this.currentSelection) == null || s.key.highlight(!1),
-            (this.currentSelection = n),
-            n.key.highlight(!0));
+              (this.currentSelection = n),
+              n.key.highlight(!0));
         }
         get hasModalVisualization() {
           return this.element.style.visibility == "visible";
@@ -12073,8 +12070,8 @@ ${t.stack}`)
             this.element.parentNode.removeChild(this.element),
             this.shim.parentNode && this.shim.parentNode.removeChild(this.shim),
             this.callout &&
-              this.callout.parentNode &&
-              this.callout.parentNode.removeChild(this.callout);
+            this.callout.parentNode &&
+            this.callout.parentNode.removeChild(this.callout);
         }
       };
     a(nn, "SubkeyPopup");
@@ -12089,7 +12086,7 @@ ${t.stack}`)
           (this.completionCallback = () => {
             e.lockLayer(!1),
               this.shouldRestore &&
-                ((e.layerId = this.originalLayer), e.updateState()),
+              ((e.layerId = this.originalLayer), e.updateState()),
               n == null || n();
           }),
           e.lockLayer(!0),
@@ -12098,8 +12095,8 @@ ${t.stack}`)
             c.includes("modipress") && c.includes("-end")
               ? this.clear()
               : c.includes("modipress") &&
-                c.includes("-hold") &&
-                (this.shouldRestore = !0);
+              c.includes("-hold") &&
+              (this.shouldRestore = !0);
           }),
           t.on("complete", () => this.cancel());
       }
@@ -12143,9 +12140,9 @@ ${t.stack}`)
         }, "startModipress");
         this.originalLayer = e.layerId;
         let l = a(
-            (g) => (this.tapIndex + g) % this.multitaps.length,
-            "tapLookahead"
-          ),
+          (g) => (this.tapIndex + g) % this.multitaps.length,
+          "tapLookahead"
+        ),
           r = a(() => {
             s == null ||
               s.setMultitapHint(this.multitaps[l(0)], this.multitaps[l(1)], e);
@@ -12205,7 +12202,7 @@ ${t.stack}`)
         }, "stageHandler");
         t.on("stage", B),
           t.stageReports[0].matchedId == "modipress-start" &&
-            c(t.stageReports[0]),
+          c(t.stageReports[0]),
           r();
       }
       currentStageKeyDistribution(t) {
@@ -12214,9 +12211,9 @@ ${t.stack}`)
         if (n == -1)
           return (
             xi(this.baseKey) ||
-              console.warn(
-                "Could not find base key's probability for multitap correction"
-              ),
+            console.warn(
+              "Could not find base key's probability for multitap correction"
+            ),
             e
           );
         let i = e.splice(n, 1)[0].p,
@@ -12243,7 +12240,7 @@ ${t.stack}`)
       cancel() {
         this.clear(), this.sequence.cancel();
       }
-      clear() {}
+      clear() { }
     };
     a(Wn, "Multitap");
     var Zl = v(A(), 1);
@@ -12265,11 +12262,11 @@ ${t.stack}`)
           let d = (this.label = document.createElement("span"));
           if (
             ((d.className = "kmw-gesture-base-label kmw-key-text"),
-            (d.id = "kmw-gesture-base-label"),
-            B.appendChild(d),
-            (d.textContent = e.key.label.textContent),
-            this.div.appendChild(this.previewImgContainer),
-            c.flick)
+              (d.id = "kmw-gesture-base-label"),
+              B.appendChild(d),
+              (d.textContent = e.key.label.textContent),
+              this.div.appendChild(this.previewImgContainer),
+              c.flick)
           ) {
             let F = c.flick || {};
             Object.keys(F).forEach((y) => {
@@ -12285,15 +12282,15 @@ ${t.stack}`)
                 h < 0
                   ? (I.right = -h * Si * l + "px")
                   : h > 0
-                  ? (I.left = h * Si * l + "px")
-                  : (I.left = "0px"),
+                    ? (I.left = h * Si * l + "px")
+                    : (I.left = "0px"),
                 (I.height = "100%"),
                 (I.lineHeight = "100%"),
                 x < 0
                   ? (I.bottom = -x * Si * l + "px")
                   : x > 0
-                  ? (I.top = x * Si * l + "px")
-                  : (I.top = "0px"),
+                    ? (I.top = x * Si * l + "px")
+                    : (I.top = "0px"),
                 this.flickPreviews.set(y, u),
                 B.appendChild(u);
             });
@@ -12301,10 +12298,10 @@ ${t.stack}`)
           let g = (this.hintLabel = document.createElement("div"));
           (g.className = "kmw-key-popup-icon"),
             n ||
-              ((g.textContent =
-                c == c.hintSrc
-                  ? c.hint
-                  : (Q = c.hintSrc) == null
+            ((g.textContent =
+              c == c.hintSrc
+                ? c.hint
+                : (Q = c.hintSrc) == null
                   ? void 0
                   : Q.text),
               (g.style.fontWeight = g.textContent == "\u2022" ? "bold" : "")),
@@ -12337,14 +12334,14 @@ ${t.stack}`)
               s != e.text
                 ? "SpecialOSK"
                 : (l = e.font) != null
-                ? l
-                : this.label.style.fontFamily),
+                  ? l
+                  : this.label.style.fontFamily),
             (this.hintLabel.style.fontFamily =
               c != n.text
                 ? "SpecialOSK"
                 : (r = n.font) != null
-                ? r
-                : this.hintLabel.style.fontFamily),
+                  ? r
+                  : this.hintLabel.style.fontFamily),
             this.emit("startFade"),
             this.clearFlick();
         }
@@ -12386,10 +12383,10 @@ ${t.stack}`)
           this.stateKeys = { K_CAPS: !1, K_NUMLOCK: !1, K_SCROLL: !1 };
           this.activeGestures = [];
           this.activeModipress = null;
-          this.repeatDelete = function () {
+          this.repeatDelete = function() {
             this.deleting &&
               (this.modelKeyClick(this.deleteKey),
-              (this.deleting = window.setTimeout(this.repeatDelete, 100)));
+                (this.deleting = window.setTimeout(this.repeatDelete, 100)));
           }.bind(this);
           (this.config = e),
             (this.config.device = e.device || e.hostDevice),
@@ -12420,15 +12417,15 @@ ${t.stack}`)
             n.appendChild(this.layerGroup.element),
             (this.kbdDiv = n),
             this.isStatic ||
-              (this.gestureEngine = this.constructGestureEngine()),
+            (this.gestureEngine = this.constructGestureEngine()),
             n.classList.add(e.device.formFactor, "kmw-osk-inner-frame");
           let c =
-              (d =
-                (B = this.layoutKeyboard) == null
-                  ? void 0
-                  : B.id.replace("Keyboard_", "")) != null
-                ? d
-                : "",
+            (d =
+              (B = this.layoutKeyboard) == null
+                ? void 0
+                : B.id.replace("Keyboard_", "")) != null
+              ? d
+              : "",
             l = c.indexOf("::");
           l != -1 && (c = c.substring(l + 2));
           let r = "kmw-keyboard-" + c;
@@ -12453,7 +12450,7 @@ ${t.stack}`)
           n &&
             !this.deferLayout &&
             (this.updateState(),
-            this.layerGroup.refreshLayout(this.constructLayoutParams()));
+              this.layerGroup.refreshLayout(this.constructLayoutParams()));
         }
         get currentLayer() {
           var e;
@@ -12510,20 +12507,20 @@ ${t.stack}`)
               let B = this.highlightKey(r.currentSample.item, !0);
               B &&
                 ((Q = this.gesturePreviewHost) == null || Q.cancel(),
-                (this.gesturePreviewHost = B));
+                  (this.gesturePreviewHost = B));
               let d = (s[r.identifier] = {
-                  source: r,
-                  roamingHighlightHandler: null,
-                  key: r.currentSample.item,
-                  previewHost: B,
-                }),
+                source: r,
+                roamingHighlightHandler: null,
+                key: r.currentSample.item,
+                previewHost: B,
+              }),
                 g = a(() => {
                   Se(0).then(() => {
                     let F = d.previewHost;
                     F &&
                       (F.cancel(),
-                      (this.gesturePreviewHost = null),
-                      (d.previewHost = null)),
+                        (this.gesturePreviewHost = null),
+                        (d.previewHost = null)),
                       d.key && (this.highlightKey(d.key, !1), (d.key = null));
                   });
                 }, "endHighlighting");
@@ -12554,16 +12551,16 @@ ${t.stack}`)
                     (d = s[g]) != null &&
                       d.previewHost &&
                       ((this.gesturePreviewHost = null),
-                      s[g].previewHost.cancel()),
+                        s[g].previewHost.cancel()),
                       delete s[g];
                 }),
                 r.on("stage", (d, g) => {
                   let Q = r.allSourceIds
-                      .map((X) => {
-                        var L;
-                        return (L = s[X]) == null ? void 0 : L.previewHost;
-                      })
-                      .find((X) => !!X),
+                    .map((X) => {
+                      var L;
+                      return (L = s[X]) == null ? void 0 : L.previewHost;
+                    })
+                    .find((X) => !!X),
                     F = a(() => {
                       Q && (Q.cancel(), (this.gesturePreviewHost = null));
                     }, "clearPreviewHost"),
@@ -12618,9 +12615,9 @@ ${t.stack}`)
                     I.key.spec.baseKeyID == "K_BKSP"
                       ? (F(), (y = [new tn(r, () => this.modelKeyClick(I, h))]))
                       : I.key.spec.baseKeyID == "K_LOPT" &&
-                        (r.on("complete", () => {
-                          I.key.highlight(!1), this.emit("globekey", I, !1);
-                        }),
+                      (r.on("complete", () => {
+                        I.key.highlight(!1), this.emit("globekey", I, !1);
+                      }),
                         c(b.identifier),
                         I.key.highlight(!0));
                   else if (d.matchedId.indexOf("longpress") > -1)
@@ -12675,16 +12672,16 @@ ${t.stack}`)
                   else F();
                   y &&
                     ((this.activeGestures = this.activeGestures.concat(y)),
-                    l.set(r, y),
-                    r.on("complete", () => {
-                      let X = this.activeGestures.filter((L) => y.includes(L));
-                      (this.activeGestures = this.activeGestures.filter(
-                        (L) => !y.includes(L)
-                      )),
-                        X.forEach((L) => {
-                          L instanceof qe && L.cancel();
-                        });
-                    }));
+                      l.set(r, y),
+                      r.on("complete", () => {
+                        let X = this.activeGestures.filter((L) => y.includes(L));
+                        (this.activeGestures = this.activeGestures.filter(
+                          (L) => !y.includes(L)
+                        )),
+                          X.forEach((L) => {
+                            L instanceof qe && L.cancel();
+                          });
+                      }));
                 });
             }),
             i
@@ -12711,7 +12708,7 @@ ${t.stack}`)
         get isEmbedded() {
           return this.config.isEmbedded;
         }
-        postInsert() {}
+        postInsert() { }
         get width() {
           return this._width;
         }
@@ -12733,10 +12730,10 @@ ${t.stack}`)
         get internalHeight() {
           return this.usesFixedHeightScaling
             ? m.inPixels(
-                this.layoutHeight.val -
-                  this._borderWidth * 2 -
-                  this.layerGroup.verticalPadding
-              )
+              this.layoutHeight.val -
+              this._borderWidth * 2 -
+              this.layerGroup.verticalPadding
+            )
             : m.forScalar(1);
         }
         get fontSize() {
@@ -12761,7 +12758,7 @@ ${t.stack}`)
         }
         get usesFixedPositioning() {
           let e = this.element;
-          for (; e; ) {
+          for (; e;) {
             if (getComputedStyle(e).position == "fixed") return !0;
             e = e.offsetParent;
           }
@@ -12771,11 +12768,11 @@ ${t.stack}`)
           (this._width = e),
             (this._height = n),
             this.kbdDiv &&
-              ((this.kbdDiv.style.width = e ? this._width + "px" : ""),
+            ((this.kbdDiv.style.width = e ? this._width + "px" : ""),
               (this.kbdDiv.style.height = n ? this._height + "px" : ""),
               !this.device.touchable &&
-                n &&
-                (this.fontSize = new m(this._height / 8 + "px")),
+              n &&
+              (this.fontSize = new m(this._height / 8 + "px")),
               i || this.refreshLayout());
         }
         getDefaultKeyObject() {
@@ -12811,7 +12808,7 @@ ${t.stack}`)
               if (n.firstChild && n.firstChild.classList.contains("kmw-key"))
                 return Xs(n.firstChild);
             }
-          } catch (i) {}
+          } catch (i) { }
           return null;
         }
         cancelDelete() {
@@ -12847,10 +12844,10 @@ ${t.stack}`)
           if (
             !i ||
             (this.gestureEngine && (this.gestureEngine.stateToken = e),
-            !(
-              (l = this.layoutKeyboard) != null &&
-              l.usesDesktopLayoutOnDevice(this.device)
-            ))
+              !(
+                (l = this.layoutKeyboard) != null &&
+                l.usesDesktopLayoutOnDevice(this.device)
+              ))
           )
             return;
           let s = ["K_CAPS", "K_NUMLOCK", "K_SCROLL"],
@@ -12902,10 +12899,10 @@ ${t.stack}`)
         updateState() {
           !this.currentLayer ||
             ((this.nextLayer = this.layerId),
-            this.currentLayer.nextlayer &&
+              this.currentLayer.nextlayer &&
               (this.nextLayer = this.currentLayer.nextlayer),
-            (this.layerGroup.activeLayerId = this.layerId),
-            this._UpdateVKShiftStyle());
+              (this.layerGroup.activeLayerId = this.layerId),
+              this._UpdateVKShiftStyle());
         }
         refreshLayout() {
           if (this.deferLayout) return;
@@ -12936,9 +12933,9 @@ ${t.stack}`)
           else return;
           this.layerGroup.refreshLayout(this.constructLayoutParams()),
             this.isStatic ||
-              (this.gestureEngine.config.maxRoamingBounds.updatePadding([
-                -0.333 * this.currentLayer.rowHeight,
-              ]),
+            (this.gestureEngine.config.maxRoamingBounds.updatePadding([
+              -0.333 * this.currentLayer.rowHeight,
+            ]),
               (this.gestureParams.longpress.flickDistStart =
                 0.24 * this.currentLayer.rowHeight),
               (this.gestureParams.flick.startDist =
@@ -13002,17 +12999,17 @@ ${t.stack}`)
               this.device.OS
             ),
             this.config.specialFont &&
-              this.styleSheetManager.addStyleSheetForFont(
-                this.config.specialFont,
-                "",
-                this.device.OS
-              );
+            this.styleSheetManager.addStyleSheetForFont(
+              this.config.specialFont,
+              "",
+              this.device.OS
+            );
           var c = this.addFontStyle(i, s);
           e != null &&
             typeof e.oskStyling == "string" &&
             (c = c + e.oskStyling),
             c &&
-              ((this.styleSheet = Qt(c)),
+            ((this.styleSheet = Qt(c)),
               this.styleSheetManager.linkStylesheet(this.styleSheet)),
             this.styleSheetManager.allLoadedPromise().then(() => {
               this.layerGroup.resetPrecalcFontSizes(), this.refreshLayout();
@@ -13026,7 +13023,7 @@ ${t.stack}`)
             );
           return (
             (e || n) &&
-              (i = `
+            (i = `
 .kmw-key-text {
   font-family: "${s(n || e)}";
 }
@@ -13078,34 +13075,34 @@ ${t.stack}`)
                 (y.style.height = F.kbdDiv.style.height),
                 (y.style.maxHeight = F.kbdDiv.style.maxHeight))
               : (y.innerHTML =
-                  "<p style='color:#c40; font-size:0.5em;margin:10px;'>No " +
-                  r +
-                  " layout is defined for " +
-                  e.name +
-                  ".</p>"),
+                "<p style='color:#c40; font-size:0.5em;margin:10px;'>No " +
+                r +
+                " layout is defined for " +
+                e.name +
+                ".</p>"),
             (y.style.border = "1px solid #ccc"),
             F.updateState();
           let I = a(
-              () =>
-                Z(this, null, function* () {
-                  if (document.contains(y))
-                    try {
-                      yield F.styleSheetManager.allLoadedPromise();
-                      let h = F.styleSheet;
-                      h && y.appendChild(h);
-                      let x = [].concat(F.styleSheetManager.sheets);
-                      for (let G of x)
-                        G != h &&
-                          (G.href ||
-                            (F.styleSheetManager.unlink(G),
+            () =>
+              Z(this, null, function*() {
+                if (document.contains(y))
+                  try {
+                    yield F.styleSheetManager.allLoadedPromise();
+                    let h = F.styleSheet;
+                    h && y.appendChild(h);
+                    let x = [].concat(F.styleSheetManager.sheets);
+                    for (let G of x)
+                      G != h &&
+                        (G.href ||
+                          (F.styleSheetManager.unlink(G),
                             document.head.appendChild(G)));
-                      F.refreshLayout(), (F.styleSheet = null), F.shutdown();
-                    } finally {
-                      b.disconnect();
-                    }
-                }),
-              "detectAndHandleInsertion"
-            ),
+                    F.refreshLayout(), (F.styleSheet = null), F.shutdown();
+                  } finally {
+                    b.disconnect();
+                  }
+              }),
+            "detectAndHandleInsertion"
+          ),
             b = new MutationObserver(I);
           b.observe(document.body, { childList: !0, subtree: !0 }), u.append(y);
           for (let h of ue.STYLESHEET_FILES) {
@@ -13189,13 +13186,13 @@ ${t.stack}`)
       ye = Qc;
     a(ye, "VisualKeyboard"), (ye.specialCharacters = re.specialCharacters);
     var Rl = v(A(), 1);
-    var Me = class extends Rl.default {};
+    var Me = class extends Rl.default { };
     a(Me, "Activator");
     var Ut = class extends Me {
       get enabled() {
         return !0;
       }
-      set enabled(t) {}
+      set enabled(t) { }
       get activate() {
         return !0;
       }
@@ -13227,160 +13224,160 @@ ${t.stack}`)
     }
     a(Al, "getResourcePath");
     var Zs = class extends Hl.default {
-        constructor(e) {
-          super();
-          this.legacyEvents = new zt();
-          this.needsLayout = !0;
-          this.touchEventPromiseManager = new fn();
-          this.activationListener = a((e) => {
-            if (!this.mayDisable && !this.activationModel.enabled) {
-              this.activationModel.off("activate", this.activationListener);
-              try {
-                this.activationModel.enabled = !0;
-              } finally {
-                this.activationModel.on("activate", this.activationListener);
-              }
+      constructor(e) {
+        super();
+        this.legacyEvents = new zt();
+        this.needsLayout = !0;
+        this.touchEventPromiseManager = new fn();
+        this.activationListener = a((e) => {
+          if (!this.mayDisable && !this.activationModel.enabled) {
+            this.activationModel.off("activate", this.activationListener);
+            try {
+              this.activationModel.enabled = !0;
+            } finally {
+              this.activationModel.on("activate", this.activationListener);
             }
-            this.commonCheckAndDisplay();
-          }, "activationListener");
-          this.layerChangeHandler = a((e, n) => {
-            var i, s;
-            return (
-              this.vkbd && this.vkbd._UpdateVKShiftStyle(n),
-              ((this.vkbd && this.vkbd.layerId != n) || e.value != n) &&
-                ((i = this.vkbd) == null ? void 0 : i.layerGroup.layers[n]) &&
-                !((s = this.vkbd) != null && s.layerLocked) &&
-                (this.vkbd.layerId = n),
-              !1
-            );
-          }, "layerChangeHandler");
-          this._Visible = !1;
-          (this.config = e = C({}, e)),
-            this.config.allowHideAnimations === void 0 &&
-              (this.config.allowHideAnimations = !0),
-            (this.config.device = e.device || e.hostDevice),
-            (this.config.isEmbedded = e.isEmbedded || !1),
-            (this.config.embeddedGestureConfig = e.embeddedGestureConfig || {}),
-            this.config.activator.on("activate", this.activationListener),
-            (this._Box = W("div")),
-            (this.kbdStyleSheetManager = new ge(
-              this._Box,
-              this.config.doCacheBusting || !1
-            )),
-            (this.uiStyleSheetManager = new ge(this._Box)),
-            (this.bannerView = new Fi()),
-            this.bannerView.events.on("bannerchange", () =>
-              this.refreshLayout()
-            ),
-            this._Box.appendChild(this.bannerView.element),
-            (this._bannerController = new Sn(
-              this.bannerView,
-              this.hostDevice,
-              this.config.predictionContextManager
-            )),
-            (this.keyboardView = this._GenerateKeyboardView(null, null)),
-            this._Box.appendChild(this.keyboardView.element);
-          let n = Al(this.config);
-          for (let i of Zs.STYLESHEET_FILES) {
-            let s = `${n}${i}`;
-            this.uiStyleSheetManager.linkExternalSheet(s);
           }
-          this.setBaseMouseEventListeners(),
-            this.hostDevice.touchable && this.setBaseTouchEventListeners(),
-            (this._Box.style.display = "none");
-        }
-        get keyCodes() {
-          return U.keyCodes;
-        }
-        get modifierCodes() {
-          return U.modifierCodes;
-        }
-        get modifierBitmasks() {
-          return U.modifierBitmasks;
-        }
-        get stateBitmasks() {
-          return U.stateBitmasks;
-        }
-        get configuration() {
-          return this.config;
-        }
-        get bannerController() {
-          return this._bannerController;
-        }
-        get hostDevice() {
-          return this.config.hostDevice;
-        }
-        get fontRootPath() {
-          return this.config.pathConfig.fonts;
-        }
-        get isEmbedded() {
-          return this.config.isEmbedded;
-        }
-        setBaseMouseEventListeners() {
-          (this._Box.onmouseenter = this._VKbdMouseEnter =
-            (e) => {
-              this.mouseEnterPromise && this.mouseEnterPromise.resolve(),
-                (this.mouseEnterPromise = new S()),
-                this.emit(
-                  "pointerinteraction",
-                  this.mouseEnterPromise.corePromise
-                );
-            }),
-            (this._Box.onmouseleave = this._VKbdMouseLeave =
-              (e) => {
-                this.mouseEnterPromise.resolve(),
-                  (this.mouseEnterPromise = null);
-              });
-        }
-        removeBaseMouseEventListeners() {
-          (this._Box.onmouseenter = null), (this._Box.onmouseleave = null);
-        }
-        setBaseTouchEventListeners() {
-          let e = a(function (n) {
-            return n.cancelable && n.preventDefault(), n.stopPropagation(), !1;
-          }, "commonPrevention");
-          (this._boxBaseTouchEventCancel = (n) => (
-            this.touchEventPromiseManager.maintainTouches(n.touches), e(n)
+          this.commonCheckAndDisplay();
+        }, "activationListener");
+        this.layerChangeHandler = a((e, n) => {
+          var i, s;
+          return (
+            this.vkbd && this.vkbd._UpdateVKShiftStyle(n),
+            ((this.vkbd && this.vkbd.layerId != n) || e.value != n) &&
+            ((i = this.vkbd) == null ? void 0 : i.layerGroup.layers[n]) &&
+            !((s = this.vkbd) != null && s.layerLocked) &&
+            (this.vkbd.layerId = n),
+            !1
+          );
+        }, "layerChangeHandler");
+        this._Visible = !1;
+        (this.config = e = C({}, e)),
+          this.config.allowHideAnimations === void 0 &&
+          (this.config.allowHideAnimations = !0),
+          (this.config.device = e.device || e.hostDevice),
+          (this.config.isEmbedded = e.isEmbedded || !1),
+          (this.config.embeddedGestureConfig = e.embeddedGestureConfig || {}),
+          this.config.activator.on("activate", this.activationListener),
+          (this._Box = W("div")),
+          (this.kbdStyleSheetManager = new ge(
+            this._Box,
+            this.config.doCacheBusting || !1
           )),
-            (this._boxBaseTouchStart = (n) => {
-              for (let i = 0; i < n.changedTouches.length; i++) {
-                let s = this.touchEventPromiseManager.promiseForTouchpoint(
-                  n.changedTouches[i].identifier
-                );
-                this.emit("pointerinteraction", s.corePromise);
-              }
-              return (
-                this.touchEventPromiseManager.maintainTouches(n.touches), e(n)
-              );
-            }),
-            this._Box.addEventListener(
-              "touchstart",
-              this._boxBaseTouchStart,
-              !1
-            ),
-            this._Box.addEventListener(
-              "touchmove",
-              this._boxBaseTouchEventCancel,
-              !1
-            ),
-            this._Box.addEventListener(
-              "touchend",
-              this._boxBaseTouchEventCancel,
-              !1
-            ),
-            this._Box.addEventListener(
-              "touchcancel",
-              this._boxBaseTouchEventCancel,
-              !1
-            );
+          (this.uiStyleSheetManager = new ge(this._Box)),
+          (this.bannerView = new Fi()),
+          this.bannerView.events.on("bannerchange", () =>
+            this.refreshLayout()
+          ),
+          this._Box.appendChild(this.bannerView.element),
+          (this._bannerController = new Sn(
+            this.bannerView,
+            this.hostDevice,
+            this.config.predictionContextManager
+          )),
+          (this.keyboardView = this._GenerateKeyboardView(null, null)),
+          this._Box.appendChild(this.keyboardView.element);
+        let n = Al(this.config);
+        for (let i of Zs.STYLESHEET_FILES) {
+          let s = `${n}${i}`;
+          this.uiStyleSheetManager.linkExternalSheet(s);
         }
-        removeBaseTouchEventListeners() {
-          !this._boxBaseTouchEventCancel ||
-            (this._Box.removeEventListener(
-              "touchstart",
-              this._boxBaseTouchStart,
-              !1
-            ),
+        this.setBaseMouseEventListeners(),
+          this.hostDevice.touchable && this.setBaseTouchEventListeners(),
+          (this._Box.style.display = "none");
+      }
+      get keyCodes() {
+        return U.keyCodes;
+      }
+      get modifierCodes() {
+        return U.modifierCodes;
+      }
+      get modifierBitmasks() {
+        return U.modifierBitmasks;
+      }
+      get stateBitmasks() {
+        return U.stateBitmasks;
+      }
+      get configuration() {
+        return this.config;
+      }
+      get bannerController() {
+        return this._bannerController;
+      }
+      get hostDevice() {
+        return this.config.hostDevice;
+      }
+      get fontRootPath() {
+        return this.config.pathConfig.fonts;
+      }
+      get isEmbedded() {
+        return this.config.isEmbedded;
+      }
+      setBaseMouseEventListeners() {
+        (this._Box.onmouseenter = this._VKbdMouseEnter =
+          (e) => {
+            this.mouseEnterPromise && this.mouseEnterPromise.resolve(),
+              (this.mouseEnterPromise = new S()),
+              this.emit(
+                "pointerinteraction",
+                this.mouseEnterPromise.corePromise
+              );
+          }),
+          (this._Box.onmouseleave = this._VKbdMouseLeave =
+            (e) => {
+              this.mouseEnterPromise.resolve(),
+                (this.mouseEnterPromise = null);
+            });
+      }
+      removeBaseMouseEventListeners() {
+        (this._Box.onmouseenter = null), (this._Box.onmouseleave = null);
+      }
+      setBaseTouchEventListeners() {
+        let e = a(function(n) {
+          return n.cancelable && n.preventDefault(), n.stopPropagation(), !1;
+        }, "commonPrevention");
+        (this._boxBaseTouchEventCancel = (n) => (
+          this.touchEventPromiseManager.maintainTouches(n.touches), e(n)
+        )),
+          (this._boxBaseTouchStart = (n) => {
+            for (let i = 0; i < n.changedTouches.length; i++) {
+              let s = this.touchEventPromiseManager.promiseForTouchpoint(
+                n.changedTouches[i].identifier
+              );
+              this.emit("pointerinteraction", s.corePromise);
+            }
+            return (
+              this.touchEventPromiseManager.maintainTouches(n.touches), e(n)
+            );
+          }),
+          this._Box.addEventListener(
+            "touchstart",
+            this._boxBaseTouchStart,
+            !1
+          ),
+          this._Box.addEventListener(
+            "touchmove",
+            this._boxBaseTouchEventCancel,
+            !1
+          ),
+          this._Box.addEventListener(
+            "touchend",
+            this._boxBaseTouchEventCancel,
+            !1
+          ),
+          this._Box.addEventListener(
+            "touchcancel",
+            this._boxBaseTouchEventCancel,
+            !1
+          );
+      }
+      removeBaseTouchEventListeners() {
+        !this._boxBaseTouchEventCancel ||
+          (this._Box.removeEventListener(
+            "touchstart",
+            this._boxBaseTouchStart,
+            !1
+          ),
             this._Box.removeEventListener(
               "touchmove",
               this._boxBaseTouchEventCancel,
@@ -13398,603 +13395,603 @@ ${t.stack}`)
             ),
             (this._boxBaseTouchEventCancel = null),
             (this._boxBaseTouchStart = null));
-        }
-        get targetDevice() {
-          return this.config.device;
-        }
-        set targetDevice(e) {
-          this.allowsDeviceChange(e)
-            ? ((this.config.device = e), this.loadActiveKeyboard())
-            : console.error(
-                "May not change target device for this OSKView type."
-              );
-        }
-        allowsDeviceChange(e) {
-          return !1;
-        }
-        get activationModel() {
-          return this.config.activator;
-        }
-        set activationModel(e) {
-          if (!e)
-            throw new Error(
-              "The activation model may not be set to null or undefined!"
-            );
-          this.config.activator.off("activate", this.activationListener),
-            e.on("activate", this.activationListener),
-            (this.config.activator = e),
-            this.commonCheckAndDisplay();
-        }
-        get mayDisable() {
-          var e;
-          return !(
-            this.hostDevice.touchable ||
-            ((e = this.activeKeyboard) != null && e.keyboard.isCJK)
+      }
+      get targetDevice() {
+        return this.config.device;
+      }
+      set targetDevice(e) {
+        this.allowsDeviceChange(e)
+          ? ((this.config.device = e), this.loadActiveKeyboard())
+          : console.error(
+            "May not change target device for this OSKView type."
           );
-        }
-        get displayIfActive() {
-          return this.activationModel.enabled;
-        }
-        commonCheckAndDisplay() {
-          this.activationModel.activate && this.activeKeyboard
-            ? this.present()
-            : this.startHide(!1);
-        }
-        get vkbd() {
-          return this.keyboardView instanceof ye ? this.keyboardView : null;
-        }
-        get banner() {
-          return this.bannerView;
-        }
-        get width() {
-          return this._width;
-        }
-        get height() {
-          return this._height;
-        }
-        get computedWidth() {
-          return this.needsLayout && this.refreshLayout(), this._computedWidth;
-        }
-        get computedHeight() {
-          return this.needsLayout && this.refreshLayout(), this._computedHeight;
-        }
-        get baseFontSize() {
-          var e;
-          return (
-            ((e = this.parsedBaseFontSize) == null ? void 0 : e.styleString) ||
-            ""
+      }
+      allowsDeviceChange(e) {
+        return !1;
+      }
+      get activationModel() {
+        return this.config.activator;
+      }
+      set activationModel(e) {
+        if (!e)
+          throw new Error(
+            "The activation model may not be set to null or undefined!"
           );
-        }
-        get parsedBaseFontSize() {
-          return (
-            this._baseFontSize ||
-              (this._baseFontSize = Zs.defaultFontSize(
-                this.targetDevice,
-                this.computedHeight,
-                this.isEmbedded
-              )),
-            this._baseFontSize
-          );
-        }
-        static defaultFontSize(e, n, i) {
-          if (e.touchable) {
-            let s = e.formFactor == "phone" ? 1.6 * (i ? 0.65 : 0.6) * 1.2 : 2;
-            return m.special(s, "em");
-          } else return n ? m.inPixels(n / 8) : void 0;
-        }
-        get activeKeyboard() {
-          return this.keyboardData;
-        }
-        set activeKeyboard(e) {
-          var n;
-          (this.keyboardData = e),
-            this.loadActiveKeyboard(),
-            (n = this.keyboardData) != null &&
-              n.keyboard.isCJK &&
-              (this.activationModel.enabled = !0);
-        }
-        computeFrameHeight() {
-          var e, n;
-          return (
-            (((e = this.headerView) == null ? void 0 : e.layoutHeight.val) ||
-              0) +
-            (((n = this.footerView) == null ? void 0 : n.layoutHeight.val) || 0)
-          );
-        }
-        setSize(e, n, i) {
-          let s = !1,
-            c,
-            l;
-          (!e && e !== 0) ||
-            (!n && n !== 0) ||
-            (Number.isFinite(e) ? (c = m.inPixels(e)) : (c = new m(e)),
+        this.config.activator.off("activate", this.activationListener),
+          e.on("activate", this.activationListener),
+          (this.config.activator = e),
+          this.commonCheckAndDisplay();
+      }
+      get mayDisable() {
+        var e;
+        return !(
+          this.hostDevice.touchable ||
+          ((e = this.activeKeyboard) != null && e.keyboard.isCJK)
+        );
+      }
+      get displayIfActive() {
+        return this.activationModel.enabled;
+      }
+      commonCheckAndDisplay() {
+        this.activationModel.activate && this.activeKeyboard
+          ? this.present()
+          : this.startHide(!1);
+      }
+      get vkbd() {
+        return this.keyboardView instanceof ye ? this.keyboardView : null;
+      }
+      get banner() {
+        return this.bannerView;
+      }
+      get width() {
+        return this._width;
+      }
+      get height() {
+        return this._height;
+      }
+      get computedWidth() {
+        return this.needsLayout && this.refreshLayout(), this._computedWidth;
+      }
+      get computedHeight() {
+        return this.needsLayout && this.refreshLayout(), this._computedHeight;
+      }
+      get baseFontSize() {
+        var e;
+        return (
+          ((e = this.parsedBaseFontSize) == null ? void 0 : e.styleString) ||
+          ""
+        );
+      }
+      get parsedBaseFontSize() {
+        return (
+          this._baseFontSize ||
+          (this._baseFontSize = Zs.defaultFontSize(
+            this.targetDevice,
+            this.computedHeight,
+            this.isEmbedded
+          )),
+          this._baseFontSize
+        );
+      }
+      static defaultFontSize(e, n, i) {
+        if (e.touchable) {
+          let s = e.formFactor == "phone" ? 1.6 * (i ? 0.65 : 0.6) * 1.2 : 2;
+          return m.special(s, "em");
+        } else return n ? m.inPixels(n / 8) : void 0;
+      }
+      get activeKeyboard() {
+        return this.keyboardData;
+      }
+      set activeKeyboard(e) {
+        var n;
+        (this.keyboardData = e),
+          this.loadActiveKeyboard(),
+          (n = this.keyboardData) != null &&
+          n.keyboard.isCJK &&
+          (this.activationModel.enabled = !0);
+      }
+      computeFrameHeight() {
+        var e, n;
+        return (
+          (((e = this.headerView) == null ? void 0 : e.layoutHeight.val) ||
+            0) +
+          (((n = this.footerView) == null ? void 0 : n.layoutHeight.val) || 0)
+        );
+      }
+      setSize(e, n, i) {
+        let s = !1,
+          c,
+          l;
+        (!e && e !== 0) ||
+          (!n && n !== 0) ||
+          (Number.isFinite(e) ? (c = m.inPixels(e)) : (c = new m(e)),
             Number.isFinite(n) ? (l = m.inPixels(n)) : (l = new m(n)),
             e &&
-              n &&
-              ((s = !this._width || !this._height),
+            n &&
+            ((s = !this._width || !this._height),
               (s = s || c.styleString != this._width.styleString),
               (s = s || l.styleString != this._height.styleString),
               (this._width = c),
               (this._height = l)),
             (this.needsLayout = this.needsLayout || s),
             this.refreshLayoutIfNeeded(i));
+      }
+      setNeedsLayout() {
+        this.needsLayout = !0;
+      }
+      batchLayoutAfter(e) {
+        if (this.deferLayout) {
+          e();
+          return;
         }
-        setNeedsLayout() {
-          this.needsLayout = !0;
-        }
-        batchLayoutAfter(e) {
-          if (this.deferLayout) {
+        try {
+          (this.deferLayout = !0),
+            this.vkbd && (this.vkbd.deferLayout = !0),
             e();
-            return;
-          }
-          try {
-            (this.deferLayout = !0),
-              this.vkbd && (this.vkbd.deferLayout = !0),
-              e();
-          } finally {
-            (this.deferLayout = !1),
-              this.vkbd && (this.vkbd.deferLayout = !1),
-              this.refreshLayout();
-          }
+        } finally {
+          (this.deferLayout = !1),
+            this.vkbd && (this.vkbd.deferLayout = !1),
+            this.refreshLayout();
         }
-        refreshLayout(e) {
-          var l, r;
-          if (
-            !this.keyboardView ||
-            this.deferLayout ||
-            !(this.width && this.height)
-          )
-            return;
-          let i = this.width.absolute && this.height.absolute,
-            s = getComputedStyle(this._Box),
-            c = s.height != "" && s.height != "auto";
-          if (i)
-            (this._computedWidth = this.width.val),
-              (this._computedHeight = this.height.val);
-          else if (c) {
-            let B = this._Box.parentElement;
-            (this._computedWidth =
-              this.width.val * (this.width.absolute ? 1 : B.offsetWidth)),
-              (this._computedHeight =
-                this.height.val * (this.height.absolute ? 1 : B.offsetHeight));
-          } else {
-            console.warn(
-              "Unable to properly perform layout - specification uses a relative spec, thus relies upon insertion into the DOM for layout."
-            );
-            return;
-          }
-          if (
-            ((this.needsLayout = !1),
+      }
+      refreshLayout(e) {
+        var l, r;
+        if (
+          !this.keyboardView ||
+          this.deferLayout ||
+          !(this.width && this.height)
+        )
+          return;
+        let i = this.width.absolute && this.height.absolute,
+          s = getComputedStyle(this._Box),
+          c = s.height != "" && s.height != "auto";
+        if (i)
+          (this._computedWidth = this.width.val),
+            (this._computedHeight = this.height.val);
+        else if (c) {
+          let B = this._Box.parentElement;
+          (this._computedWidth =
+            this.width.val * (this.width.absolute ? 1 : B.offsetWidth)),
+            (this._computedHeight =
+              this.height.val * (this.height.absolute ? 1 : B.offsetHeight));
+        } else {
+          console.warn(
+            "Unable to properly perform layout - specification uses a relative spec, thus relies upon insertion into the DOM for layout."
+          );
+          return;
+        }
+        if (
+          ((this.needsLayout = !1),
             (this.banner.element.style.fontSize = this.baseFontSize),
             this.vkbd && (this.vkbd.fontSize = this.parsedBaseFontSize),
             e ||
-              ((l = this.headerView) == null || l.refreshLayout(),
+            ((l = this.headerView) == null || l.refreshLayout(),
               (this.bannerView.width = this.computedWidth),
               this.bannerView.refreshLayout(),
               (r = this.footerView) == null || r.refreshLayout()),
             this.vkbd)
-          ) {
-            let B = this.computedHeight - this.computeFrameHeight();
-            this.bannerView.height > 0 && (B -= this.bannerView.height + 5),
-              this.vkbd.setSize(this.computedWidth, B, e);
-            let d = this._Box.style;
-            (d.width = d.maxWidth = this.computedWidth + "px"),
-              (d.height = d.maxHeight = this.computedHeight + "px");
-          } else {
-            let B = this._Box.style;
-            (B.width = "auto"),
-              (B.height = "auto"),
-              (B.maxWidth = B.maxHeight = "");
-          }
+        ) {
+          let B = this.computedHeight - this.computeFrameHeight();
+          this.bannerView.height > 0 && (B -= this.bannerView.height + 5),
+            this.vkbd.setSize(this.computedWidth, B, e);
+          let d = this._Box.style;
+          (d.width = d.maxWidth = this.computedWidth + "px"),
+            (d.height = d.maxHeight = this.computedHeight + "px");
+        } else {
+          let B = this._Box.style;
+          (B.width = "auto"),
+            (B.height = "auto"),
+            (B.maxWidth = B.maxHeight = "");
         }
-        refreshLayoutIfNeeded(e) {
-          this.needsLayout && this.refreshLayout(e);
-        }
-        postKeyboardLoad() {
-          (this._Visible = !1),
-            this.postKeyboardAdjustments(),
-            this.displayIfActive && this.present();
-        }
-        loadActiveKeyboard() {
-          var s, c, l, r, B;
-          this.setBoxStyling(), (this.needsLayout = !0);
-          let e = this.keyboardView,
-            n = this.kbdStyleSheetManager;
-          this.kbdStyleSheetManager = new ge(
-            this._Box,
-            this.config.doCacheBusting || !1
-          );
-          let i = (this.keyboardView = this._GenerateKeyboardView(
-            (s = this.keyboardData) == null ? void 0 : s.keyboard,
-            (c = this.keyboardData) == null ? void 0 : c.metadata
-          ));
-          if (
-            (this._Box.replaceChild(i.element, e.element),
+      }
+      refreshLayoutIfNeeded(e) {
+        this.needsLayout && this.refreshLayout(e);
+      }
+      postKeyboardLoad() {
+        (this._Visible = !1),
+          this.postKeyboardAdjustments(),
+          this.displayIfActive && this.present();
+      }
+      loadActiveKeyboard() {
+        var s, c, l, r, B;
+        this.setBoxStyling(), (this.needsLayout = !0);
+        let e = this.keyboardView,
+          n = this.kbdStyleSheetManager;
+        this.kbdStyleSheetManager = new ge(
+          this._Box,
+          this.config.doCacheBusting || !1
+        );
+        let i = (this.keyboardView = this._GenerateKeyboardView(
+          (s = this.keyboardData) == null ? void 0 : s.keyboard,
+          (c = this.keyboardData) == null ? void 0 : c.metadata
+        ));
+        if (
+          (this._Box.replaceChild(i.element, e.element),
             i.postInsert(),
             (B = this.bannerController) == null ||
-              B.configureForKeyboard(
-                (l = this.keyboardData) == null ? void 0 : l.keyboard,
-                (r = this.keyboardData) == null ? void 0 : r.metadata
-              ),
+            B.configureForKeyboard(
+              (l = this.keyboardData) == null ? void 0 : l.keyboard,
+              (r = this.keyboardData) == null ? void 0 : r.metadata
+            ),
             e instanceof ye && e.shutdown(),
             n.unlinkAll(),
             this.banner.appendStyles(),
             this.vkbd)
-          ) {
-            this.vkbd.createKeyTip();
-            let d = this.vkbd.createGlobeHint();
-            d && this._Box.appendChild(d.element), this.vkbd.appendStyleSheet();
-          }
-          this.postKeyboardLoad();
+        ) {
+          this.vkbd.createKeyTip();
+          let d = this.vkbd.createGlobeHint();
+          d && this._Box.appendChild(d.element), this.vkbd.appendStyleSheet();
         }
-        _GenerateKeyboardView(e, n) {
-          let i = this.targetDevice;
-          return (
-            (this._Box.className = ""),
-            e == null && !i.touchable
-              ? new It()
-              : e && e.layout(i.formFactor)
+        this.postKeyboardLoad();
+      }
+      _GenerateKeyboardView(e, n) {
+        let i = this.targetDevice;
+        return (
+          (this._Box.className = ""),
+          e == null && !i.touchable
+            ? new It()
+            : e && e.layout(i.formFactor)
               ? this._GenerateVisualKeyboard(e, n)
               : !e || !n
-              ? this._GenerateVisualKeyboard(null, null)
-              : new _t(e)
-          );
-        }
-        _GenerateVisualKeyboard(e, n) {
-          let i = this.targetDevice,
-            s = Al(this.config),
-            c = new ye({
-              keyboard: e,
-              keyboardMetadata: n,
-              device: i,
-              hostDevice: this.hostDevice,
-              topContainer: this._Box,
-              styleSheetManager: this.kbdStyleSheetManager,
-              pathConfig: this.config.pathConfig,
-              embeddedGestureConfig: this.config.embeddedGestureConfig,
-              isEmbedded: this.config.isEmbedded,
-              specialFont: {
-                family: "SpecialOSK",
-                files: [``],
-                path: "",
-              },
-            });
-          return (
-            c.on("keyevent", (l, r) => this.emit("keyevent", l, r)),
-            c.on("globekey", (l, r) => this.emit("globekey", l, r)),
-            c.on("hiderequested", (l) => {
-              this.doHide(!0), this.emit("hiderequested", l);
-            }),
-            (this._Box.className =
-              i.formFactor + " " + i.OS.toLowerCase() + " kmw-osk-frame"),
-            c
-          );
-        }
-        present() {
-          if (!!this.mayShow()) {
-            if (
-              (this.keyboardView.updateState(),
+                ? this._GenerateVisualKeyboard(null, null)
+                : new _t(e)
+        );
+      }
+      _GenerateVisualKeyboard(e, n) {
+        let i = this.targetDevice,
+          s = Al(this.config),
+          c = new ye({
+            keyboard: e,
+            keyboardMetadata: n,
+            device: i,
+            hostDevice: this.hostDevice,
+            topContainer: this._Box,
+            styleSheetManager: this.kbdStyleSheetManager,
+            pathConfig: this.config.pathConfig,
+            embeddedGestureConfig: this.config.embeddedGestureConfig,
+            isEmbedded: this.config.isEmbedded,
+            specialFont: {
+              family: "SpecialOSK",
+              files: [``],
+              path: "",
+            },
+          });
+        return (
+          c.on("keyevent", (l, r) => this.emit("keyevent", l, r)),
+          c.on("globekey", (l, r) => this.emit("globekey", l, r)),
+          c.on("hiderequested", (l) => {
+            this.doHide(!0), this.emit("hiderequested", l);
+          }),
+          (this._Box.className =
+            i.formFactor + " " + i.OS.toLowerCase() + " kmw-osk-frame"),
+          c
+        );
+      }
+      present() {
+        if (!!this.mayShow()) {
+          if (
+            (this.keyboardView.updateState(),
               (this._Box.style.display = "block"),
               this.refreshLayoutIfNeeded(),
               (this._Visible = !0),
               (this._Box.style.opacity = "1"),
               this._Box.style.visibility == "hidden")
-            ) {
-              let e = this;
-              window.setTimeout(function () {
-                e._Box.style.visibility = "visible";
-              }, 0);
-            }
-            this.setDisplayPositioning();
+          ) {
+            let e = this;
+            window.setTimeout(function() {
+              e._Box.style.visibility = "visible";
+            }, 0);
           }
+          this.setDisplayPositioning();
         }
-        startHide(e) {
-          if (!this.mayHide(e)) return;
-          e &&
-            (this.activationModel.enabled = !!(
-              this.keyboardData.keyboard.isCJK || this.hostDevice.touchable
-            ));
-          let n = null;
-          this._Box &&
+      }
+      startHide(e) {
+        if (!this.mayHide(e)) return;
+        e &&
+          (this.activationModel.enabled = !!(
+            this.keyboardData.keyboard.isCJK || this.hostDevice.touchable
+          ));
+        let n = null;
+        this._Box &&
           this.hostDevice.touchable &&
           !(this.keyboardView instanceof It) &&
           this.config.allowHideAnimations
-            ? (n = this.useHideAnimation())
-            : (n = Promise.resolve(!0));
-          let i = this;
-          n.then(function (s) {
-            s && i.finalizeHide();
-          }),
-            this.doHide(e);
-        }
-        finalizeHide() {
-          if (
-            !(
-              document.body.className.indexOf("osk-always-visible") >= 0 &&
-              this.hostDevice.formFactor == "desktop"
-            )
-          ) {
-            if (this._Box) {
-              let e = this._Box.style;
-              (e.display = "none"),
-                (e.transition = ""),
-                (e.opacity = "1"),
-                (this._Visible = !1);
-            }
-            this.vkbd && this.vkbd.onHide();
+          ? (n = this.useHideAnimation())
+          : (n = Promise.resolve(!0));
+        let i = this;
+        n.then(function(s) {
+          s && i.finalizeHide();
+        }),
+          this.doHide(e);
+      }
+      finalizeHide() {
+        if (
+          !(
+            document.body.className.indexOf("osk-always-visible") >= 0 &&
+            this.hostDevice.formFactor == "desktop"
+          )
+        ) {
+          if (this._Box) {
+            let e = this._Box.style;
+            (e.display = "none"),
+              (e.transition = ""),
+              (e.opacity = "1"),
+              (this._Visible = !1);
           }
+          this.vkbd && this.vkbd.onHide();
         }
-        mayShow() {
-          return !(
-            !this.activationModel.conditionsMet ||
-            !this.keyboardView ||
-            this.keyboardView instanceof It ||
-            !this.activationModel.enabled ||
-            !this._Box
-          );
-        }
-        mayHide(e) {
-          return !(
-            (this.activationModel.conditionsMet && !this.mayDisable) ||
-            this.activationModel instanceof Ut ||
-            (!e &&
-              this.hostDevice.formFactor == "desktop" &&
-              document.body.className.indexOf("osk-always-visible") >= 0)
-          );
-        }
-        useHideAnimation() {
-          let e = this._Box.style,
-            n = this;
-          return new Promise(function (i) {
-            let s = a(function () {
-                return (
-                  n._Box.removeEventListener("transitionend", s, !1),
-                  n._Box.removeEventListener("webkitTransitionEnd", s, !1),
-                  n._Box.removeEventListener("transitioncancel", s, !1),
-                  n._Box.removeEventListener("webkitTransitionCancel", s, !1),
-                  n._animatedHideTimeout != 0 &&
-                    window.clearTimeout(n._animatedHideTimeout),
-                  (n._animatedHideTimeout = 0),
-                  n._Visible && n.activationModel.conditionsMet
-                    ? ((e.transition = ""), (e.opacity = "1"), i(!1), !1)
-                    : (i(!0), !0)
-                );
-              }, "cleanup"),
-              c = a(function () {
-                n._Box.removeEventListener("transitionrun", c, !1),
-                  n._Box.removeEventListener("webkitTransitionRun", c, !1),
-                  n._Box.addEventListener("transitionend", s, !1),
-                  n._Box.addEventListener("webkitTransitionEnd", s, !1),
-                  n._Box.addEventListener("transitioncancel", s, !1),
-                  n._Box.addEventListener("webkitTransitionCancel", s, !1);
-              }, "startup");
-            n._Box.addEventListener("transitionrun", c, !1),
-              n._Box.addEventListener("webkitTransitionRun", c, !1),
-              (e.transition = "opacity 0.5s linear 0"),
-              (e.opacity = "0"),
-              (n._animatedHideTimeout = window.setTimeout(s, 200));
-          });
-        }
-        hideNow() {
-          if (!this.mayHide(!1) || !this._Box) return;
-          this._animatedHideTimeout &&
-            (window.clearTimeout(this._animatedHideTimeout),
+      }
+      mayShow() {
+        return !(
+          !this.activationModel.conditionsMet ||
+          !this.keyboardView ||
+          this.keyboardView instanceof It ||
+          !this.activationModel.enabled ||
+          !this._Box
+        );
+      }
+      mayHide(e) {
+        return !(
+          (this.activationModel.conditionsMet && !this.mayDisable) ||
+          this.activationModel instanceof Ut ||
+          (!e &&
+            this.hostDevice.formFactor == "desktop" &&
+            document.body.className.indexOf("osk-always-visible") >= 0)
+        );
+      }
+      useHideAnimation() {
+        let e = this._Box.style,
+          n = this;
+        return new Promise(function(i) {
+          let s = a(function() {
+            return (
+              n._Box.removeEventListener("transitionend", s, !1),
+              n._Box.removeEventListener("webkitTransitionEnd", s, !1),
+              n._Box.removeEventListener("transitioncancel", s, !1),
+              n._Box.removeEventListener("webkitTransitionCancel", s, !1),
+              n._animatedHideTimeout != 0 &&
+              window.clearTimeout(n._animatedHideTimeout),
+              (n._animatedHideTimeout = 0),
+              n._Visible && n.activationModel.conditionsMet
+                ? ((e.transition = ""), (e.opacity = "1"), i(!1), !1)
+                : (i(!0), !0)
+            );
+          }, "cleanup"),
+            c = a(function() {
+              n._Box.removeEventListener("transitionrun", c, !1),
+                n._Box.removeEventListener("webkitTransitionRun", c, !1),
+                n._Box.addEventListener("transitionend", s, !1),
+                n._Box.addEventListener("webkitTransitionEnd", s, !1),
+                n._Box.addEventListener("transitioncancel", s, !1),
+                n._Box.addEventListener("webkitTransitionCancel", s, !1);
+            }, "startup");
+          n._Box.addEventListener("transitionrun", c, !1),
+            n._Box.addEventListener("webkitTransitionRun", c, !1),
+            (e.transition = "opacity 0.5s linear 0"),
+            (e.opacity = "0"),
+            (n._animatedHideTimeout = window.setTimeout(s, 200));
+        });
+      }
+      hideNow() {
+        if (!this.mayHide(!1) || !this._Box) return;
+        this._animatedHideTimeout &&
+          (window.clearTimeout(this._animatedHideTimeout),
             (this._animatedHideTimeout = 0));
-          let e = this._Box.style;
-          (e.transition = ""), (e.opacity = "0"), this.finalizeHide();
-        }
-        shutdown() {
-          this.removeBaseMouseEventListeners(),
-            this.removeBaseTouchEventListeners();
-          var e = this._Box;
-          e.parentElement && e.parentElement.removeChild(e),
-            this.kbdStyleSheetManager.unlinkAll(),
-            this.uiStyleSheetManager.unlinkAll(),
-            this.bannerController.shutdown();
-        }
-        getRect() {
-          var e = {};
-          return (
-            (e.left = e.left = $(this._Box)),
-            (e.top = e.top = ee(this._Box)),
-            (e.width = this.computedWidth),
-            (e.height = this.computedHeight),
-            e
-          );
-        }
-        isEnabled() {
-          return this.displayIfActive;
-        }
-        isVisible() {
-          return this._Visible;
-        }
-        hide() {
-          (this.activationModel.enabled = !1), this.startHide(!0);
-        }
-        show(e) {
-          arguments.length > 0
-            ? (this.activationModel.enabled = e)
-            : this.activationModel.conditionsMet &&
-              (this.activationModel.enabled = !this.activationModel.enabled);
-        }
-        doShow(e) {
-          this.legacyEvents.callEvent("show", e);
-        }
-        doHide(e) {
-          let n = { HiddenByUser: e };
-          this.legacyEvents.callEvent("hide", n);
-        }
-        addEventListener(e, n) {
-          this.legacyEvents.addEventListener(e, n);
-        }
-        removeEventListener(e, n) {
-          this.legacyEvents.removeEventListener(e, n);
-        }
-      },
+        let e = this._Box.style;
+        (e.transition = ""), (e.opacity = "0"), this.finalizeHide();
+      }
+      shutdown() {
+        this.removeBaseMouseEventListeners(),
+          this.removeBaseTouchEventListeners();
+        var e = this._Box;
+        e.parentElement && e.parentElement.removeChild(e),
+          this.kbdStyleSheetManager.unlinkAll(),
+          this.uiStyleSheetManager.unlinkAll(),
+          this.bannerController.shutdown();
+      }
+      getRect() {
+        var e = {};
+        return (
+          (e.left = e.left = $(this._Box)),
+          (e.top = e.top = ee(this._Box)),
+          (e.width = this.computedWidth),
+          (e.height = this.computedHeight),
+          e
+        );
+      }
+      isEnabled() {
+        return this.displayIfActive;
+      }
+      isVisible() {
+        return this._Visible;
+      }
+      hide() {
+        (this.activationModel.enabled = !1), this.startHide(!0);
+      }
+      show(e) {
+        arguments.length > 0
+          ? (this.activationModel.enabled = e)
+          : this.activationModel.conditionsMet &&
+          (this.activationModel.enabled = !this.activationModel.enabled);
+      }
+      doShow(e) {
+        this.legacyEvents.callEvent("show", e);
+      }
+      doHide(e) {
+        let n = { HiddenByUser: e };
+        this.legacyEvents.callEvent("hide", n);
+      }
+      addEventListener(e, n) {
+        this.legacyEvents.addEventListener(e, n);
+      }
+      removeEventListener(e, n) {
+        this.legacyEvents.removeEventListener(e, n);
+      }
+    },
       ue = Zs;
     a(ue, "OSKView"), (ue.STYLESHEET_FILES = ["", ""]);
     var El = v(A(), 1);
     var yc = class extends El.default {
-        constructor(e) {
-          super();
-          this.mouseCancellingHandler = a(function (e) {
-            return e.preventDefault(), (e.cancelBubble = !0), !1;
-          }, "mouseCancellingHandler");
-          (this._element = this.buildTitleBar()),
-            (this.helpEnabled = !1),
-            (this.configEnabled = !1),
-            e && (this.element.onmousedown = e.mouseDownHandler);
-        }
-        get helpEnabled() {
-          return this._helpEnabled;
-        }
-        set helpEnabled(e) {
-          (this._helpEnabled = e),
-            (this._helpButton.style.display = e ? "inline" : "none");
-        }
-        get configEnabled() {
-          return this._configEnabled;
-        }
-        set configEnabled(e) {
-          (this._configEnabled = e),
-            (this._configButton.style.display = e ? "inline" : "none");
-        }
-        get layoutHeight() {
-          return yc.DISPLAY_HEIGHT;
-        }
-        get element() {
-          return this._element;
-        }
-        setPinCJKOffset() {
-          this._unpinButton.style.left = "15px";
-        }
-        showPin(e) {
-          this._unpinButton.style.display = e ? "block" : "none";
-        }
-        setTitle(e) {
-          this._caption.innerHTML = e;
-        }
-        setTitleFromKeyboard(e) {
-          let n =
-            "<span style='font-weight:bold'>" +
-            (e == null ? void 0 : e.name) +
-            "</span>";
-          this._caption.innerHTML = n;
-        }
-        buildTitleBar() {
-          let e = W("div");
-          (e.id = "keymanweb_title_bar"), (e.className = "kmw-title-bar");
-          var n = (this._caption = W("span"));
-          (n.className = "kmw-title-bar-caption"),
-            (n.style.color = "#fff"),
-            e.appendChild(n);
-          var i = (this._closeButton = this.buildCloseButton());
-          return (
-            (this._closeButton.onclick = () => (this.emit("close"), !1)),
-            e.appendChild(i),
-            (i = this._helpButton = this.buildHelpButton()),
-            (this._helpButton.onclick = () => (this.emit("help"), !1)),
-            e.appendChild(i),
-            (i = this._configButton = this.buildConfigButton()),
-            (this._configButton.onclick = () => (this.emit("config"), !1)),
-            e.appendChild(i),
-            (i = this._unpinButton = this.buildUnpinButton()),
-            (this._unpinButton.onclick = () => (this.emit("unpin"), !1)),
-            e.appendChild(i),
-            e
-          );
-        }
-        buildCloseButton() {
-          var e = W("div");
-          return (
-            (e.id = "kmw-close-button"),
-            (e.className = "kmw-title-bar-image"),
-            (e.onmousedown = this.mouseCancellingHandler),
-            e
-          );
-        }
-        buildHelpButton() {
-          let e = W("div");
-          return (
-            (e.id = "kmw-help-image"),
-            (e.className = "kmw-title-bar-image"),
-            (e.title = "KeymanWeb Help"),
-            (e.onmousedown = this.mouseCancellingHandler),
-            e
-          );
-        }
-        buildConfigButton() {
-          let e = W("div");
-          return (
-            (e.id = "kmw-config-image"),
-            (e.className = "kmw-title-bar-image"),
-            (e.title = "KeymanWeb Configuration Options"),
-            (e.onmousedown = this.mouseCancellingHandler),
-            e
-          );
-        }
-        buildUnpinButton() {
-          let e = W("div");
-          return (
-            (e.id = "kmw-pin-image"),
-            (e.className = "kmw-title-bar-image"),
-            (e.title =
-              "Pin the On Screen Keyboard to its default location on the active text box"),
-            (e.onmousedown = this.mouseCancellingHandler),
-            e
-          );
-        }
-        refreshLayout() {}
-      },
+      constructor(e) {
+        super();
+        this.mouseCancellingHandler = a(function(e) {
+          return e.preventDefault(), (e.cancelBubble = !0), !1;
+        }, "mouseCancellingHandler");
+        (this._element = this.buildTitleBar()),
+          (this.helpEnabled = !1),
+          (this.configEnabled = !1),
+          e && (this.element.onmousedown = e.mouseDownHandler);
+      }
+      get helpEnabled() {
+        return this._helpEnabled;
+      }
+      set helpEnabled(e) {
+        (this._helpEnabled = e),
+          (this._helpButton.style.display = e ? "inline" : "none");
+      }
+      get configEnabled() {
+        return this._configEnabled;
+      }
+      set configEnabled(e) {
+        (this._configEnabled = e),
+          (this._configButton.style.display = e ? "inline" : "none");
+      }
+      get layoutHeight() {
+        return yc.DISPLAY_HEIGHT;
+      }
+      get element() {
+        return this._element;
+      }
+      setPinCJKOffset() {
+        this._unpinButton.style.left = "15px";
+      }
+      showPin(e) {
+        this._unpinButton.style.display = e ? "block" : "none";
+      }
+      setTitle(e) {
+        this._caption.innerHTML = e;
+      }
+      setTitleFromKeyboard(e) {
+        let n =
+          "<span style='font-weight:bold'>" +
+          (e == null ? void 0 : e.name) +
+          "</span>";
+        this._caption.innerHTML = n;
+      }
+      buildTitleBar() {
+        let e = W("div");
+        (e.id = "keymanweb_title_bar"), (e.className = "kmw-title-bar");
+        var n = (this._caption = W("span"));
+        (n.className = "kmw-title-bar-caption"),
+          (n.style.color = "#fff"),
+          e.appendChild(n);
+        var i = (this._closeButton = this.buildCloseButton());
+        return (
+          (this._closeButton.onclick = () => (this.emit("close"), !1)),
+          e.appendChild(i),
+          (i = this._helpButton = this.buildHelpButton()),
+          (this._helpButton.onclick = () => (this.emit("help"), !1)),
+          e.appendChild(i),
+          (i = this._configButton = this.buildConfigButton()),
+          (this._configButton.onclick = () => (this.emit("config"), !1)),
+          e.appendChild(i),
+          (i = this._unpinButton = this.buildUnpinButton()),
+          (this._unpinButton.onclick = () => (this.emit("unpin"), !1)),
+          e.appendChild(i),
+          e
+        );
+      }
+      buildCloseButton() {
+        var e = W("div");
+        return (
+          (e.id = "kmw-close-button"),
+          (e.className = "kmw-title-bar-image"),
+          (e.onmousedown = this.mouseCancellingHandler),
+          e
+        );
+      }
+      buildHelpButton() {
+        let e = W("div");
+        return (
+          (e.id = "kmw-help-image"),
+          (e.className = "kmw-title-bar-image"),
+          (e.title = "KeymanWeb Help"),
+          (e.onmousedown = this.mouseCancellingHandler),
+          e
+        );
+      }
+      buildConfigButton() {
+        let e = W("div");
+        return (
+          (e.id = "kmw-config-image"),
+          (e.className = "kmw-title-bar-image"),
+          (e.title = "KeymanWeb Configuration Options"),
+          (e.onmousedown = this.mouseCancellingHandler),
+          e
+        );
+      }
+      buildUnpinButton() {
+        let e = W("div");
+        return (
+          (e.id = "kmw-pin-image"),
+          (e.className = "kmw-title-bar-image"),
+          (e.title =
+            "Pin the On Screen Keyboard to its default location on the active text box"),
+          (e.onmousedown = this.mouseCancellingHandler),
+          e
+        );
+      }
+      refreshLayout() { }
+    },
       ht = yc;
     a(ht, "TitleBar"), (ht.DISPLAY_HEIGHT = m.inPixels(20));
     var vl = v(A(), 1);
     var uc = class extends vl.default {
-        constructor(e) {
-          super();
-          this.mouseCancellingHandler = a(function (e) {
-            return e.preventDefault(), (e.cancelBubble = !0), !1;
-          }, "mouseCancellingHandler");
-          (this._element = this.buildResizeBar()),
-            e && (this._resizeHandle.onmousedown = e.mouseDownHandler);
-        }
-        get layoutHeight() {
-          return uc.DISPLAY_HEIGHT;
-        }
-        get element() {
-          return this._element;
-        }
-        get handle() {
-          return this._resizeHandle;
-        }
-        allowResizing(e) {
-          this._resizeHandle.style.display = e ? "block" : "none";
-        }
-        buildResizeBar() {
-          var e = W("div");
-          (e.className = "kmw-footer"),
-            (e.onmousedown = this.mouseCancellingHandler);
-          var n = W("div");
-          (n.className = "kmw-footer-caption"),
-            (n.innerHTML =
-              '<a href="https://keyman.com/developer/keymanweb/">KeymanWeb</a>'),
-            (n.id = "keymanweb-osk-footer-caption"),
-            n.addEventListener(
-              "dblclick",
-              (s) => (this.emit("showbuild"), !1),
-              !1
-            ),
-            e.appendChild(n);
-          var i = W("div");
-          return (
-            (i.className = "kmw-footer-resize"),
-            e.appendChild(i),
-            (this._resizeHandle = i),
-            e
-          );
-        }
-        refreshLayout() {}
-      },
+      constructor(e) {
+        super();
+        this.mouseCancellingHandler = a(function(e) {
+          return e.preventDefault(), (e.cancelBubble = !0), !1;
+        }, "mouseCancellingHandler");
+        (this._element = this.buildResizeBar()),
+          e && (this._resizeHandle.onmousedown = e.mouseDownHandler);
+      }
+      get layoutHeight() {
+        return uc.DISPLAY_HEIGHT;
+      }
+      get element() {
+        return this._element;
+      }
+      get handle() {
+        return this._resizeHandle;
+      }
+      allowResizing(e) {
+        this._resizeHandle.style.display = e ? "block" : "none";
+      }
+      buildResizeBar() {
+        var e = W("div");
+        (e.className = "kmw-footer"),
+          (e.onmousedown = this.mouseCancellingHandler);
+        var n = W("div");
+        (n.className = "kmw-footer-caption"),
+          (n.innerHTML =
+            '<a href="https://keyman.com/developer/keymanweb/">KeymanWeb</a>'),
+          (n.id = "keymanweb-osk-footer-caption"),
+          n.addEventListener(
+            "dblclick",
+            (s) => (this.emit("showbuild"), !1),
+            !1
+          ),
+          e.appendChild(n);
+        var i = W("div");
+        return (
+          (i.className = "kmw-footer-resize"),
+          e.appendChild(i),
+          (this._resizeHandle = i),
+          e
+        );
+      }
+      refreshLayout() { }
+    },
       sn = uc;
     a(sn, "ResizeBar"), (sn.DISPLAY_HEIGHT = m.inPixels(16));
     var $e = class {
@@ -14007,7 +14004,7 @@ ${t.stack}`)
           ((window.TouchEvent && t instanceof TouchEvent) || t.changedTouches
             ? (e = t.changedTouches[0])
             : (e = t),
-          e.pageX)
+            e.pageX)
         )
           return new $e(e.pageX, e.pageY, t);
         if (e.clientX) {
@@ -14030,7 +14027,7 @@ ${t.stack}`)
         (document.onmousemove = this._VPreviousMouseMove),
           (document.onmouseup = this._VPreviousMouseUp),
           document.body.style.cursor &&
-            (document.body.style.cursor = this._VPreviousCursor);
+          (document.body.style.cursor = this._VPreviousCursor);
       }
       matchesCausingClick(t) {
         return (
@@ -14065,7 +14062,7 @@ ${t.stack}`)
             (document.onmousemove = this._VMoveMouseMove.bind(this)),
             (document.onmouseup = this._VMoveMouseUp.bind(this)),
             document.body.style.cursor &&
-              (document.body.style.cursor = this.cursorType),
+            (document.body.style.cursor = this.cursorType),
             t.preventDefault(),
             (t.cancelBubble = !0),
             this.onDragStart(),
@@ -14075,8 +14072,8 @@ ${t.stack}`)
         if (!t || !this.enabled) return !0;
         if (
           (t.preventDefault(),
-          (t.cancelBubble = !0),
-          this._mouseStartSnapshot.matchesCausingClick(t))
+            (t.cancelBubble = !0),
+            this._mouseStartSnapshot.matchesCausingClick(t))
         ) {
           let e = $e.fromEvent(t),
             n = e.x - this._startCoord.x,
@@ -14161,7 +14158,7 @@ ${t.stack}`)
         this.specifiedPosition = !1;
         this.noDrag = !1;
         this.layoutSerializer = new Ri();
-        this.restorePosition = function (e) {
+        this.restorePosition = function(e) {
           let n = this._Visible,
             i = new S();
           this.emit("dragmove", i.corePromise),
@@ -14192,21 +14189,21 @@ ${t.stack}`)
           (this.headerView = this.titleBar),
           this._Box.insertBefore(this.headerView.element, this._Box.firstChild);
         let n = a((c) => {
-            let l = this.headerView;
-            if (l && l instanceof ht)
-              switch (c) {
-                case "configclick":
-                  l.configEnabled =
-                    this.legacyEvents.listenerCount("configclick") > 0;
-                  break;
-                case "helpclick":
-                  l.helpEnabled =
-                    this.legacyEvents.listenerCount("helpclick") > 0;
-                  break;
-                default:
-                  return;
-              }
-          }, "onListenedEvent"),
+          let l = this.headerView;
+          if (l && l instanceof ht)
+            switch (c) {
+              case "configclick":
+                l.configEnabled =
+                  this.legacyEvents.listenerCount("configclick") > 0;
+                break;
+              case "helpclick":
+                l.helpEnabled =
+                  this.legacyEvents.listenerCount("helpclick") > 0;
+                break;
+              default:
+                return;
+            }
+        }, "onListenedEvent"),
           i = new Dt(this),
           s = new Dt(this.legacyEvents);
         for (let c of [i, s])
@@ -14232,16 +14229,16 @@ ${t.stack}`)
       postKeyboardAdjustments() {
         !this.titleBar ||
           (this.enableMoveResizeHandlers(),
-          this.activeKeyboard &&
+            this.activeKeyboard &&
             this.titleBar.setTitleFromKeyboard(this.activeKeyboard.keyboard),
-          this.vkbd
-            ? ((this.footerView = this.resizeBar),
-              this._Box.appendChild(this.footerView.element))
-            : (this.footerView &&
+            this.vkbd
+              ? ((this.footerView = this.resizeBar),
+                this._Box.appendChild(this.footerView.element))
+              : (this.footerView &&
                 this._Box.removeChild(this.footerView.element),
-              (this.footerView = null)),
-          this.loadPersistedLayout(),
-          this.setNeedsLayout());
+                (this.footerView = null)),
+            this.loadPersistedLayout(),
+            this.setNeedsLayout());
       }
       isEnabled() {
         return this.displayIfActive;
@@ -14284,22 +14281,22 @@ ${t.stack}`)
           s > 0.9 * screen.width && (s = 0.9 * screen.width),
           c > 0.5 * screen.height && (c = 0.5 * screen.height),
           (i || !n) &&
-            (this.headerView &&
-              this.headerView.layoutHeight.absolute &&
-              (c += this.headerView.layoutHeight.val),
+          (this.headerView &&
+            this.headerView.layoutHeight.absolute &&
+            (c += this.headerView.layoutHeight.val),
             this.footerView &&
-              this.footerView.layoutHeight.absolute &&
-              (c += this.footerView.layoutHeight.val)),
+            this.footerView.layoutHeight.absolute &&
+            (c += this.footerView.layoutHeight.val)),
           this.setSize(s, c),
           (this.x == -1 || this.y == -1 || !this._Box) &&
-            (this.userPositioned = !1),
+          (this.userPositioned = !1),
           this.x < window.pageXOffset - 0.8 * s &&
-            (this.x = window.pageXOffset - 0.8 * s),
+          (this.x = window.pageXOffset - 0.8 * s),
           this.y < 0 &&
-            ((this.x = -1), (this.y = -1), (this.userPositioned = !1)),
+          ((this.x = -1), (this.y = -1), (this.userPositioned = !1)),
           this.userPositioned &&
-            this._Box &&
-            this.setPos({ left: this.x, top: this.y });
+          this._Box &&
+          this.setPos({ left: this.x, top: this.y });
       }
       getDefaultKeyboardHeight() {
         if (this.configuration.heightOverride)
@@ -14312,12 +14309,12 @@ ${t.stack}`)
           xe()
             ? (n = (n * (s / i)) / 1.6)
             : (n = Math.floor(
-                Math.max(screen.availHeight, screen.availWidth) / 3
-              ));
+              Math.max(screen.availHeight, screen.availWidth) / 3
+            ));
         }
         return (
           this.targetDevice.OS == p.OperatingSystem.iOS &&
-            (n = n / He(this.targetDevice.formFactor)),
+          (n = n / He(this.targetDevice.formFactor)),
           n
         );
       }
@@ -14346,13 +14343,13 @@ ${t.stack}`)
           if (
             ("left" in e &&
               ((this.x = e.left - $(n) + n.offsetLeft),
-              (i.left = this.x + "px"),
-              (this.dfltX = i.left)),
-            "top" in e &&
+                (i.left = this.x + "px"),
+                (this.dfltX = i.left)),
+              "top" in e &&
               ((this.y = e.top - ee(n) + n.offsetTop),
-              (i.top = this.y + "px"),
-              (this.dfltY = i.top)),
-            this.vkbd != null)
+                (i.top = this.y + "px"),
+                (this.dfltY = i.top)),
+              this.vkbd != null)
           ) {
             var s = this.vkbd.kbdDiv,
               c = s.style;
@@ -14394,12 +14391,12 @@ ${t.stack}`)
             typeof n != "undefined" &&
               (n < -0.8 * this._Box.offsetWidth &&
                 (n = -0.8 * this._Box.offsetWidth),
-              this.userPositioned &&
+                this.userPositioned &&
                 ((this._Box.style.left = n + "px"), (this.x = n))),
               typeof i != "undefined" &&
-                (i < 0 && (i = 0),
+              (i < 0 && (i = 0),
                 this.userPositioned &&
-                  ((this._Box.style.top = i + "px"), (this.y = i)));
+                ((this._Box.style.top = i + "px"), (this.y = i)));
           }
           this.titleBar.showPin(this.userPositioned);
         }
@@ -14408,9 +14405,9 @@ ${t.stack}`)
         var e = this._Box.style;
         if (
           ((e.position = "absolute"),
-          this.activationModel.activate && (e.display = "block"),
-          (e.left = "0px"),
-          this.specifiedPosition || this.userPositioned)
+            this.activationModel.activate && (e.display = "block"),
+            (e.left = "0px"),
+            this.specifiedPosition || this.userPositioned)
         )
           (e.left = this.x + "px"), (e.top = this.y + "px");
         else {
@@ -14421,18 +14418,18 @@ ${t.stack}`)
             this.dfltY
               ? (e.top = this.dfltY)
               : typeof n != "undefined" &&
-                n != null &&
-                (e.top = ee(n) + n.offsetHeight + "px");
+              n != null &&
+              (e.top = ee(n) + n.offsetHeight + "px");
         }
         this.specifiedPosition = !1;
       }
       presentAtPosition(e, n) {
         !this.mayShow() ||
           ((this.specifiedPosition = e >= 0 || n >= 0),
-          this.specifiedPosition && ((this.x = e), (this.y = n)),
-          (this.specifiedPosition =
-            this.specifiedPosition || this.userPositioned),
-          this.present());
+            this.specifiedPosition && ((this.x = e), (this.y = n)),
+            (this.specifiedPosition =
+              this.specifiedPosition || this.userPositioned),
+            this.present());
       }
       present() {
         if (!!this.mayShow()) {
@@ -14481,37 +14478,37 @@ ${t.stack}`)
         return this._moveHandler
           ? this._moveHandler
           : ((this._moveHandler = new (class extends cn {
-              constructor() {
-                super("move");
-              }
-              onDragStart() {
-                (this.startX = e._Box.offsetLeft),
-                  (this.startY = e._Box.offsetTop),
-                  e.activeKeyboard.keyboard.isCJK &&
-                    e.titleBar.setPinCJKOffset(),
-                  this.dragPromise && this.dragPromise.resolve(),
-                  (this.dragPromise = new S()),
-                  e.emit("dragmove", this.dragPromise.corePromise);
-              }
-              onDragMove(i, s) {
-                e.titleBar.showPin(!0),
+            constructor() {
+              super("move");
+            }
+            onDragStart() {
+              (this.startX = e._Box.offsetLeft),
+                (this.startY = e._Box.offsetTop),
+                e.activeKeyboard.keyboard.isCJK &&
+                e.titleBar.setPinCJKOffset(),
+                this.dragPromise && this.dragPromise.resolve(),
+                (this.dragPromise = new S()),
+                e.emit("dragmove", this.dragPromise.corePromise);
+            }
+            onDragMove(i, s) {
+              e.titleBar.showPin(!0),
+                (e.userPositioned = !0),
+                (e._Box.style.left = this.startX + i + "px"),
+                (e._Box.style.top = this.startY + s + "px");
+              var c = e.getRect();
+              e.setSize(c.width, c.height, !0), (e.x = c.left), (e.y = c.top);
+            }
+            onDragRelease() {
+              e.vkbd && (e.vkbd.currentKey = null),
+                this.dragPromise.resolve(),
+                this.dragPromise.then(() => {
                   (e.userPositioned = !0),
-                  (e._Box.style.left = this.startX + i + "px"),
-                  (e._Box.style.top = this.startY + s + "px");
-                var c = e.getRect();
-                e.setSize(c.width, c.height, !0), (e.x = c.left), (e.y = c.top);
-              }
-              onDragRelease() {
-                e.vkbd && (e.vkbd.currentKey = null),
-                  this.dragPromise.resolve(),
-                  this.dragPromise.then(() => {
-                    (e.userPositioned = !0),
-                      e.doResizeMove(),
-                      e.savePersistedLayout();
-                  }),
-                  (this.dragPromise = null);
-              }
-            })()),
+                    e.doResizeMove(),
+                    e.savePersistedLayout();
+                }),
+                (this.dragPromise = null);
+            }
+          })()),
             this._moveHandler);
       }
       get resizeDragHandler() {
@@ -14519,38 +14516,38 @@ ${t.stack}`)
         return this._resizeHandler
           ? this._resizeHandler
           : ((this._resizeHandler = new (class extends cn {
-              constructor() {
-                super("se-resize");
-              }
-              onDragStart() {
-                (this.startWidth = e.computedWidth),
-                  (this.startHeight = e.computedHeight),
-                  this.dragPromise && this.dragPromise.resolve(),
-                  (this.dragPromise = new S()),
-                  e.emit("resizemove", this.dragPromise.corePromise);
-              }
-              onDragMove(i, s) {
-                let c = this.startWidth + i,
-                  l = this.startHeight + s;
-                c < 0.2 * screen.width && (c = 0.2 * screen.width),
-                  l < 0.1 * screen.height && (l = 0.1 * screen.height),
-                  c > 0.9 * screen.width && (c = 0.9 * screen.width),
-                  l > 0.5 * screen.height && (l = 0.5 * screen.height),
-                  e.setSize(c, l, !0);
-              }
-              onDragRelease() {
-                e.vkbd && (e.vkbd.currentKey = null),
-                  e.vkbd &&
-                    ((this.startWidth = e.computedWidth),
-                    (this.startHeight = e.computedHeight)),
-                  e.refreshLayout(),
-                  this.dragPromise.resolve(),
-                  this.dragPromise.then(() => {
-                    e.doResizeMove(), e.savePersistedLayout();
-                  }),
-                  (this.dragPromise = null);
-              }
-            })()),
+            constructor() {
+              super("se-resize");
+            }
+            onDragStart() {
+              (this.startWidth = e.computedWidth),
+                (this.startHeight = e.computedHeight),
+                this.dragPromise && this.dragPromise.resolve(),
+                (this.dragPromise = new S()),
+                e.emit("resizemove", this.dragPromise.corePromise);
+            }
+            onDragMove(i, s) {
+              let c = this.startWidth + i,
+                l = this.startHeight + s;
+              c < 0.2 * screen.width && (c = 0.2 * screen.width),
+                l < 0.1 * screen.height && (l = 0.1 * screen.height),
+                c > 0.9 * screen.width && (c = 0.9 * screen.width),
+                l > 0.5 * screen.height && (l = 0.5 * screen.height),
+                e.setSize(c, l, !0);
+            }
+            onDragRelease() {
+              e.vkbd && (e.vkbd.currentKey = null),
+                e.vkbd &&
+                ((this.startWidth = e.computedWidth),
+                  (this.startHeight = e.computedHeight)),
+                e.refreshLayout(),
+                this.dragPromise.resolve(),
+                this.dragPromise.then(() => {
+                  e.doResizeMove(), e.savePersistedLayout();
+                }),
+                (this.dragPromise = null);
+            }
+          })()),
             this._resizeHandler);
       }
     };
@@ -14562,7 +14559,7 @@ ${t.stack}`)
           : (e.activator = e.activator || new et());
         super(e);
         this.isResizing = !1;
-        this.restorePosition = function (e) {}.bind(this);
+        this.restorePosition = function(e) { }.bind(this);
         document.body.appendChild(this._Box);
       }
       _Unload() {
@@ -14602,9 +14599,9 @@ ${t.stack}`)
         if (this.configuration.heightOverride)
           return this.configuration.heightOverride();
         let n =
-            (l = document == null ? void 0 : document.documentElement) == null
-              ? void 0
-              : l.clientWidth,
+          (l = document == null ? void 0 : document.documentElement) == null
+            ? void 0
+            : l.clientWidth,
           i =
             (r = document == null ? void 0 : document.documentElement) == null
               ? void 0
@@ -14612,8 +14609,8 @@ ${t.stack}`)
         if (
           typeof n == "undefined" &&
           ((n = Math.min(screen.height, screen.width)),
-          (i = Math.max(screen.height, screen.width)),
-          xe())
+            (i = Math.max(screen.height, screen.width)),
+            xe())
         ) {
           let B = n;
           (n = i), (i = B);
@@ -14622,9 +14619,9 @@ ${t.stack}`)
           c = s;
         return (
           e.formFactor == "phone" &&
-            (xe() ? (c = Math.floor(i / 1.6)) : (c = Math.floor(i / 2.4))),
+          (xe() ? (c = Math.floor(i / 1.6)) : (c = Math.floor(i / 2.4))),
           this.targetDevice.OS == p.OperatingSystem.iOS &&
-            (c = c / He(this.targetDevice.formFactor)),
+          (c = c / He(this.targetDevice.formFactor)),
           c
         );
       }
@@ -14640,15 +14637,15 @@ ${t.stack}`)
               ? void 0
               : i.clientWidth),
           typeof n == "undefined" &&
-            (this.targetDevice.OS == p.OperatingSystem.iOS
-              ? (n = window.innerWidth)
-              : e.OS == p.OperatingSystem.Android
+          (this.targetDevice.OS == p.OperatingSystem.iOS
+            ? (n = window.innerWidth)
+            : e.OS == p.OperatingSystem.Android
               ? (n = screen.availWidth)
               : (n = screen.width)),
           n
         );
       }
-      setRect(e) {}
+      setRect(e) { }
       getPos() {
         var e = this._Box,
           n = {
@@ -14657,14 +14654,14 @@ ${t.stack}`)
           };
         return n;
       }
-      setPos(e) {}
+      setPos(e) { }
       setDisplayPositioning() {
         let e = this._Box.style;
         this.vkbd &&
           ((e.position = "fixed"),
-          (e.left = e.bottom = "0px"),
-          (e.border = "none"),
-          (e.borderTop = "1px solid gray"));
+            (e.left = e.bottom = "0px"),
+            (e.border = "none"),
+            (e.borderTop = "1px solid gray"));
       }
       present() {
         super.present(), this.legacyEvents.callEvent("show", {});
@@ -14697,7 +14694,7 @@ ${t.stack}`)
       constructor(e) {
         e.activator = e.activator || new rn();
         super(e);
-        this.restorePosition = function (e) {}.bind(this);
+        this.restorePosition = function(e) { }.bind(this);
       }
       get element() {
         return this._Box;
@@ -14711,7 +14708,7 @@ ${t.stack}`)
         let e = this._Box.style;
         (e.display = "none"), (e.position = "relative");
       }
-      postKeyboardAdjustments() {}
+      postKeyboardAdjustments() { }
       getDefaultKeyboardHeight() {
         return this.keyboardView instanceof ye
           ? this.keyboardView.height
@@ -14720,7 +14717,7 @@ ${t.stack}`)
       getDefaultWidth() {
         return this.computedWidth;
       }
-      setRect(e) {}
+      setRect(e) { }
       getPos() {
         var e = this._Box,
           n = {
@@ -14729,11 +14726,11 @@ ${t.stack}`)
           };
         return n;
       }
-      setPos(e) {}
+      setPos(e) { }
       present() {
         super.present(), this.legacyEvents.callEvent("show", {});
       }
-      setDisplayPositioning() {}
+      setDisplayPositioning() { }
       allowsDeviceChange(e) {
         return !0;
       }
@@ -14830,7 +14827,7 @@ ${t.stack}`)
       getCaret() {
         return (
           this.root.selectionStart != this._cachedSelectionStart &&
-            ((this._cachedSelectionStart = this.root.selectionStart),
+          ((this._cachedSelectionStart = this.root.selectionStart),
             (this.processedSelectionStart =
               this.root.value._kmwCodeUnitToCodePoint(
                 this.root.selectionStart
@@ -14979,7 +14976,7 @@ ${t.stack}`)
       getCaret() {
         return (
           this.root.selectionStart != this._cachedSelectionStart &&
-            ((this._cachedSelectionStart = this.root.selectionStart),
+          ((this._cachedSelectionStart = this.root.selectionStart),
             (this.processedSelectionStart =
               this.root.value._kmwCodeUnitToCodePoint(
                 this.root.selectionStart
@@ -15119,7 +15116,7 @@ ${t.stack}`)
         super();
         if (
           ((this.root = e),
-          e.contentWindow &&
+            e.contentWindow &&
             e.contentWindow.document &&
             e.contentWindow.document.designMode == "on")
         )
@@ -15150,7 +15147,7 @@ ${t.stack}`)
           e.isCollapsed || e.deleteFromDocument();
         } else console.warn("Attempted to clear an unowned Selection!");
       }
-      invalidateSelection() {}
+      invalidateSelection() { }
       getCarets() {
         let e = this.doc.getSelection(),
           n = e.anchorNode.compareDocumentPosition(e.focusNode);
@@ -15232,7 +15229,7 @@ ${t.stack}`)
         }
         s.collapseToEnd();
       }
-      handleNewlineAtCaret() {}
+      handleNewlineAtCaret() { }
       setTextAfterCaret(e) {
         if (!this.hasSelection()) return;
         let n = this.getCarets().end,
@@ -15277,9 +15274,9 @@ ${t.stack}`)
           let i = this.commandCache[n];
           i.stateType == 1
             ? this.doc.queryCommandValue(i.cmd) != i.cache &&
-              (e && e(), this.doc.execCommand(i.cmd, !1, i.cache))
+            (e && e(), this.doc.execCommand(i.cmd, !1, i.cache))
             : this.doc.queryCommandState(i.cmd) != i.cache &&
-              (e && e(), this.doc.execCommand(i.cmd, !1, null));
+            (e && e(), this.doc.execCommand(i.cmd, !1, null));
         }
       }
       doInputEvent() {
@@ -15331,7 +15328,7 @@ ${t.stack}`)
           e.isCollapsed || e.deleteFromDocument();
         } else console.warn("Attempted to clear an unowned Selection!");
       }
-      invalidateSelection() {}
+      invalidateSelection() { }
       getCarets() {
         let e = this.root.ownerDocument.getSelection(),
           n = e.anchorNode.compareDocumentPosition(e.focusNode);
@@ -15413,7 +15410,7 @@ ${t.stack}`)
         }
         s.collapseToEnd();
       }
-      handleNewlineAtCaret() {}
+      handleNewlineAtCaret() { }
       setTextAfterCaret(e) {
         if (!this.hasSelection()) return;
         let n = this.getCarets().end,
@@ -15445,8 +15442,8 @@ ${t.stack}`)
         this.instanceof(n.target, "Window")
           ? (e = n.target[t])
           : this.instanceof(n.target, "Document")
-          ? (e = n.target.defaultView[t])
-          : this.instanceof(n.target, "HTMLElement") &&
+            ? (e = n.target.defaultView[t])
+            : this.instanceof(n.target, "HTMLElement") &&
             (e = n.target.ownerDocument.defaultView[t]);
       }
       return e ? o instanceof e : !1;
@@ -15462,8 +15459,8 @@ ${t.stack}`)
           t.contentWindow.document.designMode == "on"
           ? new j(t)
           : o.isContentEditable
-          ? new bt(o)
-          : null;
+            ? new bt(o)
+            : null;
       } else if (o.isContentEditable) return new bt(o);
       return null;
     }
@@ -15495,11 +15492,11 @@ ${t.stack}`)
       return document.readyState === "complete"
         ? Promise.resolve()
         : new Promise((o, t) => {
-            let e = a(() => {
-              window.removeEventListener("load", e), o();
-            }, "loadHandler");
-            window.addEventListener("load", e);
-          });
+          let e = a(() => {
+            window.removeEventListener("load", e), o();
+          }, "loadHandler");
+          window.addEventListener("load", e);
+        });
     }
     a(Ai, "whenDocumentReady");
     var Hi = class extends bn {
@@ -15516,8 +15513,8 @@ ${t.stack}`)
             e.useAlerts && !this.alertHost
               ? (this._alertHost = new tt())
               : !e.useAlerts &&
-                this.alertHost &&
-                ((n = this._alertHost) == null || n.shutdown(),
+              this.alertHost &&
+              ((n = this._alertHost) == null || n.shutdown(),
                 (this._alertHost = null));
           });
       }
@@ -15566,8 +15563,8 @@ ${t.stack}`)
       if (o == null) return null;
       if (
         (o.body && (o = o.body),
-        o.nodeType == 3 && (o = o.parentNode),
-        te(o, "HTMLInputElement"))
+          o.nodeType == 3 && (o = o.parentNode),
+          te(o, "HTMLInputElement"))
       ) {
         let e = o.type.toLowerCase();
         if (!(e == "text" || e == "search")) return null;
@@ -15592,7 +15589,7 @@ ${t.stack}`)
               let i = n.target;
               !this.isAttached(i) ||
                 ((i._kmwAttachment.inputMode = i.inputMode),
-                this.device.touchable && (i.inputMode = "none"));
+                  this.device.touchable && (i.inputMode = "none"));
             }
           } finally {
             this.enableInputModeObserver();
@@ -15607,7 +15604,7 @@ ${t.stack}`)
               (s && !c
                 ? this._EnableControl(i.target)
                 : !s && c && this._DisableControl(i.target),
-              !c && i.attributeName == "readonly")
+                !c && i.attributeName == "readonly")
             ) {
               var l = i.oldValue ? i.oldValue != null : !1,
                 r = i.target;
@@ -15657,9 +15654,9 @@ ${t.stack}`)
           (n.length || i.length) &&
             (this.device.touchable
               ? this.device.touchable &&
-                window.setTimeout(() => {
-                  this.listInputs();
-                }, 1)
+              window.setTimeout(() => {
+                this.listInputs();
+              }, 1)
               : this.listInputs());
         }, "_AutoAttachObserverCore");
         this._MutationAdditionObserved = a((e) => {
@@ -15698,7 +15695,7 @@ ${t.stack}`)
         (this.manualAttach = e),
           (this.baseFont = this.getBaseFont()),
           this.manualAttach ||
-            (this._SetupDocument(this.document.documentElement),
+          (this._SetupDocument(this.document.documentElement),
             this.listInputs()),
           this.options.owner || this.initMutationObservers(this.document, e);
       }
@@ -15824,7 +15821,7 @@ ${t.stack}`)
                 i.install(this.manualAttach);
             }
           }
-        } catch (n) {}
+        } catch (n) { }
       }
       _DetachFromIframe(e) {
         let n = a(() => {
@@ -15859,8 +15856,8 @@ ${t.stack}`)
             ? this.isKMWDisabled(e)
               ? this.emit("disabled", e)
               : n
-              ? this.enableTouchElement(e)
-              : this.enableInputElement(e)
+                ? this.enableTouchElement(e)
+                : this.enableInputElement(e)
             : n && this.emit("disabled", e));
       }
       detachFromControl(e) {
@@ -15870,20 +15867,20 @@ ${t.stack}`)
         ) ||
           (this.isKMWInput(e) &&
             (this.isKMWDisabled(e) || this._DisableControl(e)),
-          this.clearElementAttachment(e));
+            this.clearElementAttachment(e));
       }
       _DisableControl(e) {
         (this.isAttached(e) ||
           e instanceof e.ownerDocument.defaultView.HTMLIFrameElement) &&
           (this.device.touchable && this.disableTouchElement(e),
-          this.listInputs(),
-          this.disableInputElement(e));
+            this.listInputs(),
+            this.disableInputElement(e));
       }
       _EnableControl(e) {
         this.isAttached(e)
           ? (this.device.touchable
-              ? this.enableTouchElement(e)
-              : this.enableInputElement(e),
+            ? this.enableTouchElement(e)
+            : this.enableInputElement(e),
             this.listInputs())
           : te(e, "HTMLIFrameElement") && this._AttachToIframe(e);
       }
@@ -15944,18 +15941,18 @@ ${t.stack}`)
             n.push(e);
         }
         if (e.getElementsByTagName) {
-          var i = a(function (s) {
+          var i = a(function(s) {
             return Fs(e.getElementsByTagName(s));
           }, "LiTmp");
           n = n.concat(i("INPUT"), i("TEXTAREA"), i("IFRAME"));
         }
         return (
           e.querySelectorAll &&
-            (n = n.concat(Fs(e.querySelectorAll("[contenteditable]")))),
+          (n = n.concat(Fs(e.querySelectorAll("[contenteditable]")))),
           e.ownerDocument &&
-            e instanceof e.ownerDocument.defaultView.HTMLElement &&
-            e.isContentEditable &&
-            n.push(e),
+          e instanceof e.ownerDocument.defaultView.HTMLElement &&
+          e.isContentEditable &&
+          n.push(e),
           n
         );
       }
@@ -15973,10 +15970,10 @@ ${t.stack}`)
             s;
           n ||
             ((s = { childList: !0, subtree: !0 }),
-            (this.attachmentObserver = new MutationObserver(
-              this._AutoAttachObserverCore
-            )),
-            this.attachmentObserver.observe(i, s)),
+              (this.attachmentObserver = new MutationObserver(
+                this._AutoAttachObserverCore
+              )),
+              this.attachmentObserver.observe(i, s)),
             (s = {
               subtree: !0,
               attributes: !0,
@@ -16021,10 +16018,10 @@ ${t.stack}`)
           l.offsetTop < r.offsetTop
             ? (i = 1)
             : l.offsetTop > r.offsetTop
-            ? (i = 2)
-            : l.offsetLeft < r.offsetLeft
-            ? (i = 1)
-            : l.offsetLeft > r.offsetLeft && (i = 2);
+              ? (i = 2)
+              : l.offsetLeft < r.offsetLeft
+                ? (i = 1)
+                : l.offsetLeft > r.offsetLeft && (i = 2);
         }
         switch (i) {
           case 0:
@@ -16077,7 +16074,7 @@ font-family:` +
             this.embeddedPageContexts.forEach((c) => {
               try {
                 c.shutdown();
-              } catch (l) {}
+              } catch (l) { }
             });
           for (let c of this.inputList)
             try {
@@ -16124,7 +16121,7 @@ font-family:` +
       setFocusTimer() {
         (this.focusing = !0),
           (this.focusTimer = window.setTimeout(
-            function () {
+            function() {
               this.focusing = !1;
             }.bind(this),
             50
@@ -16136,11 +16133,11 @@ font-family:` +
       let e = t != null && t.isRTL ? "rtl" : "ltr";
       o &&
         (o instanceof o.ownerDocument.defaultView.HTMLInputElement ||
-        o instanceof o.ownerDocument.defaultView.HTMLTextAreaElement
+          o instanceof o.ownerDocument.defaultView.HTMLTextAreaElement
           ? o.value.length == 0 && (o.dir = e)
           : typeof o.textContent == "string" &&
-            o.textContent.length == 0 &&
-            (o.dir = e));
+          o.textContent.length == 0 &&
+          (o.dir = e));
     }
     a(Tl, "_SetTargDir");
     var mt = class extends vt {
@@ -16229,8 +16226,8 @@ font-family:` +
                     "touchstart",
                     this.nonKMWTouchHandler
                   ),
-                  this.domEventTracker.attachDOMEvent(i, "touchmove", n, !1),
-                  this.domEventTracker.attachDOMEvent(i, "touchend", n, !1)),
+                    this.domEventTracker.attachDOMEvent(i, "touchmove", n, !1),
+                    this.domEventTracker.attachDOMEvent(i, "touchend", n, !1)),
                   this.domEventTracker.attachDOMEvent(
                     i,
                     "focus",
@@ -16246,20 +16243,20 @@ font-family:` +
                 var s = i.contentWindow.document;
                 e.browser == "firefox"
                   ? (this.domEventTracker.attachDOMEvent(
-                      s,
-                      "focus",
-                      this._ControlFocus
-                    ),
+                    s,
+                    "focus",
+                    this._ControlFocus
+                  ),
                     this.domEventTracker.attachDOMEvent(
                       s,
                       "blur",
                       this._ControlBlur
                     ))
                   : (this.domEventTracker.attachDOMEvent(
-                      s.body,
-                      "focus",
-                      this._ControlFocus
-                    ),
+                    s.body,
+                    "focus",
+                    this._ControlFocus
+                  ),
                     this.domEventTracker.attachDOMEvent(
                       s.body,
                       "blur",
@@ -16298,20 +16295,20 @@ font-family:` +
                   let l = i.contentWindow.document;
                   e.browser == "firefox"
                     ? (this.domEventTracker.detachDOMEvent(
-                        l,
-                        "focus",
-                        this._ControlFocus
-                      ),
+                      l,
+                      "focus",
+                      this._ControlFocus
+                    ),
                       this.domEventTracker.detachDOMEvent(
                         l,
                         "blur",
                         this._ControlBlur
                       ))
                     : (this.domEventTracker.detachDOMEvent(
-                        l.body,
-                        "focus",
-                        this._ControlFocus
-                      ),
+                      l.body,
+                      "focus",
+                      this._ControlFocus
+                    ),
                       this.domEventTracker.detachDOMEvent(
                         l.body,
                         "blur",
@@ -16358,36 +16355,36 @@ font-family:` +
         let c = !!i;
         if (
           ((this.currentTarget = this.mostRecentTarget = e),
-          this.predictionContext.setCurrentTarget(e),
-          this.focusAssistant.restoringFocus
-            ? this._BlurKeyboardSettings(e.getElement())
-            : e && this._FocusKeyboardSettings(e.getElement(), !c),
-          this._CommonFocusHelper(e))
+            this.predictionContext.setCurrentTarget(e),
+            this.focusAssistant.restoringFocus
+              ? this._BlurKeyboardSettings(e.getElement())
+              : e && this._FocusKeyboardSettings(e.getElement(), !c),
+            this._CommonFocusHelper(e))
         )
           return !0;
         let l = e == null ? void 0 : e.getElement();
         if (
           (e instanceof j && (l = e.docRoot),
-          l &&
+            l &&
             l.ownerDocument &&
             l instanceof l.ownerDocument.defaultView.HTMLElement &&
             Tl(l, (r = this.activeKeyboard) == null ? void 0 : r.keyboard),
-          e != s && this.emit("targetchange", e),
-          n)
+            e != s && this.emit("targetchange", e),
+            n)
         ) {
           let B = i == null ? void 0 : i.getElement();
           i instanceof j && (B = i.docRoot),
             l
               ? this.apiEvents.callEvent("controlfocused", {
-                  target: l,
-                  activeControl: B,
-                })
+                target: l,
+                activeControl: B,
+              })
               : B &&
-                this.apiEvents.callEvent("controlblurred", {
-                  target: B,
-                  event: null,
-                  isActivating: this.focusAssistant.maintainingFocus,
-                });
+              this.apiEvents.callEvent("controlblurred", {
+                target: B,
+                event: null,
+                isActivating: this.focusAssistant.maintainingFocus,
+              });
         }
       }
       get activeKeyboard() {
@@ -16396,8 +16393,8 @@ font-family:` +
       restoreLastActiveTarget() {
         !this.mostRecentTarget ||
           ((this.focusAssistant.restoringFocus = !0),
-          this.mostRecentTarget.focus(),
-          (this.focusAssistant.restoringFocus = !1));
+            this.mostRecentTarget.focus(),
+            (this.focusAssistant.restoringFocus = !1));
       }
       insertText(e, n, i) {
         this.restoreLastActiveTarget();
@@ -16424,11 +16421,11 @@ font-family:` +
         if (
           (i
             ? ((i.keyboard =
-                (s = e == null ? void 0 : e.metadata.id) != null ? s : ""),
+              (s = e == null ? void 0 : e.metadata.id) != null ? s : ""),
               (i.languageCode =
                 (c = e == null ? void 0 : e.metadata.langId) != null ? c : ""))
             : (this.globalKeyboard = e),
-          this.currentKeyboardSrcTarget() == n)
+            this.currentKeyboardSrcTarget() == n)
         ) {
           this._activeKeyboard = e;
           let l = e == null ? void 0 : e.metadata;
@@ -16451,8 +16448,8 @@ font-family:` +
         if (s) {
           if (
             ((s.keyboard = n || null),
-            (s.languageCode = i || null),
-            c || this.currentKeyboardSrcTarget() == e)
+              (s.languageCode = i || null),
+              c || this.currentKeyboardSrcTarget() == e)
           ) {
             let l = this.globalKeyboard.metadata;
             this.activateKeyboard(
@@ -16478,13 +16475,13 @@ font-family:` +
         );
       }
       activateKeyboard(e, n, i) {
-        return Z(this, null, function* () {
+        return Z(this, null, function*() {
           var c, l, r, B, d, g;
           i || (i = !1);
           let s = this.currentKeyboardSrcTarget();
           e ||
             ((e = this.getFallbackStubKey().id),
-            (n = this.getFallbackStubKey().langId));
+              (n = this.getFallbackStubKey().langId));
           try {
             let Q = yield Di(mt.prototype, this, "activateKeyboard").call(
               this,
@@ -16496,10 +16493,10 @@ font-family:` +
               (c = this.engineConfig.alertHost) == null || c.wait(),
               i && !s && this.cookieManager.save({ current: `${e}:${n}` }),
               s == this.currentKeyboardSrcTarget() &&
-                (Tl(
-                  (l = this.currentTarget) == null ? void 0 : l.getElement(),
-                  this.keyboardCache.getKeyboard(e)
-                ),
+              (Tl(
+                (l = this.currentTarget) == null ? void 0 : l.getElement(),
+                this.keyboardCache.getKeyboard(e)
+              ),
                 this.page.setAttachmentFont(
                   (B =
                     (r = this.activeKeyboard) == null ? void 0 : r.metadata) ==
@@ -16515,11 +16512,11 @@ font-family:` +
           } catch (Q) {
             let F = a(
               () =>
-                Z(this, null, function* () {
+                Z(this, null, function*() {
                   let u = this.getFallbackStubKey();
                   u.id != e &&
                     (yield this.activateKeyboard(u.id, u.langId, !0).catch(
-                      () => {}
+                      () => { }
                     ));
                 }),
               "fallback"
@@ -16528,16 +16525,16 @@ font-family:` +
             let y =
               (Q == null ? void 0 : Q.message) ||
               "Sorry, the " +
-                e +
-                " keyboard for " +
-                n +
-                " is not currently available.";
+              e +
+              " keyboard for " +
+              n +
+              " is not currently available.";
             throw (
               (Q instanceof rt ? console.error(Q || y) : console.warn(Q || y),
-              this.engineConfig.alertHost
-                ? (g = this.engineConfig.alertHost) == null || g.alert(y, F)
-                : yield F(),
-              Q)
+                this.engineConfig.alertHost
+                  ? (g = this.engineConfig.alertHost) == null || g.alert(y, F)
+                  : yield F(),
+                Q)
             );
           }
         });
@@ -16559,13 +16556,13 @@ font-family:` +
         i.keyboard != null
           ? this.activateKeyboard(i.keyboard, i.languageCode, !0)
           : !n &&
-            (s == null ? void 0 : s.metadata) !=
-              ((c = this._activeKeyboard) == null ? void 0 : c.metadata) &&
-            this.activateKeyboard(
-              s == null ? void 0 : s.metadata.id,
-              s == null ? void 0 : s.metadata.langId,
-              !0
-            );
+          (s == null ? void 0 : s.metadata) !=
+          ((c = this._activeKeyboard) == null ? void 0 : c.metadata) &&
+          this.activateKeyboard(
+            s == null ? void 0 : s.metadata.id,
+            s == null ? void 0 : s.metadata.langId,
+            !0
+          );
       }
       _CommonFocusHelper(e) {
         var s;
@@ -16573,10 +16570,10 @@ font-family:` +
           i = (s = this.activeKeyboard) == null ? void 0 : s.keyboard;
         return (
           n.restoringFocus ||
-            (e == null || e.deadkeys().clear(), i == null || i.notify(0, e, 1)),
+          (e == null || e.deadkeys().clear(), i == null || i.notify(0, e, 1)),
           !n.restoringFocus &&
-            this.mostRecentTarget != e &&
-            (n.maintainingFocus = !1),
+          this.mostRecentTarget != e &&
+          (n.maintainingFocus = !1),
           (n.restoringFocus = !1),
           this.resetContext(),
           !1
@@ -16610,7 +16607,7 @@ font-family:` +
         i.length < 2 && (i[1] = ""),
           (this.keyboardCache.getStub(i[0], i[1]) ||
             this.keyboardCache.defaultStub) &&
-            this.activateKeyboard(i[0], i[1]);
+          this.activateKeyboard(i[0], i[1]);
       }
       shutdown() {
         this.page.shutdown(), this.domEventTracker.shutdown();
@@ -16692,12 +16689,12 @@ font-family:` +
         (s |=
           o.location != 0 && c ? (o.location == 1 ? B.LCTRL : B.RCTRL) : i & 3),
         o.getModifierState("Alt") &&
-          (s |=
-            o.location != 0 && l
-              ? o.location == 1
-                ? B.LALT
-                : B.RALT
-              : i & 12);
+        (s |=
+          o.location != 0 && l
+            ? o.location == 1
+              ? B.LALT
+              : B.RALT
+            : i & 12);
       let d = 0;
       (d |= o.getModifierState("CapsLock") ? B.CAPS : B.NO_CAPS),
         (d |= o.getModifierState("NumLock") ? B.NUM_LOCK : B.NO_NUM_LOCK),
@@ -16715,25 +16712,25 @@ font-family:` +
       y && y.isChiral
         ? ((u = s & F.CHIRAL),
           y.emulatesAltGr &&
-            (u & F.ALT_GR_SIM) == F.ALT_GR_SIM &&
-            ((u ^= F.ALT_GR_SIM), (u |= B.RALT)))
+          (u & F.ALT_GR_SIM) == F.ALT_GR_SIM &&
+          ((u ^= F.ALT_GR_SIM), (u |= B.RALT)))
         : (u =
-            (s & 16) |
-            (s & (B.LCTRL | B.RCTRL) ? 32 : 0) |
-            (s & (B.LALT | B.RALT) ? 64 : 0)),
+          (s & 16) |
+          (s & (B.LCTRL | B.RCTRL) ? 32 : 0) |
+          (s & (B.LALT | B.RALT) ? 64 : 0)),
         (u |= o.metaKey ? B.META : 0),
         e.browser == p.Browser.Firefox &&
-          w.browserMap.FF["k" + n] &&
-          (n = w.browserMap.FF["k" + n]);
+        w.browserMap.FF["k" + n] &&
+        (n = w.browserMap.FF["k" + n]);
       let I = new M({
-          device: e,
-          kName: "",
-          Lcode: n,
-          Lmodifiers: u,
-          Lstates: d,
-          LmodifierChange: g,
-          isSynthetic: !1,
-        }),
+        device: e,
+        kName: "",
+        Lcode: n,
+        Lmodifiers: u,
+        Lstates: d,
+        LmodifierChange: g,
+        isSynthetic: !1,
+      }),
         b =
           typeof o.charCode != "undefined" &&
           o.charCode != null &&
@@ -16830,8 +16827,8 @@ font-family:` +
             (i.LeventMatched = s && !s.triggerKeyDefault),
               i.LeventMatched
                 ? (e &&
-                    e.preventDefault &&
-                    (e.preventDefault(), e.stopPropagation()),
+                  e.preventDefault &&
+                  (e.preventDefault(), e.stopPropagation()),
                   (this.swallowKeypress = !!n.Lcode),
                   n.Lcode == 8 && (this.swallowKeypress = !1))
                 : (this.swallowKeypress = !1);
@@ -16865,14 +16862,14 @@ font-family:` +
         let i = {};
         return (
           this.swallowKeypress ||
-            this.emit("keyevent", n, (c, l) => {
-              i.preventDefaultKeystroke = !!c;
-            }),
+          this.emit("keyevent", n, (c, l) => {
+            i.preventDefaultKeystroke = !!c;
+          }),
           this.swallowKeypress || i.preventDefaultKeystroke
             ? ((this.swallowKeypress = !1),
               e &&
-                e.preventDefault &&
-                (e.preventDefault(), e.stopPropagation()),
+              e.preventDefault &&
+              (e.preventDefault(), e.stopPropagation()),
               !1)
             : ((this.swallowKeypress = !1), !0)
         );
@@ -16895,77 +16892,77 @@ font-family:` +
     };
     a(vi, "RotationState");
     var Wi = class {
-        constructor(t) {
-          this.idlePermutationCounter = Wi.IDLE_PERMUTATION_CAP;
-          this.keyman = t;
-        }
-        resolve() {
-          var n;
-          var t = this.keyman.osk;
-          (n = this.keyman.touchLanguageMenu) == null || n.hide(),
-            (this.keyman.touchLanguageMenu = null),
-            t.setNeedsLayout(),
-            this.oskVisible && t.present(),
-            (this.isActive = !1),
-            this.updateTimer &&
-              (window.clearInterval(this.updateTimer), (this.rotState = null));
-          let e = this.keyman.contextManager.activeTarget;
-          e &&
-            window.setTimeout(() => {
-              this.keyman.ensureElementVisibility(e.getElement());
-            }, 0);
-        }
-        initNewRotation() {
-          (this.oskVisible = this.keyman.osk.isVisible()),
-            this.keyman.osk.hideNow(),
-            (this.isActive = !0);
-        }
-        init() {
-          var t = this.keyman.config.hostDevice.OS,
-            e = this.keyman.util;
-          t == "ios"
-            ? (e.attachDOMEvent(
-                window,
-                "orientationchange",
-                () => (this.iOSEventHandler(), !1)
-              ),
-              e.attachDOMEvent(
-                window,
-                "resize",
-                () => (this.iOSEventHandler(), !1)
-              ))
-            : t == "android" &&
-              ("onmozorientationchange" in screen
-                ? e.attachDOMEvent(
-                    screen,
-                    "mozorientationchange",
-                    () => (this.initNewRotation(), !1)
-                  )
-                : e.attachDOMEvent(
-                    window,
-                    "orientationchange",
-                    () => (this.initNewRotation(), !1)
-                  ),
-              e.attachDOMEvent(window, "resize", () => (this.resolve(), !1)));
-        }
-        iOSEventHandler() {
-          this.isActive ||
-            (this.initNewRotation(),
+      constructor(t) {
+        this.idlePermutationCounter = Wi.IDLE_PERMUTATION_CAP;
+        this.keyman = t;
+      }
+      resolve() {
+        var n;
+        var t = this.keyman.osk;
+        (n = this.keyman.touchLanguageMenu) == null || n.hide(),
+          (this.keyman.touchLanguageMenu = null),
+          t.setNeedsLayout(),
+          this.oskVisible && t.present(),
+          (this.isActive = !1),
+          this.updateTimer &&
+          (window.clearInterval(this.updateTimer), (this.rotState = null));
+        let e = this.keyman.contextManager.activeTarget;
+        e &&
+          window.setTimeout(() => {
+            this.keyman.ensureElementVisibility(e.getElement());
+          }, 0);
+      }
+      initNewRotation() {
+        (this.oskVisible = this.keyman.osk.isVisible()),
+          this.keyman.osk.hideNow(),
+          (this.isActive = !0);
+      }
+      init() {
+        var t = this.keyman.config.hostDevice.OS,
+          e = this.keyman.util;
+        t == "ios"
+          ? (e.attachDOMEvent(
+            window,
+            "orientationchange",
+            () => (this.iOSEventHandler(), !1)
+          ),
+            e.attachDOMEvent(
+              window,
+              "resize",
+              () => (this.iOSEventHandler(), !1)
+            ))
+          : t == "android" &&
+          ("onmozorientationchange" in screen
+            ? e.attachDOMEvent(
+              screen,
+              "mozorientationchange",
+              () => (this.initNewRotation(), !1)
+            )
+            : e.attachDOMEvent(
+              window,
+              "orientationchange",
+              () => (this.initNewRotation(), !1)
+            ),
+            e.attachDOMEvent(window, "resize", () => (this.resolve(), !1)));
+      }
+      iOSEventHandler() {
+        this.isActive ||
+          (this.initNewRotation(),
             (this.rotState = new vi()),
             (this.updateTimer = window.setInterval(
               this.iOSEventUpdate.bind(this),
               Wi.UPDATE_INTERVAL
             ))),
-            (this.idlePermutationCounter = 0);
-        }
-        iOSEventUpdate() {
-          var t = new vi();
-          this.rotState.equals(t)
-            ? ++this.idlePermutationCounter == Wi.IDLE_PERMUTATION_CAP &&
-              this.resolve()
-            : ((this.rotState = t), (this.idlePermutationCounter = 0));
-        }
-      },
+          (this.idlePermutationCounter = 0);
+      }
+      iOSEventUpdate() {
+        var t = new vi();
+        this.rotState.equals(t)
+          ? ++this.idlePermutationCounter == Wi.IDLE_PERMUTATION_CAP &&
+          this.resolve()
+          : ((this.rotState = t), (this.idlePermutationCounter = 0));
+      }
+    },
       Bn = Wi;
     a(Bn, "RotationProcessor"),
       (Bn.IDLE_PERMUTATION_CAP = 15),
@@ -16976,7 +16973,7 @@ font-family:` +
         this.suppressFocusCheck = a(
           (t) => (
             this.focusAssistant.isTargetForcingScroll() &&
-              (t.stopPropagation(), (t.cancelBubble = !0)),
+            (t.stopPropagation(), (t.cancelBubble = !0)),
             !0
           ),
           "suppressFocusCheck"
@@ -16985,8 +16982,8 @@ font-family:` +
           var t;
           return (
             !this.focusAssistant.maintainingFocus &&
-              ((t = this.engine.osk) == null ? void 0 : t.vkbd) &&
-              (this.engine.contextManager.deactivateCurrentTarget(),
+            ((t = this.engine.osk) == null ? void 0 : t.vkbd) &&
+            (this.engine.contextManager.deactivateCurrentTarget(),
               this.engine.contextManager.resetContext()),
             !1
           );
@@ -17006,7 +17003,7 @@ font-family:` +
         this._WindowLoad = a(() => {
           (document.body.scrollTop = 0),
             typeof document.documentElement != "undefined" &&
-              (document.documentElement.scrollTop = 0);
+            (document.documentElement.scrollTop = 0);
         }, "_WindowLoad");
         this._WindowUnload = a(() => {
           this.engine.shutdown();
@@ -17015,7 +17012,7 @@ font-family:` +
           (this.engine = e),
           this.attachHandlers(),
           e.config.hostDevice.touchable &&
-            (this.buildPageTrailer(),
+          (this.buildPageTrailer(),
             (this.rotationProcessor = new Bn(this.engine)),
             this.rotationProcessor.init());
       }
@@ -17038,12 +17035,12 @@ font-family:` +
           t.attachDOMEvent(n, "focus", this.suppressFocusCheck, !0),
           t.attachDOMEvent(n, "blur", this.suppressFocusCheck, !0),
           e.touchable &&
-            (t.attachDOMEvent(
-              n,
-              "touchstart",
-              this.touchStartActivationHandler,
-              !1
-            ),
+          (t.attachDOMEvent(
+            n,
+            "touchstart",
+            this.touchStartActivationHandler,
+            !1
+          ),
             t.attachDOMEvent(
               n,
               "touchmove",
@@ -17075,12 +17072,12 @@ font-family:` +
           t.detachDOMEvent(n, "focus", this.suppressFocusCheck, !0),
           t.detachDOMEvent(n, "blur", this.suppressFocusCheck, !0),
           e.touchable &&
-            (t.detachDOMEvent(
-              n,
-              "touchstart",
-              this.touchStartActivationHandler,
-              !1
-            ),
+          (t.detachDOMEvent(
+            n,
+            "touchstart",
+            this.touchStartActivationHandler,
+            !1
+          ),
             t.detachDOMEvent(
               n,
               "touchmove",
@@ -17089,7 +17086,7 @@ font-family:` +
             ),
             t.detachDOMEvent(n, "touchend", this.touchEndActivationHandler, !1),
             (i = this.mobilePageTrailer) == null ||
-              i.parentElement.removeChild(this.mobilePageTrailer)),
+            i.parentElement.removeChild(this.mobilePageTrailer)),
           t.detachDOMEvent(window, "load", this._WindowLoad, !1),
           t.detachDOMEvent(window, "unload", this._WindowUnload, !1),
           t.detachDOMEvent(
@@ -17117,7 +17114,7 @@ font-family:` +
       try {
         if (o && typeof window.getComputedStyle != "undefined")
           return window.getComputedStyle(o, "").getPropertyValue(t);
-      } catch (e) {}
+      } catch (e) { }
       return "";
     }
     a(dn, "getStyleValue");
@@ -17167,7 +17164,7 @@ font-family:` +
         (c.id = "kmw-menu-scroll-container"),
           (r.id = "kmw-menu-scroller"),
           "WebkitOverflowScrolling" in l &&
-            (l.WebkitOverflowScrolling = "touch"),
+          (l.WebkitOverflowScrolling = "touch"),
           c.appendChild(r),
           i.appendChild(c);
         var d,
@@ -17179,14 +17176,14 @@ font-family:` +
             Q.appendChild(g);
         Q.addEventListener(
           "touchstart",
-          function (L) {
+          function(L) {
             s.scrollToLanguage(L, c, r);
           },
           !1
         ),
           Q.addEventListener(
             "touchend",
-            function (L) {
+            function(L) {
               L.stopPropagation();
             },
             !1
@@ -17194,17 +17191,17 @@ font-family:` +
           i.appendChild(Q),
           i.addEventListener(
             "scroll",
-            function (L) {
+            function(L) {
               s.scrolling = !0;
             },
             !1
           ),
           c.addEventListener(
             "scroll",
-            function (L) {
+            function(L) {
               c.scrollTop < 1 && (c.scrollTop = 1),
                 c.scrollTop > c.scrollHeight - c.offsetHeight - 1 &&
-                  (c.scrollTop = c.scrollHeight - c.offsetHeight - 1);
+                (c.scrollTop = c.scrollHeight - c.offsetHeight - 1);
             },
             !1
           ),
@@ -17212,11 +17209,11 @@ font-family:` +
         var F = r.childNodes.length - 1;
         if (
           ((this.lgList.style.visibility = "hidden"),
-          document.body.appendChild(this.lgList),
-          t.OS == "android" &&
+            document.body.appendChild(this.lgList),
+            t.OS == "android" &&
             "devicePixelRatio" in window &&
             (this.lgList.style.fontSize = 2 / window.devicePixelRatio + "em"),
-          t.OS == "android" &&
+            t.OS == "android" &&
             t.formFactor == "tablet" &&
             "devicePixelRatio" in window)
         ) {
@@ -17227,11 +17224,11 @@ font-family:` +
             (y = parseInt(dn(c, "width"), 10)),
             (u = c.style),
             isNaN(y) ||
-              (u.width = u.maxWidth = (2 * y) / window.devicePixelRatio + "px"),
+            (u.width = u.maxWidth = (2 * y) / window.devicePixelRatio + "px"),
             (y = parseInt(dn(r, "width"), 10)),
             (u = r.style),
             isNaN(y) ||
-              (u.width = u.maxWidth = (2 * y) / window.devicePixelRatio + "px");
+            (u.width = u.maxWidth = (2 * y) / window.devicePixelRatio + "px");
         }
         this.adjust(0);
         var I = Q.childNodes[1].offsetTop - Q.childNodes[0].offsetTop,
@@ -17289,10 +17286,10 @@ font-family:` +
               s = 0;
               s < r.length - 1 &&
               ((c = r[s].firstChild.innerHTML.toUpperCase().charCodeAt(0)),
-              !(c >= l));
+                !(c >= l));
               s++
             );
-          } catch (B) {}
+          } catch (B) { }
           this.scrollToIndex(s, e, n);
         }
       }
@@ -17307,8 +17304,8 @@ font-family:` +
         try {
           e.scrollTop < 0 && (e.scrollTop = 0),
             e.scrollTop > e.scrollHeight - e.offsetHeight - 1 &&
-              (e.scrollTop = e.scrollHeight - e.offsetHeight - 1);
-        } catch (c) {}
+            (e.scrollTop = e.scrollHeight - e.offsetHeight - 1);
+        } catch (c) { }
       }
       addLanguages(t, e) {
         var b;
@@ -17329,10 +17326,10 @@ font-family:` +
         for (s = 0; s < r.length; s++) {
           for (
             d = Ve("div"),
-              d.className = "kbd-list-closed",
-              g = Ve("p"),
-              g.kList = [],
-              c = 0;
+            d.className = "kbd-list-closed",
+            g = Ve("p"),
+            g.kList = [],
+            c = 0;
             c < n;
             c++
           )
@@ -17341,44 +17338,44 @@ font-family:` +
             d.appendChild(g),
             t.appendChild(d),
             r[s] ==
-              ((b = this.keyman.contextManager.activeKeyboard) == null
-                ? void 0
-                : b.metadata.langName) && (y = s);
+            ((b = this.keyman.contextManager.activeKeyboard) == null
+              ? void 0
+              : b.metadata.langName) && (y = s);
           let h = this;
           if (g.kList.length > 1)
             for (
               g.className = "kbd-list",
-                g.innerHTML = r[s] + "...",
-                g.scrolled = !1,
-                g.ontouchend = function (x) {
-                  x.stopPropagation(),
-                    x.target.scrolled
-                      ? (x.target.scrolled = !1)
-                      : (this.parentNode.className =
-                          this.parentNode.className == "kbd-list-closed"
-                            ? "kbd-list-open"
-                            : "kbd-list-closed"),
-                    h.adjust(
+              g.innerHTML = r[s] + "...",
+              g.scrolled = !1,
+              g.ontouchend = function(x) {
+                x.stopPropagation(),
+                  x.target.scrolled
+                    ? (x.target.scrolled = !1)
+                    : (this.parentNode.className =
                       this.parentNode.className == "kbd-list-closed"
-                        ? 0
-                        : this.kList.length
-                    );
+                        ? "kbd-list-open"
+                        : "kbd-list-closed"),
+                  h.adjust(
+                    this.parentNode.className == "kbd-list-closed"
+                      ? 0
+                      : this.kList.length
+                  );
+              },
+              g.addEventListener(
+                "touchstart",
+                function(x) {
+                  x.stopPropagation();
                 },
-                g.addEventListener(
-                  "touchstart",
-                  function (x) {
-                    x.stopPropagation();
-                  },
-                  !1
-                ),
-                g.addEventListener(
-                  "touchmove",
-                  function (x) {
-                    (x.target.scrolled = !0), x.stopPropagation();
-                  },
-                  !1
-                ),
-                Q = 0;
+                !1
+              ),
+              g.addEventListener(
+                "touchmove",
+                function(x) {
+                  (x.target.scrolled = !0), x.stopPropagation();
+                },
+                !1
+              ),
+              Q = 0;
               Q < g.kList.length;
               Q++
             )
@@ -17395,7 +17392,7 @@ font-family:` +
         }
         var u = Ve("div");
         u.id = "kmw-menu-footer";
-        var I = a(function (h) {
+        var I = a(function(h) {
           h.cancelable && h.preventDefault(), h.stopPropagation();
         }, "cancelTouch");
         return (
@@ -17442,15 +17439,15 @@ font-family:` +
               (Q.height = g.height),
               (this.originalBodyStyle = null);
           }, "unlockBodyScroll"),
-          l = a(function (g) {
+          l = a(function(g) {
             g.stopPropagation(),
               this.className.indexOf("selected") <= 0 &&
-                (this.className = this.className + " selected"),
+              (this.className = this.className + " selected"),
               (i.scrolling = !1),
               (i.y0 = g.touches[0].pageY),
               s();
           }, "touchStart"),
-          r = a(function (g) {
+          r = a(function(g) {
             g.stopImmediatePropagation();
             var Q = i.lgList.childNodes[0],
               F = Q.scrollHeight - Q.offsetHeight,
@@ -17464,13 +17461,13 @@ font-family:` +
             else return;
             return (
               (u < -5 || u > 5) &&
-                ((i.scrolling = !0),
+              ((i.scrolling = !0),
                 (this.className = this.className.replace(/\s*selected/, "")),
                 (i.y0 = y)),
               !0
             );
           }, "touchMove"),
-          B = a(function (g) {
+          B = a(function(g) {
             return (
               typeof g.stopImmediatePropagation != "undefined"
                 ? g.stopImmediatePropagation()
@@ -17490,7 +17487,7 @@ font-family:` +
               !0
             );
           }, "touchEnd"),
-          d = a(function (g) {
+          d = a(function(g) {
             c();
           }, "touchCancel");
         (e.onmspointerdown = l),
@@ -17505,12 +17502,12 @@ font-family:` +
         let t = this.keyman.osk;
         this.lgList &&
           (t.vkbd.highlightKey(t.vkbd.lgKey, !1),
-          (this.lgList.style.visibility = "hidden"),
-          window.setTimeout(() => {
-            this.shim.parentElement &&
-              (document.body.removeChild(this.shim),
-              document.body.removeChild(this.lgList));
-          }, 500)),
+            (this.lgList.style.visibility = "hidden"),
+            window.setTimeout(() => {
+              this.shim.parentElement &&
+                (document.body.removeChild(this.shim),
+                  document.body.removeChild(this.lgList));
+            }, 500)),
           (this.keyman.touchLanguageMenu = null);
       }
     };
@@ -17537,12 +17534,12 @@ font-family:` +
           (i = o.config.alertHost) == null ||
             i.alert(
               "KeymanWeb Version " +
-                q.VERSION +
-                '<br /><br /><span style="font-size:0.8em">Copyright &copy; 2007-2023 SIL International</span>'
+              q.VERSION +
+              '<br /><br /><span style="font-size:0.8em">Copyright &copy; 2007-2023 SIL International</span>'
             );
         }),
         t.on("dragmove", (i) =>
-          Z(this, null, function* () {
+          Z(this, null, function*() {
             (n.restoringFocus = !0),
               yield i,
               e.restoreLastActiveTarget(),
@@ -17551,7 +17548,7 @@ font-family:` +
           })
         ),
         t.on("resizemove", (i) =>
-          Z(this, null, function* () {
+          Z(this, null, function*() {
             (n.restoringFocus = !0),
               yield i,
               e.restoreLastActiveTarget(),
@@ -17560,7 +17557,7 @@ font-family:` +
           })
         ),
         t.on("pointerinteraction", (i) =>
-          Z(this, null, function* () {
+          Z(this, null, function*() {
             n.setMaintainingFocus(!0), yield i, n.setMaintainingFocus(!1);
           })
         );
@@ -17595,10 +17592,10 @@ font-family:` +
         return t in this.config.paths
           ? this.config.paths[t]
           : t in this.config.options
-          ? this.config.options[t]
-          : arguments.length > 1
-          ? e
-          : "";
+            ? this.config.options[t]
+            : arguments.length > 1
+              ? e
+              : "";
       }
       setOption(t, e) {
         switch (t) {
@@ -17704,10 +17701,10 @@ font-family:` +
           if (e == null) return !1;
           for (
             var n =
-                (t.shiftKey ? 16 : 0) |
-                (t.ctrlKey ? 32 : 0) |
-                (t.altKey ? 64 : 0),
-              i = 0;
+              (t.shiftKey ? 16 : 0) |
+              (t.ctrlKey ? 32 : 0) |
+              (t.altKey ? 64 : 0),
+            i = 0;
             i < this.hotkeys.length;
             i++
           )
@@ -17766,14 +17763,14 @@ font-family:` +
           var e = t.getElement();
           if (
             (t instanceof j && (e = t.docRoot),
-            !!e && !(!e.style || typeof e.style.backgroundColor == "undefined"))
+              !!e && !(!e.style || typeof e.style.backgroundColor == "undefined"))
           ) {
             for (var n = 0; n < this._BeepObjects.length; n++)
               if (this._BeepObjects[n].e == e) return;
             this._BeepObjects.push(new vs(e)),
               (e.style.backgroundColor = "#000000"),
               this._BeepTimeout == 0 &&
-                ((this._BeepTimeout = 1), window.setTimeout(this.reset, 50));
+              ((this._BeepTimeout = 1), window.setTimeout(this.reset, 50));
           }
         }
       }
@@ -17813,7 +17810,7 @@ font-family:` +
       }
     };
     a(gn, "KeyboardInterface");
-    (function () {
+    (function() {
       gn.__publishShorthandAPI();
     })();
     var xt = class extends Kt {
@@ -17829,7 +17826,7 @@ font-family:` +
         this.keyEventRefocus = a(() => {
           this.contextManager.restoreLastActiveTarget();
         }, "keyEventRefocus");
-        this._GetKeyboardDetail = a(function (e, n) {
+        this._GetKeyboardDetail = a(function(e, n) {
           return {
             Name: e.KN,
             InternalName: e.KI,
@@ -17859,8 +17856,8 @@ font-family:` +
             let c = s == null ? void 0 : s.getElement();
             this.osk && (this.osk.activationModel.activationTrigger = c),
               this.config.hostDevice.touchable &&
-                s &&
-                this.ensureElementVisibility(c);
+              s &&
+              this.ensureElementVisibility(c);
           });
       }
       ensureElementVisibility(e) {
@@ -17874,7 +17871,7 @@ font-family:` +
             this.osk._Box.offsetHeight -
             e.offsetHeight -
             2),
-          s < 0 && (s = 0)),
+            s < 0 && (s = 0)),
           s != 0 && window.scrollTo(0, s + i);
       }
       get util() {
@@ -17895,15 +17892,15 @@ font-family:` +
           this.config.deferForInitialization.isFulfilled && e.initialize();
       }
       init(e) {
-        return Z(this, null, function* () {
+        return Z(this, null, function*() {
           let i = new Et().detect(),
             s = C(C({}, fl), e);
           if (
             ((this.config.hostDevice = i),
-            this.config.initialize(s),
-            (this._initialized = 1),
-            yield Ai(),
-            this.config.deferForInitialization.isResolved)
+              this.config.initialize(s),
+              (this._initialized = 1),
+              yield Ai(),
+              this.config.deferForInitialization.isResolved)
           )
             return Promise.resolve();
           yield Di(xt.prototype, this, "init").call(this, s),
@@ -17925,7 +17922,7 @@ font-family:` +
           (this.pageIntegration = new fi(window, this)),
             this.config.finalizeInit(),
             this.ui &&
-              (this.ui.initialize(),
+            (this.ui.initialize(),
               this.legacyAPIEvents.callEvent("loaduserinterface", {})),
             (this._initialized = 2),
             yield Promise.resolve(),
@@ -17996,8 +17993,8 @@ font-family:` +
         return this.config.deferForInitialization.then(() =>
           typeof e == "string"
             ? this.keyboardRequisitioner.addLanguageKeyboards(
-                e.split(",").map((n) => n.trim())
-              )
+              e.split(",").map((n) => n.trim())
+            )
             : this.keyboardRequisitioner.addLanguageKeyboards(e)
         );
       }
@@ -18036,7 +18033,7 @@ font-family:` +
             ((n = this.contextManager.activeKeyboard) == null
               ? void 0
               : n.metadata.id) == de(e[i]) &&
-              this.contextManager.activateKeyboard("", "");
+            this.contextManager.activateKeyboard("", "");
         return !0;
       }
       getSavedKeyboard() {
