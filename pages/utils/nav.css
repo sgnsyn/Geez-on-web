@@ -2,11 +2,13 @@ body {
   min-height: 100vh;
   padding-bottom: calc(26px + 2ch);
 }
+
 .page-nav {
-  padding: 4% 7%;
+  padding: max(2%, 2rem) max(3rem, 7%);
   display: flex;
   gap: 34px;
 }
+
 .nav-bottom {
   display: flex;
   align-items: center;
@@ -17,6 +19,7 @@ body {
   width: 100%;
   bottom: 26px;
 }
+
 .nav-link {
   color: var(--off-gray);
   padding-block: 0;
@@ -37,6 +40,7 @@ body {
   border-radius: 100vw;
   color: var(--secondary-color);
 }
+
 .nav-link.nav-link.selected {
   cursor: default;
 }

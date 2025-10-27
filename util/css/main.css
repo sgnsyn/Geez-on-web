@@ -7,6 +7,7 @@
   font-family: "ethiopic";
   src: url("../../assets/fonts/Noto\ Sans\ Ethiopic.ttf") format("truetype");
 }
+
 :root {
   /* colors */
   --color-white: #ffffff;
@@ -49,6 +50,7 @@ button:hover {
 .deactive {
   display: none !important;
 }
+
 html {
   background-color: var(--primary-color);
 }
@@ -56,6 +58,7 @@ html {
 body {
   position: relative;
 }
+
 .icon-btn {
   border: none;
   background: transparent;
@@ -94,6 +97,7 @@ body {
 .toggle-btn.on::before {
   left: calc(100% - 22px);
 }
+
 /*Toggle BTN End*/
 
 /*Proper BTN Begin*/
@@ -109,9 +113,11 @@ body {
   color: var(--primary-color);
   transition: outline 0.2s ease-in-out;
 }
+
 .proper-btn:hover {
   outline: 1px solid var(--secondary-color);
 }
+
 /*Proper BTN End*/
 
 /*Radio Input Begin*/
@@ -120,8 +126,10 @@ input[type="radio"] {
   border: 1px solid var(--secondary-color);
   height: var(--wh);
   width: var(--wh);
-  appearance: none; /* Removes default styling */
-  border-radius: 50%; /* Makes it circular */
+  appearance: none;
+  /* Removes default styling */
+  border-radius: 50%;
+  /* Makes it circular */
   background-color: transparent;
 }
 
@@ -130,6 +138,7 @@ input[type="radio"]:checked {
   outline: 1.5px solid var(--primary-color);
   outline-offset: -3px;
 }
+
 /*Radio Input End*/
 
 /*Label Input Begin*/
@@ -138,6 +147,7 @@ label,
   font-family: Inter;
   color: var(--secondary-color);
 }
+
 /*Label Input End*/
 
 /* Dark mode styles */

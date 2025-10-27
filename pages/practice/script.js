@@ -5,9 +5,12 @@ import {
   timeStrToSecond,
   calculateAccuracy,
 } from "./typing.js";
+
 import charMaps from "./maps/charmaps.js";
 
 // DOM elements
+const backdrop = document.querySelector(".backdrop");
+
 const textDisplay = document.getElementById("text-display");
 const typingInput = document.getElementById("typing-input");
 
@@ -19,20 +22,25 @@ const accuracyElement = document.getElementById("accuracy");
 const ktPopupBtn = document.getElementById("btn-toggel-key-popup");
 const ktWrapper = document.querySelector(".key-popup-wrapper");
 const ktRadio = document.querySelectorAll(`input[name ="keyboard-mode"]`);
+const btnIcon = ktPopupBtn.querySelector(".key-change-btn");
 
 // Global variables
 const TOTAL_SECONDS = 120;
 let characterTyped = 0;
+
+let lastKey = null;
 let currentText = "";
+let currentKey = "GE";
+
 let timerInterval = null;
 let isTyping = false;
-let currentKey = "GE";
-let globalBuffer = "";
 
 //{{{ KT
 function ktPopupBtnHandler(event) {
   event.stopPropagation();
-  ktWrapper.classList.toggle("disabled");
+  ktWrapper.classList.remove("disabled");
+  backdrop.classList.remove("deactive");
+  btnIcon.classList.add("rotate");
 }
 
 function ktRadioHandler(event) {
@@ -44,13 +52,18 @@ function ktRadioHandler(event) {
   const currentLabel = ktPopupBtn.querySelector(".key-name");
   currentLabel.style.width = fontSizes[currentKey];
   currentLabel.textContent = name;
+
   updateKeyboard(currentKey);
   ktWrapper.classList.add("disabled");
+  backdrop.classList.add("deactive");
+  btnIcon.classList.remove("rotate");
 }
 
 function ktPropagate(event) {
   if (!ktWrapper.contains(event.target) || !ktPopupBtn.contains(event.target)) {
     ktWrapper.classList.add("disabled");
+    backdrop.classList.add("deactive");
+    btnIcon.classList.remove("rotate");
   }
 }
 
@@ -68,8 +81,74 @@ ktWrapper.addEventListener("click", (event) => {
 //}}} KT
 
 // <<< TYPING
+
+// Add a variable to track the pending input sequence for Geez characters
+let pendingSequence = "";
+
 typingInput.addEventListener("keydown", (event) => {
-  globalBuffer += event.key;
+  lastKey = event.key;
+
+  // Capture printable characters for the pending sequence
+  if (
+    event.key.length === 1 &&
+    !event.ctrlKey &&
+    !event.altKey &&
+    !event.metaKey
+  ) {
+    pendingSequence += event.key;
+  } else if (event.key === "Backspace") {
+    // Handle backspace for the pending sequence
+    pendingSequence = pendingSequence.slice(0, -1);
+  }
+});
+
+typingInput.addEventListener("input", () => {
+  const spans = textDisplay.querySelectorAll("span");
+  const inputValue = typingInput.value;
+  const inputLength = inputValue.length;
+
+  // When a Geez character is successfully typed, the input length changes,
+  // and we can reset the pending sequence. This is an assumption about
+  // how the Keyman library interacts with the input field.
+  if (inputLength > characterTyped) {
+    characterTyped = inputLength;
+    pendingSequence = "";
+  } else {
+    characterTyped = inputLength;
+  }
+
+  // Update classes for all characters in the display text
+  spans.forEach((span, index) => {
+    const charInText = span.textContent;
+
+    if (index < inputLength) {
+      // Character has been typed
+      if (inputValue[index] === charInText) {
+        span.classList.add("correct");
+        span.classList.remove("incorrect", "pending");
+      } else {
+        span.classList.add("incorrect");
+        span.classList.remove("correct", "pending");
+      }
+    } else if (index === inputLength && pendingSequence) {
+      // This is the character currently being typed (pending)
+      const map = charMaps[currentKey];
+      if (map) {
+        const expectedLatin = map[charInText];
+        if (expectedLatin && expectedLatin.startsWith(pendingSequence)) {
+          span.classList.add("pending");
+          span.classList.remove("correct", "incorrect");
+        } else {
+          // If the pending sequence doesn't match, it could be considered incorrect
+          span.classList.add("incorrect");
+          span.classList.remove("correct", "pending");
+        }
+      }
+    } else {
+      // Character has not been typed yet
+      span.classList.remove("correct", "incorrect", "pending");
+    }
+  });
 });
 
 resetBtn.addEventListener("click", init);
@@ -93,7 +172,10 @@ async function init() {
   typingInput.focus();
 
   // Reset timer and stats
-  if (timerInterval) clearInterval(timerInterval);
+  if (timerInterval) {
+    clearInterval(timerInterval);
+  }
+
   isTyping = false;
   timerElement.textContent = "2 : 00";
   wpmElement.textContent = "0";
@@ -124,25 +206,3 @@ async function getText() {
   return arr;
 }
 init();
-
-//observer
-const observer = new MutationObserver(btnMutationCallback);
-
-function btnMutationCallback(mutationsList) {
-  for (const mutation of mutationsList) {
-    if (mutation.type === "attributes" && mutation.attributeName === "class") {
-      const res = !ktWrapper.classList.contains("disabled");
-      const btnIcon = ktPopupBtn.querySelector(".key-change-btn");
-      if (res) {
-        btnIcon.classList.add("rotate");
-      } else {
-        btnIcon.classList.remove("rotate");
-      }
-    }
-  }
-}
-
-observer.observe(ktWrapper, {
-  attributes: true,
-  attributeFilter: ["class"],
-});
