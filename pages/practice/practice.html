@@ -11,9 +11,16 @@
 <body>
   <div class="backdrop deactive"></div>
   <nav class="page-nav">
-    <a class="nav-link" href="../guide/guide.html">Guide</a>
-    <span class="nav-link selected">Practice</span>
-    <a class="nav-link" href="../about/about.html">About</a>
+    <div class="nav-left">
+      <a class="nav-link" href="../guide/guide.html">Guide</a>
+      <span class="nav-link selected">Practice</span>
+      <a class="nav-link" href="../about/about.html">About</a>
+    </div>
+
+    <div class="nav-left">
+      <a class="nav-link" href="../credits/credits.html">Credits</a>
+      <a class="nav-link" href="../terms/terms.html">Terms</a>
+    </div>
   </nav>
   <section>
     <!-- >>> Keyboard and Score <<< -->
@@ -53,12 +60,12 @@
 
       <!-- >>> Display Global Result <<< -->
       <div class="gscore-wrapper">
-        <div class="races-wrapper item-wrapper">
-          <p class="race top-item">21</p>
-          <p class="race bottom-item">RACES</p>
+        <div class="practices-wrapper item-wrapper">
+          <p id="practice" class="practice top-item">-</p>
+          <p class="practice bottom-item">PRACTICES</p>
         </div>
         <div class="awpm-wrapper item-wrapper">
-          <p class="awpm top-item">37</p>
+          <p id="awpm" class="awpm top-item">--</p>
           <p class="awpm bottom-item">AVG WPM</p>
         </div>
       </div>
@@ -82,19 +89,20 @@
         <p id="wpm" class="cwpm top-item">82</p>
         <p class="cwpm bottom-item">WPM</p>
       </div>
+      <div class="raw-wpm-wrapper item-wrapper">
+        <p id="raw-wpm" class="raw-wpm top-item">--</p>
+        <p class="raw-wpm bottom-item">RAW</p>
+      </div>
       <div class="accuracy-wrapper item-wrapper">
-        <p id="accuracy" class="accuracy top-item">96<sup>%</sup></p>
+        <p id="accuracy" class="accuracy top-item">---</p>
         <p class="accuracy bottom-item">Accuracy</p>
       </div>
     </div>
     <!-- <<< Display Current Result <<< -->
   </section>
-  <nav class="nav-bottom">
-    <a class="nav-link" href="../credits/credits.html">Credits</a>
-    <a class="nav-link" href="../terms/terms.html">Terms</a>
-  </nav>
   <script src="../../keyman/keymanweb.js"></script>
-  <script src="./script.js" type="module"></script>
+  <script src="./scripts/script.js" type="module"></script>
+  <script src="../utils/message-listener.js" type="module"></script>
 </body>
 
 </html>

@@ -12,9 +12,10 @@ function toggleBtnHandler(event) {
 }
 
 function themeBtnHandler(event) {
+  console.log("clicked");
   event.stopPropagation();
   themePopup.classList.remove("deactive");
-  themeContainer.classList.add("animate");
+  themeContainer.classList.remove("disabled");
 }
 
 function closeThemeBtnHandler(event) {
@@ -29,7 +30,7 @@ function closeThemeBtnHandler(event) {
     return;
   }
   themePopup.classList.add("deactive");
-  themeContainer.classList.remove("animate");
+  themeContainer.classList.add("disabled");
 }
 
 /***********************EVENT LISTERNERS****************************/

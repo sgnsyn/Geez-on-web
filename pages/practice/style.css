@@ -70,8 +70,11 @@ body {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
   color: var(--secondary-color);
-  margin-bottom: 56px;
+  margin-top: 20px;
+  margin-bottom: 52px;
   position: relative;
 }
 
@@ -167,7 +170,7 @@ body {
   flex-grow: 1;
   padding: 1rem;
   font-size: 1.1rem;
-  border: 1px solid white;
+  border: 1px solid var(--secondary-color);
   border-radius: 8px;
   background-color: var(--primary-color);
   color: var(--secondary-color);
@@ -236,4 +239,8 @@ body {
     top: 40px;
     display: none;
   }
+}
+
+#typing-input:disabled {
+  opacity: 0.5;
 }

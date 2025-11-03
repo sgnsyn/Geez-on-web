@@ -1,23 +1,16 @@
-body {
-  min-height: 100vh;
-  padding-bottom: calc(26px + 2ch);
-}
-
 .page-nav {
-  padding: max(2%, 2rem) max(3rem, 7%);
-  display: flex;
-  gap: 34px;
-}
-
-.nav-bottom {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 2rem;
+  flex-wrap: wrap;
+  padding: max(2%, 2rem) max(3rem, 7%);
+}
 
-  position: absolute;
-  width: 100%;
-  bottom: 26px;
+.nav-left,
+.nav-right {
+  display: flex;
+  gap: 34px;
 }
 
 .nav-link {
@@ -27,24 +20,25 @@ body {
   text-decoration: none;
   font-family: Inter;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 14px;
   width: fit-content;
   display: grid;
   text-transform: uppercase;
   font-weight: bold;
+  color: var(--secondary-color);
 }
 
 .nav-link.selected {
   display: inline-block;
   text-decoration: none !important;
-  border-radius: 100vw;
-  color: var(--secondary-color);
+  border-bottom: 1px solid var(--secondary-color);
+  opacity: 0.5;
 }
 
 .nav-link.nav-link.selected {
   cursor: default;
 }
 
-.nav-link:hover {
+.nav-link:not(.selected):hover {
   text-decoration: underline;
 }

@@ -1,9 +1,6 @@
 /***********************IMPORTS****************************/
-import {
-  setConfig,
-  getConfigs,
-  sendMessage,
-} from "../util/js/message-handler.js";
+import { sendMessage } from "../util/js/message-handler.js";
+import { saveData, loadData } from "../util/js/local-storage.js";
 import { getSystemTheme, applyTheme } from "../util/js/theme.js";
 /***********************GLOBAL VARIABLES****************************/
 let THEME_MODE = "system";
@@ -31,7 +28,7 @@ async function activationHandler() {
   if (activationBtn.classList.contains("on")) {
     state = true;
   }
-  setConfig({ state });
+  saveData({ state });
   sendMessage({ for: "content_script", data: state });
   console.log("message sent");
 }
@@ -40,19 +37,21 @@ function themeRadioHandler(event) {
   const radio = event.target;
   const theme = radio.dataset.value;
   THEME_MODE = theme;
-  setConfig({ theme });
+
+  saveData({ theme });
   applyTheme(theme);
+  sendMessage({ action: "theme", theme });
 }
 
 function keyModeRadioHandler(event) {
   const radio = event.target;
   const keyboard = radio.dataset.value;
-  setConfig({ keyboard });
+  saveData({ keyboard });
   sendMessage({ for: "ch", value: keyboard });
 }
 
 async function initialization() {
-  const res = await getConfigs();
+  const res = await loadData(["state", "theme", "keyboard", "shortcut"]);
   // handle error
   applyConfigs(res);
 }

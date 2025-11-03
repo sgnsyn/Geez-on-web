@@ -1,5 +1,9 @@
 function applyTheme(mode) {
   const root = document.documentElement;
+  if (!root) {
+    console.log("document is not found: applyTheme");
+    return;
+  }
   if (mode == "system") {
     mode = getSystemTheme();
   }
