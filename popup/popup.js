@@ -21,11 +21,11 @@ const navLinks = document.querySelectorAll(".nav-link");
 
 /***********************FUNCTIONS****************************/
 function menuBtnHandler() {
-  navbar.classList.remove("deactive");
+  navbar.classList.add("is-open");
 }
 
 function closeMenuBtnHandler() {
-  navbar.classList.add("deactive");
+  navbar.classList.remove("is-open");
 }
 
 function openThemePopup() {
@@ -47,10 +47,15 @@ function closeWithoutAnimation() {
   }, 10);
 }
 async function activationHandler() {
-  let state = false;
-  if (activationBtn.classList.contains("on")) {
-    state = true;
+  let state = activationBtn.classList.contains("on");
+  state = !state;
+
+  if (state) {
+    activationBtn.classList.add("on");
+  } else {
+    activationBtn.classList.remove("on");
   }
+
   saveData({ state });
   sendMessage({ for: "content_script", data: state });
 }
@@ -61,7 +66,13 @@ function themeRadioHandler(event) {
   THEME_MODE = theme;
 
   saveData({ theme });
+
+  activationBtn.classList.add("no-transition");
   applyTheme(theme);
+  setTimeout(() => {
+    activationBtn.classList.remove("no-transition");
+  }, 10);
+
   sendMessage({ action: "theme", theme });
   closeWithoutAnimation();
   // setTimeout(closeThemePopup, 200);
@@ -78,6 +89,9 @@ async function initialization() {
   const res = await loadData(["state", "theme", "keyboard", "shortcut"]);
   // handle error
   applyConfigs(res);
+  setTimeout(() => {
+    activationBtn.classList.remove("no-transition");
+  }, 10);
 }
 
 function updateSystemTheme() {
@@ -91,6 +105,7 @@ function applyConfigs(res) {
   const { state, theme, keyboard, shortcut } = res;
 
   // set state
+  console.log(state);
   if (state) {
     activationBtn.classList.add("on");
   } else {
@@ -142,23 +157,13 @@ closeMenuBtn.addEventListener("click", closeMenuBtnHandler);
 activationBtn.addEventListener("click", activationHandler);
 mediaQuery.addEventListener("change", updateSystemTheme);
 
-themeBtn.addEventListener("click", (e) => {
-  e.stopPropagation();
-  openThemePopup();
-});
-
-backdropEl.addEventListener("click", (e) => {
-  if (e.target === backdropEl) {
-    closeThemePopup();
-  }
-});
+themeBtn.addEventListener("click", openThemePopup);
+backdropEl.addEventListener("click", closeThemePopup);
 
 themeRadios.forEach((radio) => {
   radio.addEventListener("change", themeRadioHandler);
 });
-themeRadios.forEach((radio) => {
-  radio.addEventListener("change", themeRadioHandler);
-});
+
 keyModeRadios.forEach((radio) => {
   radio.addEventListener("change", keyModeRadioHandler);
 });

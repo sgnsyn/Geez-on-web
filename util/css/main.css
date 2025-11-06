@@ -12,15 +12,29 @@
   /* colors */
   --color-white: #ffffff;
   --color-black: #000000;
-  --off-color: #ffffffaa;
+  --off-color-dark: #ffffffaa;
+  --off-color-light: #a8a8a8;
   --color-light-gray: #f4f4f5;
   --color-dark-gray: #191919;
+
+  /* typing text color */
+  --dark-success: #00d68f;
+  --dark-warning: #ffd166;
+  --dark-danger: #ff4b4b;
+
+  --light-success: #007a52;
+  --light-warning: #a66b00;
+  --light-danger: #b00020;
 
   /* setting theme to light mode*/
   --primary-color: var(--color-white);
   --secondary-color: var(--color-black);
-  --off-gray: var(--off-color);
+  --off-gray: var(--off-color-light);
   --accent-gray: var(--color-light-gray);
+
+  --correct-green: var(--light-success);
+  --pending-yellow: var(--light-warning);
+  --incorrect-red: var(--light-danger);
 }
 
 *,
@@ -155,12 +169,11 @@ label,
   :root {
     --primary-color: var(--color-black);
     --secondary-color: var(--color-white);
-    --off-gray: var(--off-color);
+    --off-gray: var(--off-color-dark);
     --accent-gray: var(--color-dark-gray);
 
-    /*--primary-color: var(--color-white);*/
-    /*--secondary-color: var(--color-black);*/
-    /*--off-gray: var(--off-color);*/
-    /*--accent-gray: var(--color-light-gray);*/
+    --correct-green: var(--dark-success);
+    --pending-yellow: var(--dark-warning);
+    --incorrect-red: var(--dark-danger);
   }
 }

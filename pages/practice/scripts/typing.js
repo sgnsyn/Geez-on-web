@@ -5,8 +5,11 @@ export function calculateWPM(rawWpm, accuracy) {
 }
 
 export function calculateRawWPM(timeElapsed, charactersTyped) {
-  const minutes = timeElapsed / 60 || 1;
-  const words = charactersTyped / 5 || 1;
+  if (timeElapsed <= 0) {
+    return 0;
+  }
+  const minutes = timeElapsed / 60;
+  const words = charactersTyped / 5;
   return Math.round(words / minutes);
 }
 

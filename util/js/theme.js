@@ -11,16 +11,23 @@ function applyTheme(mode) {
   if (mode === "dark") {
     root.style.setProperty("--primary-color", "var(--color-black)");
     root.style.setProperty("--secondary-color", "var(--color-white)");
-    root.style.setProperty("--off-gray", "var(--off-color)");
+    root.style.setProperty("--off-gray", "var(--off-color-dark)");
     root.style.setProperty("--accent-gray", "var(--color-dark-gray)");
+
+    root.style.setProperty("--correct-green", "var(--dark-success)");
+    root.style.setProperty("--pending-yellow", "var(--dark-warning)");
+    root.style.setProperty("--incorrect-red", "var(--dark-danger)");
   } else {
     root.style.setProperty("--primary-color", "var(--color-white)");
     root.style.setProperty("--secondary-color", "var(--color-black)");
-    root.style.setProperty("--off-gray", "var(--off-color)");
+    root.style.setProperty("--off-gray", "var(--off-color-light)");
     root.style.setProperty("--accent-gray", "var(--color-light-gray)");
+
+    root.style.setProperty("--correct-green", "var(--light-success)");
+    root.style.setProperty("--pending-yellow", "var(--light-warning)");
+    root.style.setProperty("--incorrect-red", "var(--light-danger)");
   }
 }
-
 function getSystemTheme() {
   if (
     window.matchMedia &&

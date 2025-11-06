@@ -1,4 +1,4 @@
-import { keymanInit } from "./keyman.js";
+import { keymanInit, updateKeyboard } from "./keyman.js";
 import {
   calculateWPM,
   calculateRawWPM,
@@ -26,6 +26,8 @@ const practiseEl = document.getElementById("practice");
 let currentText = "";
 let timerInterval = null;
 let isTyping = false;
+let startTime = null;
+let statsInterval = null;
 const TOTAL_SECONDS = 120;
 
 // Fetch texts for typing practice
@@ -40,9 +42,8 @@ async function getTexts() {
 }
 
 function updateStats() {
-  const timeElapsedInSeconds =
-    TOTAL_SECONDS - timeStrToSecond(timerElement.textContent);
-  if (timeElapsedInSeconds <= 0) return;
+  if (!startTime) return;
+  const timeElapsedInSeconds = (new Date().getTime() - startTime) / 1000;
 
   const rawWpm = calculateRawWPM(
     timeElapsedInSeconds,
@@ -60,12 +61,17 @@ function onTimerFinish() {
   typingInput.disabled = true;
   updateStats();
   clearInterval(timerInterval);
+  clearInterval(statsInterval);
   onTypingComplete();
 }
 
 async function onTypingComplete() {
   typingInput.disabled = true;
   updateStats();
+
+  if (statsInterval) {
+    clearInterval(statsInterval);
+  }
 
   const data = await loadData(["awpm", "practices"]);
   let practices = data?.practices || 0;
@@ -93,11 +99,13 @@ async function onTypingComplete() {
   practiseEl.textContent = practices;
 
   clearInterval(timerInterval);
+  resetBtn.focus();
 }
 
 function handleTyping() {
   if (!isTyping) {
     isTyping = true;
+    startTime = new Date().getTime();
     timerInterval = startTimer(
       (formattedTime) => {
         timerElement.textContent = formattedTime;
@@ -105,8 +113,8 @@ function handleTyping() {
       TOTAL_SECONDS,
       onTimerFinish,
     );
+    statsInterval = setInterval(updateStats, 500);
   }
-  updateStats();
 }
 
 async function init() {
@@ -114,10 +122,14 @@ async function init() {
   if (timerInterval) {
     clearInterval(timerInterval);
   }
+  if (statsInterval) {
+    clearInterval(statsInterval);
+  }
   resetTypingSession();
 
   typingInput.disabled = false;
   isTyping = false;
+  startTime = null;
 
   // Reset UI
   timerElement.textContent = "2 : 00";

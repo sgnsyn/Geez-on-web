@@ -199,16 +199,16 @@ body {
 }
 
 .text-display .correct {
-  color: #28a745;
+  color: var(--correct-green);
 }
 
 .text-display .incorrect {
-  color: #dc3545;
+  color: var(--incorrect-red);
   text-decoration: underline;
 }
 
 .text-display .pending {
-  color: #f0ad4e;
+  color: var(--pending-yellow);
 }
 
 @keyframes appear {
