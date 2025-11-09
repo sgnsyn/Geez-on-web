@@ -57,65 +57,110 @@
         </symbol>
       </defs>
     </svg>
-    <nav class="page-nav">
-      <div class="nav-left">
-        <span class="nav-link selected">Guide</span>
-        <a class="nav-link" href="../practice/practice.html">Practice</a>
-        <a class="nav-link" href="../about/about.html">About</a>
-      </div>
+    <div class="navs">
+      <nav class="nav-popup-container">
+        <button id="close-menu-btn" class="icon-btn">
+          <svg width="24" height="18.7" fill="none">
+            <use href="#icon-close" />
+          </svg>
+        </button>
+        <div class="nav-links-container">
+          <span class="nav-link selected">Guide</span>
+          <a
+            class="nav-link"
+            data-id="practice"
+            href="../practice/practice.html"
+            ><span>Practice</span>
+            <svg class="arrow-icon">
+              <use href="#arrow-up-right"></use></svg
+          ></a>
+          <a class="nav-link" data-id="about" href="../about/about.html"
+            ><span>About</span>
+            <svg class="arrow-icon">
+              <use href="#arrow-up-right"></use></svg
+          ></a>
+          <a class="nav-link" data-id="credits" href="../credits/credits.html"
+            ><span>Credits</span>
+            <svg class="arrow-icon">
+              <use href="#arrow-up-right"></use></svg
+          ></a>
+          <a class="nav-link" data-id="terms" href="../terms/terms.html"
+            ><span>Terms</span>
+            <svg class="arrow-icon">
+              <use href="#arrow-up-right"></use></svg
+          ></a>
+        </div>
+      </nav>
+      <nav class="page-nav">
+        <button class="icon-btn" id="menu-btn">
+          <svg width="24" height="23" fill="none">
+            <use href="#icon-menu" />
+          </svg>
+        </button>
+        <div class="nav-left">
+          <span class="nav-link selected">Guide</span>
+          <a class="nav-link" href="../practice/practice.html">Practice</a>
+          <a class="nav-link" href="../about/about.html">About</a>
+        </div>
 
-      <div class="nav-left">
-        <a class="nav-link" href="../credits/credits.html">Credits</a>
-        <a class="nav-link" href="../terms/terms.html">Terms</a>
-      </div>
-    </nav>
+        <div class="nav-left">
+          <a class="nav-link" href="../credits/credits.html">Credits</a>
+          <a class="nav-link" href="../terms/terms.html">Terms</a>
+        </div>
+      </nav>
+    </div>
 
     <div class="main-content">
-      <a
-        class="GA-guide pdf-container"
-        href="../../guide pdf/GFF Amharic.pdf"
-        target="_blank"
-      >
-        <span class="pdf-text">
-          GFF Amharic
-          <svg class="arrow-icon">
-            <use href="#arrow-up-right"></use></svg
-        ></span>
-      </a>
-      <a
-        class="GE-guide pdf-container"
-        href="../../guide pdf/GFF Ethiopic.pdf"
-        target="_blank"
-      >
-        <span class="pdf-text">
-          GFF Ethiopic
-          <svg class="arrow-icon">
-            <use href="#arrow-up-right"></use></svg
-        ></span>
-      </a>
-      <a
-        class="SE-guide pdf-container"
-        href="../../guide pdf/SIL Ethiopic.pdf"
-        target="_blank"
-      >
-        <span class="pdf-text">
-          SIL Ethiopic
-          <svg class="arrow-icon">
-            <use href="#arrow-up-right"></use></svg
-        ></span>
-      </a>
-      <a
-        class="SEP-guide pdf-container"
-        href="../../guide pdf/SIL Ethiopic Power-G.pdf"
-        target="_blank"
-      >
-        <span class="pdf-text">
-          SIL Ethiopic Power-G
-          <svg class="arrow-icon">
-            <use href="#arrow-up-right"></use></svg
-        ></span>
-      </a>
+      <div>
+        <div class="guide-links-container">
+          <a
+            class="GA-guide pdf-container"
+            href="../../guide pdf/GFF Amharic.pdf"
+            target="_blank"
+          >
+            <span class="pdf-text">
+              GFF Amharic
+              <svg class="arrow-icon">
+                <use href="#arrow-up-right"></use></svg
+            ></span>
+          </a>
+          <a
+            class="GE-guide pdf-container"
+            href="../../guide pdf/GFF Ethiopic.pdf"
+            target="_blank"
+          >
+            <span class="pdf-text">
+              GFF Ethiopic
+              <svg class="arrow-icon">
+                <use href="#arrow-up-right"></use></svg
+            ></span>
+          </a>
+          <a
+            class="SE-guide pdf-container"
+            href="../../guide pdf/SIL Ethiopic.pdf"
+            target="_blank"
+          >
+            <span class="pdf-text">
+              SIL Ethiopic
+              <svg class="arrow-icon">
+                <use href="#arrow-up-right"></use></svg
+            ></span>
+          </a>
+          <a
+            class="SEP-guide pdf-container"
+            href="../../guide pdf/SIL Ethiopic Power-G.pdf"
+            target="_blank"
+          >
+            <span class="pdf-text">
+              SIL Ethiopic Power-G
+              <svg class="arrow-icon">
+                <use href="#arrow-up-right"></use></svg
+            ></span>
+          </a>
+        </div>
+      </div>
     </div>
     <script src="../utils/message-listener.js" type="module"></script>
+    <script src="../utils/nav.js"></script>
   </body>
 </html>

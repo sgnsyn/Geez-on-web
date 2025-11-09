@@ -43,9 +43,57 @@
         </symbol>
 
         <!--theme svg icon-->
+        <symbol
+          id="arrow-up-right"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="7" y1="17" x2="17" y2="7"></line>
+          <polyline points="7 7 17 7 17 17"></polyline>
+        </symbol>
       </defs>
     </svg>
+
+    <nav class="nav-popup-container">
+      <button id="close-menu-btn" class="icon-btn">
+        <svg width="24" height="18.7" fill="none">
+          <use href="#icon-close" />
+        </svg>
+      </button>
+      <div class="nav-links-container">
+        <a class="nav-link" data-id="guide" href="../guide/guide.html"
+          ><span>Guide</span>
+          <svg class="arrow-icon">
+            <use href="#arrow-up-right"></use></svg
+        ></a>
+        <a class="nav-link" data-id="practice" href="../practice/practice.html"
+          ><span>Practice</span>
+          <svg class="arrow-icon">
+            <use href="#arrow-up-right"></use></svg
+        ></a>
+        <a class="nav-link" data-id="about" href="../about/about.html"
+          ><span>About</span>
+          <svg class="arrow-icon">
+            <use href="#arrow-up-right"></use></svg
+        ></a>
+        <span class="nav-link selected">Credits</span>
+        <a class="nav-link" data-id="terms" href="../terms/terms.html"
+          ><span>Terms</span>
+          <svg class="arrow-icon">
+            <use href="#arrow-up-right"></use></svg
+        ></a>
+      </div>
+    </nav>
     <nav class="page-nav">
+      <button class="icon-btn" id="menu-btn">
+        <svg width="24" height="23" fill="none">
+          <use href="#icon-menu" />
+        </svg>
+      </button>
       <div class="nav-left">
         <a class="nav-link" href="../guide/guide.html">Guide</a>
 
@@ -59,5 +107,7 @@
       </div>
     </nav>
     <script src="../utils/message-listener.js" type="module"></script>
+
+    <script src="../utils/nav.js"></script>
   </body>
 </html>

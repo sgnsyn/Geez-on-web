@@ -4,6 +4,7 @@
 .content {
   max-width: 95ch;
   margin-inline: auto;
+  padding-inline: 2rem;
   margin-block: 2rem;
 }
 
@@ -14,6 +15,7 @@ h3 {
   text-transform: uppercase;
   font-weight: bold;
   margin-bottom: 2rem;
+  color: var(--off-gray);
   color: var(--secondary-color);
 }
 
@@ -39,6 +41,7 @@ p {
   font-weight: initial;
   font-size: initial;
   text-transform: initial;
+  color: var(--pending-yellow);
 }
 
 .support-link.active:hover {

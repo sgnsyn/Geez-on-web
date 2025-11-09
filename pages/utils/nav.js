@@ -1,15 +1,26 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const menuBtn = document.querySelector(".menu-btn");
-  const closeMenuBtn = document.querySelector(".close-menu-btn");
-  const navContainer = document.querySelector(".nav-links-container");
+const closeMenuBtn = document.getElementById("close-menu-btn");
+const menuBtn = document.getElementById("menu-btn");
+const popupContainer = document.querySelector(".nav-popup-container");
 
-  if (menuBtn && closeMenuBtn && navContainer) {
+document.addEventListener("DOMContentLoaded", () => {
+  if (menuBtn && closeMenuBtn && popupContainer) {
     menuBtn.addEventListener("click", () => {
-      navContainer.classList.add("is-open");
+      popupContainer.classList.add("is-open");
     });
 
     closeMenuBtn.addEventListener("click", () => {
-      navContainer.classList.remove("is-open");
+      popupContainer.classList.remove("is-open");
     });
   }
 });
+
+function closeMobileNav() {
+  console.log("closed");
+  popupContainer.classList.remove("is-open");
+}
+function openMobileNav() {
+  console.log("opend");
+  popupContainer.classList.remove("is-open");
+}
+menuBtn.addEventListener("click", openMobileNav);
+closeMenuBtn.addEventListener("click", closeMenuBtn);
