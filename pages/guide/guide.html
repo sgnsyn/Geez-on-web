@@ -1,67 +1,121 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Guide</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./style.css" />
-  <title>Guide</title>
-</head>
+  <body>
+    <svg width="0" height="0" style="display: none">
+      <defs>
+        <!--close svg icon-->
+        <symbol id="icon-close" viewBox="0 0 16 16">
+          <g>
+            <path
+              d="M8 0L0 8"
+              fill="none"
+              stroke-width="2"
+              stroke="#000000"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              transform="translate(4 4)"
+            />
+            <path
+              d="M0 0L8 8"
+              fill="none"
+              stroke-width="2"
+              stroke="#000000"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              transform="translate(4 4)"
+            />
+          </g>
+        </symbol>
 
-<body>
-  <svg width="0" height="0" style="display: none">
-    <defs>
-      <symbol id="arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-        stroke-linecap="round" stroke-linejoin="round">
-        <line x1="7" y1="17" x2="17" y2="7"></line>
-        <polyline points="7 7 17 7 17 17"></polyline>
-      </symbol>
-    </defs>
-  </svg>
-  <nav class="page-nav">
-    <div class="nav-left">
-      <span class="nav-link selected">Guide</span>
-      <a class="nav-link" href="../practice/practice.html">Practice</a>
-      <a class="nav-link" href="../about/about.html">About</a>
+        <symbol id="icon-menu" viewBox="0 0 24 18.7">
+          <path
+            d="M1.33333 0C0.59696 0 0 0.59696 0 1.33333C0 2.06971 0.59696 2.66667 1.33333 2.66667C1.33333 2.66667 22.6667 2.66667 22.6667 2.66667C23.4031 2.66667 24 2.06971 24 1.33333C24 0.59696 23.4031 0 22.6667 0C22.6667 0 1.33333 0 1.33333 0ZM0 9.33334C0 8.59693 0.59696 8 1.33333 8C1.33333 8 22.6667 8 22.6667 8C23.4031 8 24 8.59693 24 9.33334C24 10.0697 23.4031 10.6667 22.6667 10.6667C22.6667 10.6667 1.33333 10.6667 1.33333 10.6667C0.59696 10.6667 0 10.0697 0 9.33334ZM0 17.3333C0 16.5969 0.59696 16 1.33333 16C1.33333 16 22.6667 16 22.6667 16C23.4031 16 24 16.5969 24 17.3333C24 18.0697 23.4031 18.6667 22.6667 18.6667C22.6667 18.6667 1.33333 18.6667 1.33333 18.6667C0.59696 18.6667 0 18.0697 0 17.3333Z"
+            fill="#000000"
+            fill-rule="evenodd"
+          />
+        </symbol>
+
+        <!--theme svg icon-->
+        <symbol
+          id="arrow-up-right"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="7" y1="17" x2="17" y2="7"></line>
+          <polyline points="7 7 17 7 17 17"></polyline>
+        </symbol>
+      </defs>
+    </svg>
+    <nav class="page-nav">
+      <div class="nav-left">
+        <span class="nav-link selected">Guide</span>
+        <a class="nav-link" href="../practice/practice.html">Practice</a>
+        <a class="nav-link" href="../about/about.html">About</a>
+      </div>
+
+      <div class="nav-left">
+        <a class="nav-link" href="../credits/credits.html">Credits</a>
+        <a class="nav-link" href="../terms/terms.html">Terms</a>
+      </div>
+    </nav>
+
+    <div class="main-content">
+      <a
+        class="GA-guide pdf-container"
+        href="../../guide pdf/GFF Amharic.pdf"
+        target="_blank"
+      >
+        <span class="pdf-text">
+          GFF Amharic
+          <svg class="arrow-icon">
+            <use href="#arrow-up-right"></use></svg
+        ></span>
+      </a>
+      <a
+        class="GE-guide pdf-container"
+        href="../../guide pdf/GFF Ethiopic.pdf"
+        target="_blank"
+      >
+        <span class="pdf-text">
+          GFF Ethiopic
+          <svg class="arrow-icon">
+            <use href="#arrow-up-right"></use></svg
+        ></span>
+      </a>
+      <a
+        class="SE-guide pdf-container"
+        href="../../guide pdf/SIL Ethiopic.pdf"
+        target="_blank"
+      >
+        <span class="pdf-text">
+          SIL Ethiopic
+          <svg class="arrow-icon">
+            <use href="#arrow-up-right"></use></svg
+        ></span>
+      </a>
+      <a
+        class="SEP-guide pdf-container"
+        href="../../guide pdf/SIL Ethiopic Power-G.pdf"
+        target="_blank"
+      >
+        <span class="pdf-text">
+          SIL Ethiopic Power-G
+          <svg class="arrow-icon">
+            <use href="#arrow-up-right"></use></svg
+        ></span>
+      </a>
     </div>
-
-    <div class="nav-left">
-      <a class="nav-link" href="../credits/credits.html">Credits</a>
-      <a class="nav-link" href="../terms/terms.html">Terms</a>
-    </div>
-  </nav>
-
-  <div class="main-content">
-    <a class="GA-guide pdf-container" href="../../guide pdf/GFF Amharic.pdf" target="_blank">
-      <span class="pdf-text">
-        GFF Amharic
-        <svg class="arrow-icon">
-          <use href="#arrow-up-right"></use>
-        </svg></span>
-    </a>
-    <a class="GE-guide pdf-container" href="../../guide pdf/GFF Ethiopic.pdf" target="_blank">
-      <span class="pdf-text">
-        GFF Ethiopic
-        <svg class="arrow-icon">
-          <use href="#arrow-up-right"></use>
-        </svg></span>
-    </a>
-    <a class="SE-guide pdf-container" href="../../guide pdf/SIL Ethiopic.pdf" target="_blank">
-      <span class="pdf-text">
-        SIL Ethiopic
-        <svg class="arrow-icon">
-          <use href="#arrow-up-right"></use>
-        </svg></span>
-    </a>
-    <a class="SEP-guide pdf-container" href="../../guide pdf/SIL Ethiopic Power-G.pdf" target="_blank">
-      <span class="pdf-text">
-        SIL Ethiopic Power-G
-        <svg class="arrow-icon">
-          <use href="#arrow-up-right"></use>
-        </svg></span>
-    </a>
-  </div>
-  <script src="../utils/message-listener.js" type="module"></script>
-</body>
-
+    <script src="../utils/message-listener.js" type="module"></script>
+  </body>
 </html>

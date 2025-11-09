@@ -1,108 +1,169 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Typing Practice</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./style.css" />
-  <title>Typing Practice</title>
-</head>
+  <body>
+    <svg width="0" height="0" style="display: none">
+      <defs>
+        <!--close svg icon-->
+        <symbol id="icon-close" viewBox="0 0 16 16">
+          <g>
+            <path
+              d="M8 0L0 8"
+              fill="none"
+              stroke-width="2"
+              stroke="#000000"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              transform="translate(4 4)"
+            />
+            <path
+              d="M0 0L8 8"
+              fill="none"
+              stroke-width="2"
+              stroke="#000000"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              transform="translate(4 4)"
+            />
+          </g>
+        </symbol>
 
-<body>
-  <div class="backdrop deactive"></div>
-  <nav class="page-nav">
-    <div class="nav-left">
-      <a class="nav-link" href="../guide/guide.html">Guide</a>
-      <span class="nav-link selected">Practice</span>
-      <a class="nav-link" href="../about/about.html">About</a>
-    </div>
+        <symbol id="icon-menu" viewBox="0 0 24 18.7">
+          <path
+            d="M1.33333 0C0.59696 0 0 0.59696 0 1.33333C0 2.06971 0.59696 2.66667 1.33333 2.66667C1.33333 2.66667 22.6667 2.66667 22.6667 2.66667C23.4031 2.66667 24 2.06971 24 1.33333C24 0.59696 23.4031 0 22.6667 0C22.6667 0 1.33333 0 1.33333 0ZM0 9.33334C0 8.59693 0.59696 8 1.33333 8C1.33333 8 22.6667 8 22.6667 8C23.4031 8 24 8.59693 24 9.33334C24 10.0697 23.4031 10.6667 22.6667 10.6667C22.6667 10.6667 1.33333 10.6667 1.33333 10.6667C0.59696 10.6667 0 10.0697 0 9.33334ZM0 17.3333C0 16.5969 0.59696 16 1.33333 16C1.33333 16 22.6667 16 22.6667 16C23.4031 16 24 16.5969 24 17.3333C24 18.0697 23.4031 18.6667 22.6667 18.6667C22.6667 18.6667 1.33333 18.6667 1.33333 18.6667C0.59696 18.6667 0 18.0697 0 17.3333Z"
+            fill="#000000"
+            fill-rule="evenodd"
+          />
+        </symbol>
 
-    <div class="nav-left">
-      <a class="nav-link" href="../credits/credits.html">Credits</a>
-      <a class="nav-link" href="../terms/terms.html">Terms</a>
-    </div>
-  </nav>
-  <section>
-    <!-- >>> Keyboard and Score <<< -->
-    <div class="key-score-wrapper">
-      <!-- >>> Change Keyboard <<< -->
-      <div class="key-wrapper item-wrapper">
-        <button id="btn-toggel-key-popup" class="key-btn-wrapper key top-item">
-          <p class="key-name" data-value="SEP">SIL Ethiopic Power-g</p>
-          <span class="key-change-btn"></span>
-        </button>
-        <!-- >>> keyboard toggle popup -->
-        <div class="key-popup-wrapper disabled">
-          <div class="key-opt-btn">
-            <input id="keyboard-opt-1" type="radio" name="keyboard-mode" data-value="GA" data-name="GFF Amharic" />
-            <label for="keyboard-opt-1">GFF Amharic</label>
+        <!--theme svg icon-->
+      </defs>
+    </svg>
+    <div class="backdrop deactive"></div>
+    <nav class="page-nav">
+      <div class="nav-left">
+        <a class="nav-link" href="../guide/guide.html">Guide</a>
+        <span class="nav-link selected">Practice</span>
+        <a class="nav-link" href="../about/about.html">About</a>
+      </div>
+
+      <div class="nav-left">
+        <a class="nav-link" href="../credits/credits.html">Credits</a>
+        <a class="nav-link" href="../terms/terms.html">Terms</a>
+      </div>
+    </nav>
+    <section>
+      <!-- >>> Keyboard and Score <<< -->
+      <div class="key-score-wrapper">
+        <!-- >>> Change Keyboard <<< -->
+        <div class="key-wrapper item-wrapper">
+          <button
+            id="btn-toggel-key-popup"
+            class="key-btn-wrapper key top-item"
+          >
+            <p class="key-name" data-value="SEP">SIL Ethiopic Power-g</p>
+            <span class="key-change-btn"></span>
+          </button>
+          <!-- >>> keyboard toggle popup -->
+          <div class="key-popup-wrapper disabled">
+            <div class="key-opt-btn">
+              <input
+                id="keyboard-opt-1"
+                type="radio"
+                name="keyboard-mode"
+                data-value="GA"
+                data-name="GFF Amharic"
+              />
+              <label for="keyboard-opt-1">GFF Amharic</label>
+            </div>
+            <div class="key-opt-btn">
+              <input
+                id="keyboard-opt-2"
+                type="radio"
+                name="keyboard-mode"
+                data-value="GE"
+                data-name="GFF Ethiopic"
+                checked
+              />
+              <label for="keyboard-opt-2">GFF Ethiopic</label>
+            </div>
+            <div class="key-opt-btn">
+              <input
+                id="keyboard-opt-3"
+                type="radio"
+                name="keyboard-mode"
+                data-value="SE"
+                data-name="SIL Ethiopic"
+              />
+              <label for="keyboard-opt-3">SIL Ethiopic</label>
+            </div>
+            <div class="key-opt-btn">
+              <input
+                id="keyboard-opt-4"
+                type="radio"
+                name="keyboard-mode"
+                data-value="SEP"
+                data-name="SIL Ethiopic Power-G"
+              />
+              <label for="keyboard-opt-4">SIL Ethiopic Power-G</label>
+            </div>
           </div>
-          <div class="key-opt-btn">
-            <input id="keyboard-opt-2" type="radio" name="keyboard-mode" data-value="GE" data-name="GFF Ethiopic"
-              checked />
-            <label for="keyboard-opt-2">GFF Ethiopic</label>
+          <!-- >>> keyboard toggle popup -->
+
+          <p class="key bottom-item">keyboard</p>
+        </div>
+        <!-- <<< Change Keyboard <<< -->
+
+        <!-- >>> Display Global Result <<< -->
+        <div class="gscore-wrapper">
+          <div class="practices-wrapper item-wrapper">
+            <p id="practice" class="practice top-item">-</p>
+            <p class="practice bottom-item">PRACTICES</p>
           </div>
-          <div class="key-opt-btn">
-            <input id="keyboard-opt-3" type="radio" name="keyboard-mode" data-value="SE" data-name="SIL Ethiopic" />
-            <label for="keyboard-opt-3">SIL Ethiopic</label>
-          </div>
-          <div class="key-opt-btn">
-            <input id="keyboard-opt-4" type="radio" name="keyboard-mode" data-value="SEP"
-              data-name="SIL Ethiopic Power-G" />
-            <label for="keyboard-opt-4">SIL Ethiopic Power-G</label>
+          <div class="awpm-wrapper item-wrapper">
+            <p id="awpm" class="awpm top-item">--</p>
+            <p class="awpm bottom-item">AVG WPM</p>
           </div>
         </div>
-        <!-- >>> keyboard toggle popup -->
-
-        <p class="key bottom-item">keyboard</p>
+        <!-- <<< Display Global Result <<< -->
       </div>
-      <!-- <<< Change Keyboard <<< -->
+      <!-- <<< Keyboard and Score <<< -->
 
-      <!-- >>> Display Global Result <<< -->
-      <div class="gscore-wrapper">
-        <div class="practices-wrapper item-wrapper">
-          <p id="practice" class="practice top-item">-</p>
-          <p class="practice bottom-item">PRACTICES</p>
-        </div>
-        <div class="awpm-wrapper item-wrapper">
-          <p id="awpm" class="awpm top-item">--</p>
-          <p class="awpm bottom-item">AVG WPM</p>
+      <div class="text-display" id="text-display"></div>
+
+      <div class="input-time-btn-wrapper">
+        <input id="typing-input" placeholder="Start typing here..." />
+        <div class="timer-rest-wrapper">
+          <p id="timer" class="timer">2 : 00</p>
+          <button class="proper-btn" id="reset-btn">Reset</button>
         </div>
       </div>
-      <!-- <<< Display Global Result <<< -->
-    </div>
-    <!-- <<< Keyboard and Score <<< -->
 
-    <div class="text-display" id="text-display"></div>
-
-    <div class="input-time-btn-wrapper">
-      <input id="typing-input" placeholder="Start typing here..." />
-      <div class="timer-rest-wrapper">
-        <p id="timer" class="timer">2 : 00</p>
-        <button class="proper-btn" id="reset-btn">Reset</button>
+      <!-- >>> Display Current Result <<< -->
+      <div class="cscore-wrapper">
+        <div class="cwpm-wrapper item-wrapper">
+          <p id="wpm" class="cwpm top-item">82</p>
+          <p class="cwpm bottom-item">WPM</p>
+        </div>
+        <div class="raw-wpm-wrapper item-wrapper">
+          <p id="raw-wpm" class="raw-wpm top-item">--</p>
+          <p class="raw-wpm bottom-item">RAW</p>
+        </div>
+        <div class="accuracy-wrapper item-wrapper">
+          <p id="accuracy" class="accuracy top-item">---</p>
+          <p class="accuracy bottom-item">Accuracy</p>
+        </div>
       </div>
-    </div>
-
-    <!-- >>> Display Current Result <<< -->
-    <div class="cscore-wrapper">
-      <div class="cwpm-wrapper item-wrapper">
-        <p id="wpm" class="cwpm top-item">82</p>
-        <p class="cwpm bottom-item">WPM</p>
-      </div>
-      <div class="raw-wpm-wrapper item-wrapper">
-        <p id="raw-wpm" class="raw-wpm top-item">--</p>
-        <p class="raw-wpm bottom-item">RAW</p>
-      </div>
-      <div class="accuracy-wrapper item-wrapper">
-        <p id="accuracy" class="accuracy top-item">---</p>
-        <p class="accuracy bottom-item">Accuracy</p>
-      </div>
-    </div>
-    <!-- <<< Display Current Result <<< -->
-  </section>
-  <script src="../../keyman/keymanweb.js"></script>
-  <script src="./scripts/script.js" type="module"></script>
-  <script src="../utils/message-listener.js" type="module"></script>
-</body>
-
+      <!-- <<< Display Current Result <<< -->
+    </section>
+    <script src="../../keyman/keymanweb.js"></script>
+    <script src="./scripts/script.js" type="module"></script>
+    <script src="../utils/message-listener.js" type="module"></script>
+  </body>
 </html>

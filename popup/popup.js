@@ -136,14 +136,15 @@ function applyConfigs(res) {
 
 function pageNavigationHanlder(event) {
   event.preventDefault();
+  const anchor = event.target.closest(".nav-link");
 
-  const id = event.target.dataset.id;
+  const id = anchor.dataset.id;
   const urls = {
-    guide: "/pages/guide/guide.html",
-    practice: "/pages/practice/practice.html",
-    credits: "/pages/credits/credits.html",
-    about: "/pages/about/about.html",
-    terms: "/pages/terms/terms.html",
+    guide: "./pages/guide/guide.html",
+    practice: "./pages/practice/practice.html",
+    credits: "./pages/credits/credits.html",
+    about: "./pages/about/about.html",
+    terms: "./pages/terms/terms.html",
   };
 
   const url = urls[id];

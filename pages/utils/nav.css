@@ -57,3 +57,11 @@
   width: 100%;
   background: var(--secondary-color);
 }
+
+@media (max-width: 720px) {
+
+  .nav-left,
+  .nav-right {
+    display: none;
+  }
+}
