@@ -85,8 +85,8 @@ body {
 
 /*Toggle BTN Begin*/
 .toggle-btn {
-  width: 45px;
-  height: 24px;
+  width: 2.8125rem;
+  height: 1.5rem;
   position: relative;
   border-radius: 100vw;
   border: none;
@@ -96,14 +96,14 @@ body {
 
 .toggle-btn::before {
   content: "";
-  height: 20px;
-  width: 20px;
+  height: 1.25rem;
+  width: 1.25rem;
   border-radius: 50%;
   background-color: var(--primary-color);
 
   position: absolute;
   top: 50%;
-  left: 2px;
+  left: 0.125rem;
 
   transform: translateY(-50%);
   transition: left 0.2s ease-in-out;
@@ -114,7 +114,7 @@ body {
 }
 
 .toggle-btn.on::before {
-  left: calc(100% - 22px);
+  left: calc(100% - 1.375rem);
 }
 
 /*Toggle BTN End*/
@@ -123,11 +123,11 @@ body {
 .proper-btn {
   font-weight: 500;
   font-family: Inter;
-  padding-inline: 19px;
-  padding-block: 13px;
-  line-height: 16px;
+  padding-inline: 1.1875rem;
+  padding-block: 0.8125rem;
+  line-height: 1rem;
   border: none;
-  border-radius: 6px;
+  border-radius: 0.375rem;
   background-color: var(--secondary-color);
   color: var(--primary-color);
   transition: outline 0.2s ease-in-out;
@@ -141,7 +141,7 @@ body {
 
 /*Radio Input Begin*/
 input[type="radio"] {
-  --wh: 18px;
+  --wh: 1.125rem;
   border: 1px solid var(--secondary-color);
   height: var(--wh);
   width: var(--wh);

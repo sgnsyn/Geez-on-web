@@ -30,7 +30,7 @@ body {
 
 .hero-text {
   font-family: "Inter";
-  color: var(--correct-green);
+  color: var(--pending-yellow);
   font-size: 5.5rem;
   font-weight: bold;
   max-width: 8ch;
@@ -91,10 +91,10 @@ body {
 
 .git-btn {
   background: transparent;
-  color: var(--correct-green);
+  color: var(--pending-yellow);
 
   border-radius: 100vw;
-  border: 0.1875rem solid var(--correct-green);
+  border: 0.1875rem solid var(--pending-yellow);
 
   text-align: center;
   width: 100%;
@@ -110,7 +110,7 @@ body {
 }
 
 .links.em {
-  color: var(--correct-green);
+  color: var(--pending-yellow);
   font-style: italic;
 }
 

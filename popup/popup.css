@@ -2,14 +2,14 @@
 @import url("../pages/utils/nav.css");
 
 html {
-  width: 390px;
-  height: 600px;
+  width: 24.375rem;
+  height: 37.5rem;
   background-color: purple;
 }
 
 body {
-  width: 390px;
-  height: 600px;
+  width: 24.375rem;
+  height: 37.5rem;
   background-color: var(--primary-color);
   position: relative;
 }
@@ -36,11 +36,11 @@ button {
 
 .theme-container {
   padding: 2rem 1rem;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   background-color: var(--primary-color);
   position: absolute;
-  top: 56px;
-  right: 35px;
+  top: 3.5rem;
+  right: 2.1875rem;
   animation: appear 0.2s ease-in-out;
   z-index: 10;
   border: 1px solid #aaaaaa99;
@@ -53,10 +53,10 @@ button {
 
 .mode-radio-container,
 .theme-radio-container {
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.625rem;
 }
 
 .theme-radio-container:last-child {
@@ -65,8 +65,8 @@ button {
 
 #close-menu-btn {
   position: absolute;
-  top: 32px;
-  right: 32px;
+  top: 2rem;
+  right: 2rem;
   scale: 1.5;
 }
 
@@ -74,18 +74,18 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 27px;
+  padding: 1.6875rem;
 }
 
 .main-content {
-  padding: 62px;
+  padding: 3.875rem;
 }
 
 .toggle-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 30px;
+  margin-bottom: 1.875rem;
 }
 
 .label {
@@ -111,8 +111,8 @@ nav {
 .shortcut-input-container {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 16px;
+  gap: 1rem;
+  padding: 1rem;
   background-color: var(--accent-gray);
   color: var(--secondary-color);
 }
@@ -127,8 +127,8 @@ nav {
 }
 
 .proper-btn {
-  font-size: 13px;
-  line-height: 16px;
+  font-size: 0.8125rem;
+  line-height: 1rem;
 }
 
 #activation-toggle.no-transition,
@@ -140,13 +140,13 @@ nav {
   from {
     opacity: 0;
     scale: 0.7;
-    top: 50px;
+    top: 3.125rem;
   }
 
   to {
     opacity: 1;
     scale: 1;
-    top: 56px;
+    top: 3.5rem;
   }
 }
 
@@ -154,14 +154,14 @@ nav {
   from {
     opacity: 1;
     scale: 1;
-    top: 56px;
+    top: 3.5rem;
     display: block;
   }
 
   to {
     opacity: 0;
     scale: 0.7;
-    top: 50px;
+    top: 3.125rem;
     display: none;
   }
 }
