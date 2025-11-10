@@ -1,112 +1,111 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css" />
-    <title>About</title>
-  </head>
 
-  <body>
-    <svg width="0" height="0" style="display: none">
-      <defs>
-        <!--close svg icon-->
-        <symbol id="icon-close" viewBox="0 0 16 16">
-          <g>
-            <path
-              d="M8 0L0 8"
-              fill="none"
-              stroke-width="2"
-              stroke="#000000"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              transform="translate(4 4)"
-            />
-            <path
-              d="M0 0L8 8"
-              fill="none"
-              stroke-width="2"
-              stroke="#000000"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              transform="translate(4 4)"
-            />
-          </g>
-        </symbol>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./style.css" />
+  <title>About</title>
+</head>
 
-        <symbol id="icon-menu" viewBox="0 0 24 18.7">
-          <path
-            d="M1.33333 0C0.59696 0 0 0.59696 0 1.33333C0 2.06971 0.59696 2.66667 1.33333 2.66667C1.33333 2.66667 22.6667 2.66667 22.6667 2.66667C23.4031 2.66667 24 2.06971 24 1.33333C24 0.59696 23.4031 0 22.6667 0C22.6667 0 1.33333 0 1.33333 0ZM0 9.33334C0 8.59693 0.59696 8 1.33333 8C1.33333 8 22.6667 8 22.6667 8C23.4031 8 24 8.59693 24 9.33334C24 10.0697 23.4031 10.6667 22.6667 10.6667C22.6667 10.6667 1.33333 10.6667 1.33333 10.6667C0.59696 10.6667 0 10.0697 0 9.33334ZM0 17.3333C0 16.5969 0.59696 16 1.33333 16C1.33333 16 22.6667 16 22.6667 16C23.4031 16 24 16.5969 24 17.3333C24 18.0697 23.4031 18.6667 22.6667 18.6667C22.6667 18.6667 1.33333 18.6667 1.33333 18.6667C0.59696 18.6667 0 18.0697 0 17.3333Z"
-            fill="#000000"
-            fill-rule="evenodd"
-          />
-        </symbol>
+<body>
+  <svg width="0" height="0" style="display: none">
+    <defs>
+      <!--close svg icon-->
+      <symbol id="icon-close" viewBox="0 0 16 16">
+        <g>
+          <path d="M8 0L0 8" fill="none" stroke-width="2" stroke="#000000" stroke-linecap="round"
+            stroke-linejoin="round" transform="translate(4 4)" />
+          <path d="M0 0L8 8" fill="none" stroke-width="2" stroke="#000000" stroke-linecap="round"
+            stroke-linejoin="round" transform="translate(4 4)" />
+        </g>
+      </symbol>
 
-        <!--theme svg icon-->
-        <symbol
-          id="arrow-up-right"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <line x1="7" y1="17" x2="17" y2="7"></line>
-          <polyline points="7 7 17 7 17 17"></polyline>
-        </symbol>
-      </defs>
-    </svg>
+      <symbol id="icon-menu" viewBox="0 0 24 18.7">
+        <path
+          d="M1.33333 0C0.59696 0 0 0.59696 0 1.33333C0 2.06971 0.59696 2.66667 1.33333 2.66667C1.33333 2.66667 22.6667 2.66667 22.6667 2.66667C23.4031 2.66667 24 2.06971 24 1.33333C24 0.59696 23.4031 0 22.6667 0C22.6667 0 1.33333 0 1.33333 0ZM0 9.33334C0 8.59693 0.59696 8 1.33333 8C1.33333 8 22.6667 8 22.6667 8C23.4031 8 24 8.59693 24 9.33334C24 10.0697 23.4031 10.6667 22.6667 10.6667C22.6667 10.6667 1.33333 10.6667 1.33333 10.6667C0.59696 10.6667 0 10.0697 0 9.33334ZM0 17.3333C0 16.5969 0.59696 16 1.33333 16C1.33333 16 22.6667 16 22.6667 16C23.4031 16 24 16.5969 24 17.3333C24 18.0697 23.4031 18.6667 22.6667 18.6667C22.6667 18.6667 1.33333 18.6667 1.33333 18.6667C0.59696 18.6667 0 18.0697 0 17.3333Z"
+          fill="#000000" fill-rule="evenodd" />
+      </symbol>
 
-    <nav class="nav-popup-container">
-      <button id="close-menu-btn" class="icon-btn">
-        <svg width="24" height="18.7" fill="none">
-          <use href="#icon-close" />
-        </svg>
-      </button>
-      <div class="nav-links-container">
-        <a class="nav-link" data-id="guide" href="../guide/guide.html"
-          ><span>Guide</span>
-          <svg class="arrow-icon">
-            <use href="#arrow-up-right"></use></svg
-        ></a>
-        <a class="nav-link" data-id="practice" href="../practice/practice.html"
-          ><span>Practice</span>
-          <svg class="arrow-icon">
-            <use href="#arrow-up-right"></use></svg
-        ></a>
-        <span class="nav-link selected">About</span>
-        <a class="nav-link" data-id="credits" href="../credits/credits.html"
-          ><span>Credits</span>
-          <svg class="arrow-icon">
-            <use href="#arrow-up-right"></use></svg
-        ></a>
-        <a class="nav-link" data-id="terms" href="../terms/terms.html"
-          ><span>Terms</span>
-          <svg class="arrow-icon">
-            <use href="#arrow-up-right"></use></svg
-        ></a>
+      <!--theme svg icon-->
+      <symbol id="arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="7" y1="17" x2="17" y2="7"></line>
+        <polyline points="7 7 17 7 17 17"></polyline>
+      </symbol>
+    </defs>
+  </svg>
+
+  <nav class="nav-popup-container">
+    <button id="close-menu-btn" class="icon-btn">
+      <svg width="24" height="18.7" fill="none">
+        <use href="#icon-close" />
+      </svg>
+    </button>
+    <div class="nav-links-container">
+      <a class="nav-link" data-id="guide" href="../guide/guide.html"><span>Guide</span>
+        <svg class="arrow-icon">
+          <use href="#arrow-up-right"></use>
+        </svg></a>
+      <a class="nav-link" data-id="practice" href="../practice/practice.html"><span>Practice</span>
+        <svg class="arrow-icon">
+          <use href="#arrow-up-right"></use>
+        </svg></a>
+      <span class="nav-link selected">About</span>
+      <a class="nav-link" data-id="credits" href="../credits/credits.html"><span>Credits</span>
+        <svg class="arrow-icon">
+          <use href="#arrow-up-right"></use>
+        </svg></a>
+      <a class="nav-link" data-id="terms" href="../terms/terms.html"><span>Terms</span>
+        <svg class="arrow-icon">
+          <use href="#arrow-up-right"></use>
+        </svg></a>
+    </div>
+  </nav>
+  <nav class="page-nav">
+    <button class="icon-btn" id="menu-btn">
+      <svg width="24" height="23" fill="none">
+        <use href="#icon-menu" />
+      </svg>
+    </button>
+    <div class="nav-left">
+      <a class="nav-link" href="../guide/guide.html">Guide</a>
+      <a class="nav-link" href="../practice/practice.html">Practice</a>
+      <span class="nav-link selected">About</span>
+    </div>
+
+    <div class="nav-left">
+      <a class="nav-link" href="../credits/credits.html">Credits</a>
+      <a class="nav-link" href="../terms/terms.html">Terms</a>
+    </div>
+  </nav>
+
+  <div class="main-container">
+    <p class="hero-text">
+      <span>Mak</span>e A<span>wes</span>ome Stu<span>ff :)</span>
+    </p>
+    <div class="about_contact-container">
+      <div class="desc-container">
+        <p class="desc-text hi-text">Hi there!</p>
+        <p class="desc-text">
+          I enjoy building tools that are useful in my leisure time. If you
+          find my tools helpful, feel free to check out my GitHub link below.
+        </p>
       </div>
-    </nav>
-    <nav class="page-nav">
-      <button class="icon-btn" id="menu-btn">
-        <svg width="24" height="23" fill="none">
-          <use href="#icon-menu" />
-        </svg>
-      </button>
-      <div class="nav-left">
-        <a class="nav-link" href="../guide/guide.html">Guide</a>
-        <a class="nav-link" href="../practice/practice.html">Practice</a>
-        <span class="nav-link selected">About</span>
+      <a class="links git-btn" href="https://github.com/sgnsyn" target="_blank">Github
+      </a>
+      <div class="des-container">
+        <p class="contact-text">
+          <span class="label">Support at</span>
+          <a class="links em"
+            href="mailto:ext.spt.sgn@gmail.com?subject=Ge'ez%20on%20web%20Extension%20Support">ext.spt.sgn@gmail.com</a>
+        </p>
       </div>
+    </div>
+  </div>
 
-      <div class="nav-left">
-        <a class="nav-link" href="../credits/credits.html">Credits</a>
-        <a class="nav-link" href="../terms/terms.html">Terms</a>
-      </div>
-    </nav>
-    <script src="../utils/message-listener.js" type="module"></script>
+  <script src="../utils/message-listener.js" type="module"></script>
+  <script src="../utils/nav.js"></script>
+</body>
 
-    <script src="../utils/nav.js"></script>
-  </body>
 </html>

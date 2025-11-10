@@ -1,2 +1,127 @@
 @import url("../../util/css/main.css");
 @import url("../utils/nav.css");
+
+body {
+  color: var(--secondary-color);
+}
+
+.links {
+  font-family: Inter;
+  font-weight: bold;
+
+  font-size: 1.125rem;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition: opacity 0.2s ease-in-out;
+}
+
+.main-container {
+  display: flex;
+  margin-inline: auto;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10rem;
+  margin-block: 2rem;
+  padding-inline: 1rem;
+  width: 100%;
+  max-width: 62rem;
+}
+
+.hero-text {
+  font-family: "Inter";
+  color: var(--correct-green);
+  font-size: 5.5rem;
+  font-weight: bold;
+  max-width: 8ch;
+  text-transform: uppercase;
+  line-height: 8rem;
+}
+
+.hero-text span {
+  color: var(--secondary-color);
+}
+
+.desc-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.about_contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.5rem;
+}
+
+.des-container {
+  margin-top: 0.75rem;
+}
+
+.hi-text {
+  font-weight: bold;
+  font-family: "local source code";
+  text-transform: uppercase;
+}
+
+.desc-text,
+.contact-text {
+  font-family: "Mont";
+  font-size: 1rem;
+  text-align: justify;
+  color: var(--secondary-color);
+  max-width: 42ch;
+  line-height: 1.8125rem;
+}
+
+.contact-text {
+  font-weight: bold;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.em {
+  color: var(--accent-color);
+  font-weight: initial;
+  font-size: initial;
+  text-transform: initial;
+}
+
+.git-btn {
+  background: transparent;
+  color: var(--correct-green);
+
+  border-radius: 100vw;
+  border: 0.1875rem solid var(--correct-green);
+
+  text-align: center;
+  width: 100%;
+
+  padding: 1.5rem;
+
+  font-family: "inter";
+  font-size: 3rem;
+}
+
+.git-btn:hover {
+  opacity: 0.6;
+}
+
+.links.em {
+  color: var(--correct-green);
+  font-style: italic;
+}
+
+.links.em:hover {
+  opacity: 0.6;
+}
+
+/* Responsive */
+@media (max-width: 59.375rem) {
+  .main-container {
+    flex-direction: column;
+    width: fit-content;
+  }
+}

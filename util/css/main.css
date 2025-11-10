@@ -4,7 +4,12 @@
 }
 
 @font-face {
-  font-family: "ethiopic";
+  font-family: "Mont";
+  src: url("../../assets/fonts/Montserrat.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Ethio";
   src: url("../../assets/fonts/Noto\ Sans\ Ethiopic.ttf") format("truetype");
 }
 
