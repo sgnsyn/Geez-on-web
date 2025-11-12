@@ -79,6 +79,7 @@ nav {
 
 .main-content {
   padding: 3.875rem;
+  padding-bottom: 2rem;
 }
 
 .toggle-container {
@@ -98,37 +99,44 @@ nav {
   margin-bottom: 0;
 }
 
-.shortcut-container {
+.keyboard-mode-container {
+  margin-bottom: 1.875rem;
+}
+
+.score-container {
   margin-bottom: 2.25rem;
 }
 
-.shortcut-input-edit-container {
+.score-reset-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-.shortcut-input-container {
-  display: flex;
-  align-items: center;
   gap: 1rem;
   padding: 1rem;
-  background-color: var(--accent-gray);
   color: var(--secondary-color);
 }
 
-.shortcut-input {
-  max-width: 4ch;
-  font-weight: 500;
+.awpm-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   color: var(--secondary-color);
-  border: none;
-  text-transform: uppercase;
-  background-color: transparent;
+}
+
+#awpm {
+  font-size: 1.25rem;
 }
 
 .proper-btn {
   font-size: 0.8125rem;
   line-height: 1rem;
+}
+
+#reset-score {
+  color: var(--incorrect-red);
+  background-color: transparent;
+  border: 2px solid var(--incorrect-red);
+  font-weight: bold;
 }
 
 #activation-toggle.no-transition,

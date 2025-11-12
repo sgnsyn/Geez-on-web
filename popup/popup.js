@@ -11,6 +11,7 @@ const closeMenuBtn = document.getElementById("close-menu-btn");
 const navbar = document.querySelector(".nav-popup-container");
 const activationBtn = document.getElementById("activation-toggle");
 const themeBtn = document.getElementById("theme-btn");
+const awpmEl = document.getElementById("awpm");
 
 const backdropEl = document.querySelector(".backdrop");
 const themeContainer = document.querySelector(".theme-container");
@@ -86,7 +87,7 @@ function keyModeRadioHandler(event) {
 }
 
 async function initialization() {
-  const res = await loadData(["state", "theme", "keyboard", "shortcut"]);
+  const res = await loadData(["state", "theme", "keyboard", "shortcut", "awpm"]);
   // handle error
   applyConfigs(res);
   setTimeout(() => {
@@ -102,7 +103,7 @@ function updateSystemTheme() {
 }
 
 function applyConfigs(res) {
-  const { state, theme, keyboard, shortcut } = res;
+  const { state, theme, keyboard, shortcut, awpm } = res;
 
   // set state
   console.log(state);
@@ -132,6 +133,8 @@ function applyConfigs(res) {
       radio.setAttribute("checked", "checked");
     }
   });
+
+  awpmEl.textContent = awpm || "--";
 }
 
 function pageNavigationHanlder(event) {

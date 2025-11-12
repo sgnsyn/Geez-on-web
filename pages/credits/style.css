@@ -1,2 +1,40 @@
 @import url("../../util/css/main.css");
 @import url("../utils/nav.css");
+
+.main-content {
+  margin-top: 10dvh;
+  margin-inline: auto;
+  width: fit-content;
+  padding-inline: 5rem;
+}
+
+.credit-p {
+  max-width: 48ch;
+  font-family: Mont;
+  color: var(--secondary-color);
+  text-align: justify;
+  font-size: 1.25rem;
+  line-height: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.credit-p.second {
+  margin-bottom: 3rem;
+}
+
+.keyman-link {
+  font-size: 3.25rem;
+  font-weight: 200;
+  display: block;
+  text-transform: uppercase;
+  font-family: Inter;
+  margin-block: 3rem;
+}
+
+hr {
+  color: var(--secondary-color);
+}
+
+.keyman-link:hover {
+  opacity: 0.75;
+}

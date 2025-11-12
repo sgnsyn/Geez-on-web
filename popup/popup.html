@@ -1,223 +1,150 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="popup.css" />
-    <script src="../util/js/util.js" defer></script>
-    <script src="./popup.js" type="module" defer></script>
-  </head>
 
-  <body>
-    <!--SVG DEFINITIONS BEGIN-->
-    <svg width="0" height="0" style="display: none">
-      <defs>
-        <!--close svg icon-->
-        <symbol id="icon-close" viewBox="0 0 16 16">
-          <g>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="popup.css" />
+  <script src="../util/js/util.js" defer></script>
+  <script src="./popup.js" type="module" defer></script>
+</head>
+
+<body>
+  <!--SVG DEFINITIONS BEGIN-->
+  <svg width="0" height="0" style="display: none">
+    <defs>
+      <!--close svg icon-->
+      <symbol id="icon-close" viewBox="0 0 16 16">
+        <g>
+          <path d="M8 0L0 8" fill="none" stroke-width="2" stroke="#000000" stroke-linecap="round"
+            stroke-linejoin="round" transform="translate(4 4)" />
+          <path d="M0 0L8 8" fill="none" stroke-width="2" stroke="#000000" stroke-linecap="round"
+            stroke-linejoin="round" transform="translate(4 4)" />
+        </g>
+      </symbol>
+
+      <!--menu svg icon-->
+      <symbol id="icon-menu" viewBox="0 0 24 18.7">
+        <path
+          d="M1.33333 0C0.59696 0 0 0.59696 0 1.33333C0 2.06971 0.59696 2.66667 1.33333 2.66667C1.33333 2.66667 22.6667 2.66667 22.6667 2.66667C23.4031 2.66667 24 2.06971 24 1.33333C24 0.59696 23.4031 0 22.6667 0C22.6667 0 1.33333 0 1.33333 0ZM0 9.33334C0 8.59693 0.59696 8 1.33333 8C1.33333 8 22.6667 8 22.6667 8C23.4031 8 24 8.59693 24 9.33334C24 10.0697 23.4031 10.6667 22.6667 10.6667C22.6667 10.6667 1.33333 10.6667 1.33333 10.6667C0.59696 10.6667 0 10.0697 0 9.33334ZM0 17.3333C0 16.5969 0.59696 16 1.33333 16C1.33333 16 22.6667 16 22.6667 16C23.4031 16 24 16.5969 24 17.3333C24 18.0697 23.4031 18.6667 22.6667 18.6667C22.6667 18.6667 1.33333 18.6667 1.33333 18.6667C0.59696 18.6667 0 18.0697 0 17.3333Z"
+          fill="#000000" fill-rule="evenodd" />
+      </symbol>
+
+      <!--theme svg icon-->
+      <symbol id="icon-theme" viewBox="0 0 24 24">
+        <g>
+          <g transform="translate(1.25 1.25)">
             <path
-              d="M8 0L0 8"
-              fill="none"
-              stroke-width="2"
-              stroke="#000000"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              transform="translate(4 4)"
-            />
+              d="M12 6C12 9.3137 9.3137 12 6 12C2.68629 12 0 9.3137 0 6C0 2.68629 2.68629 0 6 0C9.3137 0 12 2.68629 12 6Z"
+              fill="#000000" fill-rule="evenodd" transform="translate(4.75 4.75)" />
             <path
-              d="M0 0L8 8"
-              fill="none"
-              stroke-width="2"
-              stroke="#000000"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              transform="translate(4 4)"
-            />
+              d="M10.75 0C11.1642 0 11.5 0.33579 11.5 0.75C11.5 0.75 11.5 1.75 11.5 1.75C11.5 2.16421 11.1642 2.5 10.75 2.5C10.3358 2.5 10 2.16421 10 1.75C10 1.75 10 0.75 10 0.75C10 0.33579 10.3358 0 10.75 0ZM3.14861 3.14861C3.4415 2.85572 3.91638 2.85572 4.20927 3.14861C4.20927 3.14861 4.60211 3.54145 4.60211 3.54145C4.895 3.83434 4.895 4.30921 4.60211 4.60211C4.30921 4.895 3.83434 4.895 3.54145 4.60211C3.54145 4.60211 3.14861 4.20927 3.14861 4.20927C2.85572 3.91638 2.85572 3.4415 3.14861 3.14861ZM18.3511 3.14887C18.644 3.44176 18.644 3.91664 18.3511 4.20953C18.3511 4.20953 17.9583 4.60237 17.9583 4.60237C17.6654 4.89526 17.1905 4.89526 16.8976 4.60237C16.6047 4.30947 16.6047 3.8346 16.8976 3.54171C16.8976 3.54171 17.2905 3.14887 17.2905 3.14887C17.5834 2.85598 18.0582 2.85598 18.3511 3.14887ZM0 10.75C0 10.3358 0.33579 10 0.75 10C0.75 10 1.75 10 1.75 10C2.16421 10 2.5 10.3358 2.5 10.75C2.5 11.1642 2.16421 11.5 1.75 11.5C1.75 11.5 0.75 11.5 0.75 11.5C0.33579 11.5 0 11.1642 0 10.75ZM19 10.75C19 10.3358 19.3358 10 19.75 10C19.75 10 20.75 10 20.75 10C21.1642 10 21.5 10.3358 21.5 10.75C21.5 11.1642 21.1642 11.5 20.75 11.5C20.75 11.5 19.75 11.5 19.75 11.5C19.3358 11.5 19 11.1642 19 10.75ZM16.8976 16.8976C17.1905 16.6047 17.6654 16.6047 17.9583 16.8976C17.9583 16.8976 18.3511 17.2905 18.3511 17.2905C18.644 17.5834 18.644 18.0582 18.3511 18.3511C18.0582 18.644 17.5834 18.644 17.2905 18.3511C17.2905 18.3511 16.8976 17.9583 16.8976 17.9583C16.6047 17.6654 16.6047 17.1905 16.8976 16.8976ZM4.60211 16.8979C4.895 17.1908 4.895 17.6657 4.60211 17.9586C4.60211 17.9586 4.20927 18.3514 4.20927 18.3514C3.91638 18.6443 3.4415 18.6443 3.14861 18.3514C2.85572 18.0585 2.85572 17.5836 3.14861 17.2907C3.14861 17.2907 3.54145 16.8979 3.54145 16.8979C3.83434 16.605 4.30921 16.605 4.60211 16.8979ZM10.75 19C11.1642 19 11.5 19.3358 11.5 19.75C11.5 19.75 11.5 20.75 11.5 20.75C11.5 21.1642 11.1642 21.5 10.75 21.5C10.3358 21.5 10 21.1642 10 20.75C10 20.75 10 19.75 10 19.75C10 19.3358 10.3358 19 10.75 19Z"
+              fill="#000000" fill-rule="evenodd" />
           </g>
-        </symbol>
+        </g>
+      </symbol>
 
-        <!--menu svg icon-->
-        <symbol id="icon-menu" viewBox="0 0 24 18.7">
-          <path
-            d="M1.33333 0C0.59696 0 0 0.59696 0 1.33333C0 2.06971 0.59696 2.66667 1.33333 2.66667C1.33333 2.66667 22.6667 2.66667 22.6667 2.66667C23.4031 2.66667 24 2.06971 24 1.33333C24 0.59696 23.4031 0 22.6667 0C22.6667 0 1.33333 0 1.33333 0ZM0 9.33334C0 8.59693 0.59696 8 1.33333 8C1.33333 8 22.6667 8 22.6667 8C23.4031 8 24 8.59693 24 9.33334C24 10.0697 23.4031 10.6667 22.6667 10.6667C22.6667 10.6667 1.33333 10.6667 1.33333 10.6667C0.59696 10.6667 0 10.0697 0 9.33334ZM0 17.3333C0 16.5969 0.59696 16 1.33333 16C1.33333 16 22.6667 16 22.6667 16C23.4031 16 24 16.5969 24 17.3333C24 18.0697 23.4031 18.6667 22.6667 18.6667C22.6667 18.6667 1.33333 18.6667 1.33333 18.6667C0.59696 18.6667 0 18.0697 0 17.3333Z"
-            fill="#000000"
-            fill-rule="evenodd"
-          />
-        </symbol>
+      <symbol id="arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="7" y1="17" x2="17" y2="7"></line>
+        <polyline points="7 7 17 7 17 17"></polyline>
+      </symbol>
+    </defs>
+  </svg>
+  <!--SVG DEFINITIONS END-->
 
-        <!--theme svg icon-->
-        <symbol id="icon-theme" viewBox="0 0 24 24">
-          <g>
-            <g transform="translate(1.25 1.25)">
-              <path
-                d="M12 6C12 9.3137 9.3137 12 6 12C2.68629 12 0 9.3137 0 6C0 2.68629 2.68629 0 6 0C9.3137 0 12 2.68629 12 6Z"
-                fill="#000000"
-                fill-rule="evenodd"
-                transform="translate(4.75 4.75)"
-              />
-              <path
-                d="M10.75 0C11.1642 0 11.5 0.33579 11.5 0.75C11.5 0.75 11.5 1.75 11.5 1.75C11.5 2.16421 11.1642 2.5 10.75 2.5C10.3358 2.5 10 2.16421 10 1.75C10 1.75 10 0.75 10 0.75C10 0.33579 10.3358 0 10.75 0ZM3.14861 3.14861C3.4415 2.85572 3.91638 2.85572 4.20927 3.14861C4.20927 3.14861 4.60211 3.54145 4.60211 3.54145C4.895 3.83434 4.895 4.30921 4.60211 4.60211C4.30921 4.895 3.83434 4.895 3.54145 4.60211C3.54145 4.60211 3.14861 4.20927 3.14861 4.20927C2.85572 3.91638 2.85572 3.4415 3.14861 3.14861ZM18.3511 3.14887C18.644 3.44176 18.644 3.91664 18.3511 4.20953C18.3511 4.20953 17.9583 4.60237 17.9583 4.60237C17.6654 4.89526 17.1905 4.89526 16.8976 4.60237C16.6047 4.30947 16.6047 3.8346 16.8976 3.54171C16.8976 3.54171 17.2905 3.14887 17.2905 3.14887C17.5834 2.85598 18.0582 2.85598 18.3511 3.14887ZM0 10.75C0 10.3358 0.33579 10 0.75 10C0.75 10 1.75 10 1.75 10C2.16421 10 2.5 10.3358 2.5 10.75C2.5 11.1642 2.16421 11.5 1.75 11.5C1.75 11.5 0.75 11.5 0.75 11.5C0.33579 11.5 0 11.1642 0 10.75ZM19 10.75C19 10.3358 19.3358 10 19.75 10C19.75 10 20.75 10 20.75 10C21.1642 10 21.5 10.3358 21.5 10.75C21.5 11.1642 21.1642 11.5 20.75 11.5C20.75 11.5 19.75 11.5 19.75 11.5C19.3358 11.5 19 11.1642 19 10.75ZM16.8976 16.8976C17.1905 16.6047 17.6654 16.6047 17.9583 16.8976C17.9583 16.8976 18.3511 17.2905 18.3511 17.2905C18.644 17.5834 18.644 18.0582 18.3511 18.3511C18.0582 18.644 17.5834 18.644 17.2905 18.3511C17.2905 18.3511 16.8976 17.9583 16.8976 17.9583C16.6047 17.6654 16.6047 17.1905 16.8976 16.8976ZM4.60211 16.8979C4.895 17.1908 4.895 17.6657 4.60211 17.9586C4.60211 17.9586 4.20927 18.3514 4.20927 18.3514C3.91638 18.6443 3.4415 18.6443 3.14861 18.3514C2.85572 18.0585 2.85572 17.5836 3.14861 17.2907C3.14861 17.2907 3.54145 16.8979 3.54145 16.8979C3.83434 16.605 4.30921 16.605 4.60211 16.8979ZM10.75 19C11.1642 19 11.5 19.3358 11.5 19.75C11.5 19.75 11.5 20.75 11.5 20.75C11.5 21.1642 11.1642 21.5 10.75 21.5C10.3358 21.5 10 21.1642 10 20.75C10 20.75 10 19.75 10 19.75C10 19.3358 10.3358 19 10.75 19Z"
-                fill="#000000"
-                fill-rule="evenodd"
-              />
-            </g>
-          </g>
-        </symbol>
+  <div class="backdrop deactive"></div>
+  <div class="nav-popup-container">
+    <button id="close-menu-btn" class="icon-btn">
+      <svg width="24" height="18.7" fill="none">
+        <use href="#icon-close" />
+      </svg>
+    </button>
+    <div class="nav-links-container">
+      <a class="nav-link" data-id="guide" href="#"><span>Guide</span>
+        <svg class="arrow-icon">
+          <use href="#arrow-up-right"></use>
+        </svg></a>
+      <a class="nav-link" data-id="practice" href="#"><span>Practice</span>
+        <svg class="arrow-icon">
+          <use href="#arrow-up-right"></use>
+        </svg></a>
+      <a class="nav-link" data-id="about" href="#"><span>About</span>
+        <svg class="arrow-icon">
+          <use href="#arrow-up-right"></use>
+        </svg></a>
+      <a class="nav-link" data-id="credits" href="#"><span>Credits</span>
+        <svg class="arrow-icon">
+          <use href="#arrow-up-right"></use>
+        </svg></a>
+      <a class="nav-link" data-id="terms" href="#"><span>Terms and Conditions</span>
+        <svg class="arrow-icon">
+          <use href="#arrow-up-right"></use>
+        </svg></a>
+    </div>
+  </div>
+  <div class="theme-container disabled">
+    <div class="theme-radio-container">
+      <input type="radio" name="theme-mode" id="theme-opt-2" data-value="light" />
+      <label for="theme-opt-2">Light Mode</label>
+    </div>
+    <div class="theme-radio-container">
+      <input type="radio" name="theme-mode" id="theme-opt-1" data-value="dark" />
+      <label for="theme-opt-1">Dark Mode</label>
+    </div>
+    <div class="theme-radio-container">
+      <input type="radio" name="theme-mode" id="theme-opt-3" data-value="system" checked />
+      <label for="theme-opt-3">Same a System</label>
+    </div>
+  </div>
+  <nav>
+    <button class="icon-btn" id="menu-btn">
+      <svg width="24" height="23" fill="none">
+        <use href="#icon-menu" />
+      </svg>
+    </button>
+    <button id="theme-btn" class="icon-btn">
+      <svg width="24" height="24" fill="none">
+        <use href="#icon-theme" />
+      </svg>
+    </button>
+  </nav>
+  <div class="main-content">
+    <div class="toggle-container">
+      <p class="toggle-label label">Activate Keyboard</p>
+      <button class="toggle-btn no-transition" id="activation-toggle"></button>
+    </div>
 
-        <symbol
-          id="arrow-up-right"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <line x1="7" y1="17" x2="17" y2="7"></line>
-          <polyline points="7 7 17 7 17 17"></polyline>
-        </symbol>
-      </defs>
-    </svg>
-    <!--SVG DEFINITIONS END-->
-
-    <div class="nav-popup-container">
-      <button id="close-menu-btn" class="icon-btn">
-        <svg width="24" height="18.7" fill="none">
-          <use href="#icon-close" />
-        </svg>
-      </button>
-      <div class="nav-links-container">
-        <a class="nav-link" data-id="guide" href="#"
-          ><span>Guide</span>
-          <svg class="arrow-icon">
-            <use href="#arrow-up-right"></use></svg
-        ></a>
-        <a class="nav-link" data-id="practice" href="#"
-          ><span>Practice</span>
-          <svg class="arrow-icon">
-            <use href="#arrow-up-right"></use></svg
-        ></a>
-        <a class="nav-link" data-id="about" href="#"
-          ><span>About</span>
-          <svg class="arrow-icon">
-            <use href="#arrow-up-right"></use></svg
-        ></a>
-        <a class="nav-link" data-id="credits" href="#"
-          ><span>Credits</span>
-          <svg class="arrow-icon">
-            <use href="#arrow-up-right"></use></svg
-        ></a>
-        <a class="nav-link" data-id="terms" href="#"
-          ><span>Terms and Conditions</span>
-          <svg class="arrow-icon">
-            <use href="#arrow-up-right"></use></svg
-        ></a>
+    <div class="keyboard-mode-container">
+      <p class="mode-label label">Keyboard Mode</p>
+      <div class="mode-radio-container">
+        <input id="keyboard-opt-1" type="radio" name="keyboard-mode" data-value="GA" checked />
+        <label for="keyboard-opt-1">GFF Amharic</label>
+      </div>
+      <div class="mode-radio-container">
+        <input id="keyboard-opt-2" type="radio" name="keyboard-mode" data-value="GE" />
+        <label for="keyboard-opt-2">GFF Ethiopic</label>
+      </div>
+      <div class="mode-radio-container">
+        <input id="keyboard-opt-3" type="radio" name="keyboard-mode" data-value="SE" />
+        <label for="keyboard-opt-3">SIL Ethiopic</label>
+      </div>
+      <div class="mode-radio-container">
+        <input id="keyboard-opt-4" type="radio" name="keyboard-mode" data-value="SEP" />
+        <label for="keyboard-opt-4">SIL Ethiopic Power-G</label>
       </div>
     </div>
-    <div class="backdrop deactive"></div>
-    <div class="theme-container disabled">
-      <div class="theme-radio-container">
-        <input
-          type="radio"
-          name="theme-mode"
-          id="theme-opt-2"
-          data-value="light"
-        />
-        <label for="theme-opt-2">Light Mode</label>
-      </div>
-      <div class="theme-radio-container">
-        <input
-          type="radio"
-          name="theme-mode"
-          id="theme-opt-1"
-          data-value="dark"
-        />
-        <label for="theme-opt-1">Dark Mode</label>
-      </div>
-      <div class="theme-radio-container">
-        <input
-          type="radio"
-          name="theme-mode"
-          id="theme-opt-3"
-          data-value="system"
-          checked
-        />
-        <label for="theme-opt-3">Same a System</label>
+
+    <div class="score-container">
+      <p class="score-label label">Global Score</p>
+      <div class="score-reset-container">
+        <div class="awpm-wrapper item-wrapper">
+          <p id="awpm" class="awpm top-item">--</p>
+          <p class="awpm bottom-item">AVG WPM</p>
+        </div>
+        <button class="proper-btn" id="reset-score">Reset</button>
       </div>
     </div>
-    <nav>
-      <button class="icon-btn" id="menu-btn">
-        <svg width="24" height="23" fill="none">
-          <use href="#icon-menu" />
-        </svg>
-      </button>
-      <button id="theme-btn" class="icon-btn">
-        <svg width="24" height="24" fill="none">
-          <use href="#icon-theme" />
-        </svg>
-      </button>
-    </nav>
-    <div class="main-content">
-      <div class="toggle-container">
-        <p class="toggle-label label">Activate Keyboard</p>
-        <button
-          class="toggle-btn no-transition"
-          id="activation-toggle"
-        ></button>
-      </div>
+</body>
 
-      <div class="shortcut-container">
-        <p class="shortcut-label label">Activation Shortcut</p>
-        <div class="shortcut-input-edit-container">
-          <div class="shortcut-input-container">
-            <input class="shortcut-input" type="text" value="CTRL" disabled />
-            <span> + </span>
-            <input class="shortcut-input" type="text" value="X" disabled />
-          </div>
-          <button class="proper-btn" id="edit-shortcut">Edit</button>
-        </div>
-      </div>
-
-      <div class="keyboard-mode-container">
-        <p class="mode-label label">Keyboard Mode</p>
-        <div class="mode-radio-container">
-          <input
-            id="keyboard-opt-1"
-            type="radio"
-            name="keyboard-mode"
-            data-value="GA"
-            checked
-          />
-          <label for="keyboard-opt-1">GFF Amharic</label>
-        </div>
-        <div class="mode-radio-container">
-          <input
-            id="keyboard-opt-2"
-            type="radio"
-            name="keyboard-mode"
-            data-value="GE"
-          />
-          <label for="keyboard-opt-2">GFF Ethiopic</label>
-        </div>
-        <div class="mode-radio-container">
-          <input
-            id="keyboard-opt-3"
-            type="radio"
-            name="keyboard-mode"
-            data-value="SE"
-          />
-          <label for="keyboard-opt-3">SIL Ethiopic</label>
-        </div>
-        <div class="mode-radio-container">
-          <input
-            id="keyboard-opt-4"
-            type="radio"
-            name="keyboard-mode"
-            data-value="SEP"
-          />
-          <label for="keyboard-opt-4">SIL Ethiopic Power-G</label>
-        </div>
-      </div>
-    </div>
-  </body>
 </html>
