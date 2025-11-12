@@ -19,6 +19,12 @@ const themeContainer = document.querySelector(".theme-container");
 const themeRadios = document.querySelectorAll(`input[name="theme-mode"]`);
 const keyModeRadios = document.querySelectorAll(`input[name="keyboard-mode"]`);
 const navLinks = document.querySelectorAll(".nav-link");
+const resetScoreBtn = document.getElementById("reset-score");
+const resetConfirmContainer = document.querySelector(
+  ".reset-confirm-container",
+);
+const cancelResetBtn = document.getElementById("cancel-reset-btn");
+const confirmResetBtn = document.getElementById("confirm-reset-btn");
 
 /***********************FUNCTIONS****************************/
 function menuBtnHandler() {
@@ -37,6 +43,23 @@ function openThemePopup() {
 function closeThemePopup() {
   backdropEl.classList.add("deactive");
   themeContainer.classList.add("disabled");
+}
+
+function openResetPopup() {
+  backdropEl.classList.remove("deactive");
+  resetConfirmContainer.classList.remove("disabled");
+}
+
+function closeResetPopup() {
+  backdropEl.classList.add("deactive");
+  resetConfirmContainer.classList.add("disabled");
+}
+
+function handleReset() {
+  saveData({ awpm: null, practices: null });
+  awpmEl.textContent = "--";
+  resetScoreBtn.disabled = true;
+  closeResetPopup();
 }
 
 function closeWithoutAnimation() {
@@ -87,7 +110,7 @@ function keyModeRadioHandler(event) {
 }
 
 async function initialization() {
-  const res = await loadData(["state", "theme", "keyboard", "shortcut", "awpm"]);
+  const res = await loadData(["state", "theme", "keyboard", "awpm"]);
   // handle error
   applyConfigs(res);
   setTimeout(() => {
@@ -103,7 +126,7 @@ function updateSystemTheme() {
 }
 
 function applyConfigs(res) {
-  const { state, theme, keyboard, shortcut, awpm } = res;
+  const { state, theme, keyboard, awpm } = res;
 
   // set state
   console.log(state);
@@ -135,6 +158,11 @@ function applyConfigs(res) {
   });
 
   awpmEl.textContent = awpm || "--";
+  if (awpmEl.textContent === "--") {
+    resetScoreBtn.disabled = true;
+  } else {
+    resetScoreBtn.disabled = false;
+  }
 }
 
 function pageNavigationHanlder(event) {
@@ -162,7 +190,10 @@ activationBtn.addEventListener("click", activationHandler);
 mediaQuery.addEventListener("change", updateSystemTheme);
 
 themeBtn.addEventListener("click", openThemePopup);
-backdropEl.addEventListener("click", closeThemePopup);
+backdropEl.addEventListener("click", () => {
+  closeThemePopup();
+  closeResetPopup();
+});
 
 themeRadios.forEach((radio) => {
   radio.addEventListener("change", themeRadioHandler);
@@ -174,3 +205,7 @@ keyModeRadios.forEach((radio) => {
 navLinks.forEach((link) => {
   link.addEventListener("click", pageNavigationHanlder);
 });
+
+resetScoreBtn.addEventListener("click", openResetPopup);
+cancelResetBtn.addEventListener("click", closeResetPopup);
+confirmResetBtn.addEventListener("click", handleReset);

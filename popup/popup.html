@@ -117,21 +117,23 @@
 
     <div class="keyboard-mode-container">
       <p class="mode-label label">Keyboard Mode</p>
-      <div class="mode-radio-container">
-        <input id="keyboard-opt-1" type="radio" name="keyboard-mode" data-value="GA" checked />
-        <label for="keyboard-opt-1">GFF Amharic</label>
-      </div>
-      <div class="mode-radio-container">
-        <input id="keyboard-opt-2" type="radio" name="keyboard-mode" data-value="GE" />
-        <label for="keyboard-opt-2">GFF Ethiopic</label>
-      </div>
-      <div class="mode-radio-container">
-        <input id="keyboard-opt-3" type="radio" name="keyboard-mode" data-value="SE" />
-        <label for="keyboard-opt-3">SIL Ethiopic</label>
-      </div>
-      <div class="mode-radio-container">
-        <input id="keyboard-opt-4" type="radio" name="keyboard-mode" data-value="SEP" />
-        <label for="keyboard-opt-4">SIL Ethiopic Power-G</label>
+      <div class="radio-mode-container">
+        <div class="mode-radio-container">
+          <input id="keyboard-opt-1" type="radio" name="keyboard-mode" data-value="GA" checked />
+          <label for="keyboard-opt-1">GFF Amharic</label>
+        </div>
+        <div class="mode-radio-container">
+          <input id="keyboard-opt-2" type="radio" name="keyboard-mode" data-value="GE" />
+          <label for="keyboard-opt-2">GFF Ethiopic</label>
+        </div>
+        <div class="mode-radio-container">
+          <input id="keyboard-opt-3" type="radio" name="keyboard-mode" data-value="SE" />
+          <label for="keyboard-opt-3">SIL Ethiopic</label>
+        </div>
+        <div class="mode-radio-container">
+          <input id="keyboard-opt-4" type="radio" name="keyboard-mode" data-value="SEP" />
+          <label for="keyboard-opt-4">SIL Ethiopic Power-G</label>
+        </div>
       </div>
     </div>
 
@@ -145,6 +147,17 @@
         <button class="proper-btn" id="reset-score">Reset</button>
       </div>
     </div>
+  </div>
+  <div class="reset-confirm-container disabled">
+    <p class="reset-confirm-text">
+      This will reset your average wpm and number of practices.
+    </p>
+    <p class="reset-confirm-text">Do you want to continue?</p>
+    <div class="reset-confirm-buttons">
+      <button id="cancel-reset-btn" class="proper-btn">Cancel</button>
+      <button id="confirm-reset-btn" class="proper-btn">Reset</button>
+    </div>
+  </div>
 </body>
 
 </html>

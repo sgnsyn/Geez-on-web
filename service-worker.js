@@ -4,10 +4,6 @@ const initialConfigs = {
   state: true,
   theme: "system",
   keyboard: "GA",
-  shortcut: {
-    mainKey: "CTRL",
-    secondaryKey: "x",
-  },
 };
 
 async function initialization() {
