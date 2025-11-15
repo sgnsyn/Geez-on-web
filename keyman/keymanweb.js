@@ -1,6 +1,5 @@
 
 "use strict";
-try {
   (() => {
     var Dl = Object.create;
     var Qn = Object.defineProperty,
@@ -6664,27 +6663,7 @@ font-weight:normal;
           (this._hardKeyboard = t),
           t.on("keyevent", this.keyEventListener);
       }
-      get osk() {
-        return this._osk;
-      }
-      set osk(t) {
-        var e;
-        this._osk &&
-          (this._osk.off("keyevent", this.keyEventListener),
-            (this.core.keyboardProcessor.layerStore.handler =
-              this.osk.layerChangeHandler)),
-          (this._osk = t),
-          (this.core.keyboardProcessor.contextDevice =
-            (e = t == null ? void 0 : t.targetDevice) != null
-              ? e
-              : this.config.softDevice),
-          t &&
-          (this.contextManager.activeKeyboard &&
-            (t.activeKeyboard = this.contextManager.activeKeyboard),
-            t.on("keyevent", this.keyEventListener),
-            (this.core.keyboardProcessor.layerStore.handler =
-              t.layerChangeHandler));
-      }
+
       getDebugInfo() {
         var n, i, s, c, l, r, B, d, g, Q, F, y, u, I;
         let t = (n = this.contextManager) == null ? void 0 : n.activeKeyboard;
@@ -17854,8 +17833,7 @@ font-family:` +
           )),
           this.contextManager.on("targetchange", (s) => {
             let c = s == null ? void 0 : s.getElement();
-            this.osk && (this.osk.activationModel.activationTrigger = c),
-              this.config.hostDevice.touchable &&
+            this.config.hostDevice.touchable &&
               s &&
               this.ensureElementVisibility(c);
           });
@@ -17915,10 +17893,7 @@ font-family:` +
             ),
             this.contextManager.initialize();
           let c = this.contextManager.getSavedKeyboardRaw();
-          // Removed OSK instantiation and listener setup:
-          // i.touchable ? (this.osk = new kn(this)) : (this.osk = new Nn(this)),
-          // Ml(this, this.osk, this.contextManager),
-          this.osk = null; // Explicitly set to null to avoid undefined errors
+          
           (this.pageIntegration = new fi(window, this)),
             this.config.finalizeInit(),
             this.ui &&
@@ -18113,8 +18088,4 @@ font-family:` +
       _r = wl.substr(0, wl.lastIndexOf("/") + 1);
     window.keyman = new xt(kt.constructInstance(), _r);
   })();
-} catch (err) {
-  console.log("keyman don't work on this page");
-  ``;
-}
 //# sourceMappingURL=keymanweb.js.map

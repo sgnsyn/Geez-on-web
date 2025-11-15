@@ -1,9 +1,15 @@
 {
   "name": "Ge'ez on Web",
   "version": "1.0.0",
-  "description": "Ge'ez on Web lets you type Ge'ez characters on any webpage and practice typing Ge'ez completely offline.",
   "manifest_version": 3,
+  "description": "Ge'ez on Web lets you type Ge'ez characters on any webpage and practice typing Ge'ez completely offline.",
 
+  "icons": {
+    "16": "./assets/ext-icons/en_16.png",
+    "32": "./assets/ext-icons/en_32.png",
+    "48": "./assets/ext-icons/en_48.png",
+    "128": "./assets/ext-icons/en_128.png"
+  },
   "action": {
     "default_popup": "./popup/popup.html"
   },

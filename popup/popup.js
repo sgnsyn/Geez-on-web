@@ -81,7 +81,7 @@ async function activationHandler() {
   }
 
   saveData({ state });
-  sendMessage({ for: "content_script", data: state });
+  attachHandler(state);
 }
 
 function themeRadioHandler(event) {
@@ -129,12 +129,12 @@ function applyConfigs(res) {
   const { state, theme, keyboard, awpm } = res;
 
   // set state
-  console.log(state);
   if (state) {
     activationBtn.classList.add("on");
   } else {
     activationBtn.classList.remove("on");
   }
+  attachHandler(state);
 
   // set theme
   THEME_MODE = theme;
@@ -180,6 +180,22 @@ function pageNavigationHanlder(event) {
 
   const url = urls[id];
   chrome.tabs.create({ url: chrome.runtime.getURL(url) });
+}
+
+function attachHandler(state) {
+  let text = "dis";
+  if (state) {
+    text = "en";
+  }
+  chrome.action.setIcon({
+    path: {
+      16: `/assets/ext-icons/${text}_16.png`,
+      32: `/assets/ext-icons/${text}_32.png`,
+      48: `/assets/ext-icons/${text}_48.png`,
+      128: `/assets/ext-icons/${text}_128.png`,
+    },
+  });
+  sendMessage({ for: "content_script", data: state });
 }
 
 /***********************EVENT LISTERNERS****************************/
