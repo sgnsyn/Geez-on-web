@@ -1,4 +1,4 @@
-import { keymanInit, updateKeyboard } from "./keyman.js";
+import { keymanInit } from "./keyman.js";
 import {
   calculateWPM,
   calculateRawWPM,
@@ -28,6 +28,7 @@ let timerInterval = null;
 let isTyping = false;
 let startTime = null;
 let statsInterval = null;
+let keyboard = "";
 const TOTAL_SECONDS = 120;
 
 // Fetch texts for typing practice
@@ -35,7 +36,7 @@ async function getTexts() {
   try {
     const res = await fetch("../../quotes.json");
     const data = await res.json();
-    return data.long;
+    return data;
   } catch (error) {
     console.error("Failed to load texts:", error);
   }
@@ -142,13 +143,20 @@ async function init() {
   currentText = texts[Math.floor(Math.random() * texts.length)];
 
   // Initialize modules
-  const initialKey = initKeyboardPopup();
-  keymanInit(initialKey);
 
   initTypingSession(currentText, onTypingComplete);
 
-  const data = await loadData(["theme", "awpm", "practices"]);
-  let { awpm, practices } = data;
+  const data = await loadData(["awpm", "practices", "pracitceKeyboard"]);
+  let { awpm, practices, pracitceKeyboard } = data;
+
+  if (pracitceKeyboard == undefined) {
+    pracitceKeyboard = "GA";
+    saveData({ pracitceKeyboard });
+  }
+
+  initKeyboardPopup(pracitceKeyboard);
+  const initialKey = pracitceKeyboard;
+  keymanInit(initialKey);
 
   practiseEl.textContent = practices || "-";
   awpmElement.textContent = awpm || "--";

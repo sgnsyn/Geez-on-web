@@ -199,6 +199,10 @@ body {
   margin-bottom: 2rem;
 }
 
+#text-display {
+  min-height: 7.25rem;
+}
+
 .text-display .correct {
   color: var(--correct-green);
 }
@@ -210,6 +214,10 @@ body {
 
 .text-display .pending {
   color: var(--pending-yellow);
+}
+
+.text-display .confused {
+  color: var(--confused-blue);
 }
 
 @keyframes appear {

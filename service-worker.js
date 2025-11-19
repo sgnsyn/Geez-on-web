@@ -4,6 +4,7 @@ const initialConfigs = {
   state: true,
   theme: "system",
   keyboard: "GA",
+  pracitceKeyboard: "GA",
 };
 
 async function initialization() {

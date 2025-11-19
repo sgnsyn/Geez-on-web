@@ -17,6 +17,7 @@ function applyTheme(mode) {
     root.style.setProperty("--correct-green", "var(--dark-success)");
     root.style.setProperty("--pending-yellow", "var(--dark-warning)");
     root.style.setProperty("--incorrect-red", "var(--dark-danger)");
+    root.style.setProperty("--confused-blue", "var(--dark-confused)");
   } else {
     root.style.setProperty("--primary-color", "var(--color-white)");
     root.style.setProperty("--secondary-color", "var(--color-black)");
@@ -26,6 +27,7 @@ function applyTheme(mode) {
     root.style.setProperty("--correct-green", "var(--light-success)");
     root.style.setProperty("--pending-yellow", "var(--light-warning)");
     root.style.setProperty("--incorrect-red", "var(--light-danger)");
+    root.style.setProperty("--confused-blue", "var(--light-confused)");
   }
 }
 function getSystemTheme() {

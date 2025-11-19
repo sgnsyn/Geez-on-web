@@ -1,3 +1,5 @@
+// import { loadData } from "../util/js/local-storage.js";
+
 const languages = [
   {
     name: "Amharic",
@@ -38,11 +40,15 @@ const keyboards = {
 };
 
 let currentKeyboard = keyboards.GA;
+// let savedKey = loadData([" keyboard"]);
+
+// if (savedKey != undefined) {
+//   currentKeyboard = savedKey;
+// }
 
 function init() {
   keyman.init({ attachType: "auto" }).then(() => {
     keyman.addKeyboards(currentKeyboard);
-    console.log("keyboard added successfully");
   });
 }
 

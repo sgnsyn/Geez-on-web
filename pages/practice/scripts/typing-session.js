@@ -8,10 +8,10 @@ let onTypingCompleteCallback = null;
 let text = "";
 
 function handleInput() {
-  const spans = textDisplay.querySelectorAll("span");
-
   const inputValue = typingInput.value;
   const inputLength = inputValue.length;
+
+  const spans = textDisplay.querySelectorAll("span");
 
   if (inputLength === 0) {
     for (const span of spans) {
@@ -36,11 +36,19 @@ function handleInput() {
 
   for (let i = 0; i < index; i++) {
     const prevSpan = spans[i];
-    prevSpan.classList.remove("correct", "incorrect", "pending");
+    prevSpan.classList.remove("correct", "incorrect", "pending", "confused");
     if (prevSpan.textContent === inputValue[i]) {
       prevSpan.classList.add("correct");
     } else {
       prevSpan.classList.add("incorrect");
+
+      if (prevSpan.dataset.wrongVisit === "na") {
+        prevSpan.dataset.wrongVisit = 1;
+      } else {
+        let wrongVisit = parseInt(prevSpan.dataset.wrongVisit);
+        wrongVisit++;
+        prevSpan.dataset.wrongVisit = wrongVisit;
+      }
     }
   }
   if (index < 0) {
@@ -53,8 +61,16 @@ function handleInput() {
   const prevSpan = spans[index - 1];
   if (prevSpan) {
     if (!prevSpan.classList.contains("correct")) {
-      prevSpan.classList.remove("correct", "incorrect", "pending");
+      prevSpan.classList.remove("correct", "incorrect", "pending", "confused");
       prevSpan.classList.add("incorrect");
+
+      if (prevSpan.dataset.wrongVisit === "na") {
+        prevSpan.dataset.wrongVisit = 1;
+      } else {
+        let wrongVisit = parseInt(prevSpan.dataset.wrongVisit);
+        wrongVisit++;
+        prevSpan.dataset.wrongVisit = wrongVisit;
+      }
     }
   }
 
@@ -63,17 +79,17 @@ function handleInput() {
     if (!nextSpan) {
       continue;
     }
-    nextSpan.classList.remove("correct", "incorrect", "pending");
+    nextSpan.classList.remove("correct", "incorrect", "pending", "confused");
   }
 
   if (charIn === charText) {
-    span.classList.remove("correct", "incorrect", "pending");
+    span.classList.remove("correct", "incorrect", "pending", "confused");
     span.classList.add("correct");
     if (span.dataset.wrongVisit === "na") {
       span.dataset.wrongVisit = 0;
     }
   } else if (charIn === " " || charText == " ") {
-    span.classList.remove("correct", "incorrect", "pending");
+    span.classList.remove("correct", "incorrect", "pending", "confused");
     span.classList.add("incorrect");
 
     if (span.dataset.wrongVisit === "na") {
@@ -84,11 +100,14 @@ function handleInput() {
       span.dataset.wrongVisit = wrongVisit;
     }
   } else if (romanIn && romanText && romanText.startsWith(romanIn)) {
-    span.classList.remove("correct", "incorrect", "pending");
+    span.classList.remove("correct", "incorrect", "pending", "confused");
     span.classList.add("pending");
+  } else if (romanIn == undefined || romanText == undefined) {
+    span.classList.remove("correct", "incorrect", "pending", "confused");
+    span.classList.add("confused");
   } else {
     if (span) {
-      span.classList.remove("correct", "incorrect", "pending");
+      span.classList.remove("correct", "incorrect", "pending", "confused");
       span.classList.add("incorrect");
 
       if (span.dataset.wrongVisit === "na") {

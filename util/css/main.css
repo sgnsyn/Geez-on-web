@@ -26,10 +26,12 @@
   --dark-success: #00d68f;
   --dark-warning: #ffd166;
   --dark-danger: #ff4b4b;
+  --dark-confused: #66b3ff;
 
   --light-success: #007a52;
   --light-warning: #a66b00;
   --light-danger: #b00020;
+  --light-confused: #0057a3;
 
   /* setting theme to light mode*/
   --primary-color: var(--color-white);
@@ -40,6 +42,7 @@
   --correct-green: var(--light-success);
   --pending-yellow: var(--light-warning);
   --incorrect-red: var(--light-danger);
+  --confused-blue: var(--light-confused);
 }
 
 *,
@@ -180,5 +183,6 @@ label,
     --correct-green: var(--dark-success);
     --pending-yellow: var(--dark-warning);
     --incorrect-red: var(--dark-danger);
+    --confused-blue: var(--dark-confused);
   }
 }

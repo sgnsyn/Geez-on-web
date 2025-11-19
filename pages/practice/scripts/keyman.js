@@ -53,7 +53,6 @@ export function keymanInit(key) {
   keyman.init({ attachType: "auto" }).then(() => {
     currentKeyboard = keyboards[key];
     keyman.addKeyboards(keyboards[key]);
-    console.log("keyboard added successfully");
   });
 }
 
@@ -61,5 +60,4 @@ export function updateKeyboard(key) {
   keyman.removeKeyboards(currentKeyboard.id);
   currentKeyboard = keyboards[key];
   keyman.addKeyboards(keyboards[key]);
-  console.log("keyboard changed");
 }
