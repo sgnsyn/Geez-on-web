@@ -10,6 +10,12 @@ let text = "";
 function handleInput() {
   const inputValue = typingInput.value;
   const inputLength = inputValue.length;
+  const textLength = text.length;
+
+  if (inputLength > textLength) {
+    onTypingCompleteCallback();
+    return;
+  }
 
   const spans = textDisplay.querySelectorAll("span");
 
@@ -20,7 +26,6 @@ function handleInput() {
     }
     return;
   }
-  const textLength = text.length;
 
   const keyboard = getCurrentKeyboard();
 
@@ -53,9 +58,6 @@ function handleInput() {
   }
   if (index < 0) {
     return;
-  }
-  if (index >= textLength) {
-    onTypingCompleteCallback();
   }
 
   const prevSpan = spans[index - 1];

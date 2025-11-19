@@ -104,7 +104,7 @@ async function onTypingComplete() {
 }
 
 function handleTyping() {
-  if (!isTyping) {
+  if (!isTyping && typingInput.value.length > 0) {
     isTyping = true;
     startTime = new Date().getTime();
     timerInterval = startTimer(
