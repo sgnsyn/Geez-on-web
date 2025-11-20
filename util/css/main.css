@@ -22,27 +22,16 @@
   --color-light-gray: #f4f4f5;
   --color-dark-gray: #191919;
 
-  /* typing text color */
-  --dark-success: #00d68f;
-  --dark-warning: #ffd166;
-  --dark-danger: #ff4b4b;
-  --dark-confused: #66b3ff;
-
-  --light-success: #007a52;
-  --light-warning: #a66b00;
-  --light-danger: #b00020;
-  --light-confused: #0057a3;
-
   /* setting theme to light mode*/
   --primary-color: var(--color-white);
   --secondary-color: var(--color-black);
   --off-gray: var(--off-color-light);
   --accent-gray: var(--color-light-gray);
 
-  --correct-green: var(--light-success);
-  --pending-yellow: var(--light-warning);
-  --incorrect-red: var(--light-danger);
-  --confused-blue: var(--light-confused);
+  --correct-green: #00d68f;
+  --pending-yellow: #ffd166;
+  --incorrect-red: #ff4b4b;
+  --confused-blue: #b366ff;
 }
 
 *,
@@ -133,11 +122,15 @@ body {
   border-radius: 0.375rem;
   background-color: var(--secondary-color);
   color: var(--primary-color);
-  transition: outline 0.2s ease-in-out;
+  transition:
+    outline 0.2s ease-in-out,
+    outline-offset 0.2s eas-in-out;
 }
 
-.proper-btn:hover {
-  outline: 1px solid var(--secondary-color);
+.proper-btn:hover,
+.proper-btn:focus {
+  outline: 2px solid var(--secondary-color);
+  outline-offset: 2px;
 }
 
 /*Proper BTN End*/
@@ -179,10 +172,5 @@ label,
     --secondary-color: var(--color-white);
     --off-gray: var(--off-color-dark);
     --accent-gray: var(--color-dark-gray);
-
-    --correct-green: var(--dark-success);
-    --pending-yellow: var(--dark-warning);
-    --incorrect-red: var(--dark-danger);
-    --confused-blue: var(--dark-confused);
   }
 }

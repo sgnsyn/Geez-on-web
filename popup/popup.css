@@ -138,17 +138,6 @@ nav {
   line-height: 1rem;
 }
 
-#reset-score {
-  color: var(--incorrect-red);
-  background-color: transparent;
-  border: 2px solid var(--incorrect-red);
-  font-weight: bold;
-}
-
-#reset-score:hover {
-  outline-color: var(--incorrect-red);
-}
-
 #reset-score:disabled {
   cursor: initial;
   opacity: 0.6;
@@ -206,6 +195,11 @@ nav {
   color: var(--primary-color);
   border: none;
   font-weight: bold;
+}
+
+#confirm-reset-btn:hover,
+#confirm-reset-btn:focus {
+  outline-color: var(--incorrect-red);
 }
 
 #activation-toggle.no-transition,

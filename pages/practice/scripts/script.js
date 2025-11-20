@@ -3,7 +3,6 @@ import {
   calculateWPM,
   calculateRawWPM,
   startTimer,
-  timeStrToSecond,
   calculateAccuracy,
 } from "./typing.js";
 import { initKeyboardPopup } from "./ui.js";
@@ -28,7 +27,6 @@ let timerInterval = null;
 let isTyping = false;
 let startTime = null;
 let statsInterval = null;
-let keyboard = "";
 const TOTAL_SECONDS = 120;
 
 // Fetch texts for typing practice
@@ -74,9 +72,7 @@ async function onTypingComplete() {
     clearInterval(statsInterval);
   }
 
-  const data = await loadData(["awpm", "practices"]);
-  let practices = data?.practices || 0;
-  let awpm = data?.awpm || 0;
+  let { practices, awpm } = await loadData(["awpm", "practices"]);
 
   let wpm = 0;
   try {
@@ -149,11 +145,6 @@ async function init() {
   const data = await loadData(["awpm", "practices", "pracitceKeyboard"]);
   let { awpm, practices, pracitceKeyboard } = data;
 
-  if (pracitceKeyboard == undefined) {
-    pracitceKeyboard = "GA";
-    saveData({ pracitceKeyboard });
-  }
-
   initKeyboardPopup(pracitceKeyboard);
   const initialKey = pracitceKeyboard;
   keymanInit(initialKey);
@@ -167,6 +158,4 @@ async function init() {
 // Event Listeners
 resetBtn.addEventListener("click", init);
 typingInput.addEventListener("input", handleTyping);
-
-// Initial load
-init();
+window.addEventListener("load", init);

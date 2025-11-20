@@ -39,13 +39,6 @@ export function startTimer(updateDisplay, TOTAL_SECONDS, onComplete) {
   return intervalId;
 }
 
-export function timeStrToSecond(str) {
-  const [minStr, secStr] = str.split(":");
-  const min = parseInt(minStr.trim()) || 0;
-  const sec = parseInt(secStr.trim()) || 0;
-  return min * 60 + sec;
-}
-
 export function calculateAccuracy(textDisplay) {
   const spans = textDisplay.querySelectorAll("span");
   let totalWeight = 0;

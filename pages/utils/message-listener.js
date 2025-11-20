@@ -9,8 +9,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
 async function setThemeOnload() {
   const { theme } = await loadData(["theme"]);
-  if (theme) {
-    applyTheme(theme);
-  }
+  applyTheme(theme);
 }
 setThemeOnload();
