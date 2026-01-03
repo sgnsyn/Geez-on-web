@@ -82,6 +82,28 @@ nav {
   padding-bottom: 2rem;
 }
 
+.cant-run-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 3rem 2rem;
+}
+
+.cant-run-container p {
+  color: var(--secondary-color);
+  text-align: center;
+  font-family: Inter;
+  font-weight: bold;
+  font-size: 2.25rem;
+  line-height: 1.5;
+  word-spacing: 0.25rem;
+}
+
+.cant-run-container .red {
+  color: var(--incorrect-red);
+}
+
 .keyboard-mode-container {
   margin-bottom: 1.925rem;
 }

@@ -5,6 +5,7 @@ import { getSystemTheme, applyTheme } from "../util/js/theme.js";
 /***********************GLOBAL VARIABLES****************************/
 let THEME_MODE = "system";
 /***********************ELEMENTS****************************/
+const mainContent = document.querySelector(".main-content-configs");
 const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 const menuBtn = document.getElementById("menu-btn");
 const closeMenuBtn = document.getElementById("close-menu-btn");
@@ -12,6 +13,7 @@ const navbar = document.querySelector(".nav-popup-container");
 const activationBtn = document.getElementById("activation-toggle");
 const themeBtn = document.getElementById("theme-btn");
 const awpmEl = document.getElementById("awpm");
+const cantRunMessage = document.getElementById("cant-run-message");
 
 const backdropEl = document.querySelector(".backdrop");
 const themeContainer = document.querySelector(".theme-container");
@@ -109,7 +111,32 @@ function keyModeRadioHandler(event) {
   sendMessage({ for: "ch", value: keyboard });
 }
 
+async function checkContentScript() {
+  const [tab] = await chrome.tabs.query({
+    active: true,
+    currentWindow: true,
+  });
+  try {
+    const response = await chrome.tabs.sendMessage(tab.id, {
+      action: "ping",
+    });
+    if (response.response !== "pong") {
+      throw new Error("No pong");
+    } else {
+      mainContent.classList.remove("deactive");
+    }
+  } catch (error) {
+    const practiceUrl = chrome.runtime.getURL("pages/practice/practice.html");
+    if (tab.url === practiceUrl) {
+      cantRunMessage.innerHTML = "<p>Use the keyboard on the page</p>";
+    }
+    cantRunMessage.classList.remove("deactive");
+    activationBtn.disabled = true;
+  }
+}
+
 async function initialization() {
+  checkContentScript();
   const res = await loadData(["state", "theme", "keyboard", "awpm"]);
   // handle error
   applyConfigs(res);
@@ -199,13 +226,6 @@ function attachHandler(state) {
 }
 
 /***********************EVENT LISTERNERS****************************/
-window.addEventListener("load", initialization);
-menuBtn.addEventListener("click", menuBtnHandler);
-closeMenuBtn.addEventListener("click", closeMenuBtnHandler);
-activationBtn.addEventListener("click", activationHandler);
-mediaQuery.addEventListener("change", updateSystemTheme);
-
-themeBtn.addEventListener("click", openThemePopup);
 backdropEl.addEventListener("click", () => {
   closeThemePopup();
   closeResetPopup();
@@ -222,6 +242,13 @@ navLinks.forEach((link) => {
   link.addEventListener("click", pageNavigationHanlder);
 });
 
+window.addEventListener("load", initialization);
+menuBtn.addEventListener("click", menuBtnHandler);
+closeMenuBtn.addEventListener("click", closeMenuBtnHandler);
+activationBtn.addEventListener("click", activationHandler);
+mediaQuery.addEventListener("change", updateSystemTheme);
+
+themeBtn.addEventListener("click", openThemePopup);
 resetScoreBtn.addEventListener("click", openResetPopup);
 cancelResetBtn.addEventListener("click", closeResetPopup);
 confirmResetBtn.addEventListener("click", handleReset);

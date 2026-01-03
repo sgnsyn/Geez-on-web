@@ -1,3 +1,5 @@
+import { loadData } from "./util/js/local-storage.js";
+
 chrome.runtime.onInstalled.addListener(initialization);
 
 const initialConfigs = {
@@ -51,3 +53,26 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     });
   }
 });
+
+function attachHandler(state) {
+  let text = "dis";
+  if (state) {
+    text = "en";
+  }
+  console.log(text, "text is ");
+  chrome.action.setIcon({
+    path: {
+      16: `/assets/ext-icons/${text}_16.png`,
+      32: `/assets/ext-icons/${text}_32.png`,
+      48: `/assets/ext-icons/${text}_48.png`,
+      128: `/assets/ext-icons/${text}_128.png`,
+    },
+  });
+}
+
+async function init() {
+  const { state } = await loadData(["state"]);
+  attachHandler(state);
+}
+
+init();

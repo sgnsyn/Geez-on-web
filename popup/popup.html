@@ -109,34 +109,42 @@
       </svg>
     </button>
   </nav>
-  <div class="main-content">
-    <div class="toggle-container">
-      <p class="toggle-label label">Activate Keyboard</p>
-      <button class="toggle-btn no-transition" id="activation-toggle"></button>
-    </div>
 
-    <div class="keyboard-mode-container">
-      <p class="mode-label label">Keyboard Mode</p>
-      <div class="radio-mode-container">
-        <div class="mode-radio-container">
-          <input id="keyboard-opt-1" type="radio" name="keyboard-mode" data-value="GA" checked />
-          <label for="keyboard-opt-1">GFF Amharic</label>
-        </div>
-        <div class="mode-radio-container">
-          <input id="keyboard-opt-2" type="radio" name="keyboard-mode" data-value="GE" />
-          <label for="keyboard-opt-2">GFF Ethiopic</label>
-        </div>
-        <div class="mode-radio-container">
-          <input id="keyboard-opt-3" type="radio" name="keyboard-mode" data-value="SE" />
-          <label for="keyboard-opt-3">SIL Ethiopic</label>
-        </div>
-        <div class="mode-radio-container">
-          <input id="keyboard-opt-4" type="radio" name="keyboard-mode" data-value="SEP" />
-          <label for="keyboard-opt-4">SIL Ethiopic Power-G</label>
+  <div id="cant-run-message" class="cant-run-container deactive">
+    <p>
+      This page does <span class="red">not allow</span> the extension to run.
+    </p>
+  </div>
+
+  <div class="main-content">
+    <div class="main-content-configs deactive">
+      <div class="toggle-container">
+        <p class="toggle-label label">Activate Keyboard</p>
+        <button class="toggle-btn no-transition" id="activation-toggle"></button>
+      </div>
+
+      <div class="keyboard-mode-container">
+        <p class="mode-label label">Keyboard Mode</p>
+        <div class="radio-mode-container">
+          <div class="mode-radio-container">
+            <input id="keyboard-opt-1" type="radio" name="keyboard-mode" data-value="GA" checked />
+            <label for="keyboard-opt-1">GFF Amharic</label>
+          </div>
+          <div class="mode-radio-container">
+            <input id="keyboard-opt-2" type="radio" name="keyboard-mode" data-value="GE" />
+            <label for="keyboard-opt-2">GFF Ethiopic</label>
+          </div>
+          <div class="mode-radio-container">
+            <input id="keyboard-opt-3" type="radio" name="keyboard-mode" data-value="SE" />
+            <label for="keyboard-opt-3">SIL Ethiopic</label>
+          </div>
+          <div class="mode-radio-container">
+            <input id="keyboard-opt-4" type="radio" name="keyboard-mode" data-value="SEP" />
+            <label for="keyboard-opt-4">SIL Ethiopic Power-G</label>
+          </div>
         </div>
       </div>
     </div>
-
     <div class="score-container">
       <p class="score-label label">Global Practice Score</p>
       <div class="score-reset-container">
@@ -148,6 +156,7 @@
       </div>
     </div>
   </div>
+
   <div class="reset-confirm-container disabled">
     <p class="reset-confirm-text">
       This will reset your average wpm and number of practices.

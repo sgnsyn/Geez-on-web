@@ -1,3 +1,5 @@
+// import { loadData } from "./util/js/local-storage";
+
 const initPath = "/keyman/init.js";
 const keymanPath = "/keyman/keymanweb.js";
 
@@ -31,7 +33,7 @@ setTimeout(async () => {
   }
 }, 1000);
 
-chrome.runtime.onMessage.addListener((message) => {
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.for == "sc") {
     if (message.data) {
       window.postMessage({ type: "add" }, "*");
@@ -43,10 +45,15 @@ chrome.runtime.onMessage.addListener((message) => {
   if (message.for == "ch") {
     window.postMessage({ type: "ch", val: message.value }, "*");
   }
+  if (message.action === "ping") {
+    sendResponse({ response: "pong" });
+    return true;
+  }
 });
 
 async function setInitKey() {
-  const { keyboard } = await chrome.storage.local.get(["keyboard"]);
+  // const { keyboard } = await loadData(["keyboard"]);
+  let keyboard = "GA";
   window.postMessage({ type: "chi", val: keyboard }, "*");
 }
 
